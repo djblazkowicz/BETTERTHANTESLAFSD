@@ -81,7 +81,5 @@ package body CarSystem with SPARK_Mode is
    begin
       --implement
    end EnterDiagMode;
-     
-
-   
+        
 end CarSystem;
