@@ -8,18 +8,32 @@ A -march=x86-64
 P ZX
 
 RN
+RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
+RV NO_FIXED_POINT
 RV NO_IO
+RV NO_RELATIVE_DELAY
 RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
 
-U main%b		main.adb		096bcb4a NE OO SU
+U main%b		main.adb		8305ce4e NE OO SU
 W ada%s			ada.ads			ada.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W carsystem%s		carsystem.adb		carsystem.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-caldel.ads		20210520051128 9f20b83d ada.calendar.delays%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
 D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
 D a-string.ads		20210520051130 90ac6797 ada.strings%s
@@ -27,15 +41,19 @@ D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
 D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D carsystem.ads		20220421153648 cf2cb061 carsystem%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20220421153954 68b3ae46 main%b
+D main.adb		20220421163628 149622e6 main%b
 D system.ads		20210520051136 2ffa5114 system%s
+D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
@@ -49,15 +67,46 @@ D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [main standard 4 11 none]
+G c Z b b [main standard 5 11 none]
+G r c none [main standard 5 11 none] [startprocedure carsystem 27 14 none]
+G r c none [main standard 5 11 none] [stopprocedure carsystem 33 14 none]
+G r c none [main standard 5 11 none] [changegear carsystem 46 14 none]
+G r c none [main standard 5 11 none] [movecar carsystem 60 14 none]
 X 1 ada.ads
-16K9*Ada 20e8 14|2r6 2r23
-X 9 a-textio.ads
-58K13*Text_IO 725e16 14|2w10 2r27
-X 11 carsystem.ads
-1K9*CarSystem 92e14 14|1w6 1r21 5r10
-15R9*Car 22e14 14|5r20
-X 14 main.adb
-4U11*Main 4b11 10l5 10t9
-5r4 saxo{11|15R9}
+16K9*Ada 20e8 18|1r6 1r23 2r6 2r31 13r7 48r7 76r16
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[13|46] 18|2w10 2r35 48r11 76r20
+X 12 a-textio.ads
+58K13*Text_IO 725e16 18|1w10 1r27 13r11
+262U14*New_Line 18|14s7 23s7 36s7 47s7
+463U14*Put 18|13s19
+506U14*Put_Line 18|15s7 16s7 17s7 18s7 19s7 22s7 37s7 38s7 39s7 40s7 41s7
+. 42s7 43s7 44s7 45s7 46s7 52s13 56s13 60s13 64s13 68s13 75s16 79s13 83s16
+. 86s13
+X 13 a-tiinio.ads
+59U14*Get 18|48s27[5|18] 76s36[5|18]
+X 15 carsystem.ads
+1K9*CarSystem 92e14 18|3w6 3r21 6r10
+3I9*BatteryChargeRange<short_short_integer>
+4I9*SpeedRange<short_short_integer> 18|8r12 73r28 74r22 78r22
+12I9*GearRange<short_short_integer>
+15R9*Car 22e14 18|6r20
+16b7*isStarted{boolean} 18|16r39
+17b7*SensorDetect{boolean} 18|82r21
+19i7*speed{4I9} 18|19r33
+20i7*battery{3I9} 18|18r41
+21i7*gear{12I9} 18|17r41
+27U14*StartProcedure 18|54s13
+33U14*StopProcedure 18|58s13
+46U14*ChangeGear 18|62s13 66s13 70s13
+60U14*MoveCar 18|81s13
+X 18 main.adb
+5U11*Main 5b11 94l5 94t9
+6r4 saxo{15|15R9} 16r34 17r36 18r36 19r28 54m28 54r28 58m27 58r27 62m24 62r24
+. 66m24 66r24 70m24 70r24 81m21 81r21 82r16
+7i4 option{integer} 33r10 48m31 50r12
+8i4 speed{15|4I9} 73r19 74r13 78m13 81r27
+9i4 speed_int{integer} 76m40 78r33
+11U14 PrintStatus 11b14 24l8 24t19 35s7
+26U14 ClearDelay 26b14 30l8 30t18 53s13 57s13 61s13 65s13 69s13 80s13
 
