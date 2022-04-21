@@ -1,0 +1,1086 @@
+module Carsystem__batterychargerange
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type batterychargerange = <range 0 100>
+  
+  val function first : int
+    ensures { result = (0 : int) }
+  
+  val function last : int
+    ensures { result = (100 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = batterychargerange,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type batterychargerange__ref = {
+                                mutable batterychargerange__content :
+                                  batterychargerange
+                                }
+  
+  function batterychargerange__ref_batterychargerange__content__projection (a: batterychargerange__ref) : batterychargerange =
+    a.batterychargerange__content
+  
+  meta "model_projection" function batterychargerange__ref_batterychargerange__content__projection
+  
+  meta "inline:no" function batterychargerange__ref_batterychargerange__content__projection
+  
+  val batterychargerange__havoc (x: batterychargerange__ref) : unit
+    writes { x }
+end
+
+module Carsystem__batterychargerange__rep
+  use Carsystem__batterychargerange as Carsystem__batterychargerange
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  function to_rep (x: Carsystem__batterychargerange.batterychargerange) : int =
+    Carsystem__batterychargerange.batterychargerange'int x
+  
+  clone export ada__model.Rep_Proj_Int with
+    axiom .,
+    type t = Carsystem__batterychargerange.batterychargerange,
+    predicate in_range = Carsystem__batterychargerange.in_range,
+    function to_rep = to_rep
+  
+  meta "model_projection" function to_rep
+  
+  meta "inline:no" function to_rep
+end
+
+module Carsystem__speedrange
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type speedrange = <range 0 100>
+  
+  val function first : int
+    ensures { result = (0 : int) }
+  
+  val function last : int
+    ensures { result = (100 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = speedrange,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type speedrange__ref = { mutable speedrange__content : speedrange }
+  
+  function speedrange__ref_speedrange__content__projection (a: speedrange__ref) : speedrange =
+    a.speedrange__content
+  
+  meta "model_projection" function speedrange__ref_speedrange__content__projection
+  
+  meta "inline:no" function speedrange__ref_speedrange__content__projection
+  
+  val speedrange__havoc (x: speedrange__ref) : unit
+    writes { x }
+end
+
+module Carsystem__speedrange__rep
+  use Carsystem__speedrange as Carsystem__speedrange
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  function to_rep (x: Carsystem__speedrange.speedrange) : int =
+    Carsystem__speedrange.speedrange'int x
+  
+  clone export ada__model.Rep_Proj_Int with
+    axiom .,
+    type t = Carsystem__speedrange.speedrange,
+    predicate in_range = Carsystem__speedrange.in_range,
+    function to_rep = to_rep
+  
+  meta "model_projection" function to_rep
+  
+  meta "inline:no" function to_rep
+end
+
+module Carsystem__gearrange
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type gearrange = <range 0 2>
+  
+  val function first : int
+    ensures { result = (0 : int) }
+  
+  val function last : int
+    ensures { result = (2 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = gearrange,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type gearrange__ref = { mutable gearrange__content : gearrange }
+  
+  function gearrange__ref_gearrange__content__projection (a: gearrange__ref) : gearrange =
+    a.gearrange__content
+  
+  meta "model_projection" function gearrange__ref_gearrange__content__projection
+  
+  meta "inline:no" function gearrange__ref_gearrange__content__projection
+  
+  val gearrange__havoc (x: gearrange__ref) : unit
+    writes { x }
+end
+
+module Carsystem__gearrange__rep
+  use Carsystem__gearrange as Carsystem__gearrange
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  function to_rep (x: Carsystem__gearrange.gearrange) : int =
+    Carsystem__gearrange.gearrange'int x
+  
+  clone export ada__model.Rep_Proj_Int with
+    axiom .,
+    type t = Carsystem__gearrange.gearrange,
+    predicate in_range = Carsystem__gearrange.in_range,
+    function to_rep = to_rep
+  
+  meta "model_projection" function to_rep
+  
+  meta "inline:no" function to_rep
+end
+
+module Carsystem__car__rep
+  use _gnatprove_standard.Main
+  use int.Int
+  use _gnatprove_standard.Boolean as Boolean
+  use Carsystem__batterychargerange as Carsystem__batterychargerange
+  use Carsystem__batterychargerange__rep as Carsystem__batterychargerange__rep
+  use Carsystem__speedrange as Carsystem__speedrange
+  use Carsystem__speedrange__rep as Carsystem__speedrange__rep
+  use Carsystem__gearrange as Carsystem__gearrange
+  use Carsystem__gearrange__rep as Carsystem__gearrange__rep
+  
+  type __split_fields = {
+                       rec__carsystem__car__isstarted : bool;
+                       rec__carsystem__car__sensordetect : bool;
+                       rec__carsystem__car__isdiagmode : bool;
+                       rec__carsystem__car__isbatterywarning : bool;
+                       rec__carsystem__car__speed :
+                         Carsystem__speedrange.speedrange;
+                       rec__carsystem__car__battery :
+                         Carsystem__batterychargerange.batterychargerange;
+                       rec__carsystem__car__gear :
+                         Carsystem__gearrange.gearrange
+                       }
+  
+  function __split_fields_rec__carsystem__car__isstarted__projection (a: __split_fields) : bool =
+    a.rec__carsystem__car__isstarted
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__isstarted__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__isstarted__projection
+  
+  function __split_fields_rec__carsystem__car__sensordetect__projection (a: __split_fields) : bool =
+    a.rec__carsystem__car__sensordetect
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__sensordetect__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__sensordetect__projection
+  
+  function __split_fields_rec__carsystem__car__isdiagmode__projection (a: __split_fields) : bool =
+    a.rec__carsystem__car__isdiagmode
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__isdiagmode__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__isdiagmode__projection
+  
+  function __split_fields_rec__carsystem__car__isbatterywarning__projection (a: __split_fields) : bool =
+    a.rec__carsystem__car__isbatterywarning
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__isbatterywarning__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__isbatterywarning__projection
+  
+  function __split_fields_rec__carsystem__car__speed__projection (a: __split_fields) : 
+    Carsystem__speedrange.speedrange =
+    a.rec__carsystem__car__speed
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__speed__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__speed__projection
+  
+  function __split_fields_rec__carsystem__car__battery__projection (a: __split_fields) : 
+    Carsystem__batterychargerange.batterychargerange =
+    a.rec__carsystem__car__battery
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__battery__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__battery__projection
+  
+  function __split_fields_rec__carsystem__car__gear__projection (a: __split_fields) : 
+    Carsystem__gearrange.gearrange =
+    a.rec__carsystem__car__gear
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__gear__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__gear__projection
+  
+  type __split_fields__ref = {
+                            mutable __split_fields__content : __split_fields
+                            }
+  
+  function __split_fields__ref___split_fields__content__projection (a: __split_fields__ref) : __split_fields =
+    __split_fields__content a
+  
+  meta "model_projection" function __split_fields__ref___split_fields__content__projection
+  
+  meta "inline:no" function __split_fields__ref___split_fields__content__projection
+  
+  val __split_fields__havoc (x: __split_fields__ref) : unit
+    writes { x }
+  
+  type __rep = { __split_fields : __split_fields }
+  
+  function __rep___split_fields__projection (a: __rep) : __split_fields =
+    __split_fields a
+  
+  meta "model_projection" function __rep___split_fields__projection
+  
+  meta "inline:no" function __rep___split_fields__projection
+  
+  function to_base (a: __rep) : __rep = a
+  
+  val to_base (a: __rep) : __rep
+    ensures { result = (to_base (a : __rep)) }
+  
+  function of_base (a: __rep) : __rep = a
+  
+  val of_base (a: __rep) : __rep
+    ensures { result = (of_base (a : __rep)) }
+  
+  predicate carsystem__car__isstarted__pred (a: __rep) = true
+  
+  val carsystem__car__isstarted__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__isstarted__pred (a : __rep)) }
+  
+  val rec__carsystem__car__isstarted_ (a: __rep) : bool
+    requires { carsystem__car__isstarted__pred a }
+    ensures { (result = ((__split_fields a).rec__carsystem__car__isstarted)) }
+  
+  predicate carsystem__car__sensordetect__pred (a: __rep) = true
+  
+  val carsystem__car__sensordetect__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__sensordetect__pred (a : __rep)) }
+  
+  val rec__carsystem__car__sensordetect_ (a: __rep) : bool
+    requires { carsystem__car__sensordetect__pred a }
+    ensures { (result
+                 = ((__split_fields a).rec__carsystem__car__sensordetect)) }
+  
+  predicate carsystem__car__isdiagmode__pred (a: __rep) = true
+  
+  val carsystem__car__isdiagmode__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__isdiagmode__pred (a : __rep)) }
+  
+  val rec__carsystem__car__isdiagmode_ (a: __rep) : bool
+    requires { carsystem__car__isdiagmode__pred a }
+    ensures { (result = ((__split_fields a).rec__carsystem__car__isdiagmode)) }
+  
+  predicate carsystem__car__isbatterywarning__pred (a: __rep) = true
+  
+  val carsystem__car__isbatterywarning__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__isbatterywarning__pred (a : __rep)) }
+  
+  val rec__carsystem__car__isbatterywarning_ (a: __rep) : bool
+    requires { carsystem__car__isbatterywarning__pred a }
+    ensures { (result
+                 = ((__split_fields a).rec__carsystem__car__isbatterywarning)) }
+  
+  predicate carsystem__car__speed__pred (a: __rep) = true
+  
+  val carsystem__car__speed__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__speed__pred (a : __rep)) }
+  
+  val rec__carsystem__car__speed_ (a: __rep) : Carsystem__speedrange.speedrange
+    requires { carsystem__car__speed__pred a }
+    ensures { (result = ((__split_fields a).rec__carsystem__car__speed)) }
+  
+  predicate carsystem__car__battery__pred (a: __rep) = true
+  
+  val carsystem__car__battery__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__battery__pred (a : __rep)) }
+  
+  val rec__carsystem__car__battery_ (a: __rep) : Carsystem__batterychargerange.batterychargerange
+    requires { carsystem__car__battery__pred a }
+    ensures { (result = ((__split_fields a).rec__carsystem__car__battery)) }
+  
+  predicate carsystem__car__gear__pred (a: __rep) = true
+  
+  val carsystem__car__gear__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__gear__pred (a : __rep)) }
+  
+  val rec__carsystem__car__gear_ (a: __rep) : Carsystem__gearrange.gearrange
+    requires { carsystem__car__gear__pred a }
+    ensures { (result = ((__split_fields a).rec__carsystem__car__gear)) }
+  
+  function bool_eq (a: __rep) (b: __rep) : bool =
+    if ((((Boolean.to_int ((__split_fields a).rec__carsystem__car__isstarted))
+            = (Boolean.to_int
+                 ((__split_fields b).rec__carsystem__car__isstarted))) /\
+           ((Boolean.to_int
+               ((__split_fields a).rec__carsystem__car__sensordetect))
+              = (Boolean.to_int
+                   ((__split_fields b).rec__carsystem__car__sensordetect)))) /\
+          (((((Boolean.to_int
+                 ((__split_fields a).rec__carsystem__car__isdiagmode))
+                = (Boolean.to_int
+                     ((__split_fields b).rec__carsystem__car__isdiagmode))) /\
+               ((Boolean.to_int
+                   ((__split_fields a).rec__carsystem__car__isbatterywarning))
+                  = (Boolean.to_int
+                       ((__split_fields b).rec__carsystem__car__isbatterywarning)))) /\
+              ((Carsystem__speedrange__rep.to_rep
+                  ((__split_fields a).rec__carsystem__car__speed))
+                 = (Carsystem__speedrange__rep.to_rep
+                      ((__split_fields b).rec__carsystem__car__speed)))) /\
+             (((Carsystem__batterychargerange__rep.to_rep
+                  ((__split_fields a).rec__carsystem__car__battery))
+                 = (Carsystem__batterychargerange__rep.to_rep
+                      ((__split_fields b).rec__carsystem__car__battery))) /\
+                ((Carsystem__gearrange__rep.to_rep
+                    ((__split_fields a).rec__carsystem__car__gear))
+                   = (Carsystem__gearrange__rep.to_rep
+                        ((__split_fields b).rec__carsystem__car__gear)))))) then
+      True
+    else False
+  
+  val bool_eq (a: __rep) (b: __rep) : bool
+    ensures { result = ((bool_eq (a : __rep)) (b : __rep)) }
+end
+
+module Carsystem__car
+  use export Carsystem__car__rep
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type car = __rep
+  
+  val function value__size : int
+  
+  val function object__size : int
+  
+  val function alignment : int
+  
+  axiom value__size_axiom: (value__size >= (0 : int))
+  
+  axiom object__size_axiom: (object__size >= (0 : int))
+  
+  axiom alignment_axiom: (alignment >= (0 : int))
+  
+  val function carsystem__car__isstarted__first__bit : int
+  
+  val function carsystem__car__isstarted__last__bit : int
+  
+  val function carsystem__car__isstarted__position : int
+  
+  axiom carsystem__car__isstarted__first__bit_axiom:
+    (carsystem__car__isstarted__first__bit >= (0 : int))
+  
+  axiom carsystem__car__isstarted__last__bit_axiom:
+    (carsystem__car__isstarted__last__bit
+       > carsystem__car__isstarted__first__bit)
+  
+  axiom carsystem__car__isstarted__position_axiom:
+    (carsystem__car__isstarted__position >= (0 : int))
+  
+  val function carsystem__car__sensordetect__first__bit : int
+  
+  val function carsystem__car__sensordetect__last__bit : int
+  
+  val function carsystem__car__sensordetect__position : int
+  
+  axiom carsystem__car__sensordetect__first__bit_axiom:
+    (carsystem__car__sensordetect__first__bit >= (0 : int))
+  
+  axiom carsystem__car__sensordetect__last__bit_axiom:
+    (carsystem__car__sensordetect__last__bit
+       > carsystem__car__sensordetect__first__bit)
+  
+  axiom carsystem__car__sensordetect__position_axiom:
+    (carsystem__car__sensordetect__position >= (0 : int))
+  
+  val function carsystem__car__isdiagmode__first__bit : int
+  
+  val function carsystem__car__isdiagmode__last__bit : int
+  
+  val function carsystem__car__isdiagmode__position : int
+  
+  axiom carsystem__car__isdiagmode__first__bit_axiom:
+    (carsystem__car__isdiagmode__first__bit >= (0 : int))
+  
+  axiom carsystem__car__isdiagmode__last__bit_axiom:
+    (carsystem__car__isdiagmode__last__bit
+       > carsystem__car__isdiagmode__first__bit)
+  
+  axiom carsystem__car__isdiagmode__position_axiom:
+    (carsystem__car__isdiagmode__position >= (0 : int))
+  
+  val function carsystem__car__isbatterywarning__first__bit : int
+  
+  val function carsystem__car__isbatterywarning__last__bit : int
+  
+  val function carsystem__car__isbatterywarning__position : int
+  
+  axiom carsystem__car__isbatterywarning__first__bit_axiom:
+    (carsystem__car__isbatterywarning__first__bit >= (0 : int))
+  
+  axiom carsystem__car__isbatterywarning__last__bit_axiom:
+    (carsystem__car__isbatterywarning__last__bit
+       > carsystem__car__isbatterywarning__first__bit)
+  
+  axiom carsystem__car__isbatterywarning__position_axiom:
+    (carsystem__car__isbatterywarning__position >= (0 : int))
+  
+  val function carsystem__car__speed__first__bit : int
+  
+  val function carsystem__car__speed__last__bit : int
+  
+  val function carsystem__car__speed__position : int
+  
+  axiom carsystem__car__speed__first__bit_axiom:
+    (carsystem__car__speed__first__bit >= (0 : int))
+  
+  axiom carsystem__car__speed__last__bit_axiom:
+    (carsystem__car__speed__last__bit > carsystem__car__speed__first__bit)
+  
+  axiom carsystem__car__speed__position_axiom:
+    (carsystem__car__speed__position >= (0 : int))
+  
+  val function carsystem__car__battery__first__bit : int
+  
+  val function carsystem__car__battery__last__bit : int
+  
+  val function carsystem__car__battery__position : int
+  
+  axiom carsystem__car__battery__first__bit_axiom:
+    (carsystem__car__battery__first__bit >= (0 : int))
+  
+  axiom carsystem__car__battery__last__bit_axiom:
+    (carsystem__car__battery__last__bit
+       > carsystem__car__battery__first__bit)
+  
+  axiom carsystem__car__battery__position_axiom:
+    (carsystem__car__battery__position >= (0 : int))
+  
+  val function carsystem__car__gear__first__bit : int
+  
+  val function carsystem__car__gear__last__bit : int
+  
+  val function carsystem__car__gear__position : int
+  
+  axiom carsystem__car__gear__first__bit_axiom:
+    (carsystem__car__gear__first__bit >= (0 : int))
+  
+  axiom carsystem__car__gear__last__bit_axiom:
+    (carsystem__car__gear__last__bit > carsystem__car__gear__first__bit)
+  
+  axiom carsystem__car__gear__position_axiom:
+    (carsystem__car__gear__position >= (0 : int))
+  
+  val function user_eq (a: car) (b: car) : bool
+  
+  val function dummy : car
+  
+  type car__ref = { mutable car__content : car }
+  
+  function car__ref_car__content__projection (a: car__ref) : car =
+    a.car__content
+  
+  meta "model_projection" function car__ref_car__content__projection
+  
+  meta "inline:no" function car__ref_car__content__projection
+  
+  val car__havoc (x: car__ref) : unit
+    writes { x }
+end
+
+module Carsystem__car___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use _gnatprove_standard.Boolean as Boolean
+  use Carsystem__car as Carsystem__car
+  use Carsystem__batterychargerange as Carsystem__batterychargerange
+  use Carsystem__batterychargerange__rep as Carsystem__batterychargerange__rep
+  use Carsystem__speedrange as Carsystem__speedrange
+  use Carsystem__speedrange__rep as Carsystem__speedrange__rep
+  use Carsystem__gearrange as Carsystem__gearrange
+  use Carsystem__gearrange__rep as Carsystem__gearrange__rep
+  
+  predicate dynamic_invariant (temp___expr_186: Carsystem__car.car) (temp___is_init_182: bool) (temp___skip_constant_183: bool) (temp___do_toplevel_184: bool) (temp___do_typ_inv_185: bool) =
+    true
+  
+  val dynamic_invariant (temp___expr_186: Carsystem__car.car) (temp___is_init_182: bool) (temp___skip_constant_183: bool) (temp___do_toplevel_184: bool) (temp___do_typ_inv_185: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_186 : Carsystem__car.car))
+                      (temp___is_init_182 : bool))
+                     (temp___skip_constant_183 : bool))
+                    (temp___do_toplevel_184 : bool))
+                   (temp___do_typ_inv_185 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_187: Carsystem__car.car) (temp___skip_top_level_188: bool) =
+    (((if (Carsystem__car.carsystem__car__isstarted__pred temp___expr_187) then
+         (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__isstarted)
+            = (Boolean.of_int (0 : int)))
+       else true) /\
+        (if (Carsystem__car.carsystem__car__sensordetect__pred
+               temp___expr_187) then
+           (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__sensordetect)
+              = (Boolean.of_int (0 : int)))
+         else true)) /\
+       ((((if (Carsystem__car.carsystem__car__isdiagmode__pred
+                 temp___expr_187) then
+             (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__isdiagmode)
+                = (Boolean.of_int (0 : int)))
+           else true) /\
+            (if (Carsystem__car.carsystem__car__isbatterywarning__pred
+                   temp___expr_187) then
+               (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__isbatterywarning)
+                  = (Boolean.of_int (0 : int)))
+             else true)) /\
+           (if (Carsystem__car.carsystem__car__speed__pred temp___expr_187) then
+              ((Carsystem__speedrange__rep.to_rep
+                  ((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__speed))
+                 = (0 : int))
+            else true)) /\
+          ((if (Carsystem__car.carsystem__car__battery__pred temp___expr_187) then
+              ((Carsystem__batterychargerange__rep.to_rep
+                  ((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__battery))
+                 = (0 : int))
+            else true) /\
+             (if (Carsystem__car.carsystem__car__gear__pred temp___expr_187) then
+                ((Carsystem__gearrange__rep.to_rep
+                    ((Carsystem__car.__split_fields temp___expr_187).
+                       Carsystem__car.rec__carsystem__car__gear))
+                   = (0 : int))
+              else true))))
+  
+  val default_initial_assumption (temp___expr_187: Carsystem__car.car) (temp___skip_top_level_188: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption
+                    (temp___expr_187 : Carsystem__car.car))
+                   (temp___skip_top_level_188 : bool)) }
+end
+
+module Carsystem__checkbatterywarning___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use Carsystem__car as Carsystem__car
+  use Carsystem__car___axiom as Carsystem__car___axiom
+  
+  val checkbatterywarning (this__split_fields: Carsystem__car.__split_fields__ref) : 
+    unit
+    requires { true }
+    writes { this__split_fields }
+    ensures { ((((Carsystem__car___axiom.dynamic_invariant
+                    { Carsystem__car.__split_fields =
+                        (Carsystem__car.__split_fields__content
+                            this__split_fields) })
+                   True)
+                  True)
+                 True)
+                True }
+end
+
+module Carsystem__chargebattery__this
+  use _gnatprove_standard.Main
+  use int.Int
+  use Carsystem__car as Carsystem__car
+  
+  val this__split_fields : Carsystem__car.__split_fields__ref
+end
+
+module Carsystem__chargebattery__chargeamount
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  val function chargeamount : int
+end
+
+module Carsystem__expectedcharge
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  val expectedcharge : int__ref
+end
+
+module Carsystem__TbatterychargerangeB
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type tbatterychargerangeB = <range -128 127>
+  
+  val function first : int
+    ensures { result = ((- 128) : int) }
+  
+  val function last : int
+    ensures { result = (127 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = tbatterychargerangeB,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type tbatterychargerangeB__ref = {
+                                  mutable tbatterychargerangeB__content :
+                                    tbatterychargerangeB
+                                  }
+  
+  function tbatterychargerangeB__ref_tbatterychargerangeB__content__projection (a: tbatterychargerangeB__ref) : tbatterychargerangeB =
+    a.tbatterychargerangeB__content
+  
+  meta "model_projection" function tbatterychargerangeB__ref_tbatterychargerangeB__content__projection
+  
+  meta "inline:no" function tbatterychargerangeB__ref_tbatterychargerangeB__content__projection
+  
+  val tbatterychargerangeB__havoc (x: tbatterychargerangeB__ref) : unit
+    writes { x }
+end
+
+module Carsystem__batterychargerange___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Carsystem__batterychargerange as Carsystem__batterychargerange
+  
+  predicate dynamic_invariant (temp___expr_165: int) (temp___is_init_161: bool) (temp___skip_constant_162: bool) (temp___do_toplevel_163: bool) (temp___do_typ_inv_164: bool) =
+    if ((temp___is_init_161 = True) \/
+          (Carsystem__batterychargerange.first
+             <= Carsystem__batterychargerange.last)) then
+      (((Carsystem__batterychargerange.dynamic_property
+           Carsystem__batterychargerange.first)
+          Carsystem__batterychargerange.last)
+         temp___expr_165)
+    else true
+  
+  val dynamic_invariant (temp___expr_165: int) (temp___is_init_161: bool) (temp___skip_constant_162: bool) (temp___do_toplevel_163: bool) (temp___do_typ_inv_164: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_165 : int))
+                      (temp___is_init_161 : bool))
+                     (temp___skip_constant_162 : bool))
+                    (temp___do_toplevel_163 : bool))
+                   (temp___do_typ_inv_164 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_166: int) (temp___skip_top_level_167: bool) =
+    true
+  
+  val default_initial_assumption (temp___expr_166: int) (temp___skip_top_level_167: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption (temp___expr_166 : int))
+                   (temp___skip_top_level_167 : bool)) }
+end
+
+module Carsystem__expectedcharge___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Carsystem__speedrange___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Carsystem__speedrange as Carsystem__speedrange
+  
+  predicate dynamic_invariant (temp___expr_172: int) (temp___is_init_168: bool) (temp___skip_constant_169: bool) (temp___do_toplevel_170: bool) (temp___do_typ_inv_171: bool) =
+    if ((temp___is_init_168 = True) \/
+          (Carsystem__speedrange.first <= Carsystem__speedrange.last)) then
+      (((Carsystem__speedrange.dynamic_property Carsystem__speedrange.first)
+          Carsystem__speedrange.last)
+         temp___expr_172)
+    else true
+  
+  val dynamic_invariant (temp___expr_172: int) (temp___is_init_168: bool) (temp___skip_constant_169: bool) (temp___do_toplevel_170: bool) (temp___do_typ_inv_171: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_172 : int))
+                      (temp___is_init_168 : bool))
+                     (temp___skip_constant_169 : bool))
+                    (temp___do_toplevel_170 : bool))
+                   (temp___do_typ_inv_171 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_173: int) (temp___skip_top_level_174: bool) =
+    true
+  
+  val default_initial_assumption (temp___expr_173: int) (temp___skip_top_level_174: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption (temp___expr_173 : int))
+                   (temp___skip_top_level_174 : bool)) }
+end
+
+module Carsystem__gearrange___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Carsystem__gearrange as Carsystem__gearrange
+  
+  predicate dynamic_invariant (temp___expr_179: int) (temp___is_init_175: bool) (temp___skip_constant_176: bool) (temp___do_toplevel_177: bool) (temp___do_typ_inv_178: bool) =
+    if ((temp___is_init_175 = True) \/
+          (Carsystem__gearrange.first <= Carsystem__gearrange.last)) then
+      (((Carsystem__gearrange.dynamic_property Carsystem__gearrange.first)
+          Carsystem__gearrange.last)
+         temp___expr_179)
+    else true
+  
+  val dynamic_invariant (temp___expr_179: int) (temp___is_init_175: bool) (temp___skip_constant_176: bool) (temp___do_toplevel_177: bool) (temp___do_typ_inv_178: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_179 : int))
+                      (temp___is_init_175 : bool))
+                     (temp___skip_constant_176 : bool))
+                    (temp___do_toplevel_177 : bool))
+                   (temp___do_typ_inv_178 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_180: int) (temp___skip_top_level_181: bool) =
+    true
+  
+  val default_initial_assumption (temp___expr_180: int) (temp___skip_top_level_181: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption (temp___expr_180 : int))
+                   (temp___skip_top_level_181 : bool)) }
+end
+
+module Carsystem__chargebattery__this___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Carsystem__chargebattery__chargeamount___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Carsystem__TbatterychargerangeB___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Carsystem__chargebattery__subprogram_def
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use _gnatprove_standard.Main as Main
+  use _gnatprove_standard.Boolean as Boolean
+  use Carsystem__car as Carsystem__car
+  use Carsystem__car___axiom as Carsystem__car___axiom
+  use Carsystem__checkbatterywarning___axiom as Carsystem__checkbatterywarning___axiom
+  use Carsystem__chargebattery__this as Carsystem__chargebattery__this
+  use Carsystem__chargebattery__chargeamount as Carsystem__chargebattery__chargeamount
+  use Carsystem__expectedcharge as Carsystem__expectedcharge
+  use Carsystem__TbatterychargerangeB as Carsystem__TbatterychargerangeB
+  use Carsystem__batterychargerange as Carsystem__batterychargerange
+  use Carsystem__batterychargerange___axiom as Carsystem__batterychargerange___axiom
+  use Carsystem__batterychargerange__rep as Carsystem__batterychargerange__rep
+  use Carsystem__expectedcharge___axiom as Carsystem__expectedcharge___axiom
+  use Carsystem__batterychargerange___axiom as Carsystem__batterychargerange___axiom
+  use Carsystem__speedrange___axiom as Carsystem__speedrange___axiom
+  use Carsystem__gearrange___axiom as Carsystem__gearrange___axiom
+  use Carsystem__car___axiom as Carsystem__car___axiom
+  use Carsystem__checkbatterywarning___axiom as Carsystem__checkbatterywarning___axiom
+  use Carsystem__chargebattery__this___axiom as Carsystem__chargebattery__this___axiom
+  use Carsystem__chargebattery__chargeamount___axiom as Carsystem__chargebattery__chargeamount___axiom
+  use Carsystem__TbatterychargerangeB___axiom as Carsystem__TbatterychargerangeB___axiom
+  
+  let def (__void_param : unit)
+    requires { [#"carsystem.ads" 80 0 0] true }
+    ensures { [#"carsystem.ads" 80 0 0]
+              [#"carsystem.ads" 83 0 0]
+              [@GP_Reason:VC_POSTCONDITION]
+              [@comment:     Post => this.battery <= BatteryChargeRange'Last and              ^ carsystem.ads:83:14:VC_POSTCONDITION]
+              [@model_vc_post]
+              [@GP_Sloc:carsystem.ads:83:14]
+              [@GP_Shape:pragargs__and]
+              [@GP_Id:6]
+              (([@GP_Pretty_Ada:1540]
+                [@GP_Sloc:carsystem.ads:83:14]
+                ((Carsystem__batterychargerange__rep.to_rep
+                    ((Carsystem__car.__split_fields
+                         { Carsystem__car.__split_fields =
+                             (Carsystem__car.__split_fields__content
+                                 Carsystem__chargebattery__this.this__split_fields) }).
+                       Carsystem__car.rec__carsystem__car__battery))
+                   <= (100 : int))) /\
+                 ([@GP_Pretty_Ada:1548]
+                  [@GP_Sloc:carsystem.ads:84:6]
+                  ((Carsystem__batterychargerange__rep.to_rep
+                      ((Carsystem__car.__split_fields
+                           { Carsystem__car.__split_fields =
+                               (Carsystem__car.__split_fields__content
+                                   Carsystem__chargebattery__this.this__split_fields) }).
+                         Carsystem__car.rec__carsystem__car__battery))
+                     >= (0 : int)))) }
+  = [@vc:divergent]
+    (([@GNAT-comment:Assume dynamic invariants of inputs of the subprogram carsystem.ads:80]
+      ());
+     assume {
+       ((((Carsystem__batterychargerange___axiom.dynamic_invariant
+             (Carsystem__expectedcharge.expectedcharge.int__content))
+            False)
+           False)
+          True)
+         True };
+     assume {
+       ((((Carsystem__car___axiom.dynamic_invariant
+             { Carsystem__car.__split_fields =
+                 (Carsystem__car.__split_fields__content
+                     Carsystem__chargebattery__this.this__split_fields) })
+            True)
+           False)
+          True)
+         True };
+     assume {
+       ((((Carsystem__batterychargerange___axiom.dynamic_invariant
+             Carsystem__chargebattery__chargeamount.chargeamount)
+            True)
+           False)
+          True)
+         True };
+     ([@GNAT-comment:Assume moved pointers in outputs of the subprogram carsystem.ads:80]
+      ());
+     ([@GNAT-comment:Check for RTE in the Pre of the subprogram carsystem.ads:80]
+      ());
+     (begin
+        ensures { true }
+        let _ =
+          let _ =
+            ((Boolean.to_int
+                ((Carsystem__car.__split_fields
+                     { Carsystem__car.__split_fields =
+                         (Carsystem__car.__split_fields__content
+                             Carsystem__chargebattery__this.this__split_fields) }).
+                   Carsystem__car.rec__carsystem__car__isdiagmode))
+               = (Boolean.to_int (Boolean.of_int (0 : int))))
+             &&
+              (([#"carsystem.ads" 82 0 0]
+                [@vc:annotation]
+                [@GP_Reason:VC_OVERFLOW_CHECK]
+                [@GP_Shape:pragargs__andthen__cmp__add]
+                [@GP_Sloc:carsystem.ads:82:19]
+                [@comment:     chargeAmount + this.battery <= BatteryChargeRange'Last,                   ^ carsystem.ads:82:19:VC_OVERFLOW_CHECK]
+                [@GP_Id:5]
+                (Carsystem__TbatterychargerangeB.range_check_
+                   (Carsystem__chargebattery__chargeamount.chargeamount
+                      + (Carsystem__batterychargerange__rep.to_rep
+                           ((Carsystem__car.__split_fields
+                                { Carsystem__car.__split_fields =
+                                    (Carsystem__car.__split_fields__content
+                                        Carsystem__chargebattery__this.this__split_fields) }).
+                              Carsystem__car.rec__carsystem__car__battery)))))
+                 <= (100 : int)) in
+          () in
+        ()
+      end);
+     ([@GNAT-comment:Assume Pre of the subprogram carsystem.ads:80] ());
+     assume {
+       (([@GP_Pretty_Ada:1522]
+         ((((Carsystem__car.__split_fields
+                { Carsystem__car.__split_fields =
+                    (Carsystem__car.__split_fields__content
+                        Carsystem__chargebattery__this.this__split_fields) }).
+              Carsystem__car.rec__carsystem__car__isdiagmode)
+             = True) <->
+            false)) /\
+          ([@GP_Pretty_Ada:1530]
+           ((Carsystem__chargebattery__chargeamount.chargeamount
+               + (Carsystem__batterychargerange__rep.to_rep
+                    ((Carsystem__car.__split_fields
+                         { Carsystem__car.__split_fields =
+                             (Carsystem__car.__split_fields__content
+                                 Carsystem__chargebattery__this.this__split_fields) }).
+                       Carsystem__car.rec__carsystem__car__battery)))
+              <= (100 : int)))) };
+     (try
+        ([@GP_Sloc:carsystem.adb:103:7]
+         [#"carsystem.adb" 103 0 0]
+         (if (([#"carsystem.adb" 103 0 0]
+               [#"carsystem.adb" 103 0 0]
+               (([@branch_id=1180] Main.spark__branch).bool__content <-
+                  (([#"carsystem.adb" 103 0 0]
+                    [@GP_Sloc:carsystem.adb:103:24]
+                    [@comment:      if (This.battery + chargeAmount) < BatteryChargeRange'Last then                        ^ carsystem.adb:103:24:VC_OVERFLOW_CHECK]
+                    [@vc:annotation]
+                    [@GP_Reason:VC_OVERFLOW_CHECK]
+                    [@GP_Shape:if__cmp__add]
+                    [@GP_Id:4]
+                    (Carsystem__TbatterychargerangeB.range_check_
+                       ((Carsystem__batterychargerange__rep.to_rep
+                           ((Carsystem__car.__split_fields
+                                { Carsystem__car.__split_fields =
+                                    (Carsystem__car.__split_fields__content
+                                        Carsystem__chargebattery__this.this__split_fields) }).
+                              Carsystem__car.rec__carsystem__car__battery))
+                          + Carsystem__chargebattery__chargeamount.chargeamount)))
+                     < (100 : int))));
+              (([@branch_id=1180] Main.spark__branch).bool__content)) then
+            (([@GP_Sloc:carsystem.adb:105:10] [#"carsystem.adb" 105 0 0] ());
+             ([@GP_Sloc:carsystem.adb:105:25]
+              [#"carsystem.adb" 105 0 0]
+              [#"carsystem.adb" 105 0 0]
+              (Carsystem__expectedcharge.expectedcharge.int__content <-
+                 ([#"carsystem.adb" 105 0 0]
+                  [@GP_Shape:if__expectedcharge_assign__add]
+                  [@vc:annotation]
+                  [@GP_Sloc:carsystem.adb:105:41]
+                  [@comment:         expectedCharge := This.battery + chargeAmount;                                         ^ carsystem.adb:105:41:VC_RANGE_CHECK]
+                  [@GP_Reason:VC_RANGE_CHECK]
+                  [@GP_Id:3]
+                  (Carsystem__batterychargerange.range_check_
+                     ([#"carsystem.adb" 105 0 0]
+                      [@GP_Shape:if__expectedcharge_assign__add]
+                      [@vc:annotation]
+                      [@comment:         expectedCharge := This.battery + chargeAmount;                                         ^ carsystem.adb:105:41:VC_OVERFLOW_CHECK]
+                      [@GP_Sloc:carsystem.adb:105:41]
+                      [@GP_Reason:VC_OVERFLOW_CHECK]
+                      [@GP_Id:2]
+                      (Carsystem__TbatterychargerangeB.range_check_
+                         ((Carsystem__batterychargerange__rep.to_rep
+                             ((Carsystem__car.__split_fields
+                                  { Carsystem__car.__split_fields =
+                                      (Carsystem__car.__split_fields__content
+                                          Carsystem__chargebattery__this.this__split_fields) }).
+                                Carsystem__car.rec__carsystem__car__battery))
+                            + Carsystem__chargebattery__chargeamount.chargeamount))))))))
+          else
+            (([@GP_Sloc:carsystem.adb:108:10] [#"carsystem.adb" 108 0 0] ());
+             ([@GP_Sloc:carsystem.adb:108:25]
+              [#"carsystem.adb" 108 0 0]
+              [#"carsystem.adb" 108 0 0]
+              (Carsystem__expectedcharge.expectedcharge.int__content <-
+                 (100 : int))))));
+        ([@GP_Sloc:carsystem.adb:110:7]
+         [#"carsystem.adb" 110 0 0]
+         (if (([#"carsystem.adb" 110 0 0]
+               [#"carsystem.adb" 110 0 0]
+               (([@branch_id=1204] Main.spark__branch).bool__content <-
+                  ((Boolean.to_int
+                      ((Carsystem__car.__split_fields
+                           { Carsystem__car.__split_fields =
+                               (Carsystem__car.__split_fields__content
+                                   Carsystem__chargebattery__this.this__split_fields) }).
+                         Carsystem__car.rec__carsystem__car__isdiagmode))
+                     = (Boolean.to_int (Boolean.of_int (0 : int))))));
+              (([@branch_id=1204] Main.spark__branch).bool__content)) then
+            (([@GP_Sloc:carsystem.adb:112:26] [#"carsystem.adb" 112 0 0] ());
+             ([@GP_Sloc:carsystem.adb:112:23]
+              [#"carsystem.adb" 112 0 0]
+              (let temp___245 =
+                 let temp___244 =
+                   { Carsystem__car.__split_fields =
+                       (Carsystem__car.__split_fields__content
+                           Carsystem__chargebattery__this.this__split_fields) } in
+                 ([#"carsystem.adb" 112 0 0]
+                  (begin
+                     ensures { true }
+                     let _ =
+                       let _ =
+                         (Carsystem__car.__split_fields temp___244).Carsystem__car.rec__carsystem__car__battery in
+                       () in
+                     ()
+                   end));
+                 ({ temp___244 with
+                    Carsystem__car.__split_fields =
+                      ({ (Carsystem__car.__split_fields temp___244) with
+                         Carsystem__car.rec__carsystem__car__battery =
+                           (Carsystem__batterychargerange__rep.of_rep
+                              (Carsystem__expectedcharge.expectedcharge.int__content)) }) }) in
+               [#"carsystem.adb" 112 0 0]
+               (Carsystem__chargebattery__this.this__split_fields.Carsystem__car.__split_fields__content <-
+                  (Carsystem__car.__split_fields temp___245)))))
+          else ()));
+        ([@GP_Sloc:carsystem.adb:115:7] [#"carsystem.adb" 115 0 0] ());
+        ([@GP_Sloc:carsystem.adb:115:7]
+         [#"carsystem.adb" 115 0 0]
+         (let temp___compl_246 =
+            { Carsystem__car.__split_fields =
+                (Carsystem__car.__split_fields__content
+                    Carsystem__chargebattery__this.this__split_fields) } in
+          ([#"carsystem.adb" 115 0 0] (val _f : unit in
+                                       _f));
+          (Carsystem__checkbatterywarning___axiom.checkbatterywarning
+             Carsystem__chargebattery__this.this__split_fields)));
+        ([@GP_Sloc:carsystem.adb:116:7] [#"carsystem.adb" 116 0 0] ());
+        ([@GP_Sloc:carsystem.adb:116:22]
+         [#"carsystem.adb" 116 0 0]
+         [#"carsystem.adb" 116 0 0]
+         (Carsystem__expectedcharge.expectedcharge.int__content <- (0 : int)));
+        (raise Return__exc)
+      with Return__exc -> ()
+      end);
+     (begin
+        ensures { true }
+        let _ =
+          let _ =
+            (Boolean.andb
+               ((Carsystem__batterychargerange__rep.to_rep
+                   ((Carsystem__car.__split_fields
+                        { Carsystem__car.__split_fields =
+                            (Carsystem__car.__split_fields__content
+                                Carsystem__chargebattery__this.this__split_fields) }).
+                      Carsystem__car.rec__carsystem__car__battery))
+                  <= (100 : int)))
+              ((Carsystem__batterychargerange__rep.to_rep
+                  ((Carsystem__car.__split_fields
+                       { Carsystem__car.__split_fields =
+                           (Carsystem__car.__split_fields__content
+                               Carsystem__chargebattery__this.this__split_fields) }).
+                     Carsystem__car.rec__carsystem__car__battery))
+                 >= (0 : int)) in
+          () in
+        ()
+      end))
+end

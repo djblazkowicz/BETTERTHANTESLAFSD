@@ -1,0 +1,201 @@
+'2022-04-21T22:35:59.936000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: full checking of SPARK legality rules ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:35:59.936000'
+'2022-04-21T22:36:57.610000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: full checking of SPARK legality rules ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:36:57.610000'
+'2022-04-21T22:37:19.059000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: full checking of SPARK legality rules ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:37:19.059000'
+'2022-04-21T22:38:09.305000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: analysis of data and information flow ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:38:09.305000'
+'2022-04-21T22:38:28.341000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
+    \ and proof ...\n\ncarsystem.ads:82:19: medium: overflow check might fail\n  \
+    \ 82 |     chargeAmount + this.battery <= BatteryChargeRange'Last,\n      |  \
+    \   ~~~~~~~~~~~~~^~~~~~~~~~~~~~\n  reason for check: result of addition must fit\
+    \ in a 8-bits machine integer\nSummary logged in D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\\
+    obj\\gnatprove\\gnatprove.out\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:38:28.341000'
+'2022-04-21T22:40:40.484000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:100:06:\
+    \ error: aspect specification must appear on initial declaration\n  100 |    \
+    \ Pre => (This.battery + chargeAmount) <= BatteryChargeRange'Last is\n      |\
+    \     ^~~\ngnatprove: error during generation of Global contracts\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:40:40.484000'
+'2022-04-21T22:42:04.238000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:100:06:\
+    \ error: aspect specification must appear on initial declaration\n  100 |    \
+    \ Pre => (This.battery + chargeAmount) <= BatteryChargeRange'Last is\n      |\
+    \     ^~~\ngnatprove: error during generation of Global contracts\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:42:04.238000'
+'2022-04-21T22:42:19.525000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:101:06:\
+    \ error: aspect specification must appear on initial declaration\n  101 |    \
+    \ Pre => (This.battery + chargeAmount) <= BatteryChargeRange'Last is\n      |\
+    \     ^~~\ngnatprove: error during generation of Global contracts\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:42:19.525000'
+'2022-04-21T22:43:43.686000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:100:85:\
+    \ error: missing \"is\"\n  100 |   procedure ChargeBattery (This : in out Car;\
+    \ chargeAmount : in BatteryChargeRange)\n      |                             \
+    \                                                       ^ here\ngnatprove: error\
+    \ during generation of Global contracts\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:43:43.686000'
+'2022-04-21T22:43:53.450000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
+    \ and proof ...\n\ncarsystem.adb:102:24: medium: overflow check might fail\n \
+    \ 102 |      if (This.battery + chargeAmount) < BatteryChargeRange'Last then\n\
+    \      |         ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~\n  reason for check: result of\
+    \ addition must fit in a 8-bits machine integer\n  possible fix: precondition\
+    \ of subprogram at carsystem.ads:80 should mention chargeAmount\n   80 |   procedure\
+    \ ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) with\n\
+    \      |   ^ here\nSummary logged in D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\\
+    gnatprove\\gnatprove.out\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:43:53.450000'
+'2022-04-21T22:44:14.431000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
+    \ and proof ...\n\ncarsystem.adb:102:24: medium: overflow check might fail\n \
+    \ 102 |      if (This.battery + chargeAmount) <= BatteryChargeRange'Last then\n\
+    \      |         ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~\n  reason for check: result of\
+    \ addition must fit in a 8-bits machine integer\n  possible fix: precondition\
+    \ of subprogram at carsystem.ads:80 should mention chargeAmount\n   80 |   procedure\
+    \ ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) with\n\
+    \      |   ^ here\nSummary logged in D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\\
+    gnatprove\\gnatprove.out\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:44:14.431000'
+'2022-04-21T22:49:20.311000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
+    \ and proof ...\n\ncarsystem.ads:81:27: medium: overflow check might fail\n  \
+    \ 81 |     Pre => (this.battery + chargeAmount) < BatteryChargeRange'Last,\n \
+    \     |            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~\n  reason for check: result of\
+    \ addition must fit in a 8-bits machine integer\nSummary logged in D:\\FASE\\\
+    CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\gnatprove.out\n"
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:49:20.311000'
+'2022-04-21T22:50:02.699000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:50:02.699000'
+'2022-04-21T22:50:26.424000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:50:26.424000'
+'2022-04-21T22:50:46.918000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-21T22:50:46.918000'

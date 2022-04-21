@@ -1,0 +1,872 @@
+(* Module for axiomatizing type "batterychargerange" defined at carsystem.ads:3, created in Gnat2Why.Types.Translate_Type *)
+module Carsystem__batterychargerange
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type batterychargerange  = <range 0 100>
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 100
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = batterychargerange,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type batterychargerange__ref  = { mutable batterychargerange__content : batterychargerange }
+  
+  function   batterychargerange__ref_batterychargerange__content__projection
+    (a : batterychargerange__ref) requires {  } ensures  {  } returns
+    batterychargerange = a.batterychargerange__content
+  
+  meta model_projection function batterychargerange__ref_batterychargerange__content__projection
+  
+  meta inline:no function batterychargerange__ref_batterychargerange__content__projection
+  
+  function   batterychargerange__havoc (x : batterychargerange__ref) requires
+    {  } ensures  {  } returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "batterychargerange" defined at carsystem.ads:3, created in Gnat2Why.Types.Translate_Type *)
+module Carsystem__batterychargerange__rep
+  
+  use        Carsystem__batterychargerange
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  function   to_rep (x : Carsystem__batterychargerange.batterychargerange)
+    requires { True } ensures  { True } returns
+    int = (Carsystem__batterychargerange.batterychargerange'int x)
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Carsystem__batterychargerange.batterychargerange,
+    predicate in_range = Carsystem__batterychargerange.in_range,
+    function to_rep = to_rep
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "speedrange" defined at carsystem.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module Carsystem__speedrange
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type speedrange  = <range 0 100>
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 100
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = speedrange,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type speedrange__ref  = { mutable speedrange__content : speedrange }
+  
+  function   speedrange__ref_speedrange__content__projection
+    (a : speedrange__ref) requires {  } ensures  {  } returns
+    speedrange = a.speedrange__content
+  
+  meta model_projection function speedrange__ref_speedrange__content__projection
+  
+  meta inline:no function speedrange__ref_speedrange__content__projection
+  
+  function   speedrange__havoc (x : speedrange__ref) requires {  } ensures 
+    {  } returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "speedrange" defined at carsystem.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module Carsystem__speedrange__rep
+  
+  use        Carsystem__speedrange
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  function   to_rep (x : Carsystem__speedrange.speedrange) requires { True }
+    ensures  { True } returns int = (Carsystem__speedrange.speedrange'int x)
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Carsystem__speedrange.speedrange,
+    predicate in_range = Carsystem__speedrange.in_range,
+    function to_rep = to_rep
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "gearrange" defined at carsystem.ads:12, created in Gnat2Why.Types.Translate_Type *)
+module Carsystem__gearrange
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type gearrange  = <range 0 2>
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 2
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = gearrange,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type gearrange__ref  = { mutable gearrange__content : gearrange }
+  
+  function   gearrange__ref_gearrange__content__projection
+    (a : gearrange__ref) requires {  } ensures  {  } returns
+    gearrange = a.gearrange__content
+  
+  meta model_projection function gearrange__ref_gearrange__content__projection
+  
+  meta inline:no function gearrange__ref_gearrange__content__projection
+  
+  function   gearrange__havoc (x : gearrange__ref) requires {  } ensures 
+    {  } returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "gearrange" defined at carsystem.ads:12, created in Gnat2Why.Types.Translate_Type *)
+module Carsystem__gearrange__rep
+  
+  use        Carsystem__gearrange
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  function   to_rep (x : Carsystem__gearrange.gearrange) requires { True }
+    ensures  { True } returns int = (Carsystem__gearrange.gearrange'int x)
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Carsystem__gearrange.gearrange,
+    predicate in_range = Carsystem__gearrange.in_range,
+    function to_rep = to_rep
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the record theory associated to type "car" defined at carsystem.ads:15, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module Carsystem__car__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Boolean
+  use        Carsystem__batterychargerange
+  use        Carsystem__batterychargerange__rep
+  use        Carsystem__speedrange
+  use        Carsystem__speedrange__rep
+  use        Carsystem__gearrange
+  use        Carsystem__gearrange__rep
+  
+  type __split_fields  = { [model_trace:.1302]
+                           [name:isStarted]rec__carsystem__car__isstarted : bool;
+                           [name:SensorDetect]
+                           [model_trace:.1308]rec__carsystem__car__sensordetect : bool;
+                           [model_trace:.1313]
+                           [name:isDiagMode]rec__carsystem__car__isdiagmode : bool;
+                           [model_trace:.1318]
+                           [name:isBatteryWarning]rec__carsystem__car__isbatterywarning : bool;
+                           [name:speed]
+                           [model_trace:.1323]rec__carsystem__car__speed : Carsystem__speedrange.speedrange;
+                           [model_trace:.1328]
+                           [name:battery]rec__carsystem__car__battery : Carsystem__batterychargerange.batterychargerange;
+                           [name:gear]
+                           [model_trace:.1333]rec__carsystem__car__gear : Carsystem__gearrange.gearrange }
+  
+  function [model_trace:.1302] [name:isStarted] 
+    __split_fields_rec__carsystem__car__isstarted__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    bool = a.rec__carsystem__car__isstarted
+  
+  meta model_projection function __split_fields_rec__carsystem__car__isstarted__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__isstarted__projection
+  
+  function [name:SensorDetect] [model_trace:.1308] 
+    __split_fields_rec__carsystem__car__sensordetect__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    bool = a.rec__carsystem__car__sensordetect
+  
+  meta model_projection function __split_fields_rec__carsystem__car__sensordetect__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__sensordetect__projection
+  
+  function [model_trace:.1313] [name:isDiagMode] 
+    __split_fields_rec__carsystem__car__isdiagmode__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    bool = a.rec__carsystem__car__isdiagmode
+  
+  meta model_projection function __split_fields_rec__carsystem__car__isdiagmode__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__isdiagmode__projection
+  
+  function [model_trace:.1318] [name:isBatteryWarning] 
+    __split_fields_rec__carsystem__car__isbatterywarning__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    bool = a.rec__carsystem__car__isbatterywarning
+  
+  meta model_projection function __split_fields_rec__carsystem__car__isbatterywarning__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__isbatterywarning__projection
+  
+  function [name:speed] [model_trace:.1323] 
+    __split_fields_rec__carsystem__car__speed__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    Carsystem__speedrange.speedrange = a.rec__carsystem__car__speed
+  
+  meta model_projection function __split_fields_rec__carsystem__car__speed__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__speed__projection
+  
+  function [model_trace:.1328] [name:battery] 
+    __split_fields_rec__carsystem__car__battery__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    Carsystem__batterychargerange.batterychargerange = a.rec__carsystem__car__battery
+  
+  meta model_projection function __split_fields_rec__carsystem__car__battery__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__battery__projection
+  
+  function [name:gear] [model_trace:.1333] 
+    __split_fields_rec__carsystem__car__gear__projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    Carsystem__gearrange.gearrange = a.rec__carsystem__car__gear
+  
+  meta model_projection function __split_fields_rec__carsystem__car__gear__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__gear__projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields }
+  
+  function   __rep___split_fields__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__projection
+  
+  meta inline:no function __rep___split_fields__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   carsystem__car__isstarted__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__isstarted_ (a : __rep) requires
+    { (carsystem__car__isstarted__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__isstarted) } returns
+    bool
+  
+  function   carsystem__car__sensordetect__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__sensordetect_ (a : __rep) requires
+    { (carsystem__car__sensordetect__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__sensordetect) } returns
+    bool
+  
+  function   carsystem__car__isdiagmode__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__isdiagmode_ (a : __rep) requires
+    { (carsystem__car__isdiagmode__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__isdiagmode) } returns
+    bool
+  
+  function   carsystem__car__isbatterywarning__pred (a : __rep) requires
+    { True } ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__isbatterywarning_ (a : __rep) requires
+    { (carsystem__car__isbatterywarning__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__isbatterywarning) }
+    returns bool
+  
+  function   carsystem__car__speed__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__speed_ (a : __rep) requires
+    { (carsystem__car__speed__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__speed) } returns
+    Carsystem__speedrange.speedrange
+  
+  function   carsystem__car__battery__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__battery_ (a : __rep) requires
+    { (carsystem__car__battery__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__battery) } returns
+    Carsystem__batterychargerange.batterychargerange
+  
+  function   carsystem__car__gear__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__gear_ (a : __rep) requires
+    { (carsystem__car__gear__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__gear) } returns
+    Carsystem__gearrange.gearrange
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           (((_gnatprove_standard.Boolean.to_int
+                a.__split_fields.rec__carsystem__car__isstarted)
+               = (_gnatprove_standard.Boolean.to_int
+                    b.__split_fields.rec__carsystem__car__isstarted)) /\
+              ((_gnatprove_standard.Boolean.to_int
+                  a.__split_fields.rec__carsystem__car__sensordetect)
+                 = (_gnatprove_standard.Boolean.to_int
+                      b.__split_fields.rec__carsystem__car__sensordetect)) /\
+              ((_gnatprove_standard.Boolean.to_int
+                  a.__split_fields.rec__carsystem__car__isdiagmode)
+                 = (_gnatprove_standard.Boolean.to_int
+                      b.__split_fields.rec__carsystem__car__isdiagmode)) /\
+              ((_gnatprove_standard.Boolean.to_int
+                  a.__split_fields.rec__carsystem__car__isbatterywarning)
+                 = (_gnatprove_standard.Boolean.to_int
+                      b.__split_fields.rec__carsystem__car__isbatterywarning))
+              /\
+              ((Carsystem__speedrange__rep.to_rep
+                  a.__split_fields.rec__carsystem__car__speed)
+                 = (Carsystem__speedrange__rep.to_rep
+                      b.__split_fields.rec__carsystem__car__speed)) /\
+              ((Carsystem__batterychargerange__rep.to_rep
+                  a.__split_fields.rec__carsystem__car__battery)
+                 = (Carsystem__batterychargerange__rep.to_rep
+                      b.__split_fields.rec__carsystem__car__battery)) /\
+              ((Carsystem__gearrange__rep.to_rep
+                  a.__split_fields.rec__carsystem__car__gear)
+                 = (Carsystem__gearrange__rep.to_rep
+                      b.__split_fields.rec__carsystem__car__gear)))
+           then True  else False)
+
+end
+
+(* Module for axiomatizing type "car" defined at carsystem.ads:15, created in Gnat2Why.Types.Translate_Type *)
+module Carsystem__car
+  
+  use export Carsystem__car__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type car  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   carsystem__car__isstarted__first__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   carsystem__car__isstarted__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   carsystem__car__isstarted__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom carsystem__car__isstarted__first__bit_axiom : ((carsystem__car__isstarted__first__bit
+                                                          ) >= 0)
+  
+  axiom carsystem__car__isstarted__last__bit_axiom : ((carsystem__car__isstarted__last__bit
+                                                         )
+                                                        > (carsystem__car__isstarted__first__bit
+                                                             ))
+  
+  axiom carsystem__car__isstarted__position_axiom : ((carsystem__car__isstarted__position
+                                                        ) >= 0)
+  
+  function   carsystem__car__sensordetect__first__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   carsystem__car__sensordetect__last__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   carsystem__car__sensordetect__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom carsystem__car__sensordetect__first__bit_axiom : ((carsystem__car__sensordetect__first__bit
+                                                             ) >= 0)
+  
+  axiom carsystem__car__sensordetect__last__bit_axiom : ((carsystem__car__sensordetect__last__bit
+                                                            )
+                                                           > (carsystem__car__sensordetect__first__bit
+                                                                ))
+  
+  axiom carsystem__car__sensordetect__position_axiom : ((carsystem__car__sensordetect__position
+                                                           ) >= 0)
+  
+  function   carsystem__car__isdiagmode__first__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   carsystem__car__isdiagmode__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   carsystem__car__isdiagmode__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom carsystem__car__isdiagmode__first__bit_axiom : ((carsystem__car__isdiagmode__first__bit
+                                                           ) >= 0)
+  
+  axiom carsystem__car__isdiagmode__last__bit_axiom : ((carsystem__car__isdiagmode__last__bit
+                                                          )
+                                                         > (carsystem__car__isdiagmode__first__bit
+                                                              ))
+  
+  axiom carsystem__car__isdiagmode__position_axiom : ((carsystem__car__isdiagmode__position
+                                                         ) >= 0)
+  
+  function   carsystem__car__isbatterywarning__first__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   carsystem__car__isbatterywarning__last__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   carsystem__car__isbatterywarning__position () requires {  }
+    ensures  {  } returns int
+  
+  axiom carsystem__car__isbatterywarning__first__bit_axiom : ((carsystem__car__isbatterywarning__first__bit
+                                                                 ) >= 0)
+  
+  axiom carsystem__car__isbatterywarning__last__bit_axiom : ((carsystem__car__isbatterywarning__last__bit
+                                                                )
+                                                               > (carsystem__car__isbatterywarning__first__bit
+                                                                    ))
+  
+  axiom carsystem__car__isbatterywarning__position_axiom : ((carsystem__car__isbatterywarning__position
+                                                               ) >= 0)
+  
+  function   carsystem__car__speed__first__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   carsystem__car__speed__last__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   carsystem__car__speed__position () requires {  } ensures  {  }
+    returns int
+  
+  axiom carsystem__car__speed__first__bit_axiom : ((carsystem__car__speed__first__bit
+                                                      ) >= 0)
+  
+  axiom carsystem__car__speed__last__bit_axiom : ((carsystem__car__speed__last__bit
+                                                     )
+                                                    > (carsystem__car__speed__first__bit
+                                                         ))
+  
+  axiom carsystem__car__speed__position_axiom : ((carsystem__car__speed__position
+                                                    ) >= 0)
+  
+  function   carsystem__car__battery__first__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   carsystem__car__battery__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   carsystem__car__battery__position () requires {  } ensures  {  }
+    returns int
+  
+  axiom carsystem__car__battery__first__bit_axiom : ((carsystem__car__battery__first__bit
+                                                        ) >= 0)
+  
+  axiom carsystem__car__battery__last__bit_axiom : ((carsystem__car__battery__last__bit
+                                                       )
+                                                      > (carsystem__car__battery__first__bit
+                                                           ))
+  
+  axiom carsystem__car__battery__position_axiom : ((carsystem__car__battery__position
+                                                      ) >= 0)
+  
+  function   carsystem__car__gear__first__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   carsystem__car__gear__last__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   carsystem__car__gear__position () requires {  } ensures  {  }
+    returns int
+  
+  axiom carsystem__car__gear__first__bit_axiom : ((carsystem__car__gear__first__bit
+                                                     ) >= 0)
+  
+  axiom carsystem__car__gear__last__bit_axiom : ((carsystem__car__gear__last__bit
+                                                    )
+                                                   > (carsystem__car__gear__first__bit
+                                                        ))
+  
+  axiom carsystem__car__gear__position_axiom : ((carsystem__car__gear__position
+                                                   ) >= 0)
+  
+  function   user_eq (a : car b : car) requires { True } ensures  { True }
+    returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns car
+  
+  type car__ref  = { mutable car__content : car }
+  
+  function   car__ref_car__content__projection (a : car__ref) requires {  }
+    ensures  {  } returns car = a.car__content
+  
+  meta model_projection function car__ref_car__content__projection
+  
+  meta inline:no function car__ref_car__content__projection
+  
+  function   car__havoc (x : car__ref) requires {  } ensures  {  } returns
+    unit
+
+end
+
+(* Module giving axioms for type "car" defined at carsystem.ads:15, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Carsystem__car___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Boolean
+  use        Carsystem__car
+  use        Carsystem__batterychargerange
+  use        Carsystem__batterychargerange__rep
+  use        Carsystem__speedrange
+  use        Carsystem__speedrange__rep
+  use        Carsystem__gearrange
+  use        Carsystem__gearrange__rep
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_186) : Carsystem__car.car
+    ([mlw:proxy_symbol] [introduced] temp___is_init_182) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_183) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_184) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_185) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_187) : Carsystem__car.car
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_188) : bool)
+    requires { True } ensures  { True } returns
+     = ((if
+        (Carsystem__car.carsystem__car__isstarted__pred ([mlw:proxy_symbol]
+           [introduced] temp___expr_187))
+        then
+        (([mlw:proxy_symbol]
+           [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isstarted
+           = (_gnatprove_standard.Boolean.of_int 0))
+        ) /\
+          (if
+          (Carsystem__car.carsystem__car__sensordetect__pred
+             ([mlw:proxy_symbol] [introduced] temp___expr_187))
+          then
+          (([mlw:proxy_symbol]
+             [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect
+             = (_gnatprove_standard.Boolean.of_int 0))
+          ) /\
+          (if
+          (Carsystem__car.carsystem__car__isdiagmode__pred
+             ([mlw:proxy_symbol] [introduced] temp___expr_187))
+          then
+          (([mlw:proxy_symbol]
+             [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
+             = (_gnatprove_standard.Boolean.of_int 0))
+          ) /\
+          (if
+          (Carsystem__car.carsystem__car__isbatterywarning__pred
+             ([mlw:proxy_symbol] [introduced] temp___expr_187))
+          then
+          (([mlw:proxy_symbol]
+             [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning
+             = (_gnatprove_standard.Boolean.of_int 0))
+          ) /\
+          (if
+          (Carsystem__car.carsystem__car__speed__pred ([mlw:proxy_symbol]
+             [introduced] temp___expr_187))
+          then
+          (( (Carsystem__speedrange__rep.to_rep ([mlw:proxy_symbol]
+                [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed))
+             = ( 0))
+          ) /\
+          (if
+          (Carsystem__car.carsystem__car__battery__pred ([mlw:proxy_symbol]
+             [introduced] temp___expr_187))
+          then
+          (( (Carsystem__batterychargerange__rep.to_rep ([mlw:proxy_symbol]
+                [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery))
+             = ( 0))
+          ) /\
+          (if
+          (Carsystem__car.carsystem__car__gear__pred ([mlw:proxy_symbol]
+             [introduced] temp___expr_187))
+          then
+          (( (Carsystem__gearrange__rep.to_rep ([mlw:proxy_symbol]
+                [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear))
+             = ( 0))
+          ))
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "checkbatterywarning" defined at carsystem.ads:25, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module Carsystem__checkbatterywarning___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Carsystem__car
+  use        Carsystem__car___axiom
+  
+  function   checkbatterywarning
+    (this__split_fields : Carsystem__car.__split_fields__ref) requires
+    { True } ensures 
+    { (Carsystem__car___axiom.dynamic_invariant
+         --pp_record_aggregate NOT IMPLEMENTED True True True True) } returns
+    unit
+
+end
+
+(* Module for defining a ref holding the value of variable "this" defined at carsystem.ads:74, created in Gnat2Why.Decls.Translate_Variable *)
+module Carsystem__emergencystop__this
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Carsystem__car
+  
+  val this__split_fields [model_trace:1491] [model_projected]
+  [name:This] [sloc:carsystem.ads:74]: Carsystem__car.__split_fields
+
+end
+
+(* Module giving axioms for type "batterychargerange" defined at carsystem.ads:3, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Carsystem__batterychargerange___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Carsystem__batterychargerange
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_165) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_161) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_162) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_163) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_164) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_161) = True) \/
+          (Carsystem__batterychargerange.first
+             <= Carsystem__batterychargerange.last))
+       then
+       (Carsystem__batterychargerange.dynamic_property
+          Carsystem__batterychargerange.first
+          Carsystem__batterychargerange.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_165))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_166) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_167) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "speedrange" defined at carsystem.ads:4, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Carsystem__speedrange___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Carsystem__speedrange
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_172) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_168) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_169) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_170) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_171) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_168) = True) \/
+          (Carsystem__speedrange.first <= Carsystem__speedrange.last))
+       then
+       (Carsystem__speedrange.dynamic_property Carsystem__speedrange.first
+          Carsystem__speedrange.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_172))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_173) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_174) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "gearrange" defined at carsystem.ads:12, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Carsystem__gearrange___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Carsystem__gearrange
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_179) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_175) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_176) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_177) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_178) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_175) = True) \/
+          (Carsystem__gearrange.first <= Carsystem__gearrange.last))
+       then
+       (Carsystem__gearrange.dynamic_property Carsystem__gearrange.first
+          Carsystem__gearrange.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_179))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_180) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_181) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving an empty axiom for the entity "this" defined at carsystem.ads:74, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+module Carsystem__emergencystop__this___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for checking contracts and absence of run-time errors in subprogram "emergencystop" defined at carsystem.ads:74, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+module Carsystem__emergencystop__subprogram_def
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Carsystem__car
+  use        Carsystem__car___axiom
+  use        Carsystem__checkbatterywarning___axiom
+  use        Carsystem__emergencystop__this
+  use        Carsystem__speedrange
+  use        Carsystem__speedrange__rep
+  use        Carsystem__gearrange
+  use        Carsystem__batterychargerange___axiom
+  use        Carsystem__speedrange___axiom
+  use        Carsystem__gearrange___axiom
+  use        Carsystem__car___axiom
+  use        Carsystem__checkbatterywarning___axiom
+  use        Carsystem__emergencystop__this___axiom
+  
+  function [GP_Subp:carsystem.ads:74] [sloc:carsystem.ads:74] def
+    (__void_param : unit) requires { True } ensures 
+    { ([sloc:carsystem.ads:75] ([GP_Reason:VC_POSTCONDITION]
+                               [GP_Shape:pragargs__cmp]
+                               [comment:     Post => this.speed = 0;              ^ carsystem.ads:75:14:VC_POSTCONDITION]
+                               [GP_Sloc:carsystem.ads:75:14] [model_vc_post]
+                               [GP_Id:1] ([GP_Sloc:carsystem.ads:75:14]
+                                         [GP_Pretty_Ada:1727] ((Carsystem__speedrange__rep.to_rep
+                                                                  ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed)
+                                                                 = 0)))) }
+    returns
+     = (* Assume dynamic invariants of inputs of the subprogram carsystem.ads:74 *);
+        assume
+        { (Carsystem__car___axiom.dynamic_invariant
+             --pp_record_aggregate NOT IMPLEMENTED True False True True) };
+        (* Assume moved pointers in outputs of the subprogram carsystem.ads:74 *);
+        (* Check for RTE in the Pre of the subprogram carsystem.ads:74 *);
+        abstract ensures
+        { True } begin  (let _ = True in ())  end;
+        (* Assume Pre of the subprogram carsystem.ads:74 *);
+        (try
+        ();
+          ([GP_Sloc:carsystem.adb:93:7] ([sloc:carsystem.adb:93] ()));
+          ([GP_Sloc:carsystem.adb:93:7] ([sloc:carsystem.adb:93] (let ([mlw:proxy_symbol]
+                                        [introduced] temp___compl_234) =
+                                        ( --pp_record_aggregate NOT IMPLEMENTED)
+                                        in
+                                        ( any --pp_effects NOT IMPLEMENTED
+                                           pre {}
+                                        post {} return unit);
+          (Carsystem__checkbatterywarning___axiom.checkbatterywarning
+             Carsystem__emergencystop__this.this__split_fields);
+          ())));
+        ([GP_Sloc:carsystem.adb:95:18] ([sloc:carsystem.adb:95] (let ([mlw:proxy_symbol]
+                                       [introduced] temp___237) =
+                                       (let ([mlw:proxy_symbol]
+                                         [introduced] temp___236) =
+                                         ( --pp_record_aggregate NOT IMPLEMENTED)
+                                         in abstract ensures
+                                         { True } begin  (let _ =
+                                                        ([mlw:proxy_symbol]
+                                                          [introduced] temp___236).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed
+                                                        in ())  end;
+                                         --pp_record_update NOT IMPLEMENTED)
+                                       in (
+                                       Carsystem__emergencystop__this.this__split_fields
+                                       :=
+                                       ([mlw:proxy_symbol]
+                                         [introduced] temp___237).Carsystem__car.__split_fields))));
+        ([GP_Sloc:carsystem.adb:96:17] ([sloc:carsystem.adb:96] (let ([mlw:proxy_symbol]
+                                       [introduced] temp___240) =
+                                       (let ([mlw:proxy_symbol]
+                                         [introduced] temp___239) =
+                                         ( --pp_record_aggregate NOT IMPLEMENTED)
+                                         in abstract ensures
+                                         { True } begin  (let _ =
+                                                        ([mlw:proxy_symbol]
+                                                          [introduced] temp___239).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear
+                                                        in ())  end;
+                                         --pp_record_update NOT IMPLEMENTED)
+                                       in (
+                                       Carsystem__emergencystop__this.this__split_fields
+                                       :=
+                                       ([mlw:proxy_symbol]
+                                         [introduced] temp___240).Carsystem__car.__split_fields))));
+        raise Return__exc with | Return__exc  -> ());
+    abstract ensures
+    { True } begin  (let _ =
+                   ((Carsystem__speedrange__rep.to_rep
+                       ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed)
+                      = 0)
+                   in ())  end
+
+end

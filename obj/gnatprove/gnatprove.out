@@ -1,0 +1,37 @@
+Summary of SPARK analysis
+=========================
+
+------------------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total      Flow   CodePeer                      Provers   Justified   Unproved
+------------------------------------------------------------------------------------------------------------
+Data Dependencies                 .         .          .                            .           .          .
+Flow Dependencies                 .         .          .                            .           .          .
+Initialization                    .         .          .                            .           .          .
+Non-Aliasing                      .         .          .                            .           .          .
+Run-time Checks                   4         .          .                     4 (CVC4)           .          .
+Assertions                        .         .          .                            .           .          .
+Functional Contracts              4         .          .    4 (CVC4 86%, Trivial 14%)           .          .
+LSP Verification                  .         .          .                            .           .          .
+Termination                       .         .          .                            .           .          .
+Concurrency                       .         .          .                            .           .          .
+------------------------------------------------------------------------------------------------------------
+Total                             8         .          .                     8 (100%)           .          .
+
+
+max steps used for successful proof: 1
+
+Analyzed 2 units
+in unit carsystem, 11 subprograms and packages out of 11 analyzed
+  CarSystem at carsystem.ads:1 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  CarSystem.ChangeGear at carsystem.ads:48 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  CarSystem.ChargeBattery at carsystem.ads:80 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (4 checks)
+  CarSystem.CheckBatteryWarning at carsystem.ads:25 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  CarSystem.CheckSensor at carsystem.ads:42 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  CarSystem.EmergencyStop at carsystem.ads:74 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  CarSystem.EnterDiagMode at carsystem.ads:86 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  CarSystem.ExitDiagMode at carsystem.ads:89 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  CarSystem.MoveCar at carsystem.ads:62 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  CarSystem.StartProcedure at carsystem.ads:29 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  CarSystem.StopProcedure at carsystem.ads:35 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+in unit main, 0 subprograms and packages out of 1 analyzed
+  Main at main.adb:5 skipped

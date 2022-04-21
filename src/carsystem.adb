@@ -76,9 +76,11 @@ package body CarSystem with SPARK_Mode is
         targetSpeed <= SpeedRange'Last then
          if targetSpeed > SpeedLimit then
             This.speed := SpeedLimit;
-            This.battery := This.battery - 1;
          else
             This.speed := targetSpeed;
+         end if;
+         if This.speed < 0 and 
+           This.battery < MinCharge then
             This.battery := This.battery - 1;
          end if;
          
@@ -93,13 +95,12 @@ package body CarSystem with SPARK_Mode is
       This.speed := 0;
       This.gear := 0;
    end EmergencyStop;
-      
+   
+   expectedCharge : BatteryChargeRange := 0;   
    procedure ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) is
-      --overcharge protection
-      expectedCharge : BatteryChargeRange := 0;   
    begin
-      if (This.battery + chargeAmount) < BatteryChargeRange'Last then
-         
+      if (This.battery + chargeAmount) <= BatteryChargeRange'Last then
+        
          expectedCharge := This.battery + chargeAmount;
       else
          
@@ -111,6 +112,7 @@ package body CarSystem with SPARK_Mode is
          
       end if;
       CheckBatteryWarning(This);
+      expectedCharge := 0;
    end ChargeBattery;
    
    procedure EnterDiagMode (This : in out Car) is

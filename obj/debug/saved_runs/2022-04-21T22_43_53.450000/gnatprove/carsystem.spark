@@ -1,0 +1,405 @@
+{
+  "spark": [
+    {
+      "name": "CarSystem",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.CheckBatteryWarning",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 25
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.StartProcedure",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 29
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.StopProcedure",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 35
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.CheckSensor",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 42
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.ChangeGear",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 48
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.MoveCar",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 62
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.EmergencyStop",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 74
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.ChargeBattery",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 80
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.EnterDiagMode",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 87
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "CarSystem.ExitDiagMode",
+      "sloc": [
+        {
+          "file": "carsystem.ads",
+          "line": 90
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.EmergencyStop",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 74
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.EnterDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 87
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.CheckBatteryWarning",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 25
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.ExitDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.CheckSensor",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 42
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckSensor",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 42
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.EmergencyStop",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 74
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.MoveCar",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 62
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.EmergencyStop",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 74
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.StartProcedure",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 29
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.ChargeBattery",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 80
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.StopProcedure",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 35
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.ChangeGear",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 48
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "globals (advanced)": 4.00399992940947E-04,
+    "flow analysis": 1.07759004458785E-02,
+    "marking": 1.09200002043508E-04,
+    "properties (advanced)": 2.95000008918578E-05,
+    "globals (basic)": 3.70099995052442E-04
+  }
+}
