@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+D:\FASE\CW_GIT\BETTERTHANTESLAFSD\fase_cw_40417349.gpr
+20220421154214 18273cc08dae5b7e18a109cdc1a191c2
+[BOUND OBJECT FILES]
+D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\carsystem.o
+D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LD:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\
+-LD:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\
+-LD:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+D:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

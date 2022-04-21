@@ -1,0 +1,76 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U carsystem%b		carsystem.adb		78d45b86 NE OO PK
+
+U carsystem%s		carsystem.ads		cf2cb061 EE NE OO PK
+
+D carsystem.ads		20220421153648 cf2cb061 carsystem%s
+D carsystem.adb		20220421153954 b7f8ebe7 carsystem%b
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+G c Z s b [startprocedure carsystem 27 14 none]
+G c Z s b [stopprocedure carsystem 33 14 none]
+G c Z s b [checksensor carsystem 40 14 none]
+G c Z s b [changegear carsystem 46 14 none]
+G c Z s b [movecar carsystem 60 14 none]
+G c Z s b [emergencystop carsystem 72 14 none]
+G c Z s b [chargebattery carsystem 78 14 none]
+G c Z s b [enterdiagmode carsystem 85 14 none]
+G c Z s b [exitdiagmode carsystem 88 14 none]
+G c Z s s [carIP carsystem 15 9 none]
+X 1 carsystem.ads
+1K9*CarSystem 92l5 92e14 2|1b14 26r23 28r23 37r25 38r25 99l5 99t14
+3I9*BatteryChargeRange<short_short_integer> 5r25 20r17 78r66 80r22 81r22
+. 82r30 2|73r66 74r21 78r25 79r25 80r31 81r29
+4I9*SpeedRange<short_short_integer> 6r26 19r15 60r59 66r21 67r21 2|43r59
+. 58r24 59r24
+5i4*MinCharge{3I9} 64r22 2|56r25
+6i4*SpeedLimit{4I9} 68r28 2|60r27 61r27
+7b4*ObjectAhead{boolean} 2|26r33
+8b4*ObjectBehind{boolean} 2|28r33
+12I9*GearRange<short_short_integer> 21r14 46r63 49r22 50r22 2|33r63 37r35
+. 38r35
+15R9*Car 22e14 27r44 33r43 40r41 46r40 60r37 72r43 78r43 85r43 88r42 2|3r44
+. 13r43 22r41 33r40 43r37 66r43 73r43 88r43 94r42
+16b7*isStarted{boolean} 28r17 37r11 61r18 2|6r15 9m15 18m15 53r15
+17b7*SensorDetect{boolean} 63r11 2|26m62 28m63 48r15 55r14
+18b7*isDiagMode{boolean} 36r19 47r18 62r11 79r18 86r19 89r18 90r19 2|17m15
+. 35r15 54r14 77r15 91m12 96m12
+19i7*speed{4I9} 30r11 34r18 48r11 68r19 73r19 2|8r14 15r15 36r14 61m18 69m12
+20i7*battery{3I9} 64r11 82r19 2|56r14 74r48 81m18 83m18 83r34
+21i7*gear{12I9} 29r11 35r11 65r11 2|7r14 16r14 24r17 39m15 57r14 70m12
+27U14*StartProcedure 27=30 2|3b14 11l8 11t22
+27r30 This{15R9} 28r12 29r6 30r6 2|3b30 6r10 7r9 8r9 9m10
+33U14*StopProcedure 33=29 2|13b14 20l8 20t21
+33r29 This{15R9} 34r13 35r6 36r14 37r6 2|13b29 15r10 16r9 17m10 18m10
+40U14*CheckSensor 40=27 2|22b14 31l8 31t19 47s7
+40r27 This{15R9} 2|22b27 24r12 26m57 28m58
+46U14*ChangeGear 46=26 46>45 2|33b14 41l8 41t18
+46r26 This{15R9} 47r13 48r6 2|33b26 35r10 36r9 39m10
+46i45 selectedGear{12I9} 49r6 50r6 2|33b45 37r9 38r9 39r23
+60U14*MoveCar 60=23 60>42 2|43b14 64l8 64t15
+60r23 This{15R9} 61r13 62r6 63r6 64r6 65r6 68r14 2|43b23 47m19 48r10 49m24
+. 53r10 54r9 55r9 56r9 57r9 61m13
+60i42 targetSpeed{4I9} 66r6 67r6 2|43b42 58r9 59r9 60r13
+72U14*EmergencyStop 72=29 2|49s10 66b14 71l8 71t21 90s7
+72r29 This{15R9} 73r14 2|66b29 69m7 70m7
+78U14*ChargeBattery 78=29 78>48 2|73b14 86l8 86t21
+78r29 This{15R9} 79r13 82r14 2|73b29 74r43 77r10 81m13 83m13 83r29
+78i48 chargeAmount{3I9} 80r6 81r6 2|73b48 74r58 78r9 79r9 83r44
+85U14*EnterDiagMode 85=29 2|88b14 92l8 92t21
+85r29 This{15R9} 86r14 2|88b29 90m21 91m7
+88U14*ExitDiagMode 88=28 2|94b14 97l8 97t20
+88r28 This{15R9} 89r13 90r14 2|94b28 96m7
+X 2 carsystem.adb
+74i4 expectedCharge{1|3I9} 80r13
+
