@@ -12,6 +12,15 @@ package body CarSystem with SPARK_Mode is
          end if;
    end StartProcedure;
    
+   procedure StopProcedure (This : in out Car) is
+   begin
+      if This.speed = 0 and
+        This.gear = 0 then
+         This.isDiagMode := False;
+         This.isStarted := False;
+      end if;
+   end StopProcedure;
+      
    procedure CheckSensor (This : in out Car) is
    begin
       case This.gear is
@@ -79,7 +88,8 @@ package body CarSystem with SPARK_Mode is
    
    procedure EnterDiagMode (This : in out Car) is
    begin
-      --implement
+      EmergencyStop(This);
+      This.isDiagMode := True;
    end EnterDiagMode;
         
 end CarSystem;

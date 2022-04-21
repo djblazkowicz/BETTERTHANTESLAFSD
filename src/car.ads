@@ -29,7 +29,12 @@ package CarSystem with SPARK_Mode is
      this.gear = 0 and
      this.speed = 0;
    
-   procedure StopProcedure (This : in out Car);
+   -- shut down the car
+   procedure StopProcedure (This : in out Car) with
+     Pre => this.speed = 0 and
+     this.gear = 0,
+     Post => this.isDiagMode = False and 
+     this.isStarted = False;
    
    -- check sensors
    procedure CheckSensor (This : in out Car);
