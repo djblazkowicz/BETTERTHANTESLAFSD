@@ -19,8 +19,10 @@ procedure Main is
       Put_Line("Selected Gear: " & saxo.gear'Image);
       Put_Line("Battery level: " & saxo.battery'Image);
       Put_Line("Speed: " & saxo.speed'Image);
-      Put_line("Diagnostic Mode: " & saxo.isDiagMode'Image);
-      Put_line("Battery Warning: " & saxo.isBatteryWarning'Image);
+      Put_Line("Diagnostic Mode: " & saxo.isDiagMode'Image);
+      Put_Line("Battery Warning: " & saxo.isBatteryWarning'Image);
+      Put_Line("Object Ahead " & ObjectAhead'Image);
+      Put_Line("Object Behind " & ObjectBehind'Image);
 
       --  Put_Line("Tank Status: " & tren.waTank.status'Image);
       Put_Line("...........................");
@@ -119,10 +121,21 @@ begin
             else
                Put_line("Entering Diagnostic Mode");
             end if;
-            if saxo.isDiagMode = False then saxo.isDiagMode := True;
-               else saxo.isDiagMode := False;
+            saxo.isDiagMode := not saxo.isDiagMode;
+         when 10 =>
+            if ObjectAhead = True then
+               Put_line("Removing object Ahead...");
+            else
+               Put_line("Adding object Ahead...");
             end if;
-
+            ObjectAhead := not ObjectAhead;
+         when 11 =>
+            if ObjectAhead = True then
+               Put_line("Removing object Behind...");
+            else
+               Put_line("Adding object Behind...");
+            end if;
+            ObjectBehind := not ObjectBehind;
 
          when 0    =>
             Put_Line ("Exiting...");
