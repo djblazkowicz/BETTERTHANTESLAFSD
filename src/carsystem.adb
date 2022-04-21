@@ -1,8 +1,18 @@
 package body CarSystem with SPARK_Mode is
    
+   procedure CheckBatteryWarning (This : in out Car) is
+   begin
+      if This.battery <= MinCharge then
+         This.isBatteryWarning := True;
+      else This.isBatteryWarning := False;
+      end if;
+   end CheckBatteryWarning;
+   
+   
    procedure StartProcedure (This : in out Car) is
    begin
       -- implement
+      CheckBatteryWarning(This);
       if This.isStarted = False and
         This.gear = 0 and
         This.speed = 0 then
@@ -12,6 +22,7 @@ package body CarSystem with SPARK_Mode is
    
    procedure StopProcedure (This : in out Car) is
    begin
+      CheckBatteryWarning(This);
       if This.speed = 0 and
         This.gear = 0 then
          This.isDiagMode := False;
@@ -21,6 +32,7 @@ package body CarSystem with SPARK_Mode is
       
    procedure CheckSensor (This : in out Car) is
    begin
+      CheckBatteryWarning(This);
       case This.gear is
          when 0 => return;
          when 1 => if CarSystem.ObjectAhead = True then This.SensorDetect := True;
@@ -32,6 +44,7 @@ package body CarSystem with SPARK_Mode is
                
    procedure ChangeGear (This : in out Car; selectedGear : in GearRange) is
    begin
+      CheckBatteryWarning(This);
       if This.isDiagMode = False and
         This.speed = 0 and 
         selectedGear <= CarSystem.GearRange'Last and
@@ -42,6 +55,7 @@ package body CarSystem with SPARK_Mode is
    
    procedure MoveCar (This : in out Car; targetSpeed : in SpeedRange) is
    begin
+      CheckBatteryWarning(This);
       --check correct sensor before moving
       --execute emergency stop if object detected
       CheckSensor(This);
@@ -66,24 +80,29 @@ package body CarSystem with SPARK_Mode is
    
    procedure EmergencyStop (This : in out Car) is
    begin
+      CheckBatteryWarning(This);
       --implement
       This.speed := 0;
       This.gear := 0;
    end EmergencyStop;
       
    procedure ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) is
-   expectedCharge : BatteryChargeRange := This.battery + chargeAmount;
-   begin
       --overcharge protection
-      if This.isDiagMode = False and
-        chargeAmount >= BatteryChargeRange'First and
-        chargeAmount <= BatteryChargeRange'Last then
-         if expectedCharge >= BatteryChargeRange'Last then
-            This.battery := BatteryChargeRange'Last;
-         else
-            This.battery := This.battery + chargeAmount;
-         end if;
+      expectedCharge : BatteryChargeRange := 0;   
+   begin
+      if (This.battery + chargeAmount) < BatteryChargeRange'Last then
+         
+         expectedCharge := This.battery + chargeAmount;
+      else
+         
+         expectedCharge := BatteryChargeRange'Last;
       end if;
+      if This.isDiagMode = False then
+         
+         This.battery := expectedCharge;
+         
+      end if;
+      CheckBatteryWarning(This);
    end ChargeBattery;
    
    procedure EnterDiagMode (This : in out Car) is

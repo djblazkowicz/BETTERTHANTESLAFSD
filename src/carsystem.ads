@@ -16,11 +16,13 @@ package CarSystem with SPARK_Mode is
       isStarted : Boolean := False;
       SensorDetect : Boolean := False;
       isDiagMode : Boolean := False;
+      isBatteryWarning : Boolean := False;
       speed : SpeedRange := 0;
       battery : BatteryChargeRange := 0;
       gear : GearRange := 0;
    end record;
    
+   procedure CheckBatteryWarning (This : in out Car);
    
    -- start the car, check if already started
    -- check if parked and stationary
@@ -77,6 +79,8 @@ package CarSystem with SPARK_Mode is
    -- prevents overcharge
    procedure ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) with
      Pre => this.isDiagMode = False and
+     (this.battery + chargeAmount) >= BatteryChargeRange'First and
+     (this.battery + chargeAmount) <= BatteryChargeRange'Last and
      chargeAmount >= BatteryChargeRange'First and
      chargeAmount <= BatteryChargeRange'Last,
      Post => this.battery <= BatteryChargeRange'Last;

@@ -19,6 +19,8 @@ procedure Main is
       Put_Line("Selected Gear: " & saxo.gear'Image);
       Put_Line("Battery level: " & saxo.battery'Image);
       Put_Line("Speed: " & saxo.speed'Image);
+      Put_line("Diagnostic Mode: " & saxo.isDiagMode'Image);
+      Put_line("Battery Warning: " & saxo.isBatteryWarning'Image);
 
       --  Put_Line("Tank Status: " & tren.waTank.status'Image);
       Put_Line("...........................");
@@ -38,13 +40,17 @@ begin
       New_Line;
       Put_Line("Choose one of the following options: ");
       Put_Line("...........................");
-      Put_Line("1. Start the car");
-      Put_Line("2. Shut the car down");
-      Put_line("3. Put Gearbox in Park");
-      Put_line("4. Put Gearbox in Drive");
-      Put_line("5. Put Gearbox in Reverse");
-      Put_line("6. Charge the battery");
-      Put_line("7. Move the car");
+      Put_Line("1.  Start the car");
+      Put_Line("2.  Shut the car down");
+      Put_line("3.  Put Gearbox in Park");
+      Put_line("4.  Put Gearbox in Drive");
+      Put_line("5.  Put Gearbox in Reverse");
+      Put_line("6.  Charge the battery");
+      Put_line("7.  Move the car");
+      Put_line("8.  Execute Emergency Stop");
+      Put_line("9.  Enter/Exit Diagnostic Mode");
+      Put_line("10. Add/Remove Object Ahead");
+      Put_line("11. Add/Remove Object Behind");
       Put_Line("0 to exit ");
       Put_Line("...........................");
       New_Line;
@@ -103,6 +109,20 @@ begin
             end if;
             speed_int := -1;
             speed := 0;
+         when 8 =>
+            Put_line("Executing Emergency Stop...");
+            ClearDelay;
+            EmergencyStop(saxo);
+         when 9 =>
+            if saxo.isDiagMode = True then
+               Put_line("Exiting Diagnostic Mode");
+            else
+               Put_line("Entering Diagnostic Mode");
+            end if;
+            if saxo.isDiagMode = False then saxo.isDiagMode := True;
+               else saxo.isDiagMode := False;
+            end if;
+
 
          when 0    =>
             Put_Line ("Exiting...");
