@@ -7,6 +7,8 @@ procedure Main is
    option : Integer := 1;
    speed : SpeedRange := 0;
    speed_int : Integer := -1;
+   battery := 0;
+   battery_int := -1;
 
    procedure PrintStatus is
    begin
@@ -41,7 +43,8 @@ begin
       Put_line("3. Put Gearbox in Park");
       Put_line("4. Put Gearbox in Drive");
       Put_line("5. Put Gearbox in Reverse");
-      Put_line("6. Move car");
+      Put_line("6. Charge the battery");
+      Put_line("7. Move the car");
       Put_Line("0 to exit ");
       Put_Line("...........................");
       New_Line;
@@ -69,13 +72,20 @@ begin
             ClearDelay;
             ChangeGear(saxo, 2);
          when 6 =>
+            Put_line("Charging battery...");
+            ClearDelay;
 
-            while speed >= SpeedRange'Last or
-            speed <= SpeedRange'First loop
+         when 7 =>
+
+            while speed_int > Integer(SpeedRange'Last) or
+            speed_int < Integer(SpeedRange'First) loop
                Put_line("Input desired speed:");
                Ada.Integer_Text_IO.Get(speed_int);
             end loop;
             speed := SpeedRange(speed_int);
+            Put_line("selected speed: " & speed'Image);
+            ClearDelay;
+
             Put_line("Attemting to move...");
             ClearDelay;
             MoveCar(saxo, speed);

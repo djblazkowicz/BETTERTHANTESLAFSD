@@ -19,7 +19,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_OBSOLESCENT_FEATURES
 
-U main%b		main.adb		8305ce4e NE OO SU
+U main%b		main.adb		2f2836e3 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -46,7 +46,7 @@ D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D carsystem.ads		20220421153648 cf2cb061 carsystem%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20220421163628 149622e6 main%b
+D main.adb		20220421164802 b8bbda4b main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
@@ -81,32 +81,32 @@ X 12 a-textio.ads
 262U14*New_Line 18|14s7 23s7 36s7 47s7
 463U14*Put 18|13s19
 506U14*Put_Line 18|15s7 16s7 17s7 18s7 19s7 22s7 37s7 38s7 39s7 40s7 41s7
-. 42s7 43s7 44s7 45s7 46s7 52s13 56s13 60s13 64s13 68s13 75s16 79s13 83s16
-. 86s13
+. 42s7 43s7 44s7 45s7 46s7 52s13 56s13 60s13 64s13 68s13 75s16 79s13 82s13
+. 86s16 89s13
 X 13 a-tiinio.ads
 59U14*Get 18|48s27[5|18] 76s36[5|18]
 X 15 carsystem.ads
 1K9*CarSystem 92e14 18|3w6 3r21 6r10
 3I9*BatteryChargeRange<short_short_integer>
-4I9*SpeedRange<short_short_integer> 18|8r12 73r28 74r22 78r22
+4I9*SpeedRange<short_short_integer> 18|8r12 73r39 74r33 78r22
 12I9*GearRange<short_short_integer>
 15R9*Car 22e14 18|6r20
 16b7*isStarted{boolean} 18|16r39
-17b7*SensorDetect{boolean} 18|82r21
+17b7*SensorDetect{boolean} 18|85r21
 19i7*speed{4I9} 18|19r33
 20i7*battery{3I9} 18|18r41
 21i7*gear{12I9} 18|17r41
 27U14*StartProcedure 18|54s13
 33U14*StopProcedure 18|58s13
 46U14*ChangeGear 18|62s13 66s13 70s13
-60U14*MoveCar 18|81s13
+60U14*MoveCar 18|84s13
 X 18 main.adb
-5U11*Main 5b11 94l5 94t9
+5U11*Main 5b11 97l5 97t9
 6r4 saxo{15|15R9} 16r34 17r36 18r36 19r28 54m28 54r28 58m27 58r27 62m24 62r24
-. 66m24 66r24 70m24 70r24 81m21 81r21 82r16
+. 66m24 66r24 70m24 70r24 84m21 84r21 85r16
 7i4 option{integer} 33r10 48m31 50r12
-8i4 speed{15|4I9} 73r19 74r13 78m13 81r27
-9i4 speed_int{integer} 76m40 78r33
+8i4 speed{15|4I9} 78m13 79r43 84r27
+9i4 speed_int{integer} 73r19 74r13 76m40 78r33
 11U14 PrintStatus 11b14 24l8 24t19 35s7
-26U14 ClearDelay 26b14 30l8 30t18 53s13 57s13 61s13 65s13 69s13 80s13
+26U14 ClearDelay 26b14 30l8 30t18 53s13 57s13 61s13 65s13 69s13 80s13 83s13
 
