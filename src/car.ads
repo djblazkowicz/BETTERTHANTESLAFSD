@@ -16,9 +16,9 @@ package CarSystem with SPARK_Mode is
       isStarted : Boolean := False;
       SensorDetect : Boolean := False;
       isDiagMode : Boolean := False;
-      speed : Integer range 0..SpeedRange'Last := 0;
-      battery : Integer range 0..BatteryChargeRange'Last := 0;
-      gear : Integer range 0..GearRange'Last := 0;
+      speed : SpeedRange := 0;
+      battery : BatteryChargeRange := 0;
+      gear : GearRange := 0;
    end record;
    
    
@@ -84,5 +84,9 @@ package CarSystem with SPARK_Mode is
    -- enters diagnostic mode
    procedure EnterDiagMode (This : in out Car) with
      Post => this.isDiagMode = True;
+   
+   procedure ExitDiagMode (This : in out Car) with
+     Pre => this.isDiagMode = True,
+     Post => this.isDiagMode = False;
 
 end CarSystem;
