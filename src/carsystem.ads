@@ -63,7 +63,7 @@ package CarSystem with SPARK_Mode is
      Pre => this.isStarted = True and
      this.isDiagMode = False and
      this.SensorDetect = False and
-     this.battery >= MinCharge and
+     this.isBatteryWarning = False and
      this.gear > 0 and
      targetSpeed >= SpeedRange'First and
      targetSpeed <= SpeedRange'Last,

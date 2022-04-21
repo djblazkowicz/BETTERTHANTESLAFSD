@@ -64,18 +64,26 @@ package body CarSystem with SPARK_Mode is
          return;
       end if;
       --move car if everything is good
+      if This.isBatteryWarning = True then
+         This.speed := 0;
+      end if;
       if This.isStarted = True and
         This.isDiagMode = False and
         This.SensorDetect = False and
-        This.battery >= MinCharge and
+        This.isBatteryWarning = false and
         This.gear > 0 and
         targetSpeed >= SpeedRange'First and
         targetSpeed <= SpeedRange'Last then
          if targetSpeed > SpeedLimit then
             This.speed := SpeedLimit;
-         else This.speed := targetSpeed;
+            This.battery := This.battery - 1;
+         else
+            This.speed := targetSpeed;
+            This.battery := This.battery - 1;
          end if;
-      end if;        
+         
+      end if;
+      CheckBatteryWarning(This);
    end MoveCar;
    
    procedure EmergencyStop (This : in out Car) is
