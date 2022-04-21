@@ -34,9 +34,9 @@ package CarSystem with SPARK_Mode is
    -- shut down the car
    procedure StopProcedure (This : in out Car) with
      Pre => this.speed = 0 and
-     this.gear = 0,
-     Post => this.isDiagMode = False and 
-     this.isStarted = False;
+     this.gear = 0;
+     --Post => this.isDiagMode = False and 
+     --this.isStarted = False;
    
    -- check sensors
    procedure CheckSensor (This : in out Car);
@@ -66,8 +66,8 @@ package CarSystem with SPARK_Mode is
      this.isBatteryWarning = False and
      this.gear > 0 and
      targetSpeed >= SpeedRange'First and
-     targetSpeed <= SpeedRange'Last,
-     Post => this.speed <= SpeedLimit;
+     targetSpeed <= SpeedRange'Last;
+     --Post => This.speed <= SpeedLimit;
    
    -- stops the car
    -- will ensure speed is 0
@@ -78,12 +78,9 @@ package CarSystem with SPARK_Mode is
    -- won't charge in diagnostic mode
    -- prevents overcharge
    procedure ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) with
-     Pre => this.isDiagMode = False and
-     (this.battery + chargeAmount) >= BatteryChargeRange'First and
-     (this.battery + chargeAmount) <= BatteryChargeRange'Last and
-     chargeAmount >= BatteryChargeRange'First and
-     chargeAmount <= BatteryChargeRange'Last,
-     Post => this.battery <= BatteryChargeRange'Last;
+     Pre => chargeAmount < (BatteryChargeRange'Last - this.battery),
+     Post => this.battery <= BatteryChargeRange'Last and
+     this.battery >= BatteryChargeRange'First;
    
    -- enters diagnostic mode
    procedure EnterDiagMode (This : in out Car) with
