@@ -7,8 +7,8 @@ procedure Main is
    option : Integer := 1;
    speed : SpeedRange := 0;
    speed_int : Integer := -1;
-   battery := 0;
-   battery_int := -1;
+   battery : BatteryChargeRange := 0;
+   battery_int : Integer := -1;
 
    procedure PrintStatus is
    begin
@@ -72,9 +72,18 @@ begin
             ClearDelay;
             ChangeGear(saxo, 2);
          when 6 =>
+
+            while battery_int > Integer(BatteryChargeRange'Last) or
+              battery_int < Integer(BatteryChargeRange'First) loop
+               Put_line("Input desired charge:");
+               Ada.Integer_Text_IO.Get(battery_int);
+            end loop;
+            battery := BatteryChargeRange(battery_int);
             Put_line("Charging battery...");
             ClearDelay;
-
+            ChargeBattery(saxo, battery);
+            battery_int := -1;
+            battery := 0;
          when 7 =>
 
             while speed_int > Integer(SpeedRange'Last) or
@@ -92,6 +101,9 @@ begin
             if saxo.SensorDetect = True then
                Put_line("OBJECT DETECTED, EXECUTING EMERGENCY STOP");
             end if;
+            speed_int := -1;
+            speed := 0;
+
          when 0    =>
             Put_Line ("Exiting...");
             delay 1.0;

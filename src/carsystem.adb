@@ -57,8 +57,9 @@ package body CarSystem with SPARK_Mode is
         This.gear > 0 and
         targetSpeed >= SpeedRange'First and
         targetSpeed <= SpeedRange'Last then
-         if targetSpeed < SpeedLimit then
+         if targetSpeed > SpeedLimit then
             This.speed := SpeedLimit;
+         else This.speed := targetSpeed;
          end if;
       end if;        
    end MoveCar;
