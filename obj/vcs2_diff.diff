@@ -1,0 +1,13 @@
+diff --git src/car.adb src/car.adb
+index d3710ba..51149f8 100644
+--- src/car.adb
++++ src/car.adb
+@@ -81,7 +81,5 @@ package body CarSystem with SPARK_Mode is
+    begin
+       --implement
+    end EnterDiagMode;
+-
+-
+-
++
+ end CarSystem;
