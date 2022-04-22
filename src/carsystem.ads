@@ -40,10 +40,7 @@ package CarSystem with SPARK_Mode is
    
    -- start the car, check if already started
    -- check if parked and stationary
-   procedure StartProcedure (This : in out Car) with
-     Pre=> this.isStarted = False and
-     this.gear = 0 and
-     this.speed = 0;
+   procedure StartProcedure (This : in out Car);
    
    -- shut down the car
    procedure StopProcedure (This : in out Car);
@@ -55,11 +52,11 @@ package CarSystem with SPARK_Mode is
    -- won't change gear if diagnostic mode is on
    -- won't change gear if car is moving (speed)
    -- won't change gear if desired gear is out of range
-   procedure ChangeGear (This : in out Car; selectedGear : in GearRange) with
-     Pre => this.isDiagMode = False and 
-     this.speed = 0 and
-     selectedGear <= GearRange'Last and
-     selectedGear >= GearRange'First;
+   procedure ChangeGear (This : in out Car; selectedGear : in GearRange); --with
+     --  Pre => this.isDiagMode = False and
+     --  this.speed = 0 and
+     --  selectedGear <= GearRange'Last and
+     --  selectedGear >= GearRange'First;
    
    -- move the car with desired speed
    -- won't move if not started
@@ -70,14 +67,9 @@ package CarSystem with SPARK_Mode is
    -- won't move if desired speed is out of range
    -- will cap desired speed at speed limit
    procedure MoveCar (This : in out Car) with
-     Pre => --this.isStarted = True and
-     --this.isDiagMode = False and
-     --this.SensorDetect = False and
-     --this.isBatteryWarning = False and
-     --this.gear > 0 and
-     this.desiredSpeed >= SpeedRange'First and
+     Pre => this.desiredSpeed >= SpeedRange'First and
      this.desiredSpeed <= SpeedRange'Last;
-   
+   procedure MaintainSpeed (This : in out Car);
    -- stops the car
    -- will ensure speed is 0
    procedure EmergencyStop (This : in out Car); --with

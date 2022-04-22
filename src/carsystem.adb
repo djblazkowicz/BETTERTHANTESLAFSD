@@ -18,7 +18,7 @@ package body CarSystem with SPARK_Mode is
             This.predictedCharge := Integer(This.battery) + (((Integer(This.previousSpeed) - Integer(This.speed))*5)/100);
          if This.predictedCharge > Integer(BatteryChargeRange'Last) then
             Put_line("USING REGENERATIVE BRAKING, PREDICTED CHARGE: " & This.predictedCharge'Image);
-            Put_Line("Overcharge protection!!!");
+            Put_Line("OVERCHARGE PROTECTION!");
             delay 2.0;            
             ChargeBattery(This, BatteryChargeRange'Last);
          else
@@ -52,13 +52,30 @@ package body CarSystem with SPARK_Mode is
    begin
       CheckBatteryWarning(This);
       if not This.isDiagMode then
-      if This.isStarted = False and
-        This.gear = 0 and
-        This.speed = 0 then
-         This.isStarted := True;
+         if This.isStarted then
+            Put_Line("Cannot start up if already running!");
+            delay 2.0;
+            return;
          end if;
+         if This.gear > 0 then
+            Put_line("Can only START/STOP in PARK Gear!");
+            delay 2.0;
+            return;
+         end if;
+         if This.speed > 0 then
+            Put_line("Can only START/STOP when stationary!");
+            delay 2.0;
+            return;
+         end if;
+         if not This.isStarted and
+           This.gear = 0 and
+           This.speed = 0 then
+            This.isStarted := True;
+            Put_Line("Starting up...");
+            delay 2.0;
+         end if;         
       else
-         Put_Line("Cannot start up in Diagnostic Mode!");
+         Put_Line("Cannot START/STOP up in Diagnostic Mode!");
          delay 2.0;
       end if;
       return;
@@ -74,19 +91,24 @@ package body CarSystem with SPARK_Mode is
             return;
          end if;
          if This.gear > 0 then
-            Put_Line("Cannot shut down. Car is not in PARK gear!");
+            Put_Line("Can only START/STOP in PARK Gear!");
             delay 2.0;
             return;
          end if;
          if This.speed > 0 then
-            Put_Line("Cannot shut down when the car is moving!");
+            Put_Line("Can only START/STOP when stationary!");
             delay 2.0;
             return;
-         else
+         end if;
+         if This.isStarted and
+              This.gear = 0 and
+              This.speed = 0 then
             This.isStarted := False;
+            Put_Line("Shutting Down...");
+            delay 2.0;
          end if;
       else
-         Put_Line("Cannot shut down in Diagnostic Mode!");
+         Put_Line("Cannot START/STOP up in Diagnostic Mode!");
          delay 2.0;
       end if;
       return;
@@ -108,13 +130,28 @@ package body CarSystem with SPARK_Mode is
                
    procedure ChangeGear (This : in out Car; selectedGear : in GearRange) is
    begin
-      if not This.isDiagMode and
-        This.speed < 1 and 
-        selectedGear <= CarSystem.GearRange'Last and
-        selectedGear >= CarSystem.GearRange'First then
-         This.gear := selectedGear;
+      --if not This.isDiagMode and
+      --  This.speed < 1 and 
+      --  selectedGear <= CarSystem.GearRange'Last and
+      --  selectedGear >= CarSystem.GearRange'First then
+      --   This.gear := selectedGear;
+      --end if;
+      --CheckSensor(This);
+      if not This.isDiagMode then
+         if This.speed > 0 then
+            Put_line("Can only change Gear when stationary!");
+            delay 2.0;
+            return;
+         end if;
+         if This.speed = 0 and
+           selectedGear <= CarSystem.GearRange'Last and
+           selectedGear >= CarSystem.GearRange'First then
+            This.gear := selectedGear;
+            CheckSensor(This);
+         end if;
+      else
+         Put_line("Cannot change Gear in DIAGNOSTIC Mode!");
       end if;
-      CheckSensor(This);
    end ChangeGear;
    
    procedure MoveCar (This : in out Car) is
@@ -126,12 +163,12 @@ package body CarSystem with SPARK_Mode is
       CheckBatteryWarning(This);
       if not This.isDiagMode then
          if not This.isStarted then
-            Put_line("cannot move, car not started");
+            Put_line("Cannot move. Car is not running!");
             delay 2.0;
             return;
          end if;       
          if This.gear = 0 then
-            Put_Line("cannot move, car in PARKING gear");
+            Put_Line("Cannot move. Car in PARKING Gear!");
             delay 2.0;
             return; 
          end if;         
@@ -177,6 +214,18 @@ package body CarSystem with SPARK_Mode is
       This.previousSpeed := This.speed;
    end MoveCar;
    
+   procedure MaintainSpeed (This : in out Car) is
+   begin
+      if This.desiredSpeed = 0 and
+        This.previousSpeed = 0 then
+         Put_line("Car is stationary, ignoring");
+      else
+         This.desiredSpeed := This.previousSpeed;
+         MoveCar(This);
+      end if;
+   end;
+   
+   
    procedure EmergencyStop (This : in out Car) is
    begin
       CheckBatteryWarning(This);
@@ -208,7 +257,7 @@ package body CarSystem with SPARK_Mode is
       if not This.isDiagMode then
          if (Integer(desiredCharge) + Integer(This.battery)) > Integer(BatteryChargeRange'Last) then
             This.battery := BatteryChargeRange'Last;
-            Put_Line("Overcharge protection!");
+            Put_Line("OVERCHARGE PROTECTION!");
             delay 2.0;
          else
             This.battery := This.battery + desiredCharge;
@@ -216,7 +265,8 @@ package body CarSystem with SPARK_Mode is
       else
          Put_Line("Cannot charge in DIAGNOSTIC mode!");
          delay 2.0;
-      end if;   
+      end if;
+      CheckBatteryWarning(This);
    end ChargeBattery2;
    
    procedure EnterDiagMode (This : in out Car) is

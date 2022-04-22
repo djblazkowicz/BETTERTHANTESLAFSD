@@ -39,18 +39,18 @@ begin
       New_Line;
       Put_Line("Choose one of the following options: ");
       Put_Line("...........................");
-      Put_Line("1.  Start the car");
-      Put_Line("2.  Shut the car down");
-      Put_line("3.  Put Gearbox in Park");
-      Put_line("4.  Put Gearbox in Drive");
-      Put_line("5.  Put Gearbox in Reverse");
-      Put_line("6.  Charge the battery");
+      Put_Line("1.  START/STOP Button");
+      Put_line("2.  Put Gearbox in Park");
+      Put_line("3.  Put Gearbox in Drive");
+      Put_line("4.  Put Gearbox in Reverse");
+      Put_line("5.  Charge the battery");
+      Put_line("6.  Toggle Regenerative Braking");
       Put_line("7.  Set Speed");
-      Put_line("8.  Execute Emergency Stop");
-      Put_line("9.  Enter/Exit Diagnostic Mode");
-      Put_line("10. Add/Remove Object Ahead");
-      Put_line("11. Add/Remove Object Behind");
-      Put_line("12. Toggle Regenerative Braking");
+      Put_line("8.  Maintain Speed");
+      Put_line("9.  Execute Emergency Stop");
+      Put_line("10.  Toggle Diagnostic Mode");
+      Put_line("11. Toggle Object Ahead");
+      Put_line("12. Toggle Object Ahead");
       Put_Line("0 to exit ");
       Put_Line("...........................");
       New_Line;
@@ -58,45 +58,42 @@ begin
 
       case option is
          when 1    =>
-            Put_Line("Start the car...");
-            delay 2.0;
-            if  not saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
+            if saxo.isStarted then
+               StopProcedure(saxo);
+            else
                StartProcedure(saxo);
             end if;
          when 2    =>
-            Put_Line("Turning the car off...");
+            Put_line("Attempting Gear change...");
             delay 2.0;
-            --if  saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
-               StopProcedure(saxo);
-            --end if;
+            --  if not saxo.isDiagMode and saxo.speed < 1 then
+            --     ChangeGear(saxo, 0);
+            --  else
+            --     Put_line("Cannot change gear!");
+            --     delay 2.0;
+            --  end if;
+            ChangeGear(saxo, 0);
          when 3    =>
             Put_line("Attempting Gear change...");
             delay 2.0;
-            if not saxo.isDiagMode and saxo.speed < 1 then
-               ChangeGear(saxo, 0);
-            else
-               Put_line("Cannot change gear!");
-               delay 2.0;
-            end if;
+            --  if not saxo.isDiagMode and saxo.speed < 1 then
+            --     ChangeGear(saxo, 1);
+            --  else
+            --     Put_line("Cannot change gear!");
+            --     delay 2.0;
+            --  end if;
+            ChangeGear(saxo, 1);
          when 4    =>
             Put_line("Attempting Gear change...");
             delay 2.0;
-            if not saxo.isDiagMode and saxo.speed < 1 then
-               ChangeGear(saxo, 1);
-            else
-               Put_line("Cannot change gear!");
-               delay 2.0;
-            end if;
-         when 5    =>
-            Put_line("Attempting Gear change...");
-            delay 2.0;
-            if not saxo.isDiagMode and saxo.speed < 1 then
-               ChangeGear(saxo, 2);
-            else
-               Put_line("Cannot change gear!");
-               delay 2.0;
-            end if;
-         when 6 =>
+            --  if not saxo.isDiagMode and saxo.speed < 1 then
+            --     ChangeGear(saxo, 2);
+            --  else
+            --     Put_line("Cannot change gear!");
+            --     delay 2.0;
+            --  end if;
+            ChangeGear(saxo, 2);
+         when 5 =>
             while battery_int > Integer(BatteryChargeRange'Last) or
               battery_int < Integer(BatteryChargeRange'First) loop
                Put_line("Input desired charge:");
@@ -111,6 +108,10 @@ begin
             ChargeBattery2(saxo, battery);
             battery_int := -1;
             battery := 0;
+         when 6 =>
+            Put_line("Toggle Regenerative Braking...");
+            ToggleRegenBraking(saxo);
+            delay 2.0;
          when 7 =>
             while speed_int > Integer(SpeedRange'Last) or
             speed_int < Integer(SpeedRange'First) loop
@@ -120,15 +121,19 @@ begin
             saxo.desiredSpeed := SpeedRange(speed_int);
             Put_line("selected speed: " & saxo.desiredSpeed'Image);
             delay 2.0;
-            Put_line("Attemting to move...");
+            Put_line("Adjusting speed...");
             MoveCar(saxo);
             speed_int := -1;
             delay 2.0;
          when 8 =>
+            Put_line("Maintaining speed...");
+            MaintainSpeed(saxo);
+            delay 2.0;
+         when 9 =>
             Put_line("Executing Emergency Stop...");
             delay 2.0;
             EmergencyStop(saxo);
-         when 9 =>
+         when 10 =>
             if saxo.isDiagMode = True then
                Put_line("Exiting Diagnostic Mode");
                delay 2.0;
@@ -138,7 +143,7 @@ begin
                delay 2.0;
                EnterDiagMode(saxo);
             end if;
-         when 10 =>
+         when 11 =>
             if ObjectAhead = True then
                Put_line("Removing object Ahead...");
             else
@@ -146,17 +151,13 @@ begin
             end if;
             ObjectAhead := not ObjectAhead;
             delay 2.0;
-         when 11 =>
+         when 12 =>
             if ObjectAhead = True then
                Put_line("Removing object Behind...");
             else
                Put_line("Adding object Behind...");
             end if;
             ObjectBehind := not ObjectBehind;
-            delay 2.0;
-         when 12 =>
-            Put_line("Toggle Regenerative Braking...");
-            ToggleRegenBraking(saxo);
             delay 2.0;
          when 0    =>
             Put_Line ("Exiting...");
