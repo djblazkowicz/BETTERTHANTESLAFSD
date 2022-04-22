@@ -3,7 +3,13 @@ package body CarSystem with SPARK_Mode is
    
    procedure ToggleRegenBraking (This : in out Car) is
    begin
-      This.isRegenBraking := not This.isRegenBraking;
+      if not This.isDiagMode then
+         This.isRegenBraking := not This.isRegenBraking;
+      else
+         Put_Line("Cannot Toggle Regenerative Braking in Diagnostic Mode!");
+         delay 2.0;
+         return;
+      end if;
    end ToggleRegenBraking;
    
    procedure UseRegenBraking (This : in out Car) is
@@ -44,23 +50,46 @@ package body CarSystem with SPARK_Mode is
    
    procedure StartProcedure (This : in out Car) is
    begin
-      -- implement
       CheckBatteryWarning(This);
+      if not This.isDiagMode then
       if This.isStarted = False and
         This.gear = 0 and
         This.speed = 0 then
          This.isStarted := True;
          end if;
+      else
+         Put_Line("Cannot start up in Diagnostic Mode!");
+         delay 2.0;
+      end if;
+      return;
    end StartProcedure;
    
    procedure StopProcedure (This : in out Car) is
    begin
       CheckBatteryWarning(This);
-      if This.speed = 0 and
-        This.gear = 0 then
-         This.isDiagMode := False;
-         This.isStarted := False;
+      if not This.isDiagMode then
+         if not This.isStarted then
+            Put_Line("Car is already shut down!");
+            delay 2.0;
+            return;
+         end if;
+         if This.gear > 0 then
+            Put_Line("Cannot shut down. Car is not in PARK gear!");
+            delay 2.0;
+            return;
+         end if;
+         if This.speed > 0 then
+            Put_Line("Cannot shut down when the car is moving!");
+            delay 2.0;
+            return;
+         else
+            This.isStarted := False;
+         end if;
+      else
+         Put_Line("Cannot shut down in Diagnostic Mode!");
+         delay 2.0;
       end if;
+      return;
    end StopProcedure;
       
    procedure CheckSensor (This : in out Car) is
@@ -94,50 +123,51 @@ package body CarSystem with SPARK_Mode is
          This.previousSpeed := This.speed;
       end if;      
       CheckSensor(This);
-      CheckBatteryWarning(This);      
-      if This.SensorDetect then
-         Put_line("OBJECT DETECTED, EXECUTING EMERGENCY STOP");
-         delay 2.0;
-         EmergencyStop(This);
-         return;
-      end if;
-      if This.isBatteryWarning then
-         Put_line("BATTERY WARNING, EXECUTING EMERGENCY STOP");
-         delay 2.0;
-         EmergencyStop(This);
-         return;
-      end if;
-      if not This.isStarted then
-         Put_line("cannot move, car not started");
-         delay 2.0;
-         return;
-      end if;
-      if this.isDiagMode then
-         Put_line("cannot move, car in DIAGNOSTIC mode");
-         delay 2.0;
-         return;
-      end if;       
-      if This.gear = 0 then
-         Put_Line("cannot move, car in PARKING gear");
-         delay 2.0;
-         return; 
-      end if;
-      if This.isStarted and
-         not This.isDiagMode and
-         not This.SensorDetect and
-         not This.isBatteryWarning and
-        This.gear > 0 and
-        This.desiredSpeed >= SpeedRange'First and
-        This.desiredSpeed <= SpeedRange'Last then
-         if This.desiredSpeed > SpeedLimit then
-            This.speed := SpeedLimit;
-         else
-            This.speed := This.desiredSpeed;
-         end if;
-         if This.speed > 0 and 
-           This.battery > MinCharge then
-           This.battery := This.battery - 1;
+      CheckBatteryWarning(This);
+      if not This.isDiagMode then
+         if not This.isStarted then
+            Put_line("cannot move, car not started");
+            delay 2.0;
+            return;
+         end if;       
+         if This.gear = 0 then
+            Put_Line("cannot move, car in PARKING gear");
+            delay 2.0;
+            return; 
          end if;         
+         if This.SensorDetect then
+            Put_line("OBJECT DETECTED, EXECUTING EMERGENCY STOP");
+            delay 2.0;
+            EmergencyStop(This);
+            return;
+         end if;
+         if This.isBatteryWarning then
+            Put_line("BATTERY WARNING, EXECUTING EMERGENCY STOP");
+            delay 2.0;
+            EmergencyStop(This);
+            return;
+         end if;
+         if This.isStarted and
+           not This.isDiagMode and
+           not This.SensorDetect and
+           not This.isBatteryWarning and
+           This.gear > 0 and
+           This.desiredSpeed >= SpeedRange'First and
+           This.desiredSpeed <= SpeedRange'Last then
+            if This.desiredSpeed > SpeedLimit then
+               This.speed := SpeedLimit;
+            else
+               This.speed := This.desiredSpeed;
+            end if;
+            if This.speed > 0 and 
+              This.battery > MinCharge then
+               This.battery := This.battery - 1;
+            end if;         
+         else
+            Put_line("Cannot move! Car is in DIAGNOSTIC Mode!");
+            delay 2.0;
+            return;
+         end if;
       end if;
       CheckBatteryWarning(This);
       This.desiredSpeed := 0;
@@ -152,6 +182,8 @@ package body CarSystem with SPARK_Mode is
       CheckBatteryWarning(This);
       This.speed := 0;
       This.gear := 0;
+      Put_Line("Executing Emergency Stop!");
+      delay 2.0;
       CheckRegenBraking(This);
       This.previousSpeed := 0;
    end EmergencyStop;
@@ -163,10 +195,11 @@ package body CarSystem with SPARK_Mode is
             This.battery := BatteryChargeRange'Last;
          else
             This.battery := desiredCharge;
-         end if;
-         
+         end if;     
+      else
+         Put_Line("Cannot charge in Diagnostic mode!");
+         delay 2.0;
       end if;
-      
       CheckBatteryWarning(This);
    end ChargeBattery;
    

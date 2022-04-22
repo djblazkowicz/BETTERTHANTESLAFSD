@@ -15,7 +15,11 @@ procedure Main with SPARK_Mode is
       New_Line;
       Put_Line("...........................");
       Put_Line("Car Started: " & saxo.isStarted'Image);
-      Put_Line("Selected Gear: " & saxo.gear'Image);
+      case saxo.gear is
+         when 0 => Put_Line("Selected Gear: PARK");
+         when 1 => Put_Line("Selected Gear: DRIVE");
+         when 2 => Put_Line("Selected Gear: REVERSE");
+      end case;
       Put_Line("Battery level: " & saxo.battery'Image);
       Put_Line("Speed: " & saxo.speed'Image);
       Put_line("Previous Speed: " & saxo.previousSpeed'Image);
@@ -28,7 +32,6 @@ procedure Main with SPARK_Mode is
       Put_Line("...........................");
       New_Line;
    end PrintStatus;
-
 begin
    while option /= 0 loop
 
@@ -63,9 +66,9 @@ begin
          when 2    =>
             Put_Line("Turning the car off...");
             delay 2.0;
-            if  saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
+            --if  saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
                StopProcedure(saxo);
-            end if;
+            --end if;
          when 3    =>
             Put_line("Attempting Gear change...");
             delay 2.0;
@@ -94,7 +97,6 @@ begin
                delay 2.0;
             end if;
          when 6 =>
-
             while battery_int > Integer(BatteryChargeRange'Last) or
               battery_int < Integer(BatteryChargeRange'First) loop
                Put_line("Input desired charge:");
@@ -102,7 +104,6 @@ begin
             end loop;
             if battery_int <= Integer(BatteryChargeRange'Last) and
               battery_int >= Integer(BatteryChargeRange'First) then
-
                battery := BatteryChargeRange(battery_int);
                end if;
             Put_line("Charging battery...");
@@ -110,7 +111,6 @@ begin
             ChargeBattery(saxo, battery);
             battery_int := -1;
             battery := 0;
-
          when 7 =>
             while speed_int > Integer(SpeedRange'Last) or
             speed_int < Integer(SpeedRange'First) loop
@@ -131,10 +131,13 @@ begin
          when 9 =>
             if saxo.isDiagMode = True then
                Put_line("Exiting Diagnostic Mode");
+               delay 2.0;
+               ExitDiagMode(saxo);
             else
                Put_line("Entering Diagnostic Mode");
+               delay 2.0;
+               EnterDiagMode(saxo);
             end if;
-            saxo.isDiagMode := not saxo.isDiagMode;
          when 10 =>
             if ObjectAhead = True then
                Put_line("Removing object Ahead...");
@@ -163,5 +166,4 @@ begin
             null;
       end case;
       end loop;
-
 end Main;
