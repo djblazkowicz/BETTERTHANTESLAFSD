@@ -1217,11 +1217,8 @@ end
 module Carsystem__emergencystop___axiom
   use _gnatprove_standard.Main
   use int.Int
-  use int.Int
   use Carsystem__car as Carsystem__car
   use Carsystem__car___axiom as Carsystem__car___axiom
-  use Carsystem__speedrange as Carsystem__speedrange
-  use Carsystem__speedrange__rep as Carsystem__speedrange__rep
   use Ada___ada__text_io__file_system as Ada___ada__text_io__file_system
   use Ada___ada__text_io__standard_in as Ada___ada__text_io__standard_in
   use Ada___ada__text_io__standard_out as Ada___ada__text_io__standard_out
@@ -1250,21 +1247,14 @@ module Carsystem__emergencystop___axiom
       Ada___ada__real_time__clock_time.clock_time }
     requires { true }
     writes { Ada___ada__text_io__file_system.file_system, Ada___ada__text_io__standard_in.standard_in, Ada___ada__text_io__standard_out.standard_out, Ada___ada__text_io__standard_err.standard_err, Ada___ada__text_io__current_in.current_in, Ada___ada__text_io__current_out.current_out, Ada___ada__text_io__current_err.current_err, this__split_fields }
-    ensures { (([@GP_Pretty_Ada:12748]
-                ((Carsystem__speedrange__rep.to_rep
-                    ((Carsystem__car.__split_fields
-                         { Carsystem__car.__split_fields =
-                             (Carsystem__car.__split_fields__content
-                                 this__split_fields) }).Carsystem__car.rec__carsystem__car__speed))
-                   = (0 : int))) /\
-                 (((((Carsystem__car___axiom.dynamic_invariant
-                        { Carsystem__car.__split_fields =
-                            (Carsystem__car.__split_fields__content
-                                this__split_fields) })
-                       True)
-                      True)
-                     True)
-                    True)) }
+    ensures { ((((Carsystem__car___axiom.dynamic_invariant
+                    { Carsystem__car.__split_fields =
+                        (Carsystem__car.__split_fields__content
+                            this__split_fields) })
+                   True)
+                  True)
+                 True)
+                True }
 end
 
 module Ada___ada__text_io__line_length__2
@@ -1375,7 +1365,7 @@ module Ada___ada__text_io__put_line__2___axiom
       Ada___ada__text_io__current_err.current_err }
     requires { true }
     writes { Ada___ada__text_io__file_system.file_system, Ada___ada__text_io__standard_in.standard_in, Ada___ada__text_io__standard_out.standard_out, Ada___ada__text_io__standard_err.standard_err, Ada___ada__text_io__current_in.current_in, Ada___ada__text_io__current_out.current_out, Ada___ada__text_io__current_err.current_err }
-    ensures { (([@GP_Pretty_Ada:4135]
+    ensures { (([@GP_Pretty_Ada:4150]
                 ((old (((((((Ada___ada__text_io__line_length__2.line_length
                                (Main.__private__content
                                    Ada___ada__text_io__file_system.file_system))
@@ -1406,7 +1396,7 @@ module Ada___ada__text_io__put_line__2___axiom
                              Ada___ada__text_io__current_out.current_out))
                         (Main.__private__content
                             Ada___ada__text_io__current_err.current_err)))) /\
-                 ([@GP_Pretty_Ada:4141]
+                 ([@GP_Pretty_Ada:4156]
                   ((old (((((((Ada___ada__text_io__page_length__2.page_length
                                  (Main.__private__content
                                      Ada___ada__text_io__file_system.file_system))
@@ -1439,7 +1429,7 @@ module Ada___ada__text_io__put_line__2___axiom
                               Ada___ada__text_io__current_err.current_err))))) }
 end
 
-module Temp___String_Literal_248
+module Temp___String_Literal_259
   use _gnatprove_standard.Main
   use int.Int
   use int.Int
@@ -1448,218 +1438,218 @@ module Temp___String_Literal_248
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
   
-  val function temp___String_Literal_248 (__void_param: unit) : Array__Int__Standard__character.map
+  val function temp___String_Literal_259 (__void_param: unit) : Array__Int__Standard__character.map
   
-  axiom temp___String_Literal_248__def_axiom:
-    forall __void_param : unit [temp___String_Literal_248 __void_param].
+  axiom temp___String_Literal_259__def_axiom:
+    forall __void_param : unit [temp___String_Literal_259 __void_param].
       ((((Standard__character__rep.to_rep
             ((Array__Int__Standard__character.get
-                (temp___String_Literal_248 __void_param))
+                (temp___String_Literal_259 __void_param))
                (1 : int)))
            = (79 : int)) /\
           ((Standard__character__rep.to_rep
               ((Array__Int__Standard__character.get
-                  (temp___String_Literal_248 __void_param))
+                  (temp___String_Literal_259 __void_param))
                  (2 : int)))
              = (66 : int))) /\
          ((((((((Standard__character__rep.to_rep
                    ((Array__Int__Standard__character.get
-                       (temp___String_Literal_248 __void_param))
+                       (temp___String_Literal_259 __void_param))
                       (3 : int)))
                   = (74 : int)) /\
                  ((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_248 __void_param))
+                         (temp___String_Literal_259 __void_param))
                         (4 : int)))
                     = (69 : int))) /\
                 ((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_248 __void_param))
+                        (temp___String_Literal_259 __void_param))
                        (5 : int)))
                    = (67 : int))) /\
                (((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_248 __void_param))
+                        (temp___String_Literal_259 __void_param))
                        (6 : int)))
                    = (84 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_248 __void_param))
+                          (temp___String_Literal_259 __void_param))
                          (7 : int)))
                      = (32 : int)))) /\
               (((((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_248 __void_param))
+                         (temp___String_Literal_259 __void_param))
                         (8 : int)))
                     = (68 : int)) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_248 __void_param))
+                           (temp___String_Literal_259 __void_param))
                           (9 : int)))
                       = (69 : int))) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_248 __void_param))
+                          (temp___String_Literal_259 __void_param))
                          (10 : int)))
                      = (84 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_248 __void_param))
+                          (temp___String_Literal_259 __void_param))
                          (11 : int)))
                      = (69 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (12 : int)))
                        = (67 : int))))) /\
              ((((((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_248 __void_param))
+                         (temp___String_Literal_259 __void_param))
                         (13 : int)))
                     = (84 : int)) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_248 __void_param))
+                           (temp___String_Literal_259 __void_param))
                           (14 : int)))
                       = (69 : int))) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_248 __void_param))
+                          (temp___String_Literal_259 __void_param))
                          (15 : int)))
                      = (68 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_248 __void_param))
+                          (temp___String_Literal_259 __void_param))
                          (16 : int)))
                      = (44 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (17 : int)))
                        = (32 : int)))) /\
                 (((((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_248 __void_param))
+                           (temp___String_Literal_259 __void_param))
                           (18 : int)))
                       = (69 : int)) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_248 __void_param))
+                             (temp___String_Literal_259 __void_param))
                             (19 : int)))
                         = (88 : int))) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (20 : int)))
                        = (69 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (21 : int)))
                        = (67 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_248 __void_param))
+                              (temp___String_Literal_259 __void_param))
                              (22 : int)))
                          = (85 : int)))))) /\
             (((((((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_248 __void_param))
+                         (temp___String_Literal_259 __void_param))
                         (23 : int)))
                     = (84 : int)) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_248 __void_param))
+                           (temp___String_Literal_259 __void_param))
                           (24 : int)))
                       = (73 : int))) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_248 __void_param))
+                          (temp___String_Literal_259 __void_param))
                          (25 : int)))
                      = (78 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_248 __void_param))
+                          (temp___String_Literal_259 __void_param))
                          (26 : int)))
                      = (71 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (27 : int)))
                        = (32 : int)))) /\
                 (((((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_248 __void_param))
+                           (temp___String_Literal_259 __void_param))
                           (28 : int)))
                       = (69 : int)) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_248 __void_param))
+                             (temp___String_Literal_259 __void_param))
                             (29 : int)))
                         = (77 : int))) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (30 : int)))
                        = (69 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (31 : int)))
                        = (82 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_248 __void_param))
+                              (temp___String_Literal_259 __void_param))
                              (32 : int)))
                          = (71 : int))))) /\
                ((((((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_248 __void_param))
+                           (temp___String_Literal_259 __void_param))
                           (33 : int)))
                       = (69 : int)) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_248 __void_param))
+                             (temp___String_Literal_259 __void_param))
                             (34 : int)))
                         = (78 : int))) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (35 : int)))
                        = (67 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (36 : int)))
                        = (89 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_248 __void_param))
+                              (temp___String_Literal_259 __void_param))
                              (37 : int)))
                          = (32 : int)))) /\
                   ((((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_248 __void_param))
+                            (temp___String_Literal_259 __void_param))
                            (38 : int)))
                        = (83 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_248 __void_param))
+                              (temp___String_Literal_259 __void_param))
                              (39 : int)))
                          = (84 : int))) /\
                      (((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_248 __void_param))
+                              (temp___String_Literal_259 __void_param))
                              (40 : int)))
                          = (79 : int)) /\
                         ((Standard__character__rep.to_rep
                             ((Array__Int__Standard__character.get
-                                (temp___String_Literal_248 __void_param))
+                                (temp___String_Literal_259 __void_param))
                                (41 : int)))
                            = (80 : int))))))))
 end
 
-module Temp___String_Literal_251
+module Temp___String_Literal_262
   use _gnatprove_standard.Main
   use int.Int
   use int.Int
@@ -1668,218 +1658,218 @@ module Temp___String_Literal_251
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
   
-  val function temp___String_Literal_251 (__void_param: unit) : Array__Int__Standard__character.map
+  val function temp___String_Literal_262 (__void_param: unit) : Array__Int__Standard__character.map
   
-  axiom temp___String_Literal_251__def_axiom:
-    forall __void_param : unit [temp___String_Literal_251 __void_param].
+  axiom temp___String_Literal_262__def_axiom:
+    forall __void_param : unit [temp___String_Literal_262 __void_param].
       ((((Standard__character__rep.to_rep
             ((Array__Int__Standard__character.get
-                (temp___String_Literal_251 __void_param))
+                (temp___String_Literal_262 __void_param))
                (1 : int)))
            = (66 : int)) /\
           ((Standard__character__rep.to_rep
               ((Array__Int__Standard__character.get
-                  (temp___String_Literal_251 __void_param))
+                  (temp___String_Literal_262 __void_param))
                  (2 : int)))
              = (65 : int))) /\
          ((((((((Standard__character__rep.to_rep
                    ((Array__Int__Standard__character.get
-                       (temp___String_Literal_251 __void_param))
+                       (temp___String_Literal_262 __void_param))
                       (3 : int)))
                   = (84 : int)) /\
                  ((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_251 __void_param))
+                         (temp___String_Literal_262 __void_param))
                         (4 : int)))
                     = (84 : int))) /\
                 ((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_251 __void_param))
+                        (temp___String_Literal_262 __void_param))
                        (5 : int)))
                    = (69 : int))) /\
                (((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_251 __void_param))
+                        (temp___String_Literal_262 __void_param))
                        (6 : int)))
                    = (82 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_251 __void_param))
+                          (temp___String_Literal_262 __void_param))
                          (7 : int)))
                      = (89 : int)))) /\
               (((((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_251 __void_param))
+                         (temp___String_Literal_262 __void_param))
                         (8 : int)))
                     = (32 : int)) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_251 __void_param))
+                           (temp___String_Literal_262 __void_param))
                           (9 : int)))
                       = (87 : int))) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_251 __void_param))
+                          (temp___String_Literal_262 __void_param))
                          (10 : int)))
                      = (65 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_251 __void_param))
+                          (temp___String_Literal_262 __void_param))
                          (11 : int)))
                      = (82 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (12 : int)))
                        = (78 : int))))) /\
              ((((((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_251 __void_param))
+                         (temp___String_Literal_262 __void_param))
                         (13 : int)))
                     = (73 : int)) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_251 __void_param))
+                           (temp___String_Literal_262 __void_param))
                           (14 : int)))
                       = (78 : int))) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_251 __void_param))
+                          (temp___String_Literal_262 __void_param))
                          (15 : int)))
                      = (71 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_251 __void_param))
+                          (temp___String_Literal_262 __void_param))
                          (16 : int)))
                      = (44 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (17 : int)))
                        = (32 : int)))) /\
                 (((((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_251 __void_param))
+                           (temp___String_Literal_262 __void_param))
                           (18 : int)))
                       = (69 : int)) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_251 __void_param))
+                             (temp___String_Literal_262 __void_param))
                             (19 : int)))
                         = (88 : int))) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (20 : int)))
                        = (69 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (21 : int)))
                        = (67 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_251 __void_param))
+                              (temp___String_Literal_262 __void_param))
                              (22 : int)))
                          = (85 : int)))))) /\
             (((((((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_251 __void_param))
+                         (temp___String_Literal_262 __void_param))
                         (23 : int)))
                     = (84 : int)) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_251 __void_param))
+                           (temp___String_Literal_262 __void_param))
                           (24 : int)))
                       = (73 : int))) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_251 __void_param))
+                          (temp___String_Literal_262 __void_param))
                          (25 : int)))
                      = (78 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_251 __void_param))
+                          (temp___String_Literal_262 __void_param))
                          (26 : int)))
                      = (71 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (27 : int)))
                        = (32 : int)))) /\
                 (((((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_251 __void_param))
+                           (temp___String_Literal_262 __void_param))
                           (28 : int)))
                       = (69 : int)) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_251 __void_param))
+                             (temp___String_Literal_262 __void_param))
                             (29 : int)))
                         = (77 : int))) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (30 : int)))
                        = (69 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (31 : int)))
                        = (82 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_251 __void_param))
+                              (temp___String_Literal_262 __void_param))
                              (32 : int)))
                          = (71 : int))))) /\
                ((((((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_251 __void_param))
+                           (temp___String_Literal_262 __void_param))
                           (33 : int)))
                       = (69 : int)) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_251 __void_param))
+                             (temp___String_Literal_262 __void_param))
                             (34 : int)))
                         = (78 : int))) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (35 : int)))
                        = (67 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (36 : int)))
                        = (89 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_251 __void_param))
+                              (temp___String_Literal_262 __void_param))
                              (37 : int)))
                          = (32 : int)))) /\
                   ((((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_251 __void_param))
+                            (temp___String_Literal_262 __void_param))
                            (38 : int)))
                        = (83 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_251 __void_param))
+                              (temp___String_Literal_262 __void_param))
                              (39 : int)))
                          = (84 : int))) /\
                      (((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_251 __void_param))
+                              (temp___String_Literal_262 __void_param))
                              (40 : int)))
                          = (79 : int)) /\
                         ((Standard__character__rep.to_rep
                             ((Array__Int__Standard__character.get
-                                (temp___String_Literal_251 __void_param))
+                                (temp___String_Literal_262 __void_param))
                                (41 : int)))
                            = (80 : int))))))))
 end
 
-module Temp___String_Literal_254
+module Temp___String_Literal_265
   use _gnatprove_standard.Main
   use int.Int
   use int.Int
@@ -1888,153 +1878,153 @@ module Temp___String_Literal_254
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
   
-  val function temp___String_Literal_254 (__void_param: unit) : Array__Int__Standard__character.map
+  val function temp___String_Literal_265 (__void_param: unit) : Array__Int__Standard__character.map
   
-  axiom temp___String_Literal_254__def_axiom:
-    forall __void_param : unit [temp___String_Literal_254 __void_param].
+  axiom temp___String_Literal_265__def_axiom:
+    forall __void_param : unit [temp___String_Literal_265 __void_param].
       ((((Standard__character__rep.to_rep
             ((Array__Int__Standard__character.get
-                (temp___String_Literal_254 __void_param))
+                (temp___String_Literal_265 __void_param))
                (1 : int)))
            = (99 : int)) /\
           ((Standard__character__rep.to_rep
               ((Array__Int__Standard__character.get
-                  (temp___String_Literal_254 __void_param))
+                  (temp___String_Literal_265 __void_param))
                  (2 : int)))
              = (97 : int))) /\
          (((((((Standard__character__rep.to_rep
                   ((Array__Int__Standard__character.get
-                      (temp___String_Literal_254 __void_param))
+                      (temp___String_Literal_265 __void_param))
                      (3 : int)))
                  = (110 : int)) /\
                 ((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_254 __void_param))
+                        (temp___String_Literal_265 __void_param))
                        (4 : int)))
                    = (110 : int))) /\
                (((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_254 __void_param))
+                        (temp___String_Literal_265 __void_param))
                        (5 : int)))
                    = (111 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (6 : int)))
                      = (116 : int)))) /\
               ((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_254 __void_param))
+                        (temp___String_Literal_265 __void_param))
                        (7 : int)))
                    = (32 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (8 : int)))
                      = (109 : int))) /\
                  ((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_254 __void_param))
+                         (temp___String_Literal_265 __void_param))
                         (9 : int)))
                     = (111 : int)))) /\
              (((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_254 __void_param))
+                        (temp___String_Literal_265 __void_param))
                        (10 : int)))
                    = (118 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (11 : int)))
                      = (101 : int))) /\
                  ((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_254 __void_param))
+                         (temp___String_Literal_265 __void_param))
                         (12 : int)))
                     = (44 : int))) /\
                 ((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (13 : int)))
                      = (32 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_254 __void_param))
+                            (temp___String_Literal_265 __void_param))
                            (14 : int)))
                        = (99 : int))) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_254 __void_param))
+                           (temp___String_Literal_265 __void_param))
                           (15 : int)))
                       = (97 : int))))) /\
             ((((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_254 __void_param))
+                        (temp___String_Literal_265 __void_param))
                        (16 : int)))
                    = (114 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (17 : int)))
                      = (32 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (18 : int)))
                      = (110 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_254 __void_param))
+                            (temp___String_Literal_265 __void_param))
                            (19 : int)))
                        = (111 : int)))) /\
                 ((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (20 : int)))
                      = (116 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_254 __void_param))
+                            (temp___String_Literal_265 __void_param))
                            (21 : int)))
                        = (32 : int))) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_254 __void_param))
+                           (temp___String_Literal_265 __void_param))
                           (22 : int)))
                       = (115 : int)))) /\
                (((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_254 __void_param))
+                          (temp___String_Literal_265 __void_param))
                          (23 : int)))
                      = (116 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_254 __void_param))
+                            (temp___String_Literal_265 __void_param))
                            (24 : int)))
                        = (97 : int))) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_254 __void_param))
+                           (temp___String_Literal_265 __void_param))
                           (25 : int)))
                       = (114 : int))) /\
                   ((((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_254 __void_param))
+                            (temp___String_Literal_265 __void_param))
                            (26 : int)))
                        = (116 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_254 __void_param))
+                              (temp___String_Literal_265 __void_param))
                              (27 : int)))
                          = (101 : int))) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_254 __void_param))
+                             (temp___String_Literal_265 __void_param))
                             (28 : int)))
                         = (100 : int)))))))
 end
 
-module Temp___String_Literal_256
+module Temp___String_Literal_267
   use _gnatprove_standard.Main
   use int.Int
   use int.Int
@@ -2043,188 +2033,188 @@ module Temp___String_Literal_256
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
   
-  val function temp___String_Literal_256 (__void_param: unit) : Array__Int__Standard__character.map
+  val function temp___String_Literal_267 (__void_param: unit) : Array__Int__Standard__character.map
   
-  axiom temp___String_Literal_256__def_axiom:
-    forall __void_param : unit [temp___String_Literal_256 __void_param].
+  axiom temp___String_Literal_267__def_axiom:
+    forall __void_param : unit [temp___String_Literal_267 __void_param].
       ((((Standard__character__rep.to_rep
             ((Array__Int__Standard__character.get
-                (temp___String_Literal_256 __void_param))
+                (temp___String_Literal_267 __void_param))
                (1 : int)))
            = (99 : int)) /\
           ((Standard__character__rep.to_rep
               ((Array__Int__Standard__character.get
-                  (temp___String_Literal_256 __void_param))
+                  (temp___String_Literal_267 __void_param))
                  (2 : int)))
              = (97 : int))) /\
          ((((((((Standard__character__rep.to_rep
                    ((Array__Int__Standard__character.get
-                       (temp___String_Literal_256 __void_param))
+                       (temp___String_Literal_267 __void_param))
                       (3 : int)))
                   = (110 : int)) /\
                  ((Standard__character__rep.to_rep
                      ((Array__Int__Standard__character.get
-                         (temp___String_Literal_256 __void_param))
+                         (temp___String_Literal_267 __void_param))
                         (4 : int)))
                     = (110 : int))) /\
                 ((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_256 __void_param))
+                        (temp___String_Literal_267 __void_param))
                        (5 : int)))
                    = (111 : int))) /\
                (((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_256 __void_param))
+                        (temp___String_Literal_267 __void_param))
                        (6 : int)))
                    = (116 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (7 : int)))
                      = (32 : int)))) /\
               ((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_256 __void_param))
+                        (temp___String_Literal_267 __void_param))
                        (8 : int)))
                    = (109 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (9 : int)))
                      = (111 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (10 : int)))
                      = (118 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (11 : int)))
                        = (101 : int))))) /\
              (((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_256 __void_param))
+                        (temp___String_Literal_267 __void_param))
                        (12 : int)))
                    = (44 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (13 : int)))
                      = (32 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (14 : int)))
                      = (99 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (15 : int)))
                        = (97 : int)))) /\
                 ((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (16 : int)))
                      = (114 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (17 : int)))
                        = (32 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (18 : int)))
                        = (105 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_256 __void_param))
+                              (temp___String_Literal_267 __void_param))
                              (19 : int)))
                          = (110 : int)))))) /\
             ((((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_256 __void_param))
+                        (temp___String_Literal_267 __void_param))
                        (20 : int)))
                    = (32 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (21 : int)))
                      = (68 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (22 : int)))
                      = (73 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (23 : int)))
                        = (65 : int)))) /\
                 ((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (24 : int)))
                      = (71 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (25 : int)))
                        = (78 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (26 : int)))
                        = (79 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_256 __void_param))
+                              (temp___String_Literal_267 __void_param))
                              (27 : int)))
                          = (83 : int))))) /\
                (((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_256 __void_param))
+                          (temp___String_Literal_267 __void_param))
                          (28 : int)))
                      = (84 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (29 : int)))
                        = (73 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (30 : int)))
                        = (67 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_256 __void_param))
+                              (temp___String_Literal_267 __void_param))
                              (31 : int)))
                          = (32 : int)))) /\
                   ((((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_256 __void_param))
+                            (temp___String_Literal_267 __void_param))
                            (32 : int)))
                        = (109 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_256 __void_param))
+                              (temp___String_Literal_267 __void_param))
                              (33 : int)))
                          = (111 : int))) /\
                      (((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_256 __void_param))
+                              (temp___String_Literal_267 __void_param))
                              (34 : int)))
                          = (100 : int)) /\
                         ((Standard__character__rep.to_rep
                             ((Array__Int__Standard__character.get
-                                (temp___String_Literal_256 __void_param))
+                                (temp___String_Literal_267 __void_param))
                                (35 : int)))
                            = (101 : int))))))))
 end
 
-module Temp___String_Literal_258
+module Temp___String_Literal_269
   use _gnatprove_standard.Main
   use int.Int
   use int.Int
@@ -2233,168 +2223,168 @@ module Temp___String_Literal_258
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
   
-  val function temp___String_Literal_258 (__void_param: unit) : Array__Int__Standard__character.map
+  val function temp___String_Literal_269 (__void_param: unit) : Array__Int__Standard__character.map
   
-  axiom temp___String_Literal_258__def_axiom:
-    forall __void_param : unit [temp___String_Literal_258 __void_param].
+  axiom temp___String_Literal_269__def_axiom:
+    forall __void_param : unit [temp___String_Literal_269 __void_param].
       ((((Standard__character__rep.to_rep
             ((Array__Int__Standard__character.get
-                (temp___String_Literal_258 __void_param))
+                (temp___String_Literal_269 __void_param))
                (1 : int)))
            = (99 : int)) /\
           ((Standard__character__rep.to_rep
               ((Array__Int__Standard__character.get
-                  (temp___String_Literal_258 __void_param))
+                  (temp___String_Literal_269 __void_param))
                  (2 : int)))
              = (97 : int))) /\
          (((((((Standard__character__rep.to_rep
                   ((Array__Int__Standard__character.get
-                      (temp___String_Literal_258 __void_param))
+                      (temp___String_Literal_269 __void_param))
                      (3 : int)))
                  = (110 : int)) /\
                 ((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_258 __void_param))
+                        (temp___String_Literal_269 __void_param))
                        (4 : int)))
                    = (110 : int))) /\
                (((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_258 __void_param))
+                        (temp___String_Literal_269 __void_param))
                        (5 : int)))
                    = (111 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (6 : int)))
                      = (116 : int)))) /\
               ((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_258 __void_param))
+                        (temp___String_Literal_269 __void_param))
                        (7 : int)))
                    = (32 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (8 : int)))
                      = (109 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (9 : int)))
                      = (111 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (10 : int)))
                        = (118 : int))))) /\
              (((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_258 __void_param))
+                        (temp___String_Literal_269 __void_param))
                        (11 : int)))
                    = (101 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (12 : int)))
                      = (44 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (13 : int)))
                      = (32 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (14 : int)))
                        = (99 : int)))) /\
                 ((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (15 : int)))
                      = (97 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (16 : int)))
                        = (114 : int))) /\
                    ((Standard__character__rep.to_rep
                        ((Array__Int__Standard__character.get
-                           (temp___String_Literal_258 __void_param))
+                           (temp___String_Literal_269 __void_param))
                           (17 : int)))
                       = (32 : int))))) /\
             ((((((Standard__character__rep.to_rep
                     ((Array__Int__Standard__character.get
-                        (temp___String_Literal_258 __void_param))
+                        (temp___String_Literal_269 __void_param))
                        (18 : int)))
                    = (105 : int)) /\
                   ((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (19 : int)))
                      = (110 : int))) /\
                  (((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (20 : int)))
                      = (32 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (21 : int)))
                        = (80 : int)))) /\
                 ((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (22 : int)))
                      = (65 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (23 : int)))
                        = (82 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (24 : int)))
                        = (75 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_258 __void_param))
+                              (temp___String_Literal_269 __void_param))
                              (25 : int)))
                          = (73 : int))))) /\
                (((((Standard__character__rep.to_rep
                       ((Array__Int__Standard__character.get
-                          (temp___String_Literal_258 __void_param))
+                          (temp___String_Literal_269 __void_param))
                          (26 : int)))
                      = (78 : int)) /\
                     ((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (27 : int)))
                        = (71 : int))) /\
                    (((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (28 : int)))
                        = (32 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_258 __void_param))
+                              (temp___String_Literal_269 __void_param))
                              (29 : int)))
                          = (103 : int)))) /\
                   ((((Standard__character__rep.to_rep
                         ((Array__Int__Standard__character.get
-                            (temp___String_Literal_258 __void_param))
+                            (temp___String_Literal_269 __void_param))
                            (30 : int)))
                        = (101 : int)) /\
                       ((Standard__character__rep.to_rep
                           ((Array__Int__Standard__character.get
-                              (temp___String_Literal_258 __void_param))
+                              (temp___String_Literal_269 __void_param))
                              (31 : int)))
                          = (97 : int))) /\
                      ((Standard__character__rep.to_rep
                          ((Array__Int__Standard__character.get
-                             (temp___String_Literal_258 __void_param))
+                             (temp___String_Literal_269 __void_param))
                             (32 : int)))
                         = (114 : int)))))))
 end
@@ -2925,19 +2915,19 @@ module Carsystem__movecar__subprogram_def
   use Carsystem__speedrange__rep as Carsystem__speedrange__rep
   use Carsystem__gearrange as Carsystem__gearrange
   use Carsystem__gearrange__rep as Carsystem__gearrange__rep
-  use Temp___String_Literal_248 as Temp___String_Literal_248
+  use Temp___String_Literal_259 as Temp___String_Literal_259
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
-  use Temp___String_Literal_251 as Temp___String_Literal_251
+  use Temp___String_Literal_262 as Temp___String_Literal_262
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
-  use Temp___String_Literal_254 as Temp___String_Literal_254
+  use Temp___String_Literal_265 as Temp___String_Literal_265
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
-  use Temp___String_Literal_256 as Temp___String_Literal_256
+  use Temp___String_Literal_267 as Temp___String_Literal_267
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
-  use Temp___String_Literal_258 as Temp___String_Literal_258
+  use Temp___String_Literal_269 as Temp___String_Literal_269
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Array__Int__Standard__character as Array__Int__Standard__character
   use Standard__integer___axiom as Standard__integer___axiom
@@ -3008,7 +2998,7 @@ module Carsystem__movecar__subprogram_def
      ([#"carsystem.ads" 76 0 0]
       assume {
         [#"carsystem.ads" 76 0 0]
-        (([@GP_Pretty_Ada:1731]
+        (([@GP_Pretty_Ada:1755]
           ((Carsystem__speedrange__rep.to_rep
               ((Carsystem__car.__split_fields
                    { Carsystem__car.__split_fields =
@@ -3016,7 +3006,7 @@ module Carsystem__movecar__subprogram_def
                            Carsystem__movecar__this.this__split_fields) }).
                  Carsystem__car.rec__carsystem__car__desiredspeed))
              >= (0 : int))) /\
-           ([@GP_Pretty_Ada:1739]
+           ([@GP_Pretty_Ada:1763]
             ((Carsystem__speedrange__rep.to_rep
                 ((Carsystem__car.__split_fields
                      { Carsystem__car.__split_fields =
@@ -3026,93 +3016,99 @@ module Carsystem__movecar__subprogram_def
                <= (100 : int)))) });
      ([#"carsystem.ads" 76 0 0]
       (try
-         ([@GP_Sloc:carsystem.adb:90:7] [#"carsystem.adb" 90 0 0] ());
-         ([@GP_Sloc:carsystem.adb:90:7]
-          [#"carsystem.adb" 90 0 0]
-          (let temp___compl_246 =
+         ([@GP_Sloc:carsystem.adb:93:7]
+          [#"carsystem.adb" 93 0 0]
+          (if (([#"carsystem.adb" 93 0 0]
+                [#"carsystem.adb" 93 0 0]
+                (([@branch_id=1196] Main.spark__branch).bool__content <-
+                   ((Carsystem__speedrange__rep.to_rep
+                       ((Carsystem__car.__split_fields
+                            { Carsystem__car.__split_fields =
+                                (Carsystem__car.__split_fields__content
+                                    Carsystem__movecar__this.this__split_fields) }).
+                          Carsystem__car.rec__carsystem__car__previousspeed))
+                      = (0 : int))));
+               (([@branch_id=1196] Main.spark__branch).bool__content)) then
+             ([@GP_Sloc:carsystem.adb:94:29]
+              [#"carsystem.adb" 94 0 0]
+              (let temp___256 =
+                 let temp___255 =
+                   { Carsystem__car.__split_fields =
+                       (Carsystem__car.__split_fields__content
+                           Carsystem__movecar__this.this__split_fields) } in
+                 ([#"carsystem.adb" 94 0 0]
+                  (begin
+                     ensures { true }
+                     let _ =
+                       let _ =
+                         (Carsystem__car.__split_fields temp___255).Carsystem__car.rec__carsystem__car__previousspeed in
+                       () in
+                     ()
+                   end));
+                 ({ temp___255 with
+                    Carsystem__car.__split_fields =
+                      ({ (Carsystem__car.__split_fields temp___255) with
+                         Carsystem__car.rec__carsystem__car__previousspeed =
+                           (Carsystem__speedrange__rep.of_rep
+                              (Carsystem__speedrange__rep.to_rep
+                                 ((Carsystem__car.__split_fields
+                                      { Carsystem__car.__split_fields =
+                                          (Carsystem__car.__split_fields__content
+                                              Carsystem__movecar__this.this__split_fields) }).
+                                    Carsystem__car.rec__carsystem__car__speed))) }) }) in
+               [#"carsystem.adb" 94 0 0]
+               (Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
+                  (Carsystem__car.__split_fields temp___256))))
+           else ()));
+         ([@GP_Sloc:carsystem.adb:96:7] [#"carsystem.adb" 96 0 0] ());
+         ([@GP_Sloc:carsystem.adb:96:7]
+          [#"carsystem.adb" 96 0 0]
+          (let temp___compl_257 =
              { Carsystem__car.__split_fields =
                  (Carsystem__car.__split_fields__content
                      Carsystem__movecar__this.this__split_fields) } in
-           ([#"carsystem.adb" 90 0 0] (val _f : unit in
+           ([#"carsystem.adb" 96 0 0] (val _f : unit in
                                        _f));
            (Carsystem__checksensor___axiom.checksensor
               Carsystem__movecar__this.this__split_fields)));
-         ([@GP_Sloc:carsystem.adb:91:7] [#"carsystem.adb" 91 0 0] ());
-         ([@GP_Sloc:carsystem.adb:91:7]
-          [#"carsystem.adb" 91 0 0]
-          (let temp___compl_247 =
+         ([@GP_Sloc:carsystem.adb:97:7] [#"carsystem.adb" 97 0 0] ());
+         ([@GP_Sloc:carsystem.adb:97:7]
+          [#"carsystem.adb" 97 0 0]
+          (let temp___compl_258 =
              { Carsystem__car.__split_fields =
                  (Carsystem__car.__split_fields__content
                      Carsystem__movecar__this.this__split_fields) } in
-           ([#"carsystem.adb" 91 0 0] (val _f : unit in
+           ([#"carsystem.adb" 97 0 0] (val _f : unit in
                                        _f));
            (Carsystem__checkbatterywarning___axiom.checkbatterywarning
               Carsystem__movecar__this.this__split_fields)));
-         ([@GP_Sloc:carsystem.adb:92:7]
-          [#"carsystem.adb" 92 0 0]
-          (if (([#"carsystem.adb" 92 0 0]
-                [#"carsystem.adb" 92 0 0]
-                (([@branch_id=1183] Main.spark__branch).bool__content <-
+         ([@GP_Sloc:carsystem.adb:98:7]
+          [#"carsystem.adb" 98 0 0]
+          (if (([#"carsystem.adb" 98 0 0]
+                [#"carsystem.adb" 98 0 0]
+                (([@branch_id=1216] Main.spark__branch).bool__content <-
                    ((Carsystem__car.__split_fields
                         { Carsystem__car.__split_fields =
                             (Carsystem__car.__split_fields__content
                                 Carsystem__movecar__this.this__split_fields) }).
                       Carsystem__car.rec__carsystem__car__sensordetect)));
-               (([@branch_id=1183] Main.spark__branch).bool__content)) then
-             (([@GP_Sloc:carsystem.adb:93:10] [#"carsystem.adb" 93 0 0] ());
-              ([@GP_Sloc:carsystem.adb:93:10]
-               [#"carsystem.adb" 93 0 0]
-               (([#"carsystem.adb" 93 0 0] (val _f : unit in
-                                            _f));
-                (Ada___ada__text_io__put_line__2___axiom.put_line
-                   (let temp___249 =
-                      Temp___String_Literal_248.temp___String_Literal_248 () in
-                    ((Standard__string.of_array temp___249) (1 : int))
-                      (41 : int)))));
-              ([@GP_Sloc:carsystem.adb:94:10]
-               [#"carsystem.adb" 94 0 0] [#"carsystem.adb" 94 0 0] ());
-              ([@GP_Sloc:carsystem.adb:95:10] [#"carsystem.adb" 95 0 0] ());
-              ([@GP_Sloc:carsystem.adb:95:10]
-               [#"carsystem.adb" 95 0 0]
-               (let temp___compl_250 =
-                  { Carsystem__car.__split_fields =
-                      (Carsystem__car.__split_fields__content
-                          Carsystem__movecar__this.this__split_fields) } in
-                ([#"carsystem.adb" 95 0 0] (val _f : unit in
-                                            _f));
-                (Carsystem__emergencystop___axiom.emergencystop
-                   Carsystem__movecar__this.this__split_fields)));
-              ([@GP_Sloc:carsystem.adb:96:10]
-               [#"carsystem.adb" 96 0 0]
-               [#"carsystem.adb" 96 0 0] ((raise Return__exc) : unit)))
-           else ()));
-         ([@GP_Sloc:carsystem.adb:98:7]
-          [#"carsystem.adb" 98 0 0]
-          (if (([#"carsystem.adb" 98 0 0]
-                [#"carsystem.adb" 98 0 0]
-                (([@branch_id=1198] Main.spark__branch).bool__content <-
-                   ((Carsystem__car.__split_fields
-                        { Carsystem__car.__split_fields =
-                            (Carsystem__car.__split_fields__content
-                                Carsystem__movecar__this.this__split_fields) }).
-                      Carsystem__car.rec__carsystem__car__isbatterywarning)));
-               (([@branch_id=1198] Main.spark__branch).bool__content)) then
+               (([@branch_id=1216] Main.spark__branch).bool__content)) then
              (([@GP_Sloc:carsystem.adb:99:10] [#"carsystem.adb" 99 0 0] ());
               ([@GP_Sloc:carsystem.adb:99:10]
                [#"carsystem.adb" 99 0 0]
                (([#"carsystem.adb" 99 0 0] (val _f : unit in
                                             _f));
                 (Ada___ada__text_io__put_line__2___axiom.put_line
-                   (let temp___252 =
-                      Temp___String_Literal_251.temp___String_Literal_251 () in
-                    ((Standard__string.of_array temp___252) (1 : int))
+                   (let temp___260 =
+                      Temp___String_Literal_259.temp___String_Literal_259 () in
+                    ((Standard__string.of_array temp___260) (1 : int))
                       (41 : int)))));
               ([@GP_Sloc:carsystem.adb:100:10]
                [#"carsystem.adb" 100 0 0] [#"carsystem.adb" 100 0 0] ());
               ([@GP_Sloc:carsystem.adb:101:10] [#"carsystem.adb" 101 0 0] ());
               ([@GP_Sloc:carsystem.adb:101:10]
                [#"carsystem.adb" 101 0 0]
-               (let temp___compl_253 =
+               (let temp___compl_261 =
                   { Carsystem__car.__split_fields =
                       (Carsystem__car.__split_fields__content
                           Carsystem__movecar__this.this__split_fields) } in
@@ -3128,61 +3124,99 @@ module Carsystem__movecar__subprogram_def
           [#"carsystem.adb" 104 0 0]
           (if (([#"carsystem.adb" 104 0 0]
                 [#"carsystem.adb" 104 0 0]
-                (([@branch_id=1212] Main.spark__branch).bool__content <-
-                   (not ((Carsystem__car.__split_fields
-                             { Carsystem__car.__split_fields =
-                                 (Carsystem__car.__split_fields__content
-                                     Carsystem__movecar__this.this__split_fields) }).
-                           Carsystem__car.rec__carsystem__car__isstarted))));
-               (([@branch_id=1212] Main.spark__branch).bool__content)) then
+                (([@branch_id=1231] Main.spark__branch).bool__content <-
+                   ((Carsystem__car.__split_fields
+                        { Carsystem__car.__split_fields =
+                            (Carsystem__car.__split_fields__content
+                                Carsystem__movecar__this.this__split_fields) }).
+                      Carsystem__car.rec__carsystem__car__isbatterywarning)));
+               (([@branch_id=1231] Main.spark__branch).bool__content)) then
              (([@GP_Sloc:carsystem.adb:105:10] [#"carsystem.adb" 105 0 0] ());
               ([@GP_Sloc:carsystem.adb:105:10]
                [#"carsystem.adb" 105 0 0]
                (([#"carsystem.adb" 105 0 0] (val _f : unit in
                                              _f));
                 (Ada___ada__text_io__put_line__2___axiom.put_line
-                   (let temp___255 =
-                      Temp___String_Literal_254.temp___String_Literal_254 () in
-                    ((Standard__string.of_array temp___255) (1 : int))
-                      (28 : int)))));
+                   (let temp___263 =
+                      Temp___String_Literal_262.temp___String_Literal_262 () in
+                    ((Standard__string.of_array temp___263) (1 : int))
+                      (41 : int)))));
               ([@GP_Sloc:carsystem.adb:106:10]
                [#"carsystem.adb" 106 0 0] [#"carsystem.adb" 106 0 0] ());
+              ([@GP_Sloc:carsystem.adb:107:10] [#"carsystem.adb" 107 0 0] ());
               ([@GP_Sloc:carsystem.adb:107:10]
                [#"carsystem.adb" 107 0 0]
-               [#"carsystem.adb" 107 0 0] ((raise Return__exc) : unit)))
+               (let temp___compl_264 =
+                  { Carsystem__car.__split_fields =
+                      (Carsystem__car.__split_fields__content
+                          Carsystem__movecar__this.this__split_fields) } in
+                ([#"carsystem.adb" 107 0 0] (val _f : unit in
+                                             _f));
+                (Carsystem__emergencystop___axiom.emergencystop
+                   Carsystem__movecar__this.this__split_fields)));
+              ([@GP_Sloc:carsystem.adb:108:10]
+               [#"carsystem.adb" 108 0 0]
+               [#"carsystem.adb" 108 0 0] ((raise Return__exc) : unit)))
            else ()));
-         ([@GP_Sloc:carsystem.adb:109:7]
-          [#"carsystem.adb" 109 0 0]
-          (if (([#"carsystem.adb" 109 0 0]
-                [#"carsystem.adb" 109 0 0]
-                (([@branch_id=1225] Main.spark__branch).bool__content <-
+         ([@GP_Sloc:carsystem.adb:110:7]
+          [#"carsystem.adb" 110 0 0]
+          (if (([#"carsystem.adb" 110 0 0]
+                [#"carsystem.adb" 110 0 0]
+                (([@branch_id=1245] Main.spark__branch).bool__content <-
+                   (not ((Carsystem__car.__split_fields
+                             { Carsystem__car.__split_fields =
+                                 (Carsystem__car.__split_fields__content
+                                     Carsystem__movecar__this.this__split_fields) }).
+                           Carsystem__car.rec__carsystem__car__isstarted))));
+               (([@branch_id=1245] Main.spark__branch).bool__content)) then
+             (([@GP_Sloc:carsystem.adb:111:10] [#"carsystem.adb" 111 0 0] ());
+              ([@GP_Sloc:carsystem.adb:111:10]
+               [#"carsystem.adb" 111 0 0]
+               (([#"carsystem.adb" 111 0 0] (val _f : unit in
+                                             _f));
+                (Ada___ada__text_io__put_line__2___axiom.put_line
+                   (let temp___266 =
+                      Temp___String_Literal_265.temp___String_Literal_265 () in
+                    ((Standard__string.of_array temp___266) (1 : int))
+                      (28 : int)))));
+              ([@GP_Sloc:carsystem.adb:112:10]
+               [#"carsystem.adb" 112 0 0] [#"carsystem.adb" 112 0 0] ());
+              ([@GP_Sloc:carsystem.adb:113:10]
+               [#"carsystem.adb" 113 0 0]
+               [#"carsystem.adb" 113 0 0] ((raise Return__exc) : unit)))
+           else ()));
+         ([@GP_Sloc:carsystem.adb:115:7]
+          [#"carsystem.adb" 115 0 0]
+          (if (([#"carsystem.adb" 115 0 0]
+                [#"carsystem.adb" 115 0 0]
+                (([@branch_id=1258] Main.spark__branch).bool__content <-
                    ((Carsystem__car.__split_fields
                         { Carsystem__car.__split_fields =
                             (Carsystem__car.__split_fields__content
                                 Carsystem__movecar__this.this__split_fields) }).
                       Carsystem__car.rec__carsystem__car__isdiagmode)));
-               (([@branch_id=1225] Main.spark__branch).bool__content)) then
-             (([@GP_Sloc:carsystem.adb:110:10] [#"carsystem.adb" 110 0 0] ());
-              ([@GP_Sloc:carsystem.adb:110:10]
-               [#"carsystem.adb" 110 0 0]
-               (([#"carsystem.adb" 110 0 0] (val _f : unit in
+               (([@branch_id=1258] Main.spark__branch).bool__content)) then
+             (([@GP_Sloc:carsystem.adb:116:10] [#"carsystem.adb" 116 0 0] ());
+              ([@GP_Sloc:carsystem.adb:116:10]
+               [#"carsystem.adb" 116 0 0]
+               (([#"carsystem.adb" 116 0 0] (val _f : unit in
                                              _f));
                 (Ada___ada__text_io__put_line__2___axiom.put_line
-                   (let temp___257 =
-                      Temp___String_Literal_256.temp___String_Literal_256 () in
-                    ((Standard__string.of_array temp___257) (1 : int))
+                   (let temp___268 =
+                      Temp___String_Literal_267.temp___String_Literal_267 () in
+                    ((Standard__string.of_array temp___268) (1 : int))
                       (35 : int)))));
-              ([@GP_Sloc:carsystem.adb:111:10]
-               [#"carsystem.adb" 111 0 0] [#"carsystem.adb" 111 0 0] ());
-              ([@GP_Sloc:carsystem.adb:112:10]
-               [#"carsystem.adb" 112 0 0]
-               [#"carsystem.adb" 112 0 0] ((raise Return__exc) : unit)))
+              ([@GP_Sloc:carsystem.adb:117:10]
+               [#"carsystem.adb" 117 0 0] [#"carsystem.adb" 117 0 0] ());
+              ([@GP_Sloc:carsystem.adb:118:10]
+               [#"carsystem.adb" 118 0 0]
+               [#"carsystem.adb" 118 0 0] ((raise Return__exc) : unit)))
            else ()));
-         ([@GP_Sloc:carsystem.adb:114:7]
-          [#"carsystem.adb" 114 0 0]
-          (if (([#"carsystem.adb" 114 0 0]
-                [#"carsystem.adb" 114 0 0]
-                (([@branch_id=1237] Main.spark__branch).bool__content <-
+         ([@GP_Sloc:carsystem.adb:120:7]
+          [#"carsystem.adb" 120 0 0]
+          (if (([#"carsystem.adb" 120 0 0]
+                [#"carsystem.adb" 120 0 0]
+                (([@branch_id=1270] Main.spark__branch).bool__content <-
                    ((Carsystem__gearrange__rep.to_rep
                        ((Carsystem__car.__split_fields
                             { Carsystem__car.__split_fields =
@@ -3190,28 +3224,28 @@ module Carsystem__movecar__subprogram_def
                                     Carsystem__movecar__this.this__split_fields) }).
                           Carsystem__car.rec__carsystem__car__gear))
                       = (0 : int))));
-               (([@branch_id=1237] Main.spark__branch).bool__content)) then
-             (([@GP_Sloc:carsystem.adb:115:10] [#"carsystem.adb" 115 0 0] ());
-              ([@GP_Sloc:carsystem.adb:115:10]
-               [#"carsystem.adb" 115 0 0]
-               (([#"carsystem.adb" 115 0 0] (val _f : unit in
+               (([@branch_id=1270] Main.spark__branch).bool__content)) then
+             (([@GP_Sloc:carsystem.adb:121:10] [#"carsystem.adb" 121 0 0] ());
+              ([@GP_Sloc:carsystem.adb:121:10]
+               [#"carsystem.adb" 121 0 0]
+               (([#"carsystem.adb" 121 0 0] (val _f : unit in
                                              _f));
                 (Ada___ada__text_io__put_line__2___axiom.put_line
-                   (let temp___259 =
-                      Temp___String_Literal_258.temp___String_Literal_258 () in
-                    ((Standard__string.of_array temp___259) (1 : int))
+                   (let temp___270 =
+                      Temp___String_Literal_269.temp___String_Literal_269 () in
+                    ((Standard__string.of_array temp___270) (1 : int))
                       (32 : int)))));
-              ([@GP_Sloc:carsystem.adb:116:10]
-               [#"carsystem.adb" 116 0 0] [#"carsystem.adb" 116 0 0] ());
-              ([@GP_Sloc:carsystem.adb:117:10]
-               [#"carsystem.adb" 117 0 0]
-               [#"carsystem.adb" 117 0 0] ((raise Return__exc) : unit)))
+              ([@GP_Sloc:carsystem.adb:122:10]
+               [#"carsystem.adb" 122 0 0] [#"carsystem.adb" 122 0 0] ());
+              ([@GP_Sloc:carsystem.adb:123:10]
+               [#"carsystem.adb" 123 0 0]
+               [#"carsystem.adb" 123 0 0] ((raise Return__exc) : unit)))
            else ()));
-         ([@GP_Sloc:carsystem.adb:119:7]
-          [#"carsystem.adb" 119 0 0]
-          (if (([#"carsystem.adb" 119 0 0]
-                [#"carsystem.adb" 119 0 0]
-                (([@branch_id=1251] Main.spark__branch).bool__content <-
+         ([@GP_Sloc:carsystem.adb:125:7]
+          [#"carsystem.adb" 125 0 0]
+          (if (([#"carsystem.adb" 125 0 0]
+                [#"carsystem.adb" 125 0 0]
+                (([@branch_id=1284] Main.spark__branch).bool__content <-
                    ((Boolean.andb
                        ((Boolean.andb
                            ((Boolean.andb
@@ -3259,12 +3293,12 @@ module Carsystem__movecar__subprogram_def
                                        Carsystem__movecar__this.this__split_fields) }).
                              Carsystem__car.rec__carsystem__car__desiredspeed))
                          <= (100 : int)))));
-               (([@branch_id=1251] Main.spark__branch).bool__content)) then
-             (([@GP_Sloc:carsystem.adb:126:10]
-               [#"carsystem.adb" 126 0 0]
-               (if (([#"carsystem.adb" 126 0 0]
-                     [#"carsystem.adb" 126 0 0]
-                     (([@branch_id=1293] Main.spark__branch).bool__content <-
+               (([@branch_id=1284] Main.spark__branch).bool__content)) then
+             (([@GP_Sloc:carsystem.adb:132:10]
+               [#"carsystem.adb" 132 0 0]
+               (if (([#"carsystem.adb" 132 0 0]
+                     [#"carsystem.adb" 132 0 0]
+                     (([@branch_id=1326] Main.spark__branch).bool__content <-
                         ((Carsystem__speedrange__rep.to_rep
                             ((Carsystem__car.__split_fields
                                  { Carsystem__car.__split_fields =
@@ -3272,53 +3306,53 @@ module Carsystem__movecar__subprogram_def
                                          Carsystem__movecar__this.this__split_fields) }).
                                Carsystem__car.rec__carsystem__car__desiredspeed))
                            > (70 : int))));
-                    (([@branch_id=1293] Main.spark__branch).bool__content)) then
-                  ([@GP_Sloc:carsystem.adb:127:24]
-                   [#"carsystem.adb" 127 0 0]
-                   (let temp___262 =
-                      let temp___261 =
+                    (([@branch_id=1326] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:carsystem.adb:133:24]
+                   [#"carsystem.adb" 133 0 0]
+                   (let temp___273 =
+                      let temp___272 =
                         { Carsystem__car.__split_fields =
                             (Carsystem__car.__split_fields__content
                                 Carsystem__movecar__this.this__split_fields) } in
-                      ([#"carsystem.adb" 127 0 0]
+                      ([#"carsystem.adb" 133 0 0]
                        (begin
                           ensures { true }
                           let _ =
                             let _ =
-                              (Carsystem__car.__split_fields temp___261).
+                              (Carsystem__car.__split_fields temp___272).
                                 Carsystem__car.rec__carsystem__car__speed in
                             () in
                           ()
                         end));
-                      ({ temp___261 with
+                      ({ temp___272 with
                          Carsystem__car.__split_fields =
-                           ({ (Carsystem__car.__split_fields temp___261) with
+                           ({ (Carsystem__car.__split_fields temp___272) with
                               Carsystem__car.rec__carsystem__car__speed =
                                 (70 : Carsystem__speedrange.speedrange) }) }) in
-                    [#"carsystem.adb" 127 0 0]
+                    [#"carsystem.adb" 133 0 0]
                     (Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
-                       (Carsystem__car.__split_fields temp___262))))
+                       (Carsystem__car.__split_fields temp___273))))
                 else
-                  ([@GP_Sloc:carsystem.adb:129:24]
-                   [#"carsystem.adb" 129 0 0]
-                   (let temp___265 =
-                      let temp___264 =
+                  ([@GP_Sloc:carsystem.adb:135:24]
+                   [#"carsystem.adb" 135 0 0]
+                   (let temp___276 =
+                      let temp___275 =
                         { Carsystem__car.__split_fields =
                             (Carsystem__car.__split_fields__content
                                 Carsystem__movecar__this.this__split_fields) } in
-                      ([#"carsystem.adb" 129 0 0]
+                      ([#"carsystem.adb" 135 0 0]
                        (begin
                           ensures { true }
                           let _ =
                             let _ =
-                              (Carsystem__car.__split_fields temp___264).
+                              (Carsystem__car.__split_fields temp___275).
                                 Carsystem__car.rec__carsystem__car__speed in
                             () in
                           ()
                         end));
-                      ({ temp___264 with
+                      ({ temp___275 with
                          Carsystem__car.__split_fields =
-                           ({ (Carsystem__car.__split_fields temp___264) with
+                           ({ (Carsystem__car.__split_fields temp___275) with
                               Carsystem__car.rec__carsystem__car__speed =
                                 (Carsystem__speedrange__rep.of_rep
                                    (Carsystem__speedrange__rep.to_rep
@@ -3327,14 +3361,14 @@ module Carsystem__movecar__subprogram_def
                                                (Carsystem__car.__split_fields__content
                                                    Carsystem__movecar__this.this__split_fields) }).
                                          Carsystem__car.rec__carsystem__car__desiredspeed))) }) }) in
-                    [#"carsystem.adb" 129 0 0]
+                    [#"carsystem.adb" 135 0 0]
                     (Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
-                       (Carsystem__car.__split_fields temp___265))))));
-              ([@GP_Sloc:carsystem.adb:131:10]
-               [#"carsystem.adb" 131 0 0]
-               (if (([#"carsystem.adb" 131 0 0]
-                     [#"carsystem.adb" 131 0 0]
-                     (([@branch_id=1313] Main.spark__branch).bool__content <-
+                       (Carsystem__car.__split_fields temp___276))))));
+              ([@GP_Sloc:carsystem.adb:137:10]
+               [#"carsystem.adb" 137 0 0]
+               (if (([#"carsystem.adb" 137 0 0]
+                     [#"carsystem.adb" 137 0 0]
+                     (([@branch_id=1346] Main.spark__branch).bool__content <-
                         ((Boolean.andb
                             ((Carsystem__speedrange__rep.to_rep
                                 ((Carsystem__car.__split_fields
@@ -3350,36 +3384,36 @@ module Carsystem__movecar__subprogram_def
                                             Carsystem__movecar__this.this__split_fields) }).
                                   Carsystem__car.rec__carsystem__car__battery))
                               > (5 : int)))));
-                    (([@branch_id=1313] Main.spark__branch).bool__content)) then
-                  ([@GP_Sloc:carsystem.adb:133:25]
-                   [#"carsystem.adb" 133 0 0]
-                   (let temp___268 =
-                      let temp___267 =
+                    (([@branch_id=1346] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:carsystem.adb:139:25]
+                   [#"carsystem.adb" 139 0 0]
+                   (let temp___279 =
+                      let temp___278 =
                         { Carsystem__car.__split_fields =
                             (Carsystem__car.__split_fields__content
                                 Carsystem__movecar__this.this__split_fields) } in
-                      ([#"carsystem.adb" 133 0 0]
+                      ([#"carsystem.adb" 139 0 0]
                        (begin
                           ensures { true }
                           let _ =
                             let _ =
-                              (Carsystem__car.__split_fields temp___267).
+                              (Carsystem__car.__split_fields temp___278).
                                 Carsystem__car.rec__carsystem__car__battery in
                             () in
                           ()
                         end));
-                      ({ temp___267 with
+                      ({ temp___278 with
                          Carsystem__car.__split_fields =
-                           ({ (Carsystem__car.__split_fields temp___267) with
+                           ({ (Carsystem__car.__split_fields temp___278) with
                               Carsystem__car.rec__carsystem__car__battery =
                                 (Carsystem__batterychargerange__rep.of_rep
-                                   ([#"carsystem.adb" 133 0 0]
+                                   ([#"carsystem.adb" 139 0 0]
+                                    [@GP_Sloc:carsystem.adb:139:41]
                                     [@vc:annotation]
-                                    [@comment:           This.battery := This.battery - 1;                                         ^ carsystem.adb:133:41:VC_RANGE_CHECK]
                                     [@GP_Reason:VC_RANGE_CHECK]
-                                    [@GP_Sloc:carsystem.adb:133:41]
                                     [@GP_Shape:if__if__this_assign__sub]
-                                    [@GP_Id:7]
+                                    [@comment:           This.battery := This.battery - 1;                                         ^ carsystem.adb:139:41:VC_RANGE_CHECK]
+                                    [@GP_Id:8]
                                     (Carsystem__batterychargerange.range_check_
                                        ((Carsystem__batterychargerange__rep.to_rep
                                            ((Carsystem__car.__split_fields
@@ -3389,118 +3423,74 @@ module Carsystem__movecar__subprogram_def
                                               Carsystem__car.rec__carsystem__car__battery))
                                           - (1 : int))))) }) }) in
                     Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
-                      (Carsystem__car.__split_fields temp___268)))
+                      (Carsystem__car.__split_fields temp___279)))
                 else ())))
-           else ()));
-         ([@GP_Sloc:carsystem.adb:136:7] [#"carsystem.adb" 136 0 0] ());
-         ([@GP_Sloc:carsystem.adb:136:7]
-          [#"carsystem.adb" 136 0 0]
-          (let temp___compl_269 =
-             { Carsystem__car.__split_fields =
-                 (Carsystem__car.__split_fields__content
-                     Carsystem__movecar__this.this__split_fields) } in
-           ([#"carsystem.adb" 136 0 0] (val _f : unit in
-                                        _f));
-           (Carsystem__checkbatterywarning___axiom.checkbatterywarning
-              Carsystem__movecar__this.this__split_fields)));
-         ([@GP_Sloc:carsystem.adb:137:25]
-          [#"carsystem.adb" 137 0 0]
-          (let temp___272 =
-             let temp___271 =
-               { Carsystem__car.__split_fields =
-                   (Carsystem__car.__split_fields__content
-                       Carsystem__movecar__this.this__split_fields) } in
-             ([#"carsystem.adb" 137 0 0]
-              (begin
-                 ensures { true }
-                 let _ =
-                   let _ =
-                     (Carsystem__car.__split_fields temp___271).Carsystem__car.rec__carsystem__car__desiredspeed in
-                   () in
-                 ()
-               end));
-             ({ temp___271 with
-                Carsystem__car.__split_fields =
-                  ({ (Carsystem__car.__split_fields temp___271) with
-                     Carsystem__car.rec__carsystem__car__desiredspeed =
-                       (0 : Carsystem__speedrange.speedrange) }) }) in
-           [#"carsystem.adb" 137 0 0]
-           (Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
-              (Carsystem__car.__split_fields temp___272))));
-         ([@GP_Sloc:carsystem.adb:138:7]
-          [#"carsystem.adb" 138 0 0]
-          (if (([#"carsystem.adb" 138 0 0]
-                [#"carsystem.adb" 138 0 0]
-                (([@branch_id=1343] Main.spark__branch).bool__content <-
-                   ((Carsystem__speedrange__rep.to_rep
-                       ((Carsystem__car.__split_fields
-                            { Carsystem__car.__split_fields =
-                                (Carsystem__car.__split_fields__content
-                                    Carsystem__movecar__this.this__split_fields) }).
-                          Carsystem__car.rec__carsystem__car__previousspeed))
-                      = (0 : int))));
-               (([@branch_id=1343] Main.spark__branch).bool__content)) then
-             ([@GP_Sloc:carsystem.adb:139:29]
-              [#"carsystem.adb" 139 0 0]
-              (let temp___275 =
-                 let temp___274 =
-                   { Carsystem__car.__split_fields =
-                       (Carsystem__car.__split_fields__content
-                           Carsystem__movecar__this.this__split_fields) } in
-                 ([#"carsystem.adb" 139 0 0]
-                  (begin
-                     ensures { true }
-                     let _ =
-                       let _ =
-                         (Carsystem__car.__split_fields temp___274).Carsystem__car.rec__carsystem__car__previousspeed in
-                       () in
-                     ()
-                   end));
-                 ({ temp___274 with
-                    Carsystem__car.__split_fields =
-                      ({ (Carsystem__car.__split_fields temp___274) with
-                         Carsystem__car.rec__carsystem__car__previousspeed =
-                           (Carsystem__speedrange__rep.of_rep
-                              (Carsystem__speedrange__rep.to_rep
-                                 ((Carsystem__car.__split_fields
-                                      { Carsystem__car.__split_fields =
-                                          (Carsystem__car.__split_fields__content
-                                              Carsystem__movecar__this.this__split_fields) }).
-                                    Carsystem__car.rec__carsystem__car__speed))) }) }) in
-               [#"carsystem.adb" 139 0 0]
-               (Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
-                  (Carsystem__car.__split_fields temp___275))))
            else ()));
          ([@GP_Sloc:carsystem.adb:142:7] [#"carsystem.adb" 142 0 0] ());
          ([@GP_Sloc:carsystem.adb:142:7]
           [#"carsystem.adb" 142 0 0]
-          (let temp___compl_276 =
+          (let temp___compl_280 =
              { Carsystem__car.__split_fields =
                  (Carsystem__car.__split_fields__content
                      Carsystem__movecar__this.this__split_fields) } in
            ([#"carsystem.adb" 142 0 0] (val _f : unit in
                                         _f));
-           (Carsystem__checkregenbraking___axiom.checkregenbraking
+           (Carsystem__checkbatterywarning___axiom.checkbatterywarning
               Carsystem__movecar__this.this__split_fields)));
-         ([@GP_Sloc:carsystem.adb:144:26]
-          [#"carsystem.adb" 144 0 0]
-          (let temp___279 =
-             let temp___278 =
+         ([@GP_Sloc:carsystem.adb:143:25]
+          [#"carsystem.adb" 143 0 0]
+          (let temp___283 =
+             let temp___282 =
                { Carsystem__car.__split_fields =
                    (Carsystem__car.__split_fields__content
                        Carsystem__movecar__this.this__split_fields) } in
-             ([#"carsystem.adb" 144 0 0]
+             ([#"carsystem.adb" 143 0 0]
               (begin
                  ensures { true }
                  let _ =
                    let _ =
-                     (Carsystem__car.__split_fields temp___278).Carsystem__car.rec__carsystem__car__previousspeed in
+                     (Carsystem__car.__split_fields temp___282).Carsystem__car.rec__carsystem__car__desiredspeed in
                    () in
                  ()
                end));
-             ({ temp___278 with
+             ({ temp___282 with
                 Carsystem__car.__split_fields =
-                  ({ (Carsystem__car.__split_fields temp___278) with
+                  ({ (Carsystem__car.__split_fields temp___282) with
+                     Carsystem__car.rec__carsystem__car__desiredspeed =
+                       (0 : Carsystem__speedrange.speedrange) }) }) in
+           [#"carsystem.adb" 143 0 0]
+           (Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
+              (Carsystem__car.__split_fields temp___283))));
+         ([@GP_Sloc:carsystem.adb:145:7] [#"carsystem.adb" 145 0 0] ());
+         ([@GP_Sloc:carsystem.adb:145:7]
+          [#"carsystem.adb" 145 0 0]
+          (let temp___compl_284 =
+             { Carsystem__car.__split_fields =
+                 (Carsystem__car.__split_fields__content
+                     Carsystem__movecar__this.this__split_fields) } in
+           ([#"carsystem.adb" 145 0 0] (val _f : unit in
+                                        _f));
+           (Carsystem__checkregenbraking___axiom.checkregenbraking
+              Carsystem__movecar__this.this__split_fields)));
+         ([@GP_Sloc:carsystem.adb:147:26]
+          [#"carsystem.adb" 147 0 0]
+          (let temp___287 =
+             let temp___286 =
+               { Carsystem__car.__split_fields =
+                   (Carsystem__car.__split_fields__content
+                       Carsystem__movecar__this.this__split_fields) } in
+             ([#"carsystem.adb" 147 0 0]
+              (begin
+                 ensures { true }
+                 let _ =
+                   let _ =
+                     (Carsystem__car.__split_fields temp___286).Carsystem__car.rec__carsystem__car__previousspeed in
+                   () in
+                 ()
+               end));
+             ({ temp___286 with
+                Carsystem__car.__split_fields =
+                  ({ (Carsystem__car.__split_fields temp___286) with
                      Carsystem__car.rec__carsystem__car__previousspeed =
                        (Carsystem__speedrange__rep.of_rep
                           (Carsystem__speedrange__rep.to_rep
@@ -3509,9 +3499,9 @@ module Carsystem__movecar__subprogram_def
                                       (Carsystem__car.__split_fields__content
                                           Carsystem__movecar__this.this__split_fields) }).
                                 Carsystem__car.rec__carsystem__car__speed))) }) }) in
-           [#"carsystem.adb" 144 0 0]
+           [#"carsystem.adb" 147 0 0]
            (Carsystem__movecar__this.this__split_fields.Carsystem__car.__split_fields__content <-
-              (Carsystem__car.__split_fields temp___279))));
+              (Carsystem__car.__split_fields temp___287))));
          (raise Return__exc)
        with Return__exc -> ()
        end)))

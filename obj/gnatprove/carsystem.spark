@@ -145,17 +145,16 @@
   ],
   "session_map": {
     " 1": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__checkregenbraking",
-    " 2": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__emergencystop",
-    " 3": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__movecar",
-    " 4": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__chargebattery",
-    " 5": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__enterdiagmode",
-    " 6": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__useregenbraking",
-    " 7": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__exitdiagmode"
+    " 2": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__useregenbraking",
+    " 3": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__chargebattery",
+    " 4": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__enterdiagmode",
+    " 5": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__movecar",
+    " 6": "D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\carsystem__exitdiagmode"
   },
   "proof": [
     {
       "file": "carsystem.adb",
-      "line": 29,
+      "line": 32,
       "col": 10,
       "rule": "VC_PRECONDITION",
       "severity": "info",
@@ -204,7 +203,7 @@
         }
       ],
       "check_file": "carsystem.adb",
-      "check_line": 29,
+      "check_line": 32,
       "check_col": 10,
       "session_dir": 1,
       "how_proved": "prover",
@@ -217,67 +216,17 @@
       }
     },
     {
-      "file": "carsystem.ads",
-      "line": 89,
-      "col": 14,
-      "rule": "VC_POSTCONDITION",
-      "severity": "medium",
-      "entity": {
-        "name": "CarSystem.EmergencyStop",
-        "sloc": [
-          {
-            "file": "carsystem.ads",
-            "line": 88
-          }
-        ]
-      },
-      "check_tree": [
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Unknown\n()",
-              "steps": 1,
-              "time": 0
-            },
-            "CVC4_CE": {
-              "result": "Unknown\n()",
-              "steps": 1,
-              "time": 0
-            },
-            "Z3": {
-              "result": "Failure\n()",
-              "steps": 1,
-              "time": 0
-            },
-            "altergo": {
-              "result": "Unknown\n()",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        }
-      ],
-      "check_file": "carsystem.ads",
-      "check_line": 89,
-      "check_col": 14,
-      "msg_id": 0,
-      "session_dir": 2,
-      "how_proved": "prover"
-    },
-    {
       "file": "carsystem.adb",
-      "line": 133,
-      "col": 41,
-      "rule": "VC_RANGE_CHECK",
+      "line": 12,
+      "col": 117,
+      "rule": "VC_DIVISION_CHECK",
       "severity": "info",
       "entity": {
-        "name": "CarSystem.MoveCar",
+        "name": "CarSystem.UseRegenBraking",
         "sloc": [
           {
             "file": "carsystem.ads",
-            "line": 76
+            "line": 31
           }
         ]
       },
@@ -295,9 +244,277 @@
         }
       ],
       "check_file": "carsystem.adb",
-      "check_line": 133,
-      "check_col": 41,
-      "session_dir": 3,
+      "check_line": 12,
+      "check_col": 117,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "carsystem.adb",
+      "line": 14,
+      "col": 71,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "CarSystem.UseRegenBraking",
+        "sloc": [
+          {
+            "file": "carsystem.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "carsystem.adb",
+      "check_line": 14,
+      "check_col": 71,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "carsystem.adb",
+      "line": 17,
+      "col": 13,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "CarSystem.UseRegenBraking",
+        "sloc": [
+          {
+            "file": "carsystem.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "carsystem.adb",
+      "check_line": 17,
+      "check_col": 13,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "carsystem.adb",
+      "line": 20,
+      "col": 74,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "CarSystem.UseRegenBraking",
+        "sloc": [
+          {
+            "file": "carsystem.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "carsystem.adb",
+      "check_line": 20,
+      "check_col": 74,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "carsystem.adb",
+      "line": 22,
+      "col": 59,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "CarSystem.UseRegenBraking",
+        "sloc": [
+          {
+            "file": "carsystem.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "carsystem.adb",
+      "check_line": 22,
+      "check_col": 59,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "carsystem.adb",
+      "line": 22,
+      "col": 16,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "CarSystem.UseRegenBraking",
+        "sloc": [
+          {
+            "file": "carsystem.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "carsystem.adb",
+      "check_line": 22,
+      "check_col": 16,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "carsystem.ads",
+      "line": 35,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "CarSystem.UseRegenBraking",
+        "sloc": [
+          {
+            "file": "carsystem.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "carsystem.ads",
+      "check_line": 35,
+      "check_col": 14,
+      "session_dir": 2,
       "how_proved": "prover",
       "stats": {
         "CVC4": {
@@ -349,7 +566,7 @@
       "check_file": "carsystem.ads",
       "check_line": 97,
       "check_col": 14,
-      "session_dir": 4,
+      "session_dir": 3,
       "how_proved": "prover",
       "stats": {
         "CVC4": {
@@ -398,7 +615,7 @@
       "check_file": "carsystem.ads",
       "check_line": 102,
       "check_col": 14,
-      "session_dir": 5,
+      "session_dir": 4,
       "how_proved": "prover",
       "stats": {
         "CVC4": {
@@ -415,109 +632,16 @@
     },
     {
       "file": "carsystem.adb",
-      "line": 12,
-      "col": 117,
-      "rule": "VC_DIVISION_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "CarSystem.UseRegenBraking",
-        "sloc": [
-          {
-            "file": "carsystem.ads",
-            "line": 31
-          }
-        ]
-      },
-      "check_tree": [
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Valid",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        }
-      ],
-      "check_file": "carsystem.adb",
-      "check_line": 12,
-      "check_col": 117,
-      "session_dir": 6,
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 0.00000000000000E+00
-        }
-      }
-    },
-    {
-      "file": "carsystem.adb",
-      "line": 14,
-      "col": 13,
-      "rule": "VC_PRECONDITION",
-      "severity": "info",
-      "entity": {
-        "name": "CarSystem.UseRegenBraking",
-        "sloc": [
-          {
-            "file": "carsystem.ads",
-            "line": 31
-          }
-        ]
-      },
-      "check_tree": [
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Valid",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        },
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Valid",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        }
-      ],
-      "check_file": "carsystem.adb",
-      "check_line": 14,
-      "check_col": 13,
-      "session_dir": 6,
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 2,
-          "max_steps": 1,
-          "max_time": 0.00000000000000E+00
-        }
-      }
-    },
-    {
-      "file": "carsystem.adb",
-      "line": 17,
-      "col": 74,
+      "line": 139,
+      "col": 41,
       "rule": "VC_RANGE_CHECK",
       "severity": "info",
       "entity": {
-        "name": "CarSystem.UseRegenBraking",
+        "name": "CarSystem.MoveCar",
         "sloc": [
           {
             "file": "carsystem.ads",
-            "line": 31
+            "line": 76
           }
         ]
       },
@@ -535,143 +659,9 @@
         }
       ],
       "check_file": "carsystem.adb",
-      "check_line": 17,
-      "check_col": 74,
-      "session_dir": 6,
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 0.00000000000000E+00
-        }
-      }
-    },
-    {
-      "file": "carsystem.adb",
-      "line": 19,
-      "col": 59,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "CarSystem.UseRegenBraking",
-        "sloc": [
-          {
-            "file": "carsystem.ads",
-            "line": 31
-          }
-        ]
-      },
-      "check_tree": [
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Valid",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        }
-      ],
-      "check_file": "carsystem.adb",
-      "check_line": 19,
-      "check_col": 59,
-      "session_dir": 6,
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 0.00000000000000E+00
-        }
-      }
-    },
-    {
-      "file": "carsystem.adb",
-      "line": 19,
-      "col": 16,
-      "rule": "VC_PRECONDITION",
-      "severity": "info",
-      "entity": {
-        "name": "CarSystem.UseRegenBraking",
-        "sloc": [
-          {
-            "file": "carsystem.ads",
-            "line": 31
-          }
-        ]
-      },
-      "check_tree": [
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Valid",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        },
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Valid",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        }
-      ],
-      "check_file": "carsystem.adb",
-      "check_line": 19,
-      "check_col": 16,
-      "session_dir": 6,
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 2,
-          "max_steps": 1,
-          "max_time": 0.00000000000000E+00
-        }
-      }
-    },
-    {
-      "file": "carsystem.ads",
-      "line": 35,
-      "col": 14,
-      "rule": "VC_POSTCONDITION",
-      "severity": "info",
-      "entity": {
-        "name": "CarSystem.UseRegenBraking",
-        "sloc": [
-          {
-            "file": "carsystem.ads",
-            "line": 31
-          }
-        ]
-      },
-      "check_tree": [
-        {
-          "proof_attempts": {
-            "CVC4": {
-              "result": "Valid",
-              "steps": 1,
-              "time": 0
-            }
-          },
-          "transformations": {
-          }
-        }
-      ],
-      "check_file": "carsystem.ads",
-      "check_line": 35,
-      "check_col": 14,
-      "session_dir": 6,
+      "check_line": 139,
+      "check_col": 41,
+      "session_dir": 5,
       "how_proved": "prover",
       "stats": {
         "CVC4": {
@@ -723,7 +713,7 @@
       "check_file": "carsystem.ads",
       "check_line": 106,
       "check_col": 14,
-      "session_dir": 7,
+      "session_dir": 6,
       "how_proved": "prover",
       "stats": {
         "CVC4": {
@@ -737,134 +727,6 @@
   "assumptions": [
     {
       "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Ada.Text_IO.Put_Line",
-            "sloc": [
-              {
-                "file": "a-textio.ads",
-                "line": 506
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.ChargeBattery",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 94
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "CarSystem.UseRegenBraking",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 31
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_POST",
-          "arg": {
-            "name": "Ada.Text_IO.Put_Line",
-            "sloc": [
-              {
-                "file": "a-textio.ads",
-                "line": 506
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_POST",
-          "arg": {
-            "name": "CarSystem.ChargeBattery",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 94
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Ada.Text_IO.Put_Line",
-            "sloc": [
-              {
-                "file": "a-textio.ads",
-                "line": 506
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.ChargeBattery",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 94
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "Ada.Text_IO.Put_Line",
-            "sloc": [
-              {
-                "file": "a-textio.ads",
-                "line": 506
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "CarSystem.ChargeBattery",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 94
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "CarSystem.UseRegenBraking",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 31
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
       ],
       "claim": {
         "predicate": "CLAIM_AORTE",
@@ -874,6 +736,54 @@
             {
               "file": "carsystem.ads",
               "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "CarSystem.ExitDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 104
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.ExitDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 104
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "CarSystem.ExitDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 104
             }
           ]
         }
@@ -1021,6 +931,70 @@
     },
     {
       "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 39
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckRegenBraking",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 37
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 39
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "CarSystem.CheckRegenBraking",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 37
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "CarSystem.EmergencyStop",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 88
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
       ],
       "claim": {
         "predicate": "CLAIM_EFFECTS",
@@ -1046,46 +1020,6 @@
             {
               "file": "carsystem.ads",
               "line": 29
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 39
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 39
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_POST",
-        "arg": {
-          "name": "CarSystem.ChargeBattery",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 94
             }
           ]
         }
@@ -1182,18 +1116,6 @@
           }
         },
         {
-          "predicate": "CLAIM_POST",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        },
-        {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
             "name": "Ada.Text_IO.Put_Line",
@@ -1322,206 +1244,6 @@
             {
               "file": "carsystem.ads",
               "line": 76
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 39
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "CarSystem.ChargeBattery",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 94
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 39
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 39
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "CarSystem.ChargeBattery",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 94
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_POST",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_POST",
-        "arg": {
-          "name": "CarSystem.EnterDiagMode",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 101
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "CarSystem.EnterDiagMode",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 101
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_POST",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "CarSystem.EmergencyStop",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 88
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "CarSystem.EnterDiagMode",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 101
             }
           ]
         }
@@ -1693,22 +1415,6 @@
     },
     {
       "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_POST",
-        "arg": {
-          "name": "CarSystem.ExitDiagMode",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 104
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
@@ -1778,6 +1484,46 @@
     {
       "assumptions": [
         {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 39
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 39
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "CarSystem.ChargeBattery",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 94
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
           "predicate": "CLAIM_POST",
           "arg": {
             "name": "CarSystem.UseRegenBraking",
@@ -1822,38 +1568,6 @@
             {
               "file": "carsystem.ads",
               "line": 37
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "CarSystem.ExitDiagMode",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 104
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "CarSystem.ExitDiagMode",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 104
             }
           ]
         }
@@ -1946,34 +1660,325 @@
           ]
         }
       }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 39
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.ChargeBattery",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 94
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 39
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 39
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "CarSystem.ChargeBattery",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 94
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Ada.Text_IO.Put_Line",
+            "sloc": [
+              {
+                "file": "a-textio.ads",
+                "line": 506
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.ChargeBattery",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 94
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.UseRegenBraking",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 31
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "Ada.Text_IO.Put_Line",
+            "sloc": [
+              {
+                "file": "a-textio.ads",
+                "line": 506
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "CarSystem.ChargeBattery",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 94
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Ada.Text_IO.Put_Line",
+            "sloc": [
+              {
+                "file": "a-textio.ads",
+                "line": 506
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.ChargeBattery",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 94
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Ada.Text_IO.Put_Line",
+            "sloc": [
+              {
+                "file": "a-textio.ads",
+                "line": 506
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "CarSystem.ChargeBattery",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 94
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "CarSystem.UseRegenBraking",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 31
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.EmergencyStop",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 88
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "CarSystem.EmergencyStop",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 88
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "CarSystem.EnterDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 101
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.EmergencyStop",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 88
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.EnterDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 101
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.EmergencyStop",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 88
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "CarSystem.EmergencyStop",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 88
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "CarSystem.EnterDiagMode",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 101
+            }
+          ]
+        }
+      }
     }
   ],
   "timings": {
-    "gnatwhy3.transformations.inline_trivial": 4.68750000000000E-02,
-    "codepeer results": 6.89400010742247E-04,
-    "init_why_sections": 4.34599991422147E-04,
-    "gnatwhy3.transformations.detect_polymorphism": 0.00000000000000E+00,
-    "gnatwhy3.transformations.eliminate_literal": 0.00000000000000E+00,
-    "gnatwhy3.run_vcs": 1.40625000000000E-01,
-    "globals (advanced)": 1.34520996361971E-02,
-    "gnatwhy3.transformations.eliminate_algebraic_if_poly": 0.00000000000000E+00,
-    "gnatwhy3.transformations.eliminate_definition_if_poly": 0.00000000000000E+00,
-    "flow analysis": 2.21321992576122E-02,
-    "gnatwhy3.transformations.simplify_formula": 0.00000000000000E+00,
-    "marking": 1.52099994011223E-04,
-    "translation of standard": 2.27409997023642E-03,
-    "properties (advanced)": 3.94999988202471E-05,
-    "gnatwhy3.register_vcs": 1.56250000000000E-02,
-    "gnatwhy3.transformations.eliminate_epsilon": 1.56250000000000E-02,
-    "globals (basic)": 1.65151990950108E-02,
+    "codepeer results": 7.25599995348603E-04,
+    "init_why_sections": 4.35399997513741E-04,
+    "gnatwhy3.run_vcs": 0.00000000000000E+00,
+    "globals (advanced)": 1.41605995595455E-02,
+    "flow analysis": 2.23361998796463E-02,
+    "marking": 1.60199997480959E-04,
+    "translation of standard": 2.26820004172623E-03,
+    "properties (advanced)": 4.11000000895001E-05,
+    "gnatwhy3.register_vcs": 0.00000000000000E+00,
+    "globals (basic)": 1.74828991293907E-02,
     "gnatwhy3.schedule_vcs": 0.00000000000000E+00,
-    "gnatwhy3.transformations.prepare_for_counterexmp": 0.00000000000000E+00,
-    "gnatwhy3.save_session": 0.00000000000000E+00,
-    "gnatwhy3.transformations.eliminate_inductive": 0.00000000000000E+00,
-    "gnatwhy3.transformations.encoding_smt_if_poly": 0.00000000000000E+00,
-    "gnatwhy3.transformations.eliminate_unused_hypo": 0.00000000000000E+00,
-    "gnatwhy3.transformations.eliminate_builtin": 0.00000000000000E+00,
-    "gnatwhy3.transformations.discriminate_if_poly": 0.00000000000000E+00,
-    "gnatwhy3.init": 1.20312500000000E+00
+    "gnatwhy3.save_session": 1.56250000000000E-02,
+    "gnatwhy3.init": 1.00000000000000E+00
   }
 }

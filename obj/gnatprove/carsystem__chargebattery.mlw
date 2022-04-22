@@ -1067,8 +1067,8 @@ module Carsystem__chargebattery__subprogram_def
               [@model_vc_post]
               [@GP_Shape:pragargs__and]
               [@GP_Id:9]
-              (([@GP_Pretty_Ada:1788]
-                [@GP_Sloc:carsystem.ads:97:14]
+              (([@GP_Sloc:carsystem.ads:97:14]
+                [@GP_Pretty_Ada:1803]
                 ((Carsystem__batterychargerange__rep.to_rep
                     ((Carsystem__car.__split_fields
                          { Carsystem__car.__split_fields =
@@ -1077,7 +1077,7 @@ module Carsystem__chargebattery__subprogram_def
                        Carsystem__car.rec__carsystem__car__battery))
                    <= (100 : int))) /\
                  ([@GP_Sloc:carsystem.ads:98:6]
-                  [@GP_Pretty_Ada:1796]
+                  [@GP_Pretty_Ada:1811]
                   ((Carsystem__batterychargerange__rep.to_rep
                       ((Carsystem__car.__split_fields
                            { Carsystem__car.__split_fields =
@@ -1122,96 +1122,96 @@ module Carsystem__chargebattery__subprogram_def
       end);
      ([@GNAT-comment:Assume Pre of the subprogram carsystem.ads:94] ());
      assume {
-       (([@GP_Pretty_Ada:1772]
+       (([@GP_Pretty_Ada:1787]
          (Carsystem__chargebattery__desiredcharge.desiredcharge
             <= (100 : int))) /\
-          ([@GP_Pretty_Ada:1778]
+          ([@GP_Pretty_Ada:1793]
            (Carsystem__chargebattery__desiredcharge.desiredcharge
               >= (0 : int)))) };
      (try
-        ([@GP_Sloc:carsystem.adb:157:7]
-         [#"carsystem.adb" 157 0 0]
-         (if (([#"carsystem.adb" 157 0 0]
-               [#"carsystem.adb" 157 0 0]
-               (([@branch_id=1403] Main.spark__branch).bool__content <-
+        ([@GP_Sloc:carsystem.adb:161:7]
+         [#"carsystem.adb" 161 0 0]
+         (if (([#"carsystem.adb" 161 0 0]
+               [#"carsystem.adb" 161 0 0]
+               (([@branch_id=1427] Main.spark__branch).bool__content <-
                   (not ((Carsystem__car.__split_fields
                             { Carsystem__car.__split_fields =
                                 (Carsystem__car.__split_fields__content
                                     Carsystem__chargebattery__this.this__split_fields) }).
                           Carsystem__car.rec__carsystem__car__isdiagmode))));
-              (([@branch_id=1403] Main.spark__branch).bool__content)) then
-            ([@GP_Sloc:carsystem.adb:158:10]
-             [#"carsystem.adb" 158 0 0]
-             (if (([#"carsystem.adb" 158 0 0]
-                   [#"carsystem.adb" 158 0 0]
-                   (([@branch_id=1409] Main.spark__branch).bool__content <-
+              (([@branch_id=1427] Main.spark__branch).bool__content)) then
+            ([@GP_Sloc:carsystem.adb:162:10]
+             [#"carsystem.adb" 162 0 0]
+             (if (([#"carsystem.adb" 162 0 0]
+                   [#"carsystem.adb" 162 0 0]
+                   (([@branch_id=1433] Main.spark__branch).bool__content <-
                       (Carsystem__chargebattery__desiredcharge.desiredcharge
                          > (100 : int))));
-                  (([@branch_id=1409] Main.spark__branch).bool__content)) then
-                ([@GP_Sloc:carsystem.adb:159:26]
-                 [#"carsystem.adb" 159 0 0]
-                 (let temp___290 =
-                    let temp___289 =
+                  (([@branch_id=1433] Main.spark__branch).bool__content)) then
+                ([@GP_Sloc:carsystem.adb:163:26]
+                 [#"carsystem.adb" 163 0 0]
+                 (let temp___301 =
+                    let temp___300 =
                       { Carsystem__car.__split_fields =
                           (Carsystem__car.__split_fields__content
                               Carsystem__chargebattery__this.this__split_fields) } in
-                    ([#"carsystem.adb" 159 0 0]
+                    ([#"carsystem.adb" 163 0 0]
                      (begin
                         ensures { true }
                         let _ =
                           let _ =
-                            (Carsystem__car.__split_fields temp___289).
+                            (Carsystem__car.__split_fields temp___300).
                               Carsystem__car.rec__carsystem__car__battery in
                           () in
                         ()
                       end));
-                    ({ temp___289 with
+                    ({ temp___300 with
                        Carsystem__car.__split_fields =
-                         ({ (Carsystem__car.__split_fields temp___289) with
+                         ({ (Carsystem__car.__split_fields temp___300) with
                             Carsystem__car.rec__carsystem__car__battery =
                               (100 :
                                  Carsystem__batterychargerange.batterychargerange) }) }) in
-                  [#"carsystem.adb" 159 0 0]
+                  [#"carsystem.adb" 163 0 0]
                   (Carsystem__chargebattery__this.this__split_fields.
                      Carsystem__car.__split_fields__content <-
-                     (Carsystem__car.__split_fields temp___290))))
+                     (Carsystem__car.__split_fields temp___301))))
               else
-                ([@GP_Sloc:carsystem.adb:161:26]
-                 [#"carsystem.adb" 161 0 0]
-                 (let temp___293 =
-                    let temp___292 =
+                ([@GP_Sloc:carsystem.adb:165:26]
+                 [#"carsystem.adb" 165 0 0]
+                 (let temp___304 =
+                    let temp___303 =
                       { Carsystem__car.__split_fields =
                           (Carsystem__car.__split_fields__content
                               Carsystem__chargebattery__this.this__split_fields) } in
-                    ([#"carsystem.adb" 161 0 0]
+                    ([#"carsystem.adb" 165 0 0]
                      (begin
                         ensures { true }
                         let _ =
                           let _ =
-                            (Carsystem__car.__split_fields temp___292).
+                            (Carsystem__car.__split_fields temp___303).
                               Carsystem__car.rec__carsystem__car__battery in
                           () in
                         ()
                       end));
-                    ({ temp___292 with
+                    ({ temp___303 with
                        Carsystem__car.__split_fields =
-                         ({ (Carsystem__car.__split_fields temp___292) with
+                         ({ (Carsystem__car.__split_fields temp___303) with
                             Carsystem__car.rec__carsystem__car__battery =
                               (Carsystem__batterychargerange__rep.of_rep
                                  Carsystem__chargebattery__desiredcharge.desiredcharge) }) }) in
-                  [#"carsystem.adb" 161 0 0]
+                  [#"carsystem.adb" 165 0 0]
                   (Carsystem__chargebattery__this.this__split_fields.
                      Carsystem__car.__split_fields__content <-
-                     (Carsystem__car.__split_fields temp___293))))))
+                     (Carsystem__car.__split_fields temp___304))))))
           else ()));
-        ([@GP_Sloc:carsystem.adb:166:7] [#"carsystem.adb" 166 0 0] ());
-        ([@GP_Sloc:carsystem.adb:166:7]
-         [#"carsystem.adb" 166 0 0]
-         (let temp___compl_294 =
+        ([@GP_Sloc:carsystem.adb:170:7] [#"carsystem.adb" 170 0 0] ());
+        ([@GP_Sloc:carsystem.adb:170:7]
+         [#"carsystem.adb" 170 0 0]
+         (let temp___compl_305 =
             { Carsystem__car.__split_fields =
                 (Carsystem__car.__split_fields__content
                     Carsystem__chargebattery__this.this__split_fields) } in
-          ([#"carsystem.adb" 166 0 0] (val _f : unit in
+          ([#"carsystem.adb" 170 0 0] (val _f : unit in
                                        _f));
           (Carsystem__checkbatterywarning___axiom.checkbatterywarning
              Carsystem__chargebattery__this.this__split_fields)));

@@ -15,7 +15,7 @@ RV NO_RELATIVE_DELAY
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U carsystem%b		carsystem.adb		a58eeb0d NE OO PK
+U carsystem%b		carsystem.adb		6b5930fc NE OO PK
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
@@ -23,7 +23,7 @@ W ada.text_io%s		a-textio.adb		a-textio.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.img_int%s	s-imgint.ads		s-imgint.ali
 
-U carsystem%s		carsystem.ads		6b2a7aa1 EE NE OO PK
+U carsystem%s		carsystem.ads		8b89ea98 EE NE OO PK
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
@@ -38,8 +38,8 @@ D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D carsystem.ads		20220422095248 6b2a7aa1 carsystem%s
-D carsystem.adb		20220422101856 605044c1 carsystem%b
+D carsystem.ads		20220422104724 8b89ea98 carsystem%s
+D carsystem.adb		20220422110518 4e240f09 carsystem%b
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
 D system.ads		20210520051136 2ffa5114 system%s
@@ -97,7 +97,7 @@ X 13 carsystem.ads
 . 94r43 101r43 104r42 14|4r48 9r45 28r47 36r49 45r44 56r43 66r41 80r40 91r37
 . 150r43 159r43 173r43 179r42
 16b7*isStarted{boolean} 44r17 14|49r15 52m15 62m15 110r19 125r15
-17b7*SensorDetect{boolean} 14|71m62 72m23 74m63 75m23 98r15 127r19
+17b7*SensorDetect{boolean} 14|70m25 71m62 72m23 74m63 75m23 98r15 127r19
 18b7*isDiagMode{boolean} 63r18 102r19 105r18 106r19 14|61m15 82r19 115r15
 . 126r19 161r19 176m12 181m12
 19b7*isBatteryWarning{boolean} 14|39m15 40m17 104r15 128r19
@@ -105,8 +105,8 @@ X 13 carsystem.ads
 21i7*predictedCharge{integer} 33r11 34r11 14|12m18 13r18 14r78 19r21 20r81
 . 22r60
 22i7*previousSpeed{4I9} 14|12r77 30r16 93r15 94m15 147m12 156m12
-23i7*speed{4I9} 46r11 50r18 64r11 89r19 14|12r107 30r37 51r14 59r15 83r14
-. 94r37 133m18 135m18 137r18 147r34 153m12
+23i7*speed{4I9} 46r11 50r18 64r11 14|12r107 30r37 51r14 59r15 83r14 94r37
+. 133m18 135m18 137r18 147r34 153m12
 24i7*desiredSpeed{4I9} 82r11 83r11 14|130r14 131r14 132r18 135r32 143m12
 25i7*battery{3I9} 35r19 97r19 98r11 14|12r50 38r15 138r17 139m17 139r33 163m18
 . 165m18
@@ -126,7 +126,7 @@ X 13 carsystem.ads
 49U14*StopProcedure 49=29 14|56b14 64l8 64t21
 49r29 This{15R9} 50r13 51r6 14|56b29 58m27 59r10 60r9 61m10 62m10
 56U14*CheckSensor 56=27 14|66b14 78l8 78t19 88s7 96s7
-56r27 This{15R9} 14|66b27 68m27 69r12 71m57 72m18 74m58 75m18
+56r27 This{15R9} 14|66b27 68m27 69r12 70m20 71m57 72m18 74m58 75m18
 62U14*ChangeGear 62=26 62>45 14|80b14 89l8 89t18
 62r26 This{15R9} 63r13 64r6 14|80b26 82r14 83r9 86m10 88m19
 62i45 selectedGear{12I9} 65r6 66r6 14|80b45 84r9 85r9 86r23
@@ -136,7 +136,7 @@ X 13 carsystem.ads
 . 131r9 132r13 133m13 135m13 135r27 137r13 138r12 139m12 139r28 142m27 143m7
 . 145m25 147m7 147r29
 88U14*EmergencyStop 88=29 14|101s10 107s10 150b14 157l8 157t21 175s7
-88r29 This{15R9} 89r14 14|150b29 152m27 153m7 154m7 155m25 156m7
+88r29 This{15R9} 14|150b29 152m27 153m7 154m7 155m25 156m7
 94U14*ChargeBattery 94=29 94>48 14|17s13 22s16 159b14 171l8 171t21
 94r29 This{15R9} 97r14 98r6 14|159b29 161r14 163m13 165m13 170m27
 94i48 desiredCharge{3I9} 95r13 96r6 14|159b48 162r13 165r29

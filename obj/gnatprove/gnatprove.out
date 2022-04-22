@@ -8,14 +8,14 @@ Data Dependencies                 .         .          .                        
 Flow Dependencies                 .         .          .                            .           .          .
 Initialization                    1         1          .                            .           .          .
 Non-Aliasing                      .         .          .                            .           .          .
-Run-time Checks                  16         .          .                    16 (CVC4)           .          .
+Run-time Checks                  19         .          .                    19 (CVC4)           .          .
 Assertions                        .         .          .                            .           .          .
-Functional Contracts             15         .          .    14 (CVC4 97%, Trivial 3%)           .          1
+Functional Contracts             14         .          .    14 (CVC4 97%, Trivial 3%)           .          .
 LSP Verification                  .         .          .                            .           .          .
 Termination                       .         .          .                            .           .          .
 Concurrency                       .         .          .                            .           .          .
 ------------------------------------------------------------------------------------------------------------
-Total                            32    1 (3%)          .                     30 (94%)           .     1 (3%)
+Total                            34    1 (3%)          .                     33 (97%)           .          .
 
 
 max steps used for successful proof: 1
@@ -28,14 +28,14 @@ in unit carsystem, 14 subprograms and packages out of 14 analyzed
   CarSystem.CheckBatteryWarning at carsystem.ads:39 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
   CarSystem.CheckRegenBraking at carsystem.ads:37 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
   CarSystem.CheckSensor at carsystem.ads:56 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
-  CarSystem.EmergencyStop at carsystem.ads:88 flow analyzed (0 errors, 0 checks and 0 warnings) and not proved, 0 checks out of 1 proved
+  CarSystem.EmergencyStop at carsystem.ads:88 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
   CarSystem.EnterDiagMode at carsystem.ads:101 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
   CarSystem.ExitDiagMode at carsystem.ads:104 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
   CarSystem.MoveCar at carsystem.ads:76 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
   CarSystem.StartProcedure at carsystem.ads:43 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
   CarSystem.StopProcedure at carsystem.ads:49 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
   CarSystem.ToggleRegenBraking at carsystem.ads:29 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
-  CarSystem.UseRegenBraking at carsystem.ads:31 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (6 checks)
+  CarSystem.UseRegenBraking at carsystem.ads:31 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (7 checks)
 in unit main, 2 subprograms and packages out of 2 analyzed
-  Main at main.adb:5 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (19 checks)
+  Main at main.adb:5 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (21 checks)
   Main.PrintStatus at main.adb:12 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)

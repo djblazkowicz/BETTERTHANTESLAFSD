@@ -67,7 +67,7 @@ package body CarSystem with SPARK_Mode is
    begin
       CheckBatteryWarning(This);
       case This.gear is
-         when 0 => return;
+         when 0 => This.SensorDetect := False; -- this is to reset the sensor when we are in PARK gear
          when 1 => if CarSystem.ObjectAhead = True then This.SensorDetect := True;
             else This.SensorDetect := False;
             end if;            

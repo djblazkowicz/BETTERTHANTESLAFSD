@@ -234,30 +234,30 @@ module Carsystem__car__rep
   use        Carsystem__gearrange
   use        Carsystem__gearrange__rep
   
-  type __split_fields  = { [model_trace:.1512]
-                           [name:isStarted]rec__carsystem__car__isstarted : bool;
-                           [model_trace:.1518]
+  type __split_fields  = { [name:isStarted]
+                           [model_trace:.1536]rec__carsystem__car__isstarted : bool;
+                           [model_trace:.1542]
                            [name:SensorDetect]rec__carsystem__car__sensordetect : bool;
-                           [model_trace:.1523]
+                           [model_trace:.1547]
                            [name:isDiagMode]rec__carsystem__car__isdiagmode : bool;
-                           [model_trace:.1528]
+                           [model_trace:.1552]
                            [name:isBatteryWarning]rec__carsystem__car__isbatterywarning : bool;
                            [name:isRegenBraking]
-                           [model_trace:.1533]rec__carsystem__car__isregenbraking : bool;
-                           [model_trace:.1538]
+                           [model_trace:.1557]rec__carsystem__car__isregenbraking : bool;
+                           [model_trace:.1562]
                            [name:predictedCharge]rec__carsystem__car__predictedcharge : Standard__integer.integer;
-                           [model_trace:.1543]
-                           [name:previousSpeed]rec__carsystem__car__previousspeed : Carsystem__speedrange.speedrange;
-                           [model_trace:.1548]
+                           [name:previousSpeed]
+                           [model_trace:.1567]rec__carsystem__car__previousspeed : Carsystem__speedrange.speedrange;
+                           [model_trace:.1572]
                            [name:speed]rec__carsystem__car__speed : Carsystem__speedrange.speedrange;
                            [name:desiredSpeed]
-                           [model_trace:.1553]rec__carsystem__car__desiredspeed : Carsystem__speedrange.speedrange;
-                           [model_trace:.1558]
+                           [model_trace:.1577]rec__carsystem__car__desiredspeed : Carsystem__speedrange.speedrange;
+                           [model_trace:.1582]
                            [name:battery]rec__carsystem__car__battery : Carsystem__batterychargerange.batterychargerange;
-                           [name:gear]
-                           [model_trace:.1563]rec__carsystem__car__gear : Carsystem__gearrange.gearrange }
+                           [model_trace:.1587]
+                           [name:gear]rec__carsystem__car__gear : Carsystem__gearrange.gearrange }
   
-  function [model_trace:.1512] [name:isStarted] 
+  function [name:isStarted] [model_trace:.1536] 
     __split_fields_rec__carsystem__car__isstarted__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isstarted
@@ -266,7 +266,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isstarted__projection
   
-  function [model_trace:.1518] [name:SensorDetect] 
+  function [model_trace:.1542] [name:SensorDetect] 
     __split_fields_rec__carsystem__car__sensordetect__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__sensordetect
@@ -275,7 +275,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__sensordetect__projection
   
-  function [model_trace:.1523] [name:isDiagMode] 
+  function [model_trace:.1547] [name:isDiagMode] 
     __split_fields_rec__carsystem__car__isdiagmode__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isdiagmode
@@ -284,7 +284,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isdiagmode__projection
   
-  function [model_trace:.1528] [name:isBatteryWarning] 
+  function [model_trace:.1552] [name:isBatteryWarning] 
     __split_fields_rec__carsystem__car__isbatterywarning__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isbatterywarning
@@ -293,7 +293,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isbatterywarning__projection
   
-  function [name:isRegenBraking] [model_trace:.1533] 
+  function [name:isRegenBraking] [model_trace:.1557] 
     __split_fields_rec__carsystem__car__isregenbraking__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isregenbraking
@@ -302,7 +302,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isregenbraking__projection
   
-  function [model_trace:.1538] [name:predictedCharge] 
+  function [model_trace:.1562] [name:predictedCharge] 
     __split_fields_rec__carsystem__car__predictedcharge__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Standard__integer.integer = a.rec__carsystem__car__predictedcharge
@@ -311,7 +311,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__predictedcharge__projection
   
-  function [model_trace:.1543] [name:previousSpeed] 
+  function [name:previousSpeed] [model_trace:.1567] 
     __split_fields_rec__carsystem__car__previousspeed__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__speedrange.speedrange = a.rec__carsystem__car__previousspeed
@@ -320,7 +320,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__previousspeed__projection
   
-  function [model_trace:.1548] [name:speed] 
+  function [model_trace:.1572] [name:speed] 
     __split_fields_rec__carsystem__car__speed__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__speedrange.speedrange = a.rec__carsystem__car__speed
@@ -329,7 +329,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__speed__projection
   
-  function [name:desiredSpeed] [model_trace:.1553] 
+  function [name:desiredSpeed] [model_trace:.1577] 
     __split_fields_rec__carsystem__car__desiredspeed__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__speedrange.speedrange = a.rec__carsystem__car__desiredspeed
@@ -338,7 +338,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__desiredspeed__projection
   
-  function [model_trace:.1558] [name:battery] 
+  function [model_trace:.1582] [name:battery] 
     __split_fields_rec__carsystem__car__battery__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__batterychargerange.batterychargerange = a.rec__carsystem__car__battery
@@ -347,7 +347,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__battery__projection
   
-  function [name:gear] [model_trace:.1563] 
+  function [model_trace:.1587] [name:gear] 
     __split_fields_rec__carsystem__car__gear__projection (a : __split_fields)
     requires {  } ensures  {  } returns
     Carsystem__gearrange.gearrange = a.rec__carsystem__car__gear
@@ -915,7 +915,7 @@ module Carsystem__exitdiagmode__this
   use import int.Int
   use        Carsystem__car
   
-  val this__split_fields [model_projected] [model_trace:1815]
+  val this__split_fields [model_projected] [model_trace:1830]
   [name:This] [sloc:carsystem.ads:104]: Carsystem__car.__split_fields
 
 end
@@ -1080,7 +1080,7 @@ module Carsystem__exitdiagmode__subprogram_def
                                 [comment:     Post => this.isDiagMode = False;              ^ carsystem.ads:106:14:VC_POSTCONDITION]
                                 [GP_Sloc:carsystem.ads:106:14]
                                 [model_vc_post] ([GP_Sloc:carsystem.ads:106:14]
-                                                [GP_Pretty_Ada:12827] (
+                                                [GP_Pretty_Ada:12828] (
                                                 (( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
                                                    = True) <-> False)))) }
     returns
@@ -1099,26 +1099,26 @@ module Carsystem__exitdiagmode__subprogram_def
                        in ())  end;
         (* Assume Pre of the subprogram carsystem.ads:104 *);
         assume
-        { ([GP_Pretty_Ada:12815] ((( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
+        { ([GP_Pretty_Ada:12816] ((( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
                                      = True) <-> True)) };
         (try
         ();
-          ([GP_Sloc:carsystem.adb:177:23] ([sloc:carsystem.adb:177] (let ([mlw:proxy_symbol]
-                                          [introduced] temp___301) =
+          ([GP_Sloc:carsystem.adb:181:23] ([sloc:carsystem.adb:181] (let ([mlw:proxy_symbol]
+                                          [introduced] temp___312) =
                                           (let ([mlw:proxy_symbol]
-                                            [introduced] temp___300) =
+                                            [introduced] temp___311) =
                                             ( --pp_record_aggregate NOT IMPLEMENTED)
                                             in abstract ensures
                                             { True } begin  (let _ =
                                                            ([mlw:proxy_symbol]
-                                                             [introduced] temp___300).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
+                                                             [introduced] temp___311).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
                                                            in ())  end;
                                             --pp_record_update NOT IMPLEMENTED)
                                           in (
                                           Carsystem__exitdiagmode__this.this__split_fields
                                           :=
                                           ([mlw:proxy_symbol]
-                                            [introduced] temp___301).Carsystem__car.__split_fields))));
+                                            [introduced] temp___312).Carsystem__car.__split_fields))));
           raise Return__exc with | Return__exc  -> ());
         abstract ensures
         { True } begin  (let _ =

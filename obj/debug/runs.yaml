@@ -2079,3 +2079,183 @@
     '
   output_parser: GNATprove_Parser
   timestamp: '2022-04-22T11:07:13.495000'
+'2022-04-22T11:46:06.060000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.ads:89:14: medium: postcondition might fail (e.g. when This.speed =
+    1 and This.desiredSpeed = 1) [possible fix: call at carsystem.adb:155 should mention
+    This (for argument This) in a postcondition][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:46:06.060000'
+'2022-04-22T11:47:27.251000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:47:27.251000'
+'2022-04-22T11:47:40.821000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:47:40.821000'
+'2022-04-22T12:00:02.662000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All Sources (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:00:02.662000'
+'2022-04-22T12:00:27.638000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:00:27.638000'
+'2022-04-22T12:00:45.109000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:00:45.109000'
+'2022-04-22T12:02:56.247000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:22:59: medium: range check might fail (e.g. when This.isRegenBraking
+    = True and This.predictedCharge = -1 and This.speed = 20 and This.desiredSpeed
+    = 20) [reason for check: value must be convertible to the target type of the conversion][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:02:56.247000'
+'2022-04-22T12:04:40.946000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:22:59: medium: range check might fail (e.g. when This.isRegenBraking
+    = True and This.predictedCharge = -1 and This.speed = 20 and This.desiredSpeed
+    = 20) [reason for check: value must be convertible to the target type of the conversion][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:04:40.946000'
+'2022-04-22T12:05:20.106000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Examine All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: analysis of data and information flow ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:05:20.106000'
+'2022-04-22T12:05:30.953000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:05:30.953000'
+'2022-04-22T12:06:59.783000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Examine Subprogram (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: analysis of data and information flow ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:06:59.783000'
+'2022-04-22T12:07:11.497000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T12:07:11.497000'

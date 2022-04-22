@@ -906,11 +906,8 @@ end
 module Carsystem__emergencystop___axiom
   use _gnatprove_standard.Main
   use int.Int
-  use int.Int
   use Carsystem__car as Carsystem__car
   use Carsystem__car___axiom as Carsystem__car___axiom
-  use Carsystem__speedrange as Carsystem__speedrange
-  use Carsystem__speedrange__rep as Carsystem__speedrange__rep
   use Ada___ada__text_io__file_system as Ada___ada__text_io__file_system
   use Ada___ada__text_io__standard_in as Ada___ada__text_io__standard_in
   use Ada___ada__text_io__standard_out as Ada___ada__text_io__standard_out
@@ -939,21 +936,14 @@ module Carsystem__emergencystop___axiom
       Ada___ada__real_time__clock_time.clock_time }
     requires { true }
     writes { Ada___ada__text_io__file_system.file_system, Ada___ada__text_io__standard_in.standard_in, Ada___ada__text_io__standard_out.standard_out, Ada___ada__text_io__standard_err.standard_err, Ada___ada__text_io__current_in.current_in, Ada___ada__text_io__current_out.current_out, Ada___ada__text_io__current_err.current_err, this__split_fields }
-    ensures { (([@GP_Pretty_Ada:12748]
-                ((Carsystem__speedrange__rep.to_rep
-                    ((Carsystem__car.__split_fields
-                         { Carsystem__car.__split_fields =
-                             (Carsystem__car.__split_fields__content
-                                 this__split_fields) }).Carsystem__car.rec__carsystem__car__speed))
-                   = (0 : int))) /\
-                 (((((Carsystem__car___axiom.dynamic_invariant
-                        { Carsystem__car.__split_fields =
-                            (Carsystem__car.__split_fields__content
-                                this__split_fields) })
-                       True)
-                      True)
-                     True)
-                    True)) }
+    ensures { ((((Carsystem__car___axiom.dynamic_invariant
+                    { Carsystem__car.__split_fields =
+                        (Carsystem__car.__split_fields__content
+                            this__split_fields) })
+                   True)
+                  True)
+                 True)
+                True }
 end
 
 module Carsystem__enterdiagmode__this
@@ -1138,7 +1128,7 @@ module Carsystem__enterdiagmode__subprogram_def
               [@GP_Shape:pragargs__cmp]
               [@model_vc_post]
               [@GP_Sloc:carsystem.ads:102:14]
-              [@GP_Pretty_Ada:12801]
+              [@GP_Pretty_Ada:12802]
               [@GP_Sloc:carsystem.ads:102:14]
               ((((Carsystem__car.__split_fields
                      { Carsystem__car.__split_fields =
@@ -1165,41 +1155,41 @@ module Carsystem__enterdiagmode__subprogram_def
       ());
      ([@GNAT-comment:Assume Pre of the subprogram carsystem.ads:101] ());
      (try
-        ([@GP_Sloc:carsystem.adb:171:7] [#"carsystem.adb" 171 0 0] ());
-        ([@GP_Sloc:carsystem.adb:171:7]
-         [#"carsystem.adb" 171 0 0]
-         (let temp___compl_295 =
+        ([@GP_Sloc:carsystem.adb:175:7] [#"carsystem.adb" 175 0 0] ());
+        ([@GP_Sloc:carsystem.adb:175:7]
+         [#"carsystem.adb" 175 0 0]
+         (let temp___compl_306 =
             { Carsystem__car.__split_fields =
                 (Carsystem__car.__split_fields__content
                     Carsystem__enterdiagmode__this.this__split_fields) } in
-          ([#"carsystem.adb" 171 0 0] (val _f : unit in
+          ([#"carsystem.adb" 175 0 0] (val _f : unit in
                                        _f));
           (Carsystem__emergencystop___axiom.emergencystop
              Carsystem__enterdiagmode__this.this__split_fields)));
-        ([@GP_Sloc:carsystem.adb:172:23]
-         [#"carsystem.adb" 172 0 0]
-         (let temp___298 =
-            let temp___297 =
+        ([@GP_Sloc:carsystem.adb:176:23]
+         [#"carsystem.adb" 176 0 0]
+         (let temp___309 =
+            let temp___308 =
               { Carsystem__car.__split_fields =
                   (Carsystem__car.__split_fields__content
                       Carsystem__enterdiagmode__this.this__split_fields) } in
-            ([#"carsystem.adb" 172 0 0]
+            ([#"carsystem.adb" 176 0 0]
              (begin
                 ensures { true }
                 let _ =
                   let _ =
-                    (Carsystem__car.__split_fields temp___297).Carsystem__car.rec__carsystem__car__isdiagmode in
+                    (Carsystem__car.__split_fields temp___308).Carsystem__car.rec__carsystem__car__isdiagmode in
                   () in
                 ()
               end));
-            ({ temp___297 with
+            ({ temp___308 with
                Carsystem__car.__split_fields =
-                 ({ (Carsystem__car.__split_fields temp___297) with
+                 ({ (Carsystem__car.__split_fields temp___308) with
                     Carsystem__car.rec__carsystem__car__isdiagmode =
                       (Boolean.of_int (1 : int)) }) }) in
-          [#"carsystem.adb" 172 0 0]
+          [#"carsystem.adb" 176 0 0]
           (Carsystem__enterdiagmode__this.this__split_fields.Carsystem__car.__split_fields__content <-
-             (Carsystem__car.__split_fields temp___298))));
+             (Carsystem__car.__split_fields temp___309))));
         (raise Return__exc)
       with Return__exc -> ()
       end);

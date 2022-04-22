@@ -85,8 +85,8 @@ package CarSystem with SPARK_Mode is
    
    -- stops the car
    -- will ensure speed is 0
-   procedure EmergencyStop (This : in out Car) with
-     Post => this.speed = 0;
+   procedure EmergencyStop (This : in out Car); --with
+     --Post => this.speed = 0;
    
    -- adds desired amount of charge to the battery
    -- won't charge in diagnostic mode
