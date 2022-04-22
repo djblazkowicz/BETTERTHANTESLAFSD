@@ -19,7 +19,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_OBSOLESCENT_FEATURES
 
-U main%b		main.adb		6ddb376b NE OO SU
+U main%b		main.adb		73d0b22c NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -43,10 +43,10 @@ D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
 D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D carsystem.ads		20220421213220 42cf41c3 carsystem%s
+D carsystem.ads		20220422084336 a9c832bd carsystem%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20220421175632 77ab2a61 main%b
+D main.adb		20220422084534 82a7dc58 main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
@@ -68,58 +68,58 @@ D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
 G c Z b b [main standard 5 11 none]
-G r c none [main standard 5 11 none] [startprocedure carsystem 29 14 none]
-G r c none [main standard 5 11 none] [stopprocedure carsystem 35 14 none]
-G r c none [main standard 5 11 none] [changegear carsystem 48 14 none]
-G r c none [main standard 5 11 none] [chargebattery carsystem 80 14 none]
-G r c none [main standard 5 11 none] [movecar carsystem 62 14 none]
-G r c none [main standard 5 11 none] [emergencystop carsystem 74 14 none]
+G r c none [main standard 5 11 none] [startprocedure carsystem 30 14 none]
+G r c none [main standard 5 11 none] [stopprocedure carsystem 36 14 none]
+G r c none [main standard 5 11 none] [changegear carsystem 49 14 none]
+G r c none [main standard 5 11 none] [chargebattery carsystem 81 14 none]
+G r c none [main standard 5 11 none] [movecar carsystem 63 14 none]
+G r c none [main standard 5 11 none] [emergencystop carsystem 75 14 none]
 X 1 ada.ads
-16K9*Ada 20e8 18|1r6 1r23 2r6 2r31 15r7 59r7 87r16 100r16
+16K9*Ada 20e8 18|1r6 1r23 2r6 2r31 15r7 58r7 105r16 122r16
 X 5 a-inteio.ads
-18K13*Integer_Text_IO[13|46] 18|2w10 2r35 59r11 87r20 100r20
+18K13*Integer_Text_IO[13|46] 18|2w10 2r35 58r11 105r20 122r20
 X 12 a-textio.ads
 58K13*Text_IO 725e16 18|1w10 1r27 15r11
-262U14*New_Line 18|16s7 29s7 42s7 58s7
+262U14*New_Line 18|16s7 28s7 41s7 57s7
 463U14*Put 18|15s19
-506U14*Put_Line 18|17s7 18s7 19s7 20s7 21s7 22s7 23s7 24s7 25s7 28s7 43s7
-. 44s7 45s7 46s7 47s7 48s7 49s7 50s7 51s7 52s7 53s7 54s7 55s7 56s7 57s7 63s13
-. 67s13 71s13 75s13 79s13 86s16 90s13 99s16 103s13 106s13 110s16 115s13 120s16
-. 122s16 127s16 129s16 134s16 136s16 141s13
+506U14*Put_Line 18|17s7 18s7 19s7 20s7 21s7 22s7 23s7 24s7 25s7 26s7 27s7
+. 42s7 43s7 44s7 45s7 46s7 47s7 48s7 49s7 50s7 51s7 52s7 53s7 54s7 55s7 56s7
+. 62s13 68s13 74s13 79s16 83s13 88s16 92s13 97s16 104s16 112s13 121s16 125s13
+. 127s13 132s13 137s16 139s16 144s16 146s16 151s16 153s16 158s13
 X 13 a-tiinio.ads
-59U14*Get 18|59s27[5|18] 87s36[5|18] 100s36[5|18]
+59U14*Get 18|58s27[5|18] 105s36[5|18] 122s36[5|18]
 X 15 carsystem.ads
-1K9*CarSystem 94e14 18|3w6 3r21 6r10
-3I9*BatteryChargeRange<short_short_integer> 18|10r14 84r41 85r37 89r24
-4I9*SpeedRange<short_short_integer> 18|8r12 97r39 98r33 102r22
-7b4*ObjectAhead{boolean} 18|24r34 126r16 131m13 131r32 133r16
-8b4*ObjectBehind{boolean} 18|25r35 138m13 138r33
+1K9*CarSystem 95e14 18|3w6 3r21 6r10
+3I9*BatteryChargeRange<short_short_integer> 18|10r14 102r41 103r37 107r39
+. 108r38 110r27
+4I9*SpeedRange<short_short_integer> 18|119r39 120r33 124r34
+7b4*ObjectAhead{boolean} 18|25r34 143r16 148m13 148r32 150r16
+8b4*ObjectBehind{boolean} 18|26r35 155m13 155r33
 12I9*GearRange<short_short_integer>
-15R9*Car 23e14 18|6r20
-16b7*isStarted{boolean} 18|18r39
-17b7*SensorDetect{boolean} 18|109r21
-18b7*isDiagMode{boolean} 18|22r43 119r21 124m18 124r41
+15R9*Car 24e14 18|6r20
+16b7*isStarted{boolean} 18|18r39 64r26 70r22
+17b7*SensorDetect{boolean} 18|24r41
+18b7*isDiagMode{boolean} 18|22r43 76r25 85r25 94r25 136r21 141m18 141r41
 19b7*isBatteryWarning{boolean} 18|23r43
-20i7*speed{4I9} 18|21r33
-21i7*battery{3I9} 18|20r41
-22i7*gear{12I9} 18|19r41
-29U14*StartProcedure 18|65s13
-35U14*StopProcedure 18|69s13
-48U14*ChangeGear 18|73s13 77s13 81s13
-62U14*MoveCar 18|108s13
-74U14*EmergencyStop 18|117s13
-80U14*ChargeBattery 18|92s13
+20i7*speed{4I9} 18|21r33 64r63 70r59 76r45 85r45 94r45
+21i7*desiredSpeed{4I9} 18|124m18 125r48
+22i7*battery{3I9} 18|20r41
+23i7*gear{12I9} 18|19r41 64r45 70r41
+30U14*StartProcedure 18|65s16
+36U14*StopProcedure 18|71s16
+49U14*ChangeGear 18|77s16 86s16 95s16
+63U14*MoveCar 18|128s13
+75U14*EmergencyStop 18|134s13
+81U14*ChargeBattery 18|114s13
 X 18 main.adb
-5U11*Main 5b11 149l5 149t9
-6r4 saxo{15|15R9} 18r34 19r36 20r36 21r28 22r38 23r38 65m28 65r28 69m27 69r27
-. 73m24 73r24 77m24 77r24 81m24 81r24 92m27 92r27 108m21 108r21 109r16 117m27
-. 117r27 119r16 124m13 124r36
-7i4 option{integer} 39r10 59m31 61r12
-8i4 speed{15|4I9} 102m13 103r43 108r27 113m13
-9i4 speed_int{integer} 97r19 98r13 100m40 102r33 112m13
-10i4 battery{15|3I9} 89m13 92r33 94m13
-11i4 battery_int{integer} 84r19 85r15 87m40 89r43 93m13
-13U14 PrintStatus 13b14 30l8 30t19 41s7
-32U14 ClearDelay 32b14 36l8 36t18 64s13 68s13 72s13 76s13 80s13 91s13 104s13
-. 107s13 116s13
+5U11*Main 5b11 166l5 166t9
+6r4 saxo{15|15R9} 18r34 19r36 20r36 21r28 22r38 23r38 24r36 64r21 64r40 64r58
+. 65m31 65r31 70r17 70r36 70r54 71m30 71r30 76r20 76r40 77m27 77r27 85r20
+. 85r40 86m27 86r27 94r20 94r40 95m27 95r27 114m27 114r27 124m13 125r43 128m21
+. 128r21 134m27 134r27 136r16 141m13 141r36
+7i4 option{integer} 38r10 58m31 60r12
+9i4 speed_int{integer} 119r19 120r13 122m40 124r45 129m13
+10i4 battery{15|3I9} 110m16 114r33 116m13
+11i4 battery_int{integer} 102r19 103r15 105m40 107r16 108r15 110r46 115m13
+13U14 PrintStatus 13b14 29l8 29t19 40s7
 

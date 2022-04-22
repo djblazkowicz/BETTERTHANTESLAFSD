@@ -18,6 +18,7 @@ package CarSystem with SPARK_Mode is
       isDiagMode : Boolean := False;
       isBatteryWarning : Boolean := False;
       speed : SpeedRange := 0;
+      desiredSpeed : SpeedRange := 0;
       battery : BatteryChargeRange := 0;
       gear : GearRange := 0;
    end record;
@@ -59,14 +60,14 @@ package CarSystem with SPARK_Mode is
    -- won't move if in parking gear
    -- won't move if desired speed is out of range
    -- will cap desired speed at speed limit
-   procedure MoveCar (This : in out Car; targetSpeed : in SpeedRange) with
-     Pre => this.isStarted = True and
-     this.isDiagMode = False and
-     this.SensorDetect = False and
-     this.isBatteryWarning = False and
-     this.gear > 0 and
-     targetSpeed >= SpeedRange'First and
-     targetSpeed <= SpeedRange'Last;
+   procedure MoveCar (This : in out Car) with
+     Pre => --this.isStarted = True and
+     --this.isDiagMode = False and
+     --this.SensorDetect = False and
+     --this.isBatteryWarning = False and
+     --this.gear > 0 and
+     this.desiredSpeed >= SpeedRange'First and
+     this.desiredSpeed <= SpeedRange'Last;
      --Post => This.speed <= SpeedLimit;
    
    -- stops the car
@@ -77,8 +78,9 @@ package CarSystem with SPARK_Mode is
    -- adds desired amount of charge to the battery
    -- won't charge in diagnostic mode
    -- prevents overcharge
-   procedure ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) with
-     Pre => chargeAmount < (BatteryChargeRange'Last - this.battery),
+   procedure ChargeBattery (This : in out Car; desiredCharge : in BatteryChargeRange) with
+     Pre => desiredCharge <= BatteryChargeRange'Last and
+     desiredCharge >= BatteryChargeRange'First,
      Post => this.battery <= BatteryChargeRange'Last and
      this.battery >= BatteryChargeRange'First;
    

@@ -5,7 +5,7 @@ with CarSystem; use CarSystem;
 procedure Main with SPARK_Mode is
    saxo: CarSystem.Car;
    option : Integer := 1;
-   speed : SpeedRange := 0;
+   --speed : SpeedRange;
    speed_int : Integer := -1;
    battery : BatteryChargeRange := 0;
    battery_int : Integer := -1;
@@ -21,19 +21,18 @@ procedure Main with SPARK_Mode is
       Put_Line("Speed: " & saxo.speed'Image);
       Put_Line("Diagnostic Mode: " & saxo.isDiagMode'Image);
       Put_Line("Battery Warning: " & saxo.isBatteryWarning'Image);
+      Put_Line("SENSOR DETECT: " & saxo.SensorDetect'Image);
       Put_Line("Object Ahead " & ObjectAhead'Image);
       Put_Line("Object Behind " & ObjectBehind'Image);
-
-      --  Put_Line("Tank Status: " & tren.waTank.status'Image);
       Put_Line("...........................");
       New_Line;
    end PrintStatus;
 
-   procedure ClearDelay is
-   begin
-      delay 2.0;
+   --procedure ClearDelay is
+   --begin
+   --   delay 2.0;
       --Ada.Text_IO.Put(ASCII.ESC & "[2J");
-   end ClearDelay;
+   --end delay 2.0;
 
 begin
    while option /= 0 loop
@@ -61,33 +60,43 @@ begin
       case option is
          when 1    =>
             Put_Line("Start the car...");
-            ClearDelay;
+            delay 2.0;
             if  not saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
                StartProcedure(saxo);
             end if;
          when 2    =>
             Put_Line("Turning the car off...");
-            ClearDelay;
+            delay 2.0;
             if  saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
                StopProcedure(saxo);
             end if;
          when 3    =>
             Put_line("Attempting Gear change...");
-            ClearDelay;
+            delay 2.0;
             if not saxo.isDiagMode and saxo.speed < 1 then
                ChangeGear(saxo, 0);
             else
-               Put_line("Cannot change gear in Diagnostic Mode!");
-               ClearDelay;
+               Put_line("Cannot change gear!");
+               delay 2.0;
             end if;
          when 4    =>
-            Put_line("Changing gear...");
-            ClearDelay;
-            ChangeGear(saxo, 1);
+            Put_line("Attempting Gear change...");
+            delay 2.0;
+            if not saxo.isDiagMode and saxo.speed < 1 then
+               ChangeGear(saxo, 1);
+            else
+               Put_line("Cannot change gear!");
+               delay 2.0;
+            end if;
          when 5    =>
-            Put_line("Changing gear...");
-            ClearDelay;
-            ChangeGear(saxo, 2);
+            Put_line("Attempting Gear change...");
+            delay 2.0;
+            if not saxo.isDiagMode and saxo.speed < 1 then
+               ChangeGear(saxo, 2);
+            else
+               Put_line("Cannot change gear!");
+               delay 2.0;
+            end if;
          when 6 =>
 
             while battery_int > Integer(BatteryChargeRange'Last) or
@@ -95,34 +104,33 @@ begin
                Put_line("Input desired charge:");
                Ada.Integer_Text_IO.Get(battery_int);
             end loop;
-            battery := BatteryChargeRange(battery_int);
+            if battery_int <= Integer(BatteryChargeRange'Last) and
+              battery_int >= Integer(BatteryChargeRange'First) then
+
+               battery := BatteryChargeRange(battery_int);
+               end if;
             Put_line("Charging battery...");
-            ClearDelay;
+            delay 2.0;
             ChargeBattery(saxo, battery);
             battery_int := -1;
             battery := 0;
-         when 7 =>
 
+         when 7 =>
             while speed_int > Integer(SpeedRange'Last) or
             speed_int < Integer(SpeedRange'First) loop
                Put_line("Input desired speed:");
                Ada.Integer_Text_IO.Get(speed_int);
             end loop;
-            speed := SpeedRange(speed_int);
-            Put_line("selected speed: " & speed'Image);
-            ClearDelay;
-
+            saxo.desiredSpeed := SpeedRange(speed_int);
+            Put_line("selected speed: " & saxo.desiredSpeed'Image);
+            delay 2.0;
             Put_line("Attemting to move...");
-            ClearDelay;
-            MoveCar(saxo, speed);
-            if saxo.SensorDetect = True then
-               Put_line("OBJECT DETECTED, EXECUTING EMERGENCY STOP");
-            end if;
+            MoveCar(saxo);
             speed_int := -1;
-            speed := 0;
+            delay 2.0;
          when 8 =>
             Put_line("Executing Emergency Stop...");
-            ClearDelay;
+            delay 2.0;
             EmergencyStop(saxo);
          when 9 =>
             if saxo.isDiagMode = True then

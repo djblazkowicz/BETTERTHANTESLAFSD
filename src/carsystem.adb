@@ -1,3 +1,4 @@
+with Ada.Text_IO; use Ada.Text_IO;
 package body CarSystem with SPARK_Mode is
    
    procedure CheckBatteryWarning (This : in out Car) is
@@ -36,9 +37,11 @@ package body CarSystem with SPARK_Mode is
       case This.gear is
          when 0 => return;
          when 1 => if CarSystem.ObjectAhead = True then This.SensorDetect := True;
-               end if;
+            else This.SensorDetect := False;
+            end if;            
          when 2 => if CarSystem.ObjectBehind = True then This.SensorDetect := True;
-            end if;
+            else This.SensorDetect := False;
+            end if;   
       end case;
    end CheckSensor;
                
@@ -49,42 +52,62 @@ package body CarSystem with SPARK_Mode is
         selectedGear <= CarSystem.GearRange'Last and
         selectedGear >= CarSystem.GearRange'First then
          This.gear := selectedGear;
-         end if;
+      end if;
+      CheckSensor(This);
    end ChangeGear;
    
-   procedure MoveCar (This : in out Car; targetSpeed : in SpeedRange) is
+   procedure MoveCar (This : in out Car) is
    begin
-      CheckBatteryWarning(This);
-      --check correct sensor before moving
-      --execute emergency stop if object detected
       CheckSensor(This);
-      if This.SensorDetect = True then
+      CheckBatteryWarning(This);      
+      if This.SensorDetect then
+         Put_line("OBJECT DETECTED, EXECUTING EMERGENCY STOP");
+         delay 2.0;
          EmergencyStop(This);
          return;
       end if;
       --move car if everything is good
-      if This.isBatteryWarning = True then
-         This.speed := 0;
+      if This.isBatteryWarning then
+         Put_line("BATTERY WARNING, EXECUTING EMERGENCY STOP");
+         delay 2.0;
+         EmergencyStop(This);
+         return;
       end if;
-      if This.isStarted = True and
-        This.isDiagMode = False and
-        This.SensorDetect = False and
-        This.isBatteryWarning = false and
+      if not This.isStarted then
+         Put_line("cannot move, car not started");
+         delay 2.0;
+         return;
+      end if;
+      if This.gear = 0 then
+         Put_Line("cannot move, car in PARKING gear");
+         delay 2.0;
+         return;
+      end if;
+      if this.isDiagMode then
+         Put_line("cannot move, car in DIAGNOSTIC mode");
+         delay 2.0;
+         return;
+      end if;      
+      if This.isStarted and
+         not This.isDiagMode and
+         not This.SensorDetect and
+         not This.isBatteryWarning and
         This.gear > 0 and
-        targetSpeed >= SpeedRange'First and
-        targetSpeed <= SpeedRange'Last then
-         if targetSpeed > SpeedLimit then
+        This.desiredSpeed >= SpeedRange'First and
+        This.desiredSpeed <= SpeedRange'Last then
+         if This.desiredSpeed > SpeedLimit then
             This.speed := SpeedLimit;
          else
-            This.speed := targetSpeed;
+            This.speed := This.desiredSpeed;
          end if;
-         if This.speed < 0 and 
-           This.battery < MinCharge then
-            This.battery := This.battery - 1;
+         if This.speed > 0 and 
+           This.battery > MinCharge then
+           This.battery := This.battery - 1;
          end if;
          
       end if;
       CheckBatteryWarning(This);
+      This.desiredSpeed := 0;
    end MoveCar;
    
    procedure EmergencyStop (This : in out Car) is
@@ -94,24 +117,19 @@ package body CarSystem with SPARK_Mode is
       This.speed := 0;
       This.gear := 0;
    end EmergencyStop;
-   
-   expectedCharge : BatteryChargeRange := 0;   
-   procedure ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) is
+    
+   procedure ChargeBattery (This : in out Car; desiredCharge : in BatteryChargeRange) is
    begin
-      if (This.battery + chargeAmount) <= BatteryChargeRange'Last then
-        
-         expectedCharge := This.battery + chargeAmount;
-      else
-         
-         expectedCharge := BatteryChargeRange'Last;
-      end if;
-      if This.isDiagMode = False then
-         
-         This.battery := expectedCharge;
+      if not This.isDiagMode then
+         if desiredCharge > BatteryChargeRange'Last then
+            This.battery := BatteryChargeRange'Last;
+         else
+            This.battery := desiredCharge;
+         end if;
          
       end if;
+      
       CheckBatteryWarning(This);
-      expectedCharge := 0;
    end ChargeBattery;
    
    procedure EnterDiagMode (This : in out Car) is

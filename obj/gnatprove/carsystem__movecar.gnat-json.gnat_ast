@@ -1,3 +1,231 @@
+(* Module for axiomatizing type "integer", created in Gnat2Why.Types.Translate_Type *)
+module Standard__integer
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type integer  = <range -2147483648 2147483647>
+  
+  function   first () requires { True } ensures  { True } returns
+    int = -2147483648
+  
+  function   last () requires { True } ensures  { True } returns
+    int = 2147483647
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = integer,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type integer__ref  = { mutable integer__content : integer }
+  
+  function   integer__ref_integer__content__projection (a : integer__ref)
+    requires {  } ensures  {  } returns integer = a.integer__content
+  
+  meta model_projection function integer__ref_integer__content__projection
+  
+  meta inline:no function integer__ref_integer__content__projection
+  
+  function   integer__havoc (x : integer__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module for axiomatizing type "positive", created in Gnat2Why.Types.Translate_Type *)
+module Standard__positive
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type positive  = <range 1 2147483647>
+  
+  function   first () requires { True } ensures  { True } returns int = 1
+  
+  function   last () requires { True } ensures  { True } returns
+    int = 2147483647
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = positive,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type positive__ref  = { mutable positive__content : positive }
+  
+  function   positive__ref_positive__content__projection (a : positive__ref)
+    requires {  } ensures  {  } returns positive = a.positive__content
+  
+  meta model_projection function positive__ref_positive__content__projection
+  
+  meta inline:no function positive__ref_positive__content__projection
+  
+  function   positive__havoc (x : positive__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module for axiomatizing type "character", created in Gnat2Why.Types.Translate_Type *)
+module Standard__character
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type character  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 255
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = character,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type character__ref  = { mutable character__content : character }
+  
+  function   character__ref_character__content__projection
+    (a : character__ref) requires {  } ensures  {  } returns
+    character = a.character__content
+  
+  meta model_projection function character__ref_character__content__projection
+  
+  meta inline:no function character__ref_character__content__projection
+  
+  function   character__havoc (x : character__ref) requires {  } ensures 
+    {  } returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "character", created in Gnat2Why.Types.Translate_Type *)
+module Standard__character__rep
+  
+  use        Standard__character
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Standard__character.character,
+    predicate in_range = Standard__character.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the array theory associated to type "string", created in Why.Gen.Arrays.Create_Rep_Array_Theory *)
+module Array__Int__Standard__character
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__character
+  use        Standard__character__rep
+  
+  function   index_I1_one () requires { True } ensures  { True } returns
+    int = 1
+  
+  type component_type  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  clone export _gnatprove_standard.Array__1 with axiom . type I1.t = int,
+    predicate I1.le = <=, predicate I1.lt = <, predicate I1.gt = >,
+    function I1.add = +, function I1.sub = -, function I1.one = index_I1_one,
+    type component_type = component_type
+  
+  function   bool_eq
+    (a : map a__first : int a__last : int b : map b__first : int
+    b__last : int) requires { True } ensures  { True } returns
+    bool = ((if (a__first <= a__last) then
+            ((b__first <= b__last) /\
+               ((a__last - a__first) = (b__last - b__first)))
+             else (b__first > b__last)) /\
+              --pp_universal_quantif NOT IMPLEMENTED)
+  
+  axiom bool_eq_rev : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module defining to_rep/of_rep for type "integer", created in Gnat2Why.Types.Translate_Type *)
+module Standard__integer__rep
+  
+  use        Standard__integer
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  function   to_rep (x : Standard__integer.integer) requires { True }
+    ensures  { True } returns int = (Standard__integer.integer'int x)
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Standard__integer.integer,
+    predicate in_range = Standard__integer.in_range, function to_rep = to_rep
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "string", created in Gnat2Why.Types.Translate_Type *)
+module Standard__string
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__integer
+  use        Standard__positive
+  use        Standard__character
+  use        Array__Int__Standard__character
+  use        Standard__integer__rep
+  
+  type component_type  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   index_1_id (x : int) requires { True } ensures  { True } returns
+    int = x
+  
+  clone export ada__model.Unconstr_Array with axiom . type map = Array__Int__Standard__character.map,
+    function array_bool_eq = Array__Int__Standard__character.bool_eq,
+    type index_base_type = Standard__integer.integer,
+    type index_rep_type = int,
+    function to_rep = Standard__integer__rep.to_rep,
+    function rep_to_int = index_1_id,
+    predicate in_range_base = Standard__integer.in_range,
+    predicate index_dynamic_property = Standard__positive.dynamic_property,
+    predicate index_rep_le = <=
+  
+  type string__  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  meta model_projection function to_array
+  
+  meta inline:no function to_array
+  
+  meta model_projection function first
+  
+  meta inline:no function first
+  
+  meta model_projection function last
+  
+  meta inline:no function last
+  
+  type string____ref  = { mutable string____content : string__ }
+  
+  function   string____ref_string____content__projection (a : string____ref)
+    requires {  } ensures  {  } returns string__ = a.string____content
+  
+  meta model_projection function string____ref_string____content__projection
+  
+  meta inline:no function string____ref_string____content__projection
+  
+  function   string____havoc (x : string____ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
 (* Module for axiomatizing type "batterychargerange" defined at carsystem.ads:3, created in Gnat2Why.Types.Translate_Type *)
 module Carsystem__batterychargerange
   
@@ -177,22 +405,24 @@ module Carsystem__car__rep
   use        Carsystem__gearrange
   use        Carsystem__gearrange__rep
   
-  type __split_fields  = { [name:isStarted]
-                           [model_trace:.1297]rec__carsystem__car__isstarted : bool;
+  type __split_fields  = { [model_trace:.1355]
+                           [name:isStarted]rec__carsystem__car__isstarted : bool;
                            [name:SensorDetect]
-                           [model_trace:.1303]rec__carsystem__car__sensordetect : bool;
-                           [model_trace:.1308]
-                           [name:isDiagMode]rec__carsystem__car__isdiagmode : bool;
-                           [model_trace:.1313]
+                           [model_trace:.1361]rec__carsystem__car__sensordetect : bool;
+                           [name:isDiagMode]
+                           [model_trace:.1366]rec__carsystem__car__isdiagmode : bool;
+                           [model_trace:.1371]
                            [name:isBatteryWarning]rec__carsystem__car__isbatterywarning : bool;
-                           [model_trace:.1318]
+                           [model_trace:.1376]
                            [name:speed]rec__carsystem__car__speed : Carsystem__speedrange.speedrange;
-                           [name:battery]
-                           [model_trace:.1323]rec__carsystem__car__battery : Carsystem__batterychargerange.batterychargerange;
-                           [model_trace:.1328]
-                           [name:gear]rec__carsystem__car__gear : Carsystem__gearrange.gearrange }
+                           [model_trace:.1381]
+                           [name:desiredSpeed]rec__carsystem__car__desiredspeed : Carsystem__speedrange.speedrange;
+                           [model_trace:.1386]
+                           [name:battery]rec__carsystem__car__battery : Carsystem__batterychargerange.batterychargerange;
+                           [name:gear]
+                           [model_trace:.1391]rec__carsystem__car__gear : Carsystem__gearrange.gearrange }
   
-  function [name:isStarted] [model_trace:.1297] 
+  function [model_trace:.1355] [name:isStarted] 
     __split_fields_rec__carsystem__car__isstarted__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isstarted
@@ -201,7 +431,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isstarted__projection
   
-  function [name:SensorDetect] [model_trace:.1303] 
+  function [name:SensorDetect] [model_trace:.1361] 
     __split_fields_rec__carsystem__car__sensordetect__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__sensordetect
@@ -210,7 +440,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__sensordetect__projection
   
-  function [model_trace:.1308] [name:isDiagMode] 
+  function [name:isDiagMode] [model_trace:.1366] 
     __split_fields_rec__carsystem__car__isdiagmode__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isdiagmode
@@ -219,7 +449,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isdiagmode__projection
   
-  function [model_trace:.1313] [name:isBatteryWarning] 
+  function [model_trace:.1371] [name:isBatteryWarning] 
     __split_fields_rec__carsystem__car__isbatterywarning__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isbatterywarning
@@ -228,7 +458,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isbatterywarning__projection
   
-  function [model_trace:.1318] [name:speed] 
+  function [model_trace:.1376] [name:speed] 
     __split_fields_rec__carsystem__car__speed__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__speedrange.speedrange = a.rec__carsystem__car__speed
@@ -237,7 +467,16 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__speed__projection
   
-  function [name:battery] [model_trace:.1323] 
+  function [model_trace:.1381] [name:desiredSpeed] 
+    __split_fields_rec__carsystem__car__desiredspeed__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    Carsystem__speedrange.speedrange = a.rec__carsystem__car__desiredspeed
+  
+  meta model_projection function __split_fields_rec__carsystem__car__desiredspeed__projection
+  
+  meta inline:no function __split_fields_rec__carsystem__car__desiredspeed__projection
+  
+  function [model_trace:.1386] [name:battery] 
     __split_fields_rec__carsystem__car__battery__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__batterychargerange.batterychargerange = a.rec__carsystem__car__battery
@@ -246,7 +485,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__battery__projection
   
-  function [model_trace:.1328] [name:gear] 
+  function [name:gear] [model_trace:.1391] 
     __split_fields_rec__carsystem__car__gear__projection (a : __split_fields)
     requires {  } ensures  {  } returns
     Carsystem__gearrange.gearrange = a.rec__carsystem__car__gear
@@ -323,6 +562,14 @@ module Carsystem__car__rep
     { (result = a.__split_fields.rec__carsystem__car__speed) } returns
     Carsystem__speedrange.speedrange
   
+  function   carsystem__car__desiredspeed__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__carsystem__car__desiredspeed_ (a : __rep) requires
+    { (carsystem__car__desiredspeed__pred a) } ensures 
+    { (result = a.__split_fields.rec__carsystem__car__desiredspeed) } returns
+    Carsystem__speedrange.speedrange
+  
   function   carsystem__car__battery__pred (a : __rep) requires { True }
     ensures  { True } returns  = True
   
@@ -363,6 +610,10 @@ module Carsystem__car__rep
                   a.__split_fields.rec__carsystem__car__speed)
                  = (Carsystem__speedrange__rep.to_rep
                       b.__split_fields.rec__carsystem__car__speed)) /\
+              ((Carsystem__speedrange__rep.to_rep
+                  a.__split_fields.rec__carsystem__car__desiredspeed)
+                 = (Carsystem__speedrange__rep.to_rep
+                      b.__split_fields.rec__carsystem__car__desiredspeed)) /\
               ((Carsystem__batterychargerange__rep.to_rep
                   a.__split_fields.rec__carsystem__car__battery)
                  = (Carsystem__batterychargerange__rep.to_rep
@@ -497,6 +748,26 @@ module Carsystem__car
   axiom carsystem__car__speed__position_axiom : ((carsystem__car__speed__position
                                                     ) >= 0)
   
+  function   carsystem__car__desiredspeed__first__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   carsystem__car__desiredspeed__last__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   carsystem__car__desiredspeed__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom carsystem__car__desiredspeed__first__bit_axiom : ((carsystem__car__desiredspeed__first__bit
+                                                             ) >= 0)
+  
+  axiom carsystem__car__desiredspeed__last__bit_axiom : ((carsystem__car__desiredspeed__last__bit
+                                                            )
+                                                           > (carsystem__car__desiredspeed__first__bit
+                                                                ))
+  
+  axiom carsystem__car__desiredspeed__position_axiom : ((carsystem__car__desiredspeed__position
+                                                           ) >= 0)
+  
   function   carsystem__car__battery__first__bit () requires {  } ensures 
     {  } returns int
   
@@ -572,77 +843,85 @@ module Carsystem__car___axiom
   use        Carsystem__gearrange__rep
   
   function   dynamic_invariant
-    (([mlw:proxy_symbol] [introduced] temp___expr_186) : Carsystem__car.car
-    ([mlw:proxy_symbol] [introduced] temp___is_init_182) : bool
-    ([mlw:proxy_symbol] [introduced] temp___skip_constant_183) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_184) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_185) : bool) requires
+    (([mlw:proxy_symbol] [introduced] temp___expr_188) : Carsystem__car.car
+    ([mlw:proxy_symbol] [introduced] temp___is_init_184) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_185) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_186) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_187) : bool) requires
     { True } ensures  { True } returns  = True
   
   function   default_initial_assumption
-    (([mlw:proxy_symbol] [introduced] temp___expr_187) : Carsystem__car.car
-    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_188) : bool)
+    (([mlw:proxy_symbol] [introduced] temp___expr_189) : Carsystem__car.car
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_190) : bool)
     requires { True } ensures  { True } returns
      = ((if
         (Carsystem__car.carsystem__car__isstarted__pred ([mlw:proxy_symbol]
-           [introduced] temp___expr_187))
+           [introduced] temp___expr_189))
         then
         (([mlw:proxy_symbol]
-           [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isstarted
+           [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isstarted
            = (_gnatprove_standard.Boolean.of_int 0))
         ) /\
           (if
           (Carsystem__car.carsystem__car__sensordetect__pred
-             ([mlw:proxy_symbol] [introduced] temp___expr_187))
+             ([mlw:proxy_symbol] [introduced] temp___expr_189))
           then
           (([mlw:proxy_symbol]
-             [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect
+             [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect
              = (_gnatprove_standard.Boolean.of_int 0))
           ) /\
           (if
           (Carsystem__car.carsystem__car__isdiagmode__pred
-             ([mlw:proxy_symbol] [introduced] temp___expr_187))
+             ([mlw:proxy_symbol] [introduced] temp___expr_189))
           then
           (([mlw:proxy_symbol]
-             [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
+             [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
              = (_gnatprove_standard.Boolean.of_int 0))
           ) /\
           (if
           (Carsystem__car.carsystem__car__isbatterywarning__pred
-             ([mlw:proxy_symbol] [introduced] temp___expr_187))
+             ([mlw:proxy_symbol] [introduced] temp___expr_189))
           then
           (([mlw:proxy_symbol]
-             [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning
+             [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning
              = (_gnatprove_standard.Boolean.of_int 0))
           ) /\
           (if
           (Carsystem__car.carsystem__car__speed__pred ([mlw:proxy_symbol]
-             [introduced] temp___expr_187))
+             [introduced] temp___expr_189))
           then
           (( (Carsystem__speedrange__rep.to_rep ([mlw:proxy_symbol]
-                [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed))
+                [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed))
+             = ( 0))
+          ) /\
+          (if
+          (Carsystem__car.carsystem__car__desiredspeed__pred
+             ([mlw:proxy_symbol] [introduced] temp___expr_189))
+          then
+          (( (Carsystem__speedrange__rep.to_rep ([mlw:proxy_symbol]
+                [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed))
              = ( 0))
           ) /\
           (if
           (Carsystem__car.carsystem__car__battery__pred ([mlw:proxy_symbol]
-             [introduced] temp___expr_187))
+             [introduced] temp___expr_189))
           then
           (( (Carsystem__batterychargerange__rep.to_rep ([mlw:proxy_symbol]
-                [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery))
+                [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery))
              = ( 0))
           ) /\
           (if
           (Carsystem__car.carsystem__car__gear__pred ([mlw:proxy_symbol]
-             [introduced] temp___expr_187))
+             [introduced] temp___expr_189))
           then
           (( (Carsystem__gearrange__rep.to_rep ([mlw:proxy_symbol]
-                [introduced] temp___expr_187).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear))
+                [introduced] temp___expr_189).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear))
              = ( 0))
           ))
 
 end
 
-(* Module for declaring a program function (and possibly an axiom) for "checkbatterywarning" defined at carsystem.ads:25, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "checkbatterywarning" defined at carsystem.ads:26, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Carsystem__checkbatterywarning___axiom
   
   use import _gnatprove_standard.Main
@@ -665,8 +944,8 @@ module Carsystem__objectahead
   use import _gnatprove_standard.Main
   use import int.Int
   
-  val objectahead [name:ObjectAhead] [model_projected]
-  [model_trace:1282] [sloc:carsystem.ads:7]: bool
+  val objectahead [name:ObjectAhead] [model_trace:1340]
+  [model_projected] [sloc:carsystem.ads:7]: bool
 
 end
 
@@ -676,12 +955,12 @@ module Carsystem__objectbehind
   use import _gnatprove_standard.Main
   use import int.Int
   
-  val objectbehind [model_projected] [name:ObjectBehind]
-  [model_trace:1286] [sloc:carsystem.ads:8]: bool
+  val objectbehind [model_trace:1344] [model_projected]
+  [name:ObjectBehind] [sloc:carsystem.ads:8]: bool
 
 end
 
-(* Module for declaring a program function (and possibly an axiom) for "checksensor" defined at carsystem.ads:42, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "checksensor" defined at carsystem.ads:43, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Carsystem__checksensor___axiom
   
   use import _gnatprove_standard.Main
@@ -700,30 +979,19 @@ module Carsystem__checksensor___axiom
 
 end
 
-(* Module for defining a ref holding the value of variable "this" defined at carsystem.ads:62, created in Gnat2Why.Decls.Translate_Variable *)
+(* Module for defining a ref holding the value of variable "this" defined at carsystem.ads:63, created in Gnat2Why.Decls.Translate_Variable *)
 module Carsystem__movecar__this
   
   use import _gnatprove_standard.Main
   use import int.Int
   use        Carsystem__car
   
-  val this__split_fields [model_projected] [model_trace:1432]
-  [name:This] [sloc:carsystem.ads:62]: Carsystem__car.__split_fields
+  val this__split_fields [model_trace:1495] [model_projected]
+  [name:This] [sloc:carsystem.ads:63]: Carsystem__car.__split_fields
 
 end
 
-(* Module for defining the constant "targetspeed" defined at carsystem.ads:62, created in Gnat2Why.Decls.Translate_Constant *)
-module Carsystem__movecar__targetspeed
-  
-  use import _gnatprove_standard.Main
-  use import int.Int
-  
-  function [model_trace:1435] [name:targetSpeed] [sloc:carsystem.ads:62]
-    targetspeed () requires {  } ensures  {  } returns int
-
-end
-
-(* Module for declaring a program function (and possibly an axiom) for "emergencystop" defined at carsystem.ads:74, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+(* Module for declaring a program function (and possibly an axiom) for "emergencystop" defined at carsystem.ads:75, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
 module Carsystem__emergencystop___axiom
   
   use import _gnatprove_standard.Main
@@ -737,42 +1005,428 @@ module Carsystem__emergencystop___axiom
   function   emergencystop
     (this__split_fields : Carsystem__car.__split_fields__ref) requires
     { True } ensures 
-    { (([GP_Pretty_Ada:1722] ((Carsystem__speedrange__rep.to_rep
-                                 ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed)
-                                = 0)) /\
+    { (([GP_Pretty_Ada:12485] ((Carsystem__speedrange__rep.to_rep
+                                  ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed)
+                                 = 0)) /\
          (Carsystem__car___axiom.dynamic_invariant
             --pp_record_aggregate NOT IMPLEMENTED True True True True)) }
     returns unit
 
 end
 
-(* Module giving axioms for type "speedrange" defined at carsystem.ads:4, created in Gnat2Why.Types.Generate_Type_Completion *)
-module Carsystem__speedrange___axiom
+(* Module for possibly declaring a logic function for "line_length" defined at a-textio.ads:243, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+module Ada___ada__text_io__line_length__2
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  
+  function   line_length
+    (Ada___ada__text_io__file_system___file_system___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_in___standard_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_out___standard_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_err___standard_err___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_in___current_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_out___current_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_err___current_err___ : _gnatprove_standard.Main.__private)
+    requires { True } ensures  { True } returns int
+  
+  function   line_length__function_guard
+    (([mlw:proxy_symbol] [introduced] temp___result_161) : int
+    Ada___ada__text_io__file_system___file_system___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_in___standard_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_out___standard_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_err___standard_err___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_in___current_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_out___current_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_err___current_err___ : _gnatprove_standard.Main.__private)
+    requires { True } ensures  { True } returns bool
+
+end
+
+(* Module for possibly declaring a logic function for "page_length" defined at a-textio.ads:249, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+module Ada___ada__text_io__page_length__2
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  
+  function   page_length
+    (Ada___ada__text_io__file_system___file_system___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_in___standard_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_out___standard_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_err___standard_err___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_in___current_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_out___current_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_err___current_err___ : _gnatprove_standard.Main.__private)
+    requires { True } ensures  { True } returns int
+  
+  function   page_length__function_guard
+    (([mlw:proxy_symbol] [introduced] temp___result_162) : int
+    Ada___ada__text_io__file_system___file_system___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_in___standard_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_out___standard_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__standard_err___standard_err___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_in___current_in___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_out___current_out___ : _gnatprove_standard.Main.__private
+    Ada___ada__text_io__current_err___current_err___ : _gnatprove_standard.Main.__private)
+    requires { True } ensures  { True } returns bool
+
+end
+
+(* Module declaring the external object "ada___ada__text_io__file_system," created in Gnat2Why.Decls.Translate_External_Object *)
+module Ada___ada__text_io__file_system
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val file_system  : _gnatprove_standard.Main.__private
+
+end
+
+(* Module declaring the external object "ada___ada__text_io__standard_in," created in Gnat2Why.Decls.Translate_External_Object *)
+module Ada___ada__text_io__standard_in
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val standard_in  : _gnatprove_standard.Main.__private
+
+end
+
+(* Module declaring the external object "ada___ada__text_io__standard_out," created in Gnat2Why.Decls.Translate_External_Object *)
+module Ada___ada__text_io__standard_out
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val standard_out  : _gnatprove_standard.Main.__private
+
+end
+
+(* Module declaring the external object "ada___ada__text_io__standard_err," created in Gnat2Why.Decls.Translate_External_Object *)
+module Ada___ada__text_io__standard_err
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val standard_err  : _gnatprove_standard.Main.__private
+
+end
+
+(* Module declaring the external object "ada___ada__text_io__current_in," created in Gnat2Why.Decls.Translate_External_Object *)
+module Ada___ada__text_io__current_in
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val current_in  : _gnatprove_standard.Main.__private
+
+end
+
+(* Module declaring the external object "ada___ada__text_io__current_out," created in Gnat2Why.Decls.Translate_External_Object *)
+module Ada___ada__text_io__current_out
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val current_out  : _gnatprove_standard.Main.__private
+
+end
+
+(* Module declaring the external object "ada___ada__text_io__current_err," created in Gnat2Why.Decls.Translate_External_Object *)
+module Ada___ada__text_io__current_err
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  val current_err  : _gnatprove_standard.Main.__private
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "put_line" defined at a-textio.ads:506, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module Ada___ada__text_io__put_line__2___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        Standard__string
+  use        Ada___ada__text_io__line_length__2
+  use        Ada___ada__text_io__page_length__2
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  
+  function   put_line (item : Standard__string.string__) requires { True }
+    ensures 
+    { (([GP_Pretty_Ada:3912] (--pp_tagged NOT IMPLEMENTED
+                                = (Ada___ada__text_io__line_length__2.line_length
+                                     !Ada___ada__text_io__file_system.file_system
+                                     !Ada___ada__text_io__standard_in.standard_in
+                                     !Ada___ada__text_io__standard_out.standard_out
+                                     !Ada___ada__text_io__standard_err.standard_err
+                                     !Ada___ada__text_io__current_in.current_in
+                                     !Ada___ada__text_io__current_out.current_out
+                                     !Ada___ada__text_io__current_err.current_err)))
+         /\
+         ([GP_Pretty_Ada:3918] (--pp_tagged NOT IMPLEMENTED
+                                  = (Ada___ada__text_io__page_length__2.page_length
+                                       !Ada___ada__text_io__file_system.file_system
+                                       !Ada___ada__text_io__standard_in.standard_in
+                                       !Ada___ada__text_io__standard_out.standard_out
+                                       !Ada___ada__text_io__standard_err.standard_err
+                                       !Ada___ada__text_io__current_in.current_in
+                                       !Ada___ada__text_io__current_out.current_out
+                                       !Ada___ada__text_io__current_err.current_err)))) }
+    returns unit
+
+end
+
+(* Module for defining a value for string literal  defined at carsystem.adb:64, created in Gnat2Why.Expr.Transform_String_Literal *)
+module Temp___String_Literal_236
   
   use import _gnatprove_standard.Main
   use import int.Int
   use import int.Int
-  use        Carsystem__speedrange
+  use        Standard__character
+  use        Standard__character__rep
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  
+  function   temp___String_Literal_236 (__void_param : unit) requires
+    { True } ensures  { True } returns Array__Int__Standard__character.map
+  
+  axiom temp___String_Literal_236__def_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module for defining a value for string literal  defined at carsystem.adb:71, created in Gnat2Why.Expr.Transform_String_Literal *)
+module Temp___String_Literal_239
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__character
+  use        Standard__character__rep
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  
+  function   temp___String_Literal_239 (__void_param : unit) requires
+    { True } ensures  { True } returns Array__Int__Standard__character.map
+  
+  axiom temp___String_Literal_239__def_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module for defining a value for string literal  defined at carsystem.adb:77, created in Gnat2Why.Expr.Transform_String_Literal *)
+module Temp___String_Literal_242
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__character
+  use        Standard__character__rep
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  
+  function   temp___String_Literal_242 (__void_param : unit) requires
+    { True } ensures  { True } returns Array__Int__Standard__character.map
+  
+  axiom temp___String_Literal_242__def_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module for defining a value for string literal  defined at carsystem.adb:82, created in Gnat2Why.Expr.Transform_String_Literal *)
+module Temp___String_Literal_244
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__character
+  use        Standard__character__rep
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  
+  function   temp___String_Literal_244 (__void_param : unit) requires
+    { True } ensures  { True } returns Array__Int__Standard__character.map
+  
+  axiom temp___String_Literal_244__def_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module for defining a value for string literal  defined at carsystem.adb:87, created in Gnat2Why.Expr.Transform_String_Literal *)
+module Temp___String_Literal_246
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__character
+  use        Standard__character__rep
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  
+  function   temp___String_Literal_246 (__void_param : unit) requires
+    { True } ensures  { True } returns Array__Int__Standard__character.map
+  
+  axiom temp___String_Literal_246__def_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "positive", created in Gnat2Why.Types.Generate_Type_Completion *)
+module Standard__positive___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__positive
   
   function   dynamic_invariant
-    (([mlw:proxy_symbol] [introduced] temp___expr_172) : int
-    ([mlw:proxy_symbol] [introduced] temp___is_init_168) : bool
-    ([mlw:proxy_symbol] [introduced] temp___skip_constant_169) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_170) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_171) : bool) requires
+    (([mlw:proxy_symbol] [introduced] temp___expr_53) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_49) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_50) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_51) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_52) : bool) requires
     { True } ensures  { True } returns
      = (if
-       ((([mlw:proxy_symbol] [introduced] temp___is_init_168) = True) \/
-          (Carsystem__speedrange.first <= Carsystem__speedrange.last))
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_49) = True) \/
+          (Standard__positive.first <= Standard__positive.last))
        then
-       (Carsystem__speedrange.dynamic_property Carsystem__speedrange.first
-          Carsystem__speedrange.last ([mlw:proxy_symbol]
-          [introduced] temp___expr_172))
+       (Standard__positive.dynamic_property Standard__positive.first
+          Standard__positive.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_53))
        )
   
   function   default_initial_assumption
-    (([mlw:proxy_symbol] [introduced] temp___expr_173) : int
-    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_174) : bool)
+    (([mlw:proxy_symbol] [introduced] temp___expr_54) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_55) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "character", created in Gnat2Why.Types.Generate_Type_Completion *)
+module Standard__character___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__character
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_81) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_77) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_78) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_79) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_80) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_77) = True) \/
+          (Standard__character.first <= Standard__character.last))
+       then
+       (Standard__character.dynamic_property Standard__character.first
+          Standard__character.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_81))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_82) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_83) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "string", created in Gnat2Why.Types.Generate_Type_Completion *)
+module Standard__string___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Standard__positive
+  use        Standard__string
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_103) : Standard__string.string__
+    ([mlw:proxy_symbol] [introduced] temp___is_init_99) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_100) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_101) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_102) : bool) requires
+    { True } ensures  { True } returns
+     = (if ([mlw:proxy_symbol] [introduced] temp___skip_constant_100) then
+       True  else
+       (Standard__string.dynamic_property Standard__positive.first
+          Standard__positive.last
+          (Standard__string.first ([mlw:proxy_symbol]
+             [introduced] temp___expr_103))
+          (Standard__string.last ([mlw:proxy_symbol]
+             [introduced] temp___expr_103))))
+
+end
+
+(* Module giving axioms for type "integer", created in Gnat2Why.Types.Generate_Type_Completion *)
+module Standard__integer___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Standard__integer
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_18) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_14) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_15) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_16) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_17) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_14) = True) \/
+          (Standard__integer.first <= Standard__integer.last))
+       then
+       (Standard__integer.dynamic_property Standard__integer.first
+          Standard__integer.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_18))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_19) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_20) : bool)
     requires { True } ensures  { True } returns  = True
 
 end
@@ -786,26 +1440,57 @@ module Carsystem__batterychargerange___axiom
   use        Carsystem__batterychargerange
   
   function   dynamic_invariant
-    (([mlw:proxy_symbol] [introduced] temp___expr_165) : int
-    ([mlw:proxy_symbol] [introduced] temp___is_init_161) : bool
-    ([mlw:proxy_symbol] [introduced] temp___skip_constant_162) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_163) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_164) : bool) requires
+    (([mlw:proxy_symbol] [introduced] temp___expr_167) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_163) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_164) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_165) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_166) : bool) requires
     { True } ensures  { True } returns
      = (if
-       ((([mlw:proxy_symbol] [introduced] temp___is_init_161) = True) \/
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_163) = True) \/
           (Carsystem__batterychargerange.first
              <= Carsystem__batterychargerange.last))
        then
        (Carsystem__batterychargerange.dynamic_property
           Carsystem__batterychargerange.first
           Carsystem__batterychargerange.last ([mlw:proxy_symbol]
-          [introduced] temp___expr_165))
+          [introduced] temp___expr_167))
        )
   
   function   default_initial_assumption
-    (([mlw:proxy_symbol] [introduced] temp___expr_166) : int
-    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_167) : bool)
+    (([mlw:proxy_symbol] [introduced] temp___expr_168) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_169) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "speedrange" defined at carsystem.ads:4, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Carsystem__speedrange___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Carsystem__speedrange
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_174) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_170) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_171) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_172) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_173) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_170) = True) \/
+          (Carsystem__speedrange.first <= Carsystem__speedrange.last))
+       then
+       (Carsystem__speedrange.dynamic_property Carsystem__speedrange.first
+          Carsystem__speedrange.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_174))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_175) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_176) : bool)
     requires { True } ensures  { True } returns  = True
 
 end
@@ -839,29 +1524,29 @@ module Carsystem__gearrange___axiom
   use        Carsystem__gearrange
   
   function   dynamic_invariant
-    (([mlw:proxy_symbol] [introduced] temp___expr_179) : int
-    ([mlw:proxy_symbol] [introduced] temp___is_init_175) : bool
-    ([mlw:proxy_symbol] [introduced] temp___skip_constant_176) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_177) : bool
-    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_178) : bool) requires
+    (([mlw:proxy_symbol] [introduced] temp___expr_181) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_177) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_178) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_179) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_180) : bool) requires
     { True } ensures  { True } returns
      = (if
-       ((([mlw:proxy_symbol] [introduced] temp___is_init_175) = True) \/
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_177) = True) \/
           (Carsystem__gearrange.first <= Carsystem__gearrange.last))
        then
        (Carsystem__gearrange.dynamic_property Carsystem__gearrange.first
           Carsystem__gearrange.last ([mlw:proxy_symbol]
-          [introduced] temp___expr_179))
+          [introduced] temp___expr_181))
        )
   
   function   default_initial_assumption
-    (([mlw:proxy_symbol] [introduced] temp___expr_180) : int
-    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_181) : bool)
+    (([mlw:proxy_symbol] [introduced] temp___expr_182) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_183) : bool)
     requires { True } ensures  { True } returns  = True
 
 end
 
-(* Module giving an empty axiom for the entity "this" defined at carsystem.ads:62, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+(* Module giving an empty axiom for the entity "this" defined at carsystem.ads:63, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
 module Carsystem__movecar__this___axiom
   
   use import _gnatprove_standard.Main
@@ -871,17 +1556,153 @@ module Carsystem__movecar__this___axiom
 
 end
 
-(* Module giving an empty axiom for the entity "targetspeed" defined at carsystem.ads:62, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
-module Carsystem__movecar__targetspeed___axiom
+(* Module for axiomatizing type "count" defined at a-textio.ads:78, created in Gnat2Why.Types.Translate_Type *)
+module Ada___ada__text_io__count
   
   use import _gnatprove_standard.Main
   use import int.Int
+  use import int.Int
   
+  type count  = <range 0 2147483647>
   
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns
+    int = 2147483647
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = count,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type count__ref  = { mutable count__content : count }
+  
+  function   count__ref_count__content__projection (a : count__ref) requires
+    {  } ensures  {  } returns count = a.count__content
+  
+  meta model_projection function count__ref_count__content__projection
+  
+  meta inline:no function count__ref_count__content__projection
+  
+  function   count__havoc (x : count__ref) requires {  } ensures  {  }
+    returns unit
 
 end
 
-(* Module for checking contracts and absence of run-time errors in subprogram "movecar" defined at carsystem.ads:62, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+(* Module giving axioms for type "count" defined at a-textio.ads:78, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Ada___ada__text_io__count___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Ada___ada__text_io__count
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_195) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_191) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_192) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_193) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_194) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_191) = True) \/
+          (Ada___ada__text_io__count.first <= Ada___ada__text_io__count.last))
+       then
+       (Ada___ada__text_io__count.dynamic_property
+          Ada___ada__text_io__count.first Ada___ada__text_io__count.last
+          ([mlw:proxy_symbol] [introduced] temp___expr_195))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_196) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_197) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "line_length" defined at a-textio.ads:243, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module Ada___ada__text_io__line_length__2___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        Ada___ada__text_io__line_length__2
+  use        Ada___ada__text_io__count___axiom
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  
+  function   line_length (__void_param : unit) requires { True } ensures 
+    { ((result
+          = (Ada___ada__text_io__line_length__2.line_length
+               !Ada___ada__text_io__file_system.file_system
+               !Ada___ada__text_io__standard_in.standard_in
+               !Ada___ada__text_io__standard_out.standard_out
+               !Ada___ada__text_io__standard_err.standard_err
+               !Ada___ada__text_io__current_in.current_in
+               !Ada___ada__text_io__current_out.current_out
+               !Ada___ada__text_io__current_err.current_err)) /\ True /\
+         (Ada___ada__text_io__count___axiom.dynamic_invariant result True
+            False True True)) } returns int
+  
+  axiom line_length__post_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "page_length" defined at a-textio.ads:249, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module Ada___ada__text_io__page_length__2___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        Ada___ada__text_io__page_length__2
+  use        Ada___ada__text_io__count___axiom
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  use        Ada___ada__text_io__file_system
+  use        Ada___ada__text_io__standard_in
+  use        Ada___ada__text_io__standard_out
+  use        Ada___ada__text_io__standard_err
+  use        Ada___ada__text_io__current_in
+  use        Ada___ada__text_io__current_out
+  use        Ada___ada__text_io__current_err
+  
+  function   page_length (__void_param : unit) requires { True } ensures 
+    { ((result
+          = (Ada___ada__text_io__page_length__2.page_length
+               !Ada___ada__text_io__file_system.file_system
+               !Ada___ada__text_io__standard_in.standard_in
+               !Ada___ada__text_io__standard_out.standard_out
+               !Ada___ada__text_io__standard_err.standard_err
+               !Ada___ada__text_io__current_in.current_in
+               !Ada___ada__text_io__current_out.current_out
+               !Ada___ada__text_io__current_err.current_err)) /\ True /\
+         (Ada___ada__text_io__count___axiom.dynamic_invariant result True
+            False True True)) } returns int
+  
+  axiom page_length__post_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module for checking contracts and absence of run-time errors in subprogram "movecar" defined at carsystem.ads:63, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
 module Carsystem__movecar__subprogram_def
   
   use import _gnatprove_standard.Main
@@ -889,20 +1710,39 @@ module Carsystem__movecar__subprogram_def
   use import int.Int
   use        _gnatprove_standard.Main
   use        _gnatprove_standard.Boolean
+  use        Standard__string
   use        Carsystem__car
   use        Carsystem__car___axiom
   use        Carsystem__checkbatterywarning___axiom
   use        Carsystem__checksensor___axiom
   use        Carsystem__movecar__this
-  use        Carsystem__movecar__targetspeed
   use        Carsystem__emergencystop___axiom
+  use        Ada___ada__text_io__put_line__2___axiom
   use        Carsystem__batterychargerange
   use        Carsystem__batterychargerange__rep
   use        Carsystem__speedrange
-  use        Carsystem__speedrange___axiom
   use        Carsystem__speedrange__rep
   use        Carsystem__gearrange
   use        Carsystem__gearrange__rep
+  use        Temp___String_Literal_236
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  use        Temp___String_Literal_239
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  use        Temp___String_Literal_242
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  use        Temp___String_Literal_244
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  use        Temp___String_Literal_246
+  use        Array__Int__Standard__character
+  use        Array__Int__Standard__character
+  use        Standard__positive___axiom
+  use        Standard__character___axiom
+  use        Standard__string___axiom
+  use        Standard__integer___axiom
   use        Carsystem__batterychargerange___axiom
   use        Carsystem__speedrange___axiom
   use        Carsystem__objectahead___axiom
@@ -912,113 +1752,102 @@ module Carsystem__movecar__subprogram_def
   use        Carsystem__checkbatterywarning___axiom
   use        Carsystem__checksensor___axiom
   use        Carsystem__movecar__this___axiom
-  use        Carsystem__movecar__targetspeed___axiom
   use        Carsystem__emergencystop___axiom
+  use        Ada___ada__text_io__count___axiom
+  use        Ada___ada__text_io__line_length__2___axiom
+  use        Ada___ada__text_io__page_length__2___axiom
+  use        Ada___ada__text_io__put_line__2___axiom
   
-  function [GP_Subp:carsystem.ads:62] [sloc:carsystem.ads:62] def
+  function [GP_Subp:carsystem.ads:63] [sloc:carsystem.ads:63] def
     (__void_param : unit) requires { True } ensures  {  } returns
-     = (* Assume dynamic invariants of inputs of the subprogram carsystem.ads:62 *);
+     = (* Assume dynamic invariants of inputs of the subprogram carsystem.ads:63 *);
         assume
         { (Carsystem__car___axiom.dynamic_invariant
              --pp_record_aggregate NOT IMPLEMENTED True False True True) };
-        assume
-        { (Carsystem__speedrange___axiom.dynamic_invariant
-             Carsystem__movecar__targetspeed.targetspeed True False True True) };
-        (* Assume moved pointers in outputs of the subprogram carsystem.ads:62 *);
-        (* Check for RTE in the Pre of the subprogram carsystem.ads:62 *);
+        (* Assume moved pointers in outputs of the subprogram carsystem.ads:63 *);
+        (* Check for RTE in the Pre of the subprogram carsystem.ads:63 *);
         abstract ensures
         { True } begin  (let _ =
                        (_gnatprove_standard.Boolean.andb
-                          (_gnatprove_standard.Boolean.andb
-                             (_gnatprove_standard.Boolean.andb
-                                (_gnatprove_standard.Boolean.andb
-                                   (_gnatprove_standard.Boolean.andb
-                                      (_gnatprove_standard.Boolean.andb
-                                         ((_gnatprove_standard.Boolean.to_int
-                                             ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isstarted)
-                                            = (_gnatprove_standard.Boolean.to_int
-                                                 (_gnatprove_standard.Boolean.of_int
-                                                    1)))
-                                         ((_gnatprove_standard.Boolean.to_int
-                                             ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode)
-                                            = (_gnatprove_standard.Boolean.to_int
-                                                 (_gnatprove_standard.Boolean.of_int
-                                                    0))))
-                                      ((_gnatprove_standard.Boolean.to_int
-                                          ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect)
-                                         = (_gnatprove_standard.Boolean.to_int
-                                              (_gnatprove_standard.Boolean.of_int
-                                                 0))))
-                                   ((_gnatprove_standard.Boolean.to_int
-                                       ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning)
-                                      = (_gnatprove_standard.Boolean.to_int
-                                           (_gnatprove_standard.Boolean.of_int
-                                              0))))
-                                ((Carsystem__gearrange__rep.to_rep
-                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear)
-                                   > 0))
-                             (Carsystem__movecar__targetspeed.targetspeed
-                                >= 0))
-                          (Carsystem__movecar__targetspeed.targetspeed <= 100))
+                          ((Carsystem__speedrange__rep.to_rep
+                              ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed)
+                             >= 0)
+                          ((Carsystem__speedrange__rep.to_rep
+                              ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed)
+                             <= 100))
                        in ())  end;
-        (* Assume Pre of the subprogram carsystem.ads:62 *);
+        (* Assume Pre of the subprogram carsystem.ads:63 *);
         assume
-        { ((((((([GP_Pretty_Ada:1448] ((( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isstarted
-                                          = True) <-> True)) /\
-                  ([GP_Pretty_Ada:1454] ((( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode
-                                            = True) <-> False))) /\
-                 ([GP_Pretty_Ada:1460] ((( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect
-                                           = True) <-> False))) /\
-                ([GP_Pretty_Ada:1466] ((( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning
-                                          = True) <-> False))) /\
-               ([GP_Pretty_Ada:1472] ((Carsystem__gearrange__rep.to_rep
-                                         ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear)
-                                        > 0))) /\
-              ([GP_Pretty_Ada:1476] (Carsystem__movecar__targetspeed.targetspeed
-                                       >= 0))) /\
-             ([GP_Pretty_Ada:1482] (Carsystem__movecar__targetspeed.targetspeed
+        { (([GP_Pretty_Ada:1508] ((Carsystem__speedrange__rep.to_rep
+                                     ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed)
+                                    >= 0)) /\
+             ([GP_Pretty_Ada:1516] ((Carsystem__speedrange__rep.to_rep
+                                       ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed)
                                       <= 100))) };
         (try
         ();
-          ([GP_Sloc:carsystem.adb:57:7] ([sloc:carsystem.adb:57] ()));
-          ([GP_Sloc:carsystem.adb:57:7] ([sloc:carsystem.adb:57] (let ([mlw:proxy_symbol]
-                                        [introduced] temp___compl_217) =
+          ([GP_Sloc:carsystem.adb:61:7] ([sloc:carsystem.adb:61] ()));
+          ([GP_Sloc:carsystem.adb:61:7] ([sloc:carsystem.adb:61] (let ([mlw:proxy_symbol]
+                                        [introduced] temp___compl_234) =
                                         ( --pp_record_aggregate NOT IMPLEMENTED)
                                         in
                                         ( any --pp_effects NOT IMPLEMENTED
                                            pre {}
                                         post {} return unit);
-          (Carsystem__checkbatterywarning___axiom.checkbatterywarning
+          (Carsystem__checksensor___axiom.checksensor
              Carsystem__movecar__this.this__split_fields);
           ())));
-        ([GP_Sloc:carsystem.adb:60:7] ([sloc:carsystem.adb:60] ()));
-        ([GP_Sloc:carsystem.adb:60:7] ([sloc:carsystem.adb:60] (let ([mlw:proxy_symbol]
-                                      [introduced] temp___compl_218) =
+        ([GP_Sloc:carsystem.adb:62:7] ([sloc:carsystem.adb:62] ()));
+        ([GP_Sloc:carsystem.adb:62:7] ([sloc:carsystem.adb:62] (let ([mlw:proxy_symbol]
+                                      [introduced] temp___compl_235) =
                                       ( --pp_record_aggregate NOT IMPLEMENTED)
                                       in
                                       ( any --pp_effects NOT IMPLEMENTED pre
                                          {}
                                       post {} return unit);
-        (Carsystem__checksensor___axiom.checksensor
+        (Carsystem__checkbatterywarning___axiom.checkbatterywarning
            Carsystem__movecar__this.this__split_fields);
         ())));
-    ([GP_Sloc:carsystem.adb:61:7] ([sloc:carsystem.adb:61] (if
-                                                           ([sloc:carsystem.adb:61] ([branch_id=1031]
+    ([GP_Sloc:carsystem.adb:63:7] ([sloc:carsystem.adb:63] (if
+                                                           ([sloc:carsystem.adb:63] ([branch_id=1053]
                                                            _gnatprove_standard.Main.spark__branch
                                                            :=
-                                                           ((_gnatprove_standard.Boolean.to_int
-                                                               ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect)
-                                                              = (_gnatprove_standard.Boolean.to_int
-                                                                   (_gnatprove_standard.Boolean.of_int
-                                                                    1)))));
-                                                           ([branch_id=1031] _gnatprove_standard.Main.spark__branch).bool__content
+                                                           ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect));
+                                                           ([branch_id=1053] _gnatprove_standard.Main.spark__branch).bool__content
                                                            then
                                                            ();
-                                                           ([GP_Sloc:carsystem.adb:62:10] 
-                                                           ([sloc:carsystem.adb:62] ()));
-                                                           ([GP_Sloc:carsystem.adb:62:10] 
-                                                           ([sloc:carsystem.adb:62] (let ([mlw:proxy_symbol]
-                                                           [introduced] temp___compl_219)
+                                                           ([GP_Sloc:carsystem.adb:64:10] 
+                                                           ([sloc:carsystem.adb:64] ()));
+                                                           ([GP_Sloc:carsystem.adb:64:10] 
+                                                           ([sloc:carsystem.adb:64] (
+                                                            any
+                                                             --pp_effects NOT IMPLEMENTED
+                                                             pre {}
+                                                           post {} return
+                                                           unit);
+                                                           (Ada___ada__text_io__put_line__2___axiom.put_line
+                                                              (let ([mlw:proxy_symbol]
+                                                              [introduced] temp___237)
+                                                              =
+                                                              ( (Temp___String_Literal_236.temp___String_Literal_236
+                                                                   ())) in
+                                                              (Standard__string.of_array
+                                                                 ([mlw:proxy_symbol]
+                                                                 [introduced] temp___237)
+                                                                 1 41)));
+                                                           ()));
+                                                           ([GP_Sloc:carsystem.adb:65:10] 
+                                                           ([sloc:carsystem.adb:65] abstract
+                                                           ensures
+                                                           { True } begin 
+                                                            (let _ =
+                                                           ( 2000000000) in
+                                                           ())  end));
+                                                           ([GP_Sloc:carsystem.adb:66:10] 
+                                                           ([sloc:carsystem.adb:66] ()));
+                                                           ([GP_Sloc:carsystem.adb:66:10] 
+                                                           ([sloc:carsystem.adb:66] (let ([mlw:proxy_symbol]
+                                                           [introduced] temp___compl_238)
                                                            =
                                                            ( --pp_record_aggregate NOT IMPLEMENTED)
                                                            in
@@ -1030,186 +1859,311 @@ module Carsystem__movecar__subprogram_def
                                                            (Carsystem__emergencystop___axiom.emergencystop
                                                               Carsystem__movecar__this.this__split_fields);
                                                            ())));
-                                                           ([GP_Sloc:carsystem.adb:63:10] 
-                                                           ([sloc:carsystem.adb:63] raise Return__exc))
-                                   else ())));
-  ([GP_Sloc:carsystem.adb:66:7] ([sloc:carsystem.adb:66] (if
-                                                         ([sloc:carsystem.adb:66] ([branch_id=1042]
-                                                         _gnatprove_standard.Main.spark__branch
-                                                         :=
-                                                         ((_gnatprove_standard.Boolean.to_int
-                                                             ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning)
-                                                            = (_gnatprove_standard.Boolean.to_int
-                                                                 (_gnatprove_standard.Boolean.of_int
-                                                                    1)))));
-                                                         ([branch_id=1042] _gnatprove_standard.Main.spark__branch).bool__content
-                                                         then
-                                                         ();
-                                                         ([GP_Sloc:carsystem.adb:67:21] 
-                                                         ([sloc:carsystem.adb:67] (let ([mlw:proxy_symbol]
-                                                         [introduced] temp___222)
-                                                         =
-                                                         (let ([mlw:proxy_symbol]
-                                                           [introduced] temp___221)
-                                                           =
-                                                           ( --pp_record_aggregate NOT IMPLEMENTED)
-                                                           in abstract
-                                                           ensures
-                                                           { True } begin 
-                                                            (let _ =
-                                                           ([mlw:proxy_symbol]
-                                                             [introduced] temp___221).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed
-                                                           in ())  end;
-                                                           --pp_record_update NOT IMPLEMENTED)
-                                                         in (
-                                                         Carsystem__movecar__this.this__split_fields
-                                                         :=
-                                                         ([mlw:proxy_symbol]
-                                                           [introduced] temp___222).Carsystem__car.__split_fields))))
-                                                          else ())));
-  ([GP_Sloc:carsystem.adb:69:7] ([sloc:carsystem.adb:69] (if
-                                                         ([sloc:carsystem.adb:69] ([branch_id=1054]
-                                                         _gnatprove_standard.Main.spark__branch
-                                                         :=
-                                                         (_gnatprove_standard.Boolean.andb
-                                                            (_gnatprove_standard.Boolean.andb
-                                                               (_gnatprove_standard.Boolean.andb
-                                                                  (_gnatprove_standard.Boolean.andb
+                                  ([GP_Sloc:carsystem.adb:67:10] ([sloc:carsystem.adb:67] raise Return__exc))
+     else ())));
+([GP_Sloc:carsystem.adb:70:7] ([sloc:carsystem.adb:70] (if
+                                                       ([sloc:carsystem.adb:70] ([branch_id=1068]
+                                                       _gnatprove_standard.Main.spark__branch
+                                                       :=
+                                                       ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning));
+                                                       ([branch_id=1068] _gnatprove_standard.Main.spark__branch).bool__content
+                                                       then
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:71:10] 
+                                                       ([sloc:carsystem.adb:71] ()));
+                                                       ([GP_Sloc:carsystem.adb:71:10] 
+                                                       ([sloc:carsystem.adb:71] (
+                                                        any
+                                                         --pp_effects NOT IMPLEMENTED
+                                                         pre {}
+                                                       post {} return unit);
+                                                       (Ada___ada__text_io__put_line__2___axiom.put_line
+                                                          (let ([mlw:proxy_symbol]
+                                                          [introduced] temp___240)
+                                                          =
+                                                          ( (Temp___String_Literal_239.temp___String_Literal_239
+                                                               ())) in
+                                                          (Standard__string.of_array
+                                                             ([mlw:proxy_symbol]
+                                                             [introduced] temp___240)
+                                                             1 41)));
+                                                       ()));
+                                                       ([GP_Sloc:carsystem.adb:72:10] 
+                                                       ([sloc:carsystem.adb:72] abstract
+                                                       ensures
+                                                       { True } begin 
+                                                        (let _ =
+                                                       ( 2000000000) in ())  end));
+                                                       ([GP_Sloc:carsystem.adb:73:10] 
+                                                       ([sloc:carsystem.adb:73] ()));
+                                                       ([GP_Sloc:carsystem.adb:73:10] 
+                                                       ([sloc:carsystem.adb:73] (let ([mlw:proxy_symbol]
+                                                       [introduced] temp___compl_241)
+                                                       =
+                                                       ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                       in
+                                                       ( any
+                                                          --pp_effects NOT IMPLEMENTED
+                                                          pre {}
+                                                       post {} return unit);
+                                                       (Carsystem__emergencystop___axiom.emergencystop
+                                                          Carsystem__movecar__this.this__split_fields);
+                                                       ())));
+                              ([GP_Sloc:carsystem.adb:74:10] ([sloc:carsystem.adb:74] raise Return__exc))
+ else ())));
+([GP_Sloc:carsystem.adb:76:7] ([sloc:carsystem.adb:76] (if
+                                                       ([sloc:carsystem.adb:76] ([branch_id=1082]
+                                                       _gnatprove_standard.Main.spark__branch
+                                                       :=
+                                                       --pp_not NOT IMPLEMENTED));
+                                                       ([branch_id=1082] _gnatprove_standard.Main.spark__branch).bool__content
+                                                       then
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:77:10] 
+                                                       ([sloc:carsystem.adb:77] ()));
+                                                       ([GP_Sloc:carsystem.adb:77:10] 
+                                                       ([sloc:carsystem.adb:77] (
+                                                        any
+                                                         --pp_effects NOT IMPLEMENTED
+                                                         pre {}
+                                                       post {} return unit);
+                                                       (Ada___ada__text_io__put_line__2___axiom.put_line
+                                                          (let ([mlw:proxy_symbol]
+                                                          [introduced] temp___243)
+                                                          =
+                                                          ( (Temp___String_Literal_242.temp___String_Literal_242
+                                                               ())) in
+                                                          (Standard__string.of_array
+                                                             ([mlw:proxy_symbol]
+                                                             [introduced] temp___243)
+                                                             1 28)));
+                                                       ()));
+                                                       ([GP_Sloc:carsystem.adb:78:10] 
+                                                       ([sloc:carsystem.adb:78] abstract
+                                                       ensures
+                                                       { True } begin 
+                                                        (let _ =
+                                                       ( 2000000000) in ())  end));
+                                                       ([GP_Sloc:carsystem.adb:79:10] 
+                                                       ([sloc:carsystem.adb:79] raise Return__exc))
+                               else ())));
+([GP_Sloc:carsystem.adb:81:7] ([sloc:carsystem.adb:81] (if
+                                                       ([sloc:carsystem.adb:81] ([branch_id=1095]
+                                                       _gnatprove_standard.Main.spark__branch
+                                                       :=
+                                                       ((Carsystem__gearrange__rep.to_rep
+                                                           ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear)
+                                                          = 0)));
+                                                       ([branch_id=1095] _gnatprove_standard.Main.spark__branch).bool__content
+                                                       then
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:82:10] 
+                                                       ([sloc:carsystem.adb:82] ()));
+                                                       ([GP_Sloc:carsystem.adb:82:10] 
+                                                       ([sloc:carsystem.adb:82] (
+                                                        any
+                                                         --pp_effects NOT IMPLEMENTED
+                                                         pre {}
+                                                       post {} return unit);
+                                                       (Ada___ada__text_io__put_line__2___axiom.put_line
+                                                          (let ([mlw:proxy_symbol]
+                                                          [introduced] temp___245)
+                                                          =
+                                                          ( (Temp___String_Literal_244.temp___String_Literal_244
+                                                               ())) in
+                                                          (Standard__string.of_array
+                                                             ([mlw:proxy_symbol]
+                                                             [introduced] temp___245)
+                                                             1 32)));
+                                                       ()));
+                                                       ([GP_Sloc:carsystem.adb:83:10] 
+                                                       ([sloc:carsystem.adb:83] abstract
+                                                       ensures
+                                                       { True } begin 
+                                                        (let _ =
+                                                       ( 2000000000) in ())  end));
+                                                       ([GP_Sloc:carsystem.adb:84:10] 
+                                                       ([sloc:carsystem.adb:84] raise Return__exc))
+                               else ())));
+([GP_Sloc:carsystem.adb:86:7] ([sloc:carsystem.adb:86] (if
+                                                       ([sloc:carsystem.adb:86] ([branch_id=1109]
+                                                       _gnatprove_standard.Main.spark__branch
+                                                       :=
+                                                       ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode));
+                                                       ([branch_id=1109] _gnatprove_standard.Main.spark__branch).bool__content
+                                                       then
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:87:10] 
+                                                       ([sloc:carsystem.adb:87] ()));
+                                                       ([GP_Sloc:carsystem.adb:87:10] 
+                                                       ([sloc:carsystem.adb:87] (
+                                                        any
+                                                         --pp_effects NOT IMPLEMENTED
+                                                         pre {}
+                                                       post {} return unit);
+                                                       (Ada___ada__text_io__put_line__2___axiom.put_line
+                                                          (let ([mlw:proxy_symbol]
+                                                          [introduced] temp___247)
+                                                          =
+                                                          ( (Temp___String_Literal_246.temp___String_Literal_246
+                                                               ())) in
+                                                          (Standard__string.of_array
+                                                             ([mlw:proxy_symbol]
+                                                             [introduced] temp___247)
+                                                             1 35)));
+                                                       ()));
+                                                       ([GP_Sloc:carsystem.adb:88:10] 
+                                                       ([sloc:carsystem.adb:88] abstract
+                                                       ensures
+                                                       { True } begin 
+                                                        (let _ =
+                                                       ( 2000000000) in ())  end));
+                                                       ([GP_Sloc:carsystem.adb:89:10] 
+                                                       ([sloc:carsystem.adb:89] raise Return__exc))
+                               else ())));
+([GP_Sloc:carsystem.adb:91:7] ([sloc:carsystem.adb:91] (if
+                                                       ([sloc:carsystem.adb:91] ([branch_id=1121]
+                                                       _gnatprove_standard.Main.spark__branch
+                                                       :=
+                                                       (_gnatprove_standard.Boolean.andb
+                                                          (_gnatprove_standard.Boolean.andb
+                                                             (_gnatprove_standard.Boolean.andb
+                                                                (_gnatprove_standard.Boolean.andb
+                                                                   (_gnatprove_standard.Boolean.andb
                                                                     (_gnatprove_standard.Boolean.andb
-                                                                    (_gnatprove_standard.Boolean.andb
-                                                                    ((_gnatprove_standard.Boolean.to_int
-                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isstarted)
-                                                                    = (_gnatprove_standard.Boolean.to_int
-                                                                    (_gnatprove_standard.Boolean.of_int
-                                                                    1)))
-                                                                    ((_gnatprove_standard.Boolean.to_int
-                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isdiagmode)
-                                                                    = (_gnatprove_standard.Boolean.to_int
-                                                                    (_gnatprove_standard.Boolean.of_int
-                                                                    0))))
-                                                                    ((_gnatprove_standard.Boolean.to_int
-                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__sensordetect)
-                                                                    = (_gnatprove_standard.Boolean.to_int
-                                                                    (_gnatprove_standard.Boolean.of_int
-                                                                    0))))
-                                                                    ((_gnatprove_standard.Boolean.to_int
-                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isbatterywarning)
-                                                                    = (_gnatprove_standard.Boolean.to_int
-                                                                    (_gnatprove_standard.Boolean.of_int
-                                                                    0))))
-                                                                  ((Carsystem__gearrange__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__isstarted
+                                                                    --pp_not NOT IMPLEMENTED)
+                                                                    --pp_not NOT IMPLEMENTED)
+                                                                   --pp_not NOT IMPLEMENTED)
+                                                                ((Carsystem__gearrange__rep.to_rep
                                                                     ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__gear)
-                                                                    > 0))
-                                                               (Carsystem__movecar__targetspeed.targetspeed
-                                                                  >= 0))
-                                                            (Carsystem__movecar__targetspeed.targetspeed
-                                                               <= 100))));
-                                                         ([branch_id=1054] _gnatprove_standard.Main.spark__branch).bool__content
-                                                         then
-                                                         ();
-                                                         ([GP_Sloc:carsystem.adb:76:10] 
-                                                         ([sloc:carsystem.adb:76] 
-                                                         (if
-                                                         ([sloc:carsystem.adb:76] ([branch_id=1097]
-                                                         _gnatprove_standard.Main.spark__branch
-                                                         :=
-                                                         (Carsystem__movecar__targetspeed.targetspeed
-                                                            > 70)));
-                                                         ([branch_id=1097] _gnatprove_standard.Main.spark__branch).bool__content
-                                                         then
-                                                         ();
-                                                         ([GP_Sloc:carsystem.adb:77:24] 
-                                                         ([sloc:carsystem.adb:77] (let ([mlw:proxy_symbol]
-                                                         [introduced] temp___225)
+                                                                   > 0))
+                                                             ((Carsystem__speedrange__rep.to_rep
+                                                                 ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed)
+                                                                >= 0))
+                                                          ((Carsystem__speedrange__rep.to_rep
+                                                              ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed)
+                                                             <= 100))));
+                                                       ([branch_id=1121] _gnatprove_standard.Main.spark__branch).bool__content
+                                                       then
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:98:10] 
+                                                       ([sloc:carsystem.adb:98] 
+                                                       (if
+                                                       ([sloc:carsystem.adb:98] ([branch_id=1163]
+                                                       _gnatprove_standard.Main.spark__branch
+                                                       :=
+                                                       ((Carsystem__speedrange__rep.to_rep
+                                                           ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed)
+                                                          > 70)));
+                                                       ([branch_id=1163] _gnatprove_standard.Main.spark__branch).bool__content
+                                                       then
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:99:24] 
+                                                       ([sloc:carsystem.adb:99] (let ([mlw:proxy_symbol]
+                                                       [introduced] temp___250)
+                                                       =
+                                                       (let ([mlw:proxy_symbol]
+                                                         [introduced] temp___249)
                                                          =
-                                                         (let ([mlw:proxy_symbol]
-                                                           [introduced] temp___224)
-                                                           =
-                                                           ( --pp_record_aggregate NOT IMPLEMENTED)
-                                                           in abstract
-                                                           ensures
-                                                           { True } begin 
-                                                            (let _ =
-                                                           ([mlw:proxy_symbol]
-                                                             [introduced] temp___224).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed
-                                                           in ())  end;
-                                                           --pp_record_update NOT IMPLEMENTED)
-                                                         in (
-                                                         Carsystem__movecar__this.this__split_fields
-                                                         :=
+                                                         ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                         in abstract ensures
+                                                         { True } begin 
+                                                          (let _ =
                                                          ([mlw:proxy_symbol]
-                                                           [introduced] temp___225).Carsystem__car.__split_fields))))
-                                                          else
-                                                         ();
-                                                         ([GP_Sloc:carsystem.adb:79:24] 
-                                                         ([sloc:carsystem.adb:79] (let ([mlw:proxy_symbol]
-                                                         [introduced] temp___228)
+                                                           [introduced] temp___249).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed
+                                                         in ())  end;
+                                                         --pp_record_update NOT IMPLEMENTED)
+                                                       in (
+                                                       Carsystem__movecar__this.this__split_fields
+                                                       :=
+                                                       ([mlw:proxy_symbol]
+                                                         [introduced] temp___250).Carsystem__car.__split_fields))))
+                                                        else
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:101:24] 
+                                                       ([sloc:carsystem.adb:101] (let ([mlw:proxy_symbol]
+                                                       [introduced] temp___253)
+                                                       =
+                                                       (let ([mlw:proxy_symbol]
+                                                         [introduced] temp___252)
                                                          =
-                                                         (let ([mlw:proxy_symbol]
-                                                           [introduced] temp___227)
-                                                           =
-                                                           ( --pp_record_aggregate NOT IMPLEMENTED)
-                                                           in abstract
-                                                           ensures
-                                                           { True } begin 
-                                                            (let _ =
-                                                           ([mlw:proxy_symbol]
-                                                             [introduced] temp___227).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed
-                                                           in ())  end;
-                                                           --pp_record_update NOT IMPLEMENTED)
-                                                         in (
-                                                         Carsystem__movecar__this.this__split_fields
-                                                         :=
+                                                         ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                         in abstract ensures
+                                                         { True } begin 
+                                                          (let _ =
                                                          ([mlw:proxy_symbol]
-                                                           [introduced] temp___228).Carsystem__car.__split_fields)))))));
-                                                         ([GP_Sloc:carsystem.adb:81:10] 
-                                                         ([sloc:carsystem.adb:81] 
-                                                         (if
-                                                         ([sloc:carsystem.adb:81] ([branch_id=1113]
-                                                         _gnatprove_standard.Main.spark__branch
-                                                         :=
-                                                         (_gnatprove_standard.Boolean.andb
-                                                            ((Carsystem__speedrange__rep.to_rep
-                                                                ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed)
-                                                               < 0)
-                                                            ((Carsystem__batterychargerange__rep.to_rep
-                                                                ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)
-                                                               < 5))));
-                                                         ([branch_id=1113] _gnatprove_standard.Main.spark__branch).bool__content
-                                                         then
-                                                         ();
-                                                         ([GP_Sloc:carsystem.adb:83:26] 
-                                                         ([sloc:carsystem.adb:83] (let ([mlw:proxy_symbol]
-                                                         [introduced] temp___231)
+                                                           [introduced] temp___252).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed
+                                                         in ())  end;
+                                                         --pp_record_update NOT IMPLEMENTED)
+                                                       in (
+                                                       Carsystem__movecar__this.this__split_fields
+                                                       :=
+                                                       ([mlw:proxy_symbol]
+                                                         [introduced] temp___253).Carsystem__car.__split_fields)))))));
+                                                       ([GP_Sloc:carsystem.adb:103:10] 
+                                                       ([sloc:carsystem.adb:103] 
+                                                       (if
+                                                       ([sloc:carsystem.adb:103] ([branch_id=1183]
+                                                       _gnatprove_standard.Main.spark__branch
+                                                       :=
+                                                       (_gnatprove_standard.Boolean.andb
+                                                          ((Carsystem__speedrange__rep.to_rep
+                                                              ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__speed)
+                                                             > 0)
+                                                          ((Carsystem__batterychargerange__rep.to_rep
+                                                              ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)
+                                                             > 5))));
+                                                       ([branch_id=1183] _gnatprove_standard.Main.spark__branch).bool__content
+                                                       then
+                                                       ();
+                                                       ([GP_Sloc:carsystem.adb:105:25] 
+                                                       ([sloc:carsystem.adb:105] (let ([mlw:proxy_symbol]
+                                                       [introduced] temp___256)
+                                                       =
+                                                       (let ([mlw:proxy_symbol]
+                                                         [introduced] temp___255)
                                                          =
-                                                         (let ([mlw:proxy_symbol]
-                                                           [introduced] temp___230)
-                                                           =
-                                                           ( --pp_record_aggregate NOT IMPLEMENTED)
-                                                           in abstract
-                                                           ensures
-                                                           { True } begin 
-                                                            (let _ =
-                                                           ([mlw:proxy_symbol]
-                                                             [introduced] temp___230).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery
-                                                           in ())  end;
-                                                           --pp_record_update NOT IMPLEMENTED)
-                                                         in (
-                                                         Carsystem__movecar__this.this__split_fields
-                                                         :=
+                                                         ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                         in abstract ensures
+                                                         { True } begin 
+                                                          (let _ =
                                                          ([mlw:proxy_symbol]
-                                                           [introduced] temp___231).Carsystem__car.__split_fields))))
-                                                          else ())))  else 
-                                                         ())));
-  ([GP_Sloc:carsystem.adb:87:7] ([sloc:carsystem.adb:87] ()));
-  ([GP_Sloc:carsystem.adb:87:7] ([sloc:carsystem.adb:87] (let ([mlw:proxy_symbol]
-                                [introduced] temp___compl_232) =
-                                ( --pp_record_aggregate NOT IMPLEMENTED) in
-                                ( any --pp_effects NOT IMPLEMENTED pre {}
-                                post {} return unit);
-  (Carsystem__checkbatterywarning___axiom.checkbatterywarning
-     Carsystem__movecar__this.this__split_fields);
-  ())));
+                                                           [introduced] temp___255).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery
+                                                         in ())  end;
+                                                         --pp_record_update NOT IMPLEMENTED)
+                                                       in (
+                                                       Carsystem__movecar__this.this__split_fields
+                                                       :=
+                                                       ([mlw:proxy_symbol]
+                                                         [introduced] temp___256).Carsystem__car.__split_fields))))
+                                                        else ())))  else 
+                                                       ())));
+([GP_Sloc:carsystem.adb:109:7] ([sloc:carsystem.adb:109] ()));
+([GP_Sloc:carsystem.adb:109:7] ([sloc:carsystem.adb:109] (let ([mlw:proxy_symbol]
+                               [introduced] temp___compl_257) =
+                               ( --pp_record_aggregate NOT IMPLEMENTED) in
+                               ( any --pp_effects NOT IMPLEMENTED pre {} post
+                               {} return unit);
+(Carsystem__checkbatterywarning___axiom.checkbatterywarning
+   Carsystem__movecar__this.this__split_fields);
+())));
+([GP_Sloc:carsystem.adb:110:25] ([sloc:carsystem.adb:110] (let ([mlw:proxy_symbol]
+                                [introduced] temp___260) =
+                                (let ([mlw:proxy_symbol]
+                                  [introduced] temp___259) =
+                                  ( --pp_record_aggregate NOT IMPLEMENTED) in
+                                  abstract ensures
+                                  { True } begin  (let _ =
+                                                 ([mlw:proxy_symbol]
+                                                   [introduced] temp___259).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__desiredspeed
+                                                 in ())  end;
+                                  --pp_record_update NOT IMPLEMENTED)
+                                in (
+                                Carsystem__movecar__this.this__split_fields
+                                :=
+                                ([mlw:proxy_symbol]
+                                  [introduced] temp___260).Carsystem__car.__split_fields))));
 raise Return__exc with | Return__exc  -> ());
 abstract ensures
 { True } begin  (let _ = True in ())  end

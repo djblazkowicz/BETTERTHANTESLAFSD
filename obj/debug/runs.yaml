@@ -804,3 +804,955 @@
     '
   output_parser: GNATprove_Parser
   timestamp: '2022-04-22T06:05:41.926000'
+'2022-04-22T08:04:50.045000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#0]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#1]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#4]
+
+    main.adb:111:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#5]
+
+    main.adb:113:21: warning: unused assignment[#2]
+
+    main.adb:127:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#6]
+
+    main.adb:132:19: warning: unused assignment[#3]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:04:50.045000'
+'2022-04-22T08:07:22.798000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#0]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#1]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#2]
+
+    main.adb:111:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#3]
+
+    main.adb:127:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:07:22.798000'
+'2022-04-22T08:09:14.718000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#0]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#1]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#2]
+
+    main.adb:111:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#3]
+
+    main.adb:129:16: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:09:14.718000'
+'2022-04-22T08:09:42.593000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#0]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#1]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#2]
+
+    main.adb:111:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#3]
+
+    main.adb:129:16: medium: precondition might fail, cannot prove this.SensorDetect
+    = False [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:09:42.593000'
+'2022-04-22T08:10:30.210000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:111:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#3]
+
+    main.adb:130:16: medium: precondition might fail, cannot prove this.isBatteryWarning
+    = False [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:10:30.210000'
+'2022-04-22T08:11:02.307000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:111:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#3]
+
+    main.adb:131:16: medium: precondition might fail, cannot prove this.gear > 0 [possible
+    fix: loop at line 39 should mention saxo and speed in a loop invariant][#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:11:02.307000'
+'2022-04-22T08:11:40.532000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:111:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#3]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:11:40.532000'
+'2022-04-22T08:12:51.754000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:12:51.754000'
+'2022-04-22T08:15:16.687000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:15:16.687000'
+'2022-04-22T08:15:42.975000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:108:13: error: "battery" is undefined (more references follow)
+
+    main.adb:124:13: error: "speed" is undefined (more references follow)
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:15:42.975000'
+'2022-04-22T08:16:07.379000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:16:07.379000'
+'2022-04-22T08:16:23.818000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:32:04: error: missing expression for aspect "Relaxed_Initialization"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:16:23.818000'
+'2022-04-22T08:17:09.434000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:17:09.434000'
+'2022-04-22T08:18:03.417000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:18:03.417000'
+'2022-04-22T08:18:31.500000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:18:31.500000'
+'2022-04-22T08:19:49.394000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:140:13: error: identifier may not start with digit
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:19:49.394000'
+'2022-04-22T08:20:00.401000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:114:21: warning: unused assignment[#0]
+
+    main.adb:140:19: warning: unused assignment[#1]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:20:00.401000'
+'2022-04-22T08:20:58.018000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:112:24: warning: unused assignment[#0]
+
+    main.adb:136:22: warning: unused assignment[#1]
+
+    main.adb:142:22: warning: unused assignment[#2]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:20:58.018000'
+'2022-04-22T08:23:18.796000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:110:16: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 37 should
+    mention battery and saxo in a loop invariant][#2]
+
+    main.adb:114:21: warning: unused assignment[#0]
+
+    main.adb:142:19: warning: unused assignment[#1]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:23:18.796000'
+'2022-04-22T08:24:01.965000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:114:21: warning: unused assignment[#0]
+
+    main.adb:142:19: warning: unused assignment[#1]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:24:01.965000'
+'2022-04-22T08:31:22.364000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:103:52: error: missing ";"
+
+    carsystem.adb:105:17: error: invalid procedure or entry call
+
+    carsystem.adb:105:25: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:31:22.364000'
+'2022-04-22T08:31:31.248000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:105:17: error: invalid procedure or entry call
+
+    carsystem.adb:105:25: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:31:31.248000'
+'2022-04-22T08:32:05.525000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:32:05.525000'
+'2022-04-22T08:32:18.061000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:114:21: warning: unused assignment[#0]
+
+    main.adb:142:19: warning: unused assignment[#1]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:32:18.061000'
+'2022-04-22T08:32:49.731000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:32:49.731000'
+'2022-04-22T08:35:22.858000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:102:27: medium: overflow check might fail [reason for check: result
+    of addition must fit in a 8-bits machine integer] [possible fix: precondition
+    of subprogram at carsystem.ads:80 should mention This][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:35:22.858000'
+'2022-04-22T08:37:05.192000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.ads:81:13: error: "chargeAmount" is undefined
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:37:05.192000'
+'2022-04-22T08:37:19.910000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:114:21: warning: unused assignment[#0]
+
+    main.adb:142:19: warning: unused assignment[#1]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:37:19.910000'
+'2022-04-22T08:42:38.275000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:42:38.275000'
+'2022-04-22T08:46:53.123000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:106:43: medium: range check might fail [reason for check: value must
+    be convertible to the target type of the conversion][#2]
+
+    main.adb:111:21: warning: unused assignment[#0]
+
+    main.adb:139:19: warning: unused assignment[#1]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:46:53.123000'
+'2022-04-22T08:48:21.089000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:106:35: medium: range check might fail [reason for check: value must
+    be convertible to the target type of the conversion][#2]
+
+    main.adb:112:33: medium: "battery" might not be initialized[#1]
+
+    main.adb:142:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:48:21.089000'
+'2022-04-22T08:49:38.317000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:107:34: medium: range check might fail [reason for check: value must
+    be convertible to the target type of the conversion][#2]
+
+    main.adb:113:33: medium: "battery" might not be initialized[#1]
+
+    main.adb:143:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:49:38.317000'
+'2022-04-22T08:50:13.383000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:113:33: medium: "battery" might not be initialized[#1]
+
+    main.adb:143:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:50:13.383000'
+'2022-04-22T08:50:35.704000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:143:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:50:35.704000'
+'2022-04-22T08:57:19.169000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:153:09: error: missing "end if;" for "if" at line 130
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:57:19.169000'
+'2022-04-22T08:57:31.878000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:153:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T08:57:31.878000'
+'2022-04-22T09:07:01.270000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:151:16: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 37 should mention saxo and speed in a loop
+    invariant][#1]
+
+    main.adb:154:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:07:01.270000'
+'2022-04-22T09:08:10.643000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:159:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:08:10.643000'
+'2022-04-22T09:09:43.891000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:09:43.891000'
+'2022-04-22T09:10:22.403000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:10:22.403000'
+'2022-04-22T09:12:20.580000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:159:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:12:20.580000'
+'2022-04-22T09:15:08.637000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:15:08.637000'
+'2022-04-22T09:16:23.733000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:137:13: error: no "if" for this "end if"
+
+    main.adb:138:12: error: "when" (case statement alternative) expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:16:23.733000'
+'2022-04-22T09:16:35.426000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:135:19: medium: precondition might fail, cannot prove this.SensorDetect
+    = False [possible fix: loop at line 37 should mention saxo and speed in a loop
+    invariant][#1]
+
+    main.adb:138:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:16:35.426000'
+'2022-04-22T09:17:06.888000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:133:44: error: missing operand
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:17:06.888000'
+'2022-04-22T09:18:01.894000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:138:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:18:01.894000'
+'2022-04-22T09:26:31.874000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:140:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:26:31.874000'
+'2022-04-22T09:35:36.915000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:35:36.915000'
+'2022-04-22T09:37:55.819000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:37:55.819000'
+'2022-04-22T09:39:43.893000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:129:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:39:43.893000'
+'2022-04-22T09:43:50.641000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:129:19: warning: unused assignment[#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:43:50.641000'
+'2022-04-22T09:44:46.390000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:44:46.390000'
+'2022-04-22T09:47:46.104000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:47:46.104000'

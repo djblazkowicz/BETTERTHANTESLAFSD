@@ -190,6 +190,8 @@ module Carsystem__car__rep
                        rec__carsystem__car__isbatterywarning : bool;
                        rec__carsystem__car__speed :
                          Carsystem__speedrange.speedrange;
+                       rec__carsystem__car__desiredspeed :
+                         Carsystem__speedrange.speedrange;
                        rec__carsystem__car__battery :
                          Carsystem__batterychargerange.batterychargerange;
                        rec__carsystem__car__gear :
@@ -231,6 +233,14 @@ module Carsystem__car__rep
   meta "model_projection" function __split_fields_rec__carsystem__car__speed__projection
   
   meta "inline:no" function __split_fields_rec__carsystem__car__speed__projection
+  
+  function __split_fields_rec__carsystem__car__desiredspeed__projection (a: __split_fields) : 
+    Carsystem__speedrange.speedrange =
+    a.rec__carsystem__car__desiredspeed
+  
+  meta "model_projection" function __split_fields_rec__carsystem__car__desiredspeed__projection
+  
+  meta "inline:no" function __split_fields_rec__carsystem__car__desiredspeed__projection
   
   function __split_fields_rec__carsystem__car__battery__projection (a: __split_fields) : 
     Carsystem__batterychargerange.batterychargerange =
@@ -328,6 +338,16 @@ module Carsystem__car__rep
     requires { carsystem__car__speed__pred a }
     ensures { (result = ((__split_fields a).rec__carsystem__car__speed)) }
   
+  predicate carsystem__car__desiredspeed__pred (a: __rep) = true
+  
+  val carsystem__car__desiredspeed__pred (a: __rep) : bool
+    ensures { result <-> (carsystem__car__desiredspeed__pred (a : __rep)) }
+  
+  val rec__carsystem__car__desiredspeed_ (a: __rep) : Carsystem__speedrange.speedrange
+    requires { carsystem__car__desiredspeed__pred a }
+    ensures { (result
+                 = ((__split_fields a).rec__carsystem__car__desiredspeed)) }
+  
   predicate carsystem__car__battery__pred (a: __rep) = true
   
   val carsystem__car__battery__pred (a: __rep) : bool
@@ -366,10 +386,14 @@ module Carsystem__car__rep
                   ((__split_fields a).rec__carsystem__car__speed))
                  = (Carsystem__speedrange__rep.to_rep
                       ((__split_fields b).rec__carsystem__car__speed)))) /\
-             (((Carsystem__batterychargerange__rep.to_rep
-                  ((__split_fields a).rec__carsystem__car__battery))
-                 = (Carsystem__batterychargerange__rep.to_rep
-                      ((__split_fields b).rec__carsystem__car__battery))) /\
+             ((((Carsystem__speedrange__rep.to_rep
+                   ((__split_fields a).rec__carsystem__car__desiredspeed))
+                  = (Carsystem__speedrange__rep.to_rep
+                       ((__split_fields b).rec__carsystem__car__desiredspeed))) /\
+                 ((Carsystem__batterychargerange__rep.to_rep
+                     ((__split_fields a).rec__carsystem__car__battery))
+                    = (Carsystem__batterychargerange__rep.to_rep
+                         ((__split_fields b).rec__carsystem__car__battery)))) /\
                 ((Carsystem__gearrange__rep.to_rep
                     ((__split_fields a).rec__carsystem__car__gear))
                    = (Carsystem__gearrange__rep.to_rep
@@ -480,6 +504,22 @@ module Carsystem__car
   axiom carsystem__car__speed__position_axiom:
     (carsystem__car__speed__position >= (0 : int))
   
+  val function carsystem__car__desiredspeed__first__bit : int
+  
+  val function carsystem__car__desiredspeed__last__bit : int
+  
+  val function carsystem__car__desiredspeed__position : int
+  
+  axiom carsystem__car__desiredspeed__first__bit_axiom:
+    (carsystem__car__desiredspeed__first__bit >= (0 : int))
+  
+  axiom carsystem__car__desiredspeed__last__bit_axiom:
+    (carsystem__car__desiredspeed__last__bit
+       > carsystem__car__desiredspeed__first__bit)
+  
+  axiom carsystem__car__desiredspeed__position_axiom:
+    (carsystem__car__desiredspeed__position >= (0 : int))
+  
   val function carsystem__car__battery__first__bit : int
   
   val function carsystem__car__battery__last__bit : int
@@ -541,63 +581,71 @@ module Carsystem__car___axiom
   use Carsystem__gearrange as Carsystem__gearrange
   use Carsystem__gearrange__rep as Carsystem__gearrange__rep
   
-  predicate dynamic_invariant (temp___expr_186: Carsystem__car.car) (temp___is_init_182: bool) (temp___skip_constant_183: bool) (temp___do_toplevel_184: bool) (temp___do_typ_inv_185: bool) =
+  predicate dynamic_invariant (temp___expr_188: Carsystem__car.car) (temp___is_init_184: bool) (temp___skip_constant_185: bool) (temp___do_toplevel_186: bool) (temp___do_typ_inv_187: bool) =
     true
   
-  val dynamic_invariant (temp___expr_186: Carsystem__car.car) (temp___is_init_182: bool) (temp___skip_constant_183: bool) (temp___do_toplevel_184: bool) (temp___do_typ_inv_185: bool) : 
+  val dynamic_invariant (temp___expr_188: Carsystem__car.car) (temp___is_init_184: bool) (temp___skip_constant_185: bool) (temp___do_toplevel_186: bool) (temp___do_typ_inv_187: bool) : 
     bool
     ensures { result
                 <->
-                (((((dynamic_invariant (temp___expr_186 : Carsystem__car.car))
-                      (temp___is_init_182 : bool))
-                     (temp___skip_constant_183 : bool))
-                    (temp___do_toplevel_184 : bool))
-                   (temp___do_typ_inv_185 : bool)) }
+                (((((dynamic_invariant (temp___expr_188 : Carsystem__car.car))
+                      (temp___is_init_184 : bool))
+                     (temp___skip_constant_185 : bool))
+                    (temp___do_toplevel_186 : bool))
+                   (temp___do_typ_inv_187 : bool)) }
   
-  predicate default_initial_assumption (temp___expr_187: Carsystem__car.car) (temp___skip_top_level_188: bool) =
-    (((if (Carsystem__car.carsystem__car__isstarted__pred temp___expr_187) then
-         (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__isstarted)
+  predicate default_initial_assumption (temp___expr_189: Carsystem__car.car) (temp___skip_top_level_190: bool) =
+    (((if (Carsystem__car.carsystem__car__isstarted__pred temp___expr_189) then
+         (((Carsystem__car.__split_fields temp___expr_189).Carsystem__car.rec__carsystem__car__isstarted)
             = (Boolean.of_int (0 : int)))
        else true) /\
         (if (Carsystem__car.carsystem__car__sensordetect__pred
-               temp___expr_187) then
-           (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__sensordetect)
+               temp___expr_189) then
+           (((Carsystem__car.__split_fields temp___expr_189).Carsystem__car.rec__carsystem__car__sensordetect)
               = (Boolean.of_int (0 : int)))
          else true)) /\
        ((((if (Carsystem__car.carsystem__car__isdiagmode__pred
-                 temp___expr_187) then
-             (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__isdiagmode)
+                 temp___expr_189) then
+             (((Carsystem__car.__split_fields temp___expr_189).Carsystem__car.rec__carsystem__car__isdiagmode)
                 = (Boolean.of_int (0 : int)))
            else true) /\
             (if (Carsystem__car.carsystem__car__isbatterywarning__pred
-                   temp___expr_187) then
-               (((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__isbatterywarning)
+                   temp___expr_189) then
+               (((Carsystem__car.__split_fields temp___expr_189).Carsystem__car.rec__carsystem__car__isbatterywarning)
                   = (Boolean.of_int (0 : int)))
              else true)) /\
-           (if (Carsystem__car.carsystem__car__speed__pred temp___expr_187) then
+           (if (Carsystem__car.carsystem__car__speed__pred temp___expr_189) then
               ((Carsystem__speedrange__rep.to_rep
-                  ((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__speed))
+                  ((Carsystem__car.__split_fields temp___expr_189).Carsystem__car.rec__carsystem__car__speed))
                  = (0 : int))
             else true)) /\
-          ((if (Carsystem__car.carsystem__car__battery__pred temp___expr_187) then
-              ((Carsystem__batterychargerange__rep.to_rep
-                  ((Carsystem__car.__split_fields temp___expr_187).Carsystem__car.rec__carsystem__car__battery))
-                 = (0 : int))
-            else true) /\
-             (if (Carsystem__car.carsystem__car__gear__pred temp___expr_187) then
+          (((if (Carsystem__car.carsystem__car__desiredspeed__pred
+                   temp___expr_189) then
+               ((Carsystem__speedrange__rep.to_rep
+                   ((Carsystem__car.__split_fields temp___expr_189).Carsystem__car.rec__carsystem__car__desiredspeed))
+                  = (0 : int))
+             else true) /\
+              (if (Carsystem__car.carsystem__car__battery__pred
+                     temp___expr_189) then
+                 ((Carsystem__batterychargerange__rep.to_rep
+                     ((Carsystem__car.__split_fields temp___expr_189).
+                        Carsystem__car.rec__carsystem__car__battery))
+                    = (0 : int))
+               else true)) /\
+             (if (Carsystem__car.carsystem__car__gear__pred temp___expr_189) then
                 ((Carsystem__gearrange__rep.to_rep
-                    ((Carsystem__car.__split_fields temp___expr_187).
+                    ((Carsystem__car.__split_fields temp___expr_189).
                        Carsystem__car.rec__carsystem__car__gear))
                    = (0 : int))
               else true))))
   
-  val default_initial_assumption (temp___expr_187: Carsystem__car.car) (temp___skip_top_level_188: bool) : 
+  val default_initial_assumption (temp___expr_189: Carsystem__car.car) (temp___skip_top_level_190: bool) : 
     bool
     ensures { result
                 <->
                 ((default_initial_assumption
-                    (temp___expr_187 : Carsystem__car.car))
-                   (temp___skip_top_level_188 : bool)) }
+                    (temp___expr_189 : Carsystem__car.car))
+                   (temp___skip_top_level_190 : bool)) }
 end
 
 module Carsystem__emergencystop___axiom
@@ -613,7 +661,7 @@ module Carsystem__emergencystop___axiom
     unit
     requires { true }
     writes { this__split_fields }
-    ensures { (([@GP_Pretty_Ada:1722]
+    ensures { (([@GP_Pretty_Ada:12485]
                 ((Carsystem__speedrange__rep.to_rep
                     ((Carsystem__car.__split_fields
                          { Carsystem__car.__split_fields =
@@ -644,35 +692,35 @@ module Carsystem__batterychargerange___axiom
   use int.Int
   use Carsystem__batterychargerange as Carsystem__batterychargerange
   
-  predicate dynamic_invariant (temp___expr_165: int) (temp___is_init_161: bool) (temp___skip_constant_162: bool) (temp___do_toplevel_163: bool) (temp___do_typ_inv_164: bool) =
-    if ((temp___is_init_161 = True) \/
+  predicate dynamic_invariant (temp___expr_167: int) (temp___is_init_163: bool) (temp___skip_constant_164: bool) (temp___do_toplevel_165: bool) (temp___do_typ_inv_166: bool) =
+    if ((temp___is_init_163 = True) \/
           (Carsystem__batterychargerange.first
              <= Carsystem__batterychargerange.last)) then
       (((Carsystem__batterychargerange.dynamic_property
            Carsystem__batterychargerange.first)
           Carsystem__batterychargerange.last)
-         temp___expr_165)
+         temp___expr_167)
     else true
   
-  val dynamic_invariant (temp___expr_165: int) (temp___is_init_161: bool) (temp___skip_constant_162: bool) (temp___do_toplevel_163: bool) (temp___do_typ_inv_164: bool) : 
+  val dynamic_invariant (temp___expr_167: int) (temp___is_init_163: bool) (temp___skip_constant_164: bool) (temp___do_toplevel_165: bool) (temp___do_typ_inv_166: bool) : 
     bool
     ensures { result
                 <->
-                (((((dynamic_invariant (temp___expr_165 : int))
-                      (temp___is_init_161 : bool))
-                     (temp___skip_constant_162 : bool))
-                    (temp___do_toplevel_163 : bool))
-                   (temp___do_typ_inv_164 : bool)) }
+                (((((dynamic_invariant (temp___expr_167 : int))
+                      (temp___is_init_163 : bool))
+                     (temp___skip_constant_164 : bool))
+                    (temp___do_toplevel_165 : bool))
+                   (temp___do_typ_inv_166 : bool)) }
   
-  predicate default_initial_assumption (temp___expr_166: int) (temp___skip_top_level_167: bool) =
+  predicate default_initial_assumption (temp___expr_168: int) (temp___skip_top_level_169: bool) =
     true
   
-  val default_initial_assumption (temp___expr_166: int) (temp___skip_top_level_167: bool) : 
+  val default_initial_assumption (temp___expr_168: int) (temp___skip_top_level_169: bool) : 
     bool
     ensures { result
                 <->
-                ((default_initial_assumption (temp___expr_166 : int))
-                   (temp___skip_top_level_167 : bool)) }
+                ((default_initial_assumption (temp___expr_168 : int))
+                   (temp___skip_top_level_169 : bool)) }
 end
 
 module Carsystem__speedrange___axiom
@@ -681,33 +729,33 @@ module Carsystem__speedrange___axiom
   use int.Int
   use Carsystem__speedrange as Carsystem__speedrange
   
-  predicate dynamic_invariant (temp___expr_172: int) (temp___is_init_168: bool) (temp___skip_constant_169: bool) (temp___do_toplevel_170: bool) (temp___do_typ_inv_171: bool) =
-    if ((temp___is_init_168 = True) \/
+  predicate dynamic_invariant (temp___expr_174: int) (temp___is_init_170: bool) (temp___skip_constant_171: bool) (temp___do_toplevel_172: bool) (temp___do_typ_inv_173: bool) =
+    if ((temp___is_init_170 = True) \/
           (Carsystem__speedrange.first <= Carsystem__speedrange.last)) then
       (((Carsystem__speedrange.dynamic_property Carsystem__speedrange.first)
           Carsystem__speedrange.last)
-         temp___expr_172)
+         temp___expr_174)
     else true
   
-  val dynamic_invariant (temp___expr_172: int) (temp___is_init_168: bool) (temp___skip_constant_169: bool) (temp___do_toplevel_170: bool) (temp___do_typ_inv_171: bool) : 
+  val dynamic_invariant (temp___expr_174: int) (temp___is_init_170: bool) (temp___skip_constant_171: bool) (temp___do_toplevel_172: bool) (temp___do_typ_inv_173: bool) : 
     bool
     ensures { result
                 <->
-                (((((dynamic_invariant (temp___expr_172 : int))
-                      (temp___is_init_168 : bool))
-                     (temp___skip_constant_169 : bool))
-                    (temp___do_toplevel_170 : bool))
-                   (temp___do_typ_inv_171 : bool)) }
+                (((((dynamic_invariant (temp___expr_174 : int))
+                      (temp___is_init_170 : bool))
+                     (temp___skip_constant_171 : bool))
+                    (temp___do_toplevel_172 : bool))
+                   (temp___do_typ_inv_173 : bool)) }
   
-  predicate default_initial_assumption (temp___expr_173: int) (temp___skip_top_level_174: bool) =
+  predicate default_initial_assumption (temp___expr_175: int) (temp___skip_top_level_176: bool) =
     true
   
-  val default_initial_assumption (temp___expr_173: int) (temp___skip_top_level_174: bool) : 
+  val default_initial_assumption (temp___expr_175: int) (temp___skip_top_level_176: bool) : 
     bool
     ensures { result
                 <->
-                ((default_initial_assumption (temp___expr_173 : int))
-                   (temp___skip_top_level_174 : bool)) }
+                ((default_initial_assumption (temp___expr_175 : int))
+                   (temp___skip_top_level_176 : bool)) }
 end
 
 module Carsystem__gearrange___axiom
@@ -716,33 +764,33 @@ module Carsystem__gearrange___axiom
   use int.Int
   use Carsystem__gearrange as Carsystem__gearrange
   
-  predicate dynamic_invariant (temp___expr_179: int) (temp___is_init_175: bool) (temp___skip_constant_176: bool) (temp___do_toplevel_177: bool) (temp___do_typ_inv_178: bool) =
-    if ((temp___is_init_175 = True) \/
+  predicate dynamic_invariant (temp___expr_181: int) (temp___is_init_177: bool) (temp___skip_constant_178: bool) (temp___do_toplevel_179: bool) (temp___do_typ_inv_180: bool) =
+    if ((temp___is_init_177 = True) \/
           (Carsystem__gearrange.first <= Carsystem__gearrange.last)) then
       (((Carsystem__gearrange.dynamic_property Carsystem__gearrange.first)
           Carsystem__gearrange.last)
-         temp___expr_179)
+         temp___expr_181)
     else true
   
-  val dynamic_invariant (temp___expr_179: int) (temp___is_init_175: bool) (temp___skip_constant_176: bool) (temp___do_toplevel_177: bool) (temp___do_typ_inv_178: bool) : 
+  val dynamic_invariant (temp___expr_181: int) (temp___is_init_177: bool) (temp___skip_constant_178: bool) (temp___do_toplevel_179: bool) (temp___do_typ_inv_180: bool) : 
     bool
     ensures { result
                 <->
-                (((((dynamic_invariant (temp___expr_179 : int))
-                      (temp___is_init_175 : bool))
-                     (temp___skip_constant_176 : bool))
-                    (temp___do_toplevel_177 : bool))
-                   (temp___do_typ_inv_178 : bool)) }
+                (((((dynamic_invariant (temp___expr_181 : int))
+                      (temp___is_init_177 : bool))
+                     (temp___skip_constant_178 : bool))
+                    (temp___do_toplevel_179 : bool))
+                   (temp___do_typ_inv_180 : bool)) }
   
-  predicate default_initial_assumption (temp___expr_180: int) (temp___skip_top_level_181: bool) =
+  predicate default_initial_assumption (temp___expr_182: int) (temp___skip_top_level_183: bool) =
     true
   
-  val default_initial_assumption (temp___expr_180: int) (temp___skip_top_level_181: bool) : 
+  val default_initial_assumption (temp___expr_182: int) (temp___skip_top_level_183: bool) : 
     bool
     ensures { result
                 <->
-                ((default_initial_assumption (temp___expr_180 : int))
-                   (temp___skip_top_level_181 : bool)) }
+                ((default_initial_assumption (temp___expr_182 : int))
+                   (temp___skip_top_level_183 : bool)) }
 end
 
 module Carsystem__enterdiagmode__this___axiom
@@ -767,17 +815,17 @@ module Carsystem__enterdiagmode__subprogram_def
   use Carsystem__enterdiagmode__this___axiom as Carsystem__enterdiagmode__this___axiom
   
   let def (__void_param : unit)
-    requires { [#"carsystem.ads" 86 0 0] true }
-    ensures { [#"carsystem.ads" 86 0 0]
-              [#"carsystem.ads" 87 0 0]
+    requires { [#"carsystem.ads" 88 0 0] true }
+    ensures { [#"carsystem.ads" 88 0 0]
+              [#"carsystem.ads" 89 0 0]
               [@GP_Reason:VC_POSTCONDITION]
+              [@GP_Sloc:carsystem.ads:89:14]
               [@GP_Shape:pragargs__cmp]
-              [@GP_Sloc:carsystem.ads:87:14]
               [@model_vc_post]
-              [@comment:     Post => this.isDiagMode = True;              ^ carsystem.ads:87:14:VC_POSTCONDITION]
-              [@GP_Id:6]
-              [@GP_Pretty_Ada:1774]
-              [@GP_Sloc:carsystem.ads:87:14]
+              [@comment:     Post => this.isDiagMode = True;              ^ carsystem.ads:89:14:VC_POSTCONDITION]
+              [@GP_Id:3]
+              [@GP_Sloc:carsystem.ads:89:14]
+              [@GP_Pretty_Ada:12538]
               ((((Carsystem__car.__split_fields
                      { Carsystem__car.__split_fields =
                          (Carsystem__car.__split_fields__content
@@ -786,7 +834,7 @@ module Carsystem__enterdiagmode__subprogram_def
                   = True) <->
                  true) }
   = [@vc:divergent]
-    (([@GNAT-comment:Assume dynamic invariants of inputs of the subprogram carsystem.ads:86]
+    (([@GNAT-comment:Assume dynamic invariants of inputs of the subprogram carsystem.ads:88]
       ());
      assume {
        ((((Carsystem__car___axiom.dynamic_invariant
@@ -797,47 +845,47 @@ module Carsystem__enterdiagmode__subprogram_def
            False)
           True)
          True };
-     ([@GNAT-comment:Assume moved pointers in outputs of the subprogram carsystem.ads:86]
+     ([@GNAT-comment:Assume moved pointers in outputs of the subprogram carsystem.ads:88]
       ());
-     ([@GNAT-comment:Check for RTE in the Pre of the subprogram carsystem.ads:86]
+     ([@GNAT-comment:Check for RTE in the Pre of the subprogram carsystem.ads:88]
       ());
-     ([@GNAT-comment:Assume Pre of the subprogram carsystem.ads:86] ());
+     ([@GNAT-comment:Assume Pre of the subprogram carsystem.ads:88] ());
      (try
-        ([@GP_Sloc:carsystem.adb:119:7] [#"carsystem.adb" 119 0 0] ());
-        ([@GP_Sloc:carsystem.adb:119:7]
-         [#"carsystem.adb" 119 0 0]
-         (let temp___compl_247 =
+        ([@GP_Sloc:carsystem.adb:137:7] [#"carsystem.adb" 137 0 0] ());
+        ([@GP_Sloc:carsystem.adb:137:7]
+         [#"carsystem.adb" 137 0 0]
+         (let temp___compl_275 =
             { Carsystem__car.__split_fields =
                 (Carsystem__car.__split_fields__content
                     Carsystem__enterdiagmode__this.this__split_fields) } in
-          ([#"carsystem.adb" 119 0 0] (val _f : unit in
+          ([#"carsystem.adb" 137 0 0] (val _f : unit in
                                        _f));
           (Carsystem__emergencystop___axiom.emergencystop
              Carsystem__enterdiagmode__this.this__split_fields)));
-        ([@GP_Sloc:carsystem.adb:120:23]
-         [#"carsystem.adb" 120 0 0]
-         (let temp___250 =
-            let temp___249 =
+        ([@GP_Sloc:carsystem.adb:138:23]
+         [#"carsystem.adb" 138 0 0]
+         (let temp___278 =
+            let temp___277 =
               { Carsystem__car.__split_fields =
                   (Carsystem__car.__split_fields__content
                       Carsystem__enterdiagmode__this.this__split_fields) } in
-            ([#"carsystem.adb" 120 0 0]
+            ([#"carsystem.adb" 138 0 0]
              (begin
                 ensures { true }
                 let _ =
                   let _ =
-                    (Carsystem__car.__split_fields temp___249).Carsystem__car.rec__carsystem__car__isdiagmode in
+                    (Carsystem__car.__split_fields temp___277).Carsystem__car.rec__carsystem__car__isdiagmode in
                   () in
                 ()
               end));
-            ({ temp___249 with
+            ({ temp___277 with
                Carsystem__car.__split_fields =
-                 ({ (Carsystem__car.__split_fields temp___249) with
+                 ({ (Carsystem__car.__split_fields temp___277) with
                     Carsystem__car.rec__carsystem__car__isdiagmode =
                       (Boolean.of_int (1 : int)) }) }) in
-          [#"carsystem.adb" 120 0 0]
+          [#"carsystem.adb" 138 0 0]
           (Carsystem__enterdiagmode__this.this__split_fields.Carsystem__car.__split_fields__content <-
-             (Carsystem__car.__split_fields temp___250))));
+             (Carsystem__car.__split_fields temp___278))));
         (raise Return__exc)
       with Return__exc -> ()
       end);
