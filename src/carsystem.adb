@@ -136,13 +136,13 @@ package body CarSystem with SPARK_Mode is
             return; 
          end if;         
          if This.SensorDetect then
-            Put_line("OBJECT DETECTED, EXECUTING EMERGENCY STOP");
+            Put_line("OBJECT DETECTED!");
             delay 2.0;
             EmergencyStop(This);
             return;
          end if;
          if This.isBatteryWarning then
-            Put_line("BATTERY WARNING, EXECUTING EMERGENCY STOP");
+            Put_line("BATTERY MINIMUM CHARGE WARNING!");
             delay 2.0;
             EmergencyStop(This);
             return;
@@ -160,7 +160,7 @@ package body CarSystem with SPARK_Mode is
                This.speed := This.desiredSpeed;
             end if;
             if This.speed > 0 and 
-              This.battery > MinCharge then
+               This.battery > MinCharge then
                This.battery := This.battery - 1;
             end if;         
          else
@@ -197,7 +197,7 @@ package body CarSystem with SPARK_Mode is
             This.battery := desiredCharge;
          end if;     
       else
-         Put_Line("Cannot charge in Diagnostic mode!");
+         Put_Line("Cannot charge in DIAGNOSTIC mode!");
          delay 2.0;
       end if;
       CheckBatteryWarning(This);

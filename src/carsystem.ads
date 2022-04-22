@@ -46,11 +46,7 @@ package CarSystem with SPARK_Mode is
      this.speed = 0;
    
    -- shut down the car
-   procedure StopProcedure (This : in out Car) with
-     Pre => this.speed = 0 and
-     this.gear = 0;
-     --Post => this.isDiagMode = False and 
-     --this.isStarted = False;
+   procedure StopProcedure (This : in out Car);
    
    -- check sensors
    procedure CheckSensor (This : in out Car);
@@ -81,7 +77,6 @@ package CarSystem with SPARK_Mode is
      --this.gear > 0 and
      this.desiredSpeed >= SpeedRange'First and
      this.desiredSpeed <= SpeedRange'Last;
-     --Post => This.speed <= SpeedLimit;
    
    -- stops the car
    -- will ensure speed is 0
