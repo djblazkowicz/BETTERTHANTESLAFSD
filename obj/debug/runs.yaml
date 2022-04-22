@@ -1756,3 +1756,326 @@
     '
   output_parser: GNATprove_Parser
   timestamp: '2022-04-22T09:47:46.104000'
+'2022-04-22T09:52:00.215000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T09:52:00.215000'
+'2022-04-22T10:31:59.645000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:12:03: error: statement expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:31:59.645000'
+'2022-04-22T10:38:10.604000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:14:13: error: missing argument for parameter "desiredCharge" in
+    call to "Chargebattery" declared at carsystem.ads:90
+
+    carsystem.adb:16:13: error: missing argument for parameter "desiredCharge" in
+    call to "Chargebattery" declared at carsystem.ads:90
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:38:10.604000'
+'2022-04-22T10:38:33.829000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:16:56: medium: range check might fail [reason for check: value must
+    be convertible to the target type of the conversion][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:38:33.829000'
+'2022-04-22T10:39:12.922000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:16:56: medium: range check might fail [reason for check: value must
+    be convertible to the target type of the conversion][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:39:12.922000'
+'2022-04-22T10:41:12.147000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:12:57: error: expected type "Standard.Boolean"
+
+    carsystem.adb:12:57: error: found type "Standard.Integer"
+
+    carsystem.adb:14:119: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:41:12.147000'
+'2022-04-22T10:42:16.836000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:21:03: error: missing "end if;" for "if" at line 11
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:42:16.836000'
+'2022-04-22T10:42:37.507000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:19:56: medium: range check might fail [reason for check: value must
+    be convertible to the target type of the conversion][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:42:37.507000'
+'2022-04-22T10:43:41.860000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:16:56: medium: range check might fail [reason for check: value must
+    be convertible to the target type of the conversion][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:43:41.860000'
+'2022-04-22T10:45:39.471000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:16:37: error: invalid operand types for operator ">="
+
+    carsystem.adb:16:37: error: left operand has type "Standard.Integer"
+
+    carsystem.adb:16:37: error: right operand has type "BatteryChargeRange" defined
+    at carsystem.ads:3
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:45:39.471000'
+'2022-04-22T10:46:10.846000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:46:10.846000'
+'2022-04-22T10:52:49.173000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:27:03: error: missing "end if;" for "if" at line 25
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:52:49.173000'
+'2022-04-22T10:53:03.040000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.adb:26:10: medium: precondition might fail, cannot prove this.isRegenBraking
+    [possible fix: subprogram at carsystem.ads:37 should mention This in a precondition][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:53:03.040000'
+'2022-04-22T10:53:31.831000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:53:31.831000'
+'2022-04-22T10:59:02.730000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove All (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.ads:89:14: medium: postcondition might fail (e.g. when This.previousSpeed
+    = 1 and This.speed = 1 and This.desiredSpeed = 1) [possible fix: call at carsystem.adb:152
+    should mention This (for argument This) in a postcondition][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T10:59:02.730000'
+'2022-04-22T11:03:45.541000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:12:86: error: extra ")" ignored
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:03:45.541000'
+'2022-04-22T11:04:21.379000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:12:92: error: extra ")" ignored
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:04:21.379000'
+'2022-04-22T11:04:34.326000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.ads:89:14: medium: postcondition might fail [possible fix: call at carsystem.adb:152
+    should mention This (for argument This) in a postcondition][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:04:34.326000'
+'2022-04-22T11:06:51.744000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    carsystem.adb:12:50: error: invalid operand types for operator "+"
+
+    carsystem.adb:12:50: error: left operand has type "BatteryChargeRange" defined
+    at carsystem.ads:3
+
+    carsystem.adb:12:50: error: right operand has type "Standard.Integer"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:06:51.744000'
+'2022-04-22T11:07:13.495000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    carsystem.ads:89:14: medium: postcondition might fail [possible fix: call at carsystem.adb:152
+    should mention This (for argument This) in a postcondition][#0]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T11:07:13.495000'

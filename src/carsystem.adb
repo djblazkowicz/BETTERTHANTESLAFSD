@@ -1,6 +1,38 @@
 with Ada.Text_IO; use Ada.Text_IO;
 package body CarSystem with SPARK_Mode is
    
+   procedure ToggleRegenBraking (This : in out Car) is
+   begin
+      This.isRegenBraking := not This.isRegenBraking;
+   end ToggleRegenBraking;
+   
+   procedure UseRegenBraking (This : in out Car) is
+   begin
+      if This.isRegenBraking then         
+            This.predictedCharge := Integer(This.battery) + (((Integer(This.previousSpeed) - Integer(This.speed))*5)/100);
+         if This.predictedCharge > Integer(BatteryChargeRange'Last) then
+            Put_line("USING REGENERATIVE BRAKING, PREDICTED CHARGE: " & This.predictedCharge'Image);
+            Put_Line("Overcharge protection!!!");
+            delay 2.0;            
+            ChargeBattery(This, BatteryChargeRange'Last);
+         else
+            if This.predictedCharge >= Integer(BatteryChargeRange'First) then
+               Put_line("USING REGENERATIVE BRAKING, PREDICTED CHARGE: " & This.predictedCharge'Image);
+               delay 2.0;
+               ChargeBattery(This, BatteryChargeRange(This.predictedCharge));
+               end if;
+         end if;
+      end if;
+   end UseRegenBraking;
+   
+   procedure CheckRegenBraking (This : in out Car) is
+   begin
+      if (This.previousSpeed - This.speed) > 0 and
+        This.isRegenBraking then
+         UseRegenBraking(This);
+      end if;
+   end CheckRegenBraking;
+   
    procedure CheckBatteryWarning (This : in out Car) is
    begin
       if This.battery <= MinCharge then
@@ -58,6 +90,9 @@ package body CarSystem with SPARK_Mode is
    
    procedure MoveCar (This : in out Car) is
    begin
+      if This.previousSpeed = 0 then
+         This.previousSpeed := This.speed;
+      end if;      
       CheckSensor(This);
       CheckBatteryWarning(This);      
       if This.SensorDetect then
@@ -66,7 +101,6 @@ package body CarSystem with SPARK_Mode is
          EmergencyStop(This);
          return;
       end if;
-      --move car if everything is good
       if This.isBatteryWarning then
          Put_line("BATTERY WARNING, EXECUTING EMERGENCY STOP");
          delay 2.0;
@@ -78,16 +112,16 @@ package body CarSystem with SPARK_Mode is
          delay 2.0;
          return;
       end if;
-      if This.gear = 0 then
-         Put_Line("cannot move, car in PARKING gear");
-         delay 2.0;
-         return;
-      end if;
       if this.isDiagMode then
          Put_line("cannot move, car in DIAGNOSTIC mode");
          delay 2.0;
          return;
-      end if;      
+      end if;       
+      if This.gear = 0 then
+         Put_Line("cannot move, car in PARKING gear");
+         delay 2.0;
+         return; 
+      end if;
       if This.isStarted and
          not This.isDiagMode and
          not This.SensorDetect and
@@ -103,19 +137,23 @@ package body CarSystem with SPARK_Mode is
          if This.speed > 0 and 
            This.battery > MinCharge then
            This.battery := This.battery - 1;
-         end if;
-         
+         end if;         
       end if;
       CheckBatteryWarning(This);
       This.desiredSpeed := 0;
+     
+      CheckRegenBraking(This);
+      
+      This.previousSpeed := This.speed;
    end MoveCar;
    
    procedure EmergencyStop (This : in out Car) is
    begin
       CheckBatteryWarning(This);
-      --implement
       This.speed := 0;
       This.gear := 0;
+      CheckRegenBraking(This);
+      This.previousSpeed := 0;
    end EmergencyStop;
     
    procedure ChargeBattery (This : in out Car; desiredCharge : in BatteryChargeRange) is

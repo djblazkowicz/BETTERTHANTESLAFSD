@@ -17,11 +17,24 @@ package CarSystem with SPARK_Mode is
       SensorDetect : Boolean := False;
       isDiagMode : Boolean := False;
       isBatteryWarning : Boolean := False;
+      isRegenBraking : Boolean := False;
+      predictedCharge : Integer := 0;
+      previousSpeed : SpeedRange := 0;
       speed : SpeedRange := 0;
       desiredSpeed : SpeedRange := 0;
       battery : BatteryChargeRange := 0;
       gear : GearRange := 0;
    end record;
+   
+   procedure ToggleRegenBraking (This : in out Car);
+   
+   procedure UseRegenBraking (This : in out Car) with
+     Pre => this.isRegenBraking and
+     this.predictedCharge <= Integer'Last and
+     this.predictedCharge >= Integer'First,
+     Post => this.battery <= BatteryChargeRange'Last;
+   
+   procedure CheckRegenBraking (This : in out Car);
    
    procedure CheckBatteryWarning (This : in out Car);
    

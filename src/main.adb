@@ -5,7 +5,6 @@ with CarSystem; use CarSystem;
 procedure Main with SPARK_Mode is
    saxo: CarSystem.Car;
    option : Integer := 1;
-   --speed : SpeedRange;
    speed_int : Integer := -1;
    battery : BatteryChargeRange := 0;
    battery_int : Integer := -1;
@@ -19,6 +18,8 @@ procedure Main with SPARK_Mode is
       Put_Line("Selected Gear: " & saxo.gear'Image);
       Put_Line("Battery level: " & saxo.battery'Image);
       Put_Line("Speed: " & saxo.speed'Image);
+      Put_line("Previous Speed: " & saxo.previousSpeed'Image);
+      Put_Line("Regenerative Braking: " & saxo.isRegenBraking'Image);
       Put_Line("Diagnostic Mode: " & saxo.isDiagMode'Image);
       Put_Line("Battery Warning: " & saxo.isBatteryWarning'Image);
       Put_Line("SENSOR DETECT: " & saxo.SensorDetect'Image);
@@ -27,12 +28,6 @@ procedure Main with SPARK_Mode is
       Put_Line("...........................");
       New_Line;
    end PrintStatus;
-
-   --procedure ClearDelay is
-   --begin
-   --   delay 2.0;
-      --Ada.Text_IO.Put(ASCII.ESC & "[2J");
-   --end delay 2.0;
 
 begin
    while option /= 0 loop
@@ -47,11 +42,12 @@ begin
       Put_line("4.  Put Gearbox in Drive");
       Put_line("5.  Put Gearbox in Reverse");
       Put_line("6.  Charge the battery");
-      Put_line("7.  Move the car");
+      Put_line("7.  Drive the car");
       Put_line("8.  Execute Emergency Stop");
       Put_line("9.  Enter/Exit Diagnostic Mode");
       Put_line("10. Add/Remove Object Ahead");
       Put_line("11. Add/Remove Object Behind");
+      Put_line("12. Toggle Regenerative Braking");
       Put_Line("0 to exit ");
       Put_Line("...........................");
       New_Line;
@@ -146,6 +142,7 @@ begin
                Put_line("Adding object Ahead...");
             end if;
             ObjectAhead := not ObjectAhead;
+            delay 2.0;
          when 11 =>
             if ObjectAhead = True then
                Put_line("Removing object Behind...");
@@ -153,7 +150,11 @@ begin
                Put_line("Adding object Behind...");
             end if;
             ObjectBehind := not ObjectBehind;
-
+            delay 2.0;
+         when 12 =>
+            Put_line("Toggle Regenerative Braking...");
+            ToggleRegenBraking(saxo);
+            delay 2.0;
          when 0    =>
             Put_Line ("Exiting...");
             delay 1.0;
