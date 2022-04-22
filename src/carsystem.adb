@@ -198,7 +198,8 @@ package body CarSystem with SPARK_Mode is
             end if;
             if This.speed > 0 and 
                This.battery > MinCharge then
-               This.battery := This.battery - 1;
+               --This.battery := This.battery - 1;
+               DrainBattery(This);
             end if;         
          else
             Put_line("Cannot move! Car is in DIAGNOSTIC Mode!");
@@ -268,6 +269,29 @@ package body CarSystem with SPARK_Mode is
       end if;
       CheckBatteryWarning(This);
    end ChargeBattery2;
+   
+   procedure DrainBattery (This : in out Car) is
+   begin
+      This.batteryDrain := Integer(Float(This.speed) / Float(BatteryChargeRange'Last) * Float(10));
+      if This.batteryDrain > Integer(BatteryChargeRange'Last) or
+        This.batteryDrain < Integer(BatteryChargeRange'First) then
+         Put_Line("Out of bounds discharge, ignoring");
+         return;
+      else
+
+      Put_Line("Predicted Battery Drain at current speed: " & This.batteryDrain'Image);
+      delay 2.0;
+      if (Integer(This.battery) - This.batteryDrain) < Integer(BatteryChargeRange'First) then
+         This.battery := BatteryChargeRange'First;
+      else
+         This.battery := This.battery - BatteryChargeRange(This.batteryDrain);
+         end if;
+      end if;
+
+      CheckBatteryWarning(This);
+   end DrainBattery;
+
+
    
    procedure EnterDiagMode (This : in out Car) is
    begin

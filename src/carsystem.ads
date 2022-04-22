@@ -23,6 +23,7 @@ package CarSystem with SPARK_Mode is
       speed : SpeedRange := 0;
       desiredSpeed : SpeedRange := 0;
       battery : BatteryChargeRange := 0;
+      batteryDrain : Integer := 0;
       gear : GearRange := 0;
    end record;
    
@@ -57,15 +58,7 @@ package CarSystem with SPARK_Mode is
      --  this.speed = 0 and
      --  selectedGear <= GearRange'Last and
      --  selectedGear >= GearRange'First;
-   
-   -- move the car with desired speed
-   -- won't move if not started
-   -- won't move if in diagnostic mode
-   -- won't move if sensor is detecting
-   -- won't move if battery is on minimum charge
-   -- won't move if in parking gear
-   -- won't move if desired speed is out of range
-   -- will cap desired speed at speed limit
+
    procedure MoveCar (This : in out Car) with
      Pre => this.desiredSpeed >= SpeedRange'First and
      this.desiredSpeed <= SpeedRange'Last;
@@ -90,6 +83,12 @@ package CarSystem with SPARK_Mode is
      Post => this.battery <= BatteryChargeRange'Last and
      this.battery >= BatteryChargeRange'First;
    
+   
+   procedure DrainBattery (This : in out Car);
+     --  Pre => this.batteryDrain >= 0 and
+     --  this.batteryDrain <= Integer(BatteryChargeRange'Last);
+
+
    -- enters diagnostic mode
    procedure EnterDiagMode (This : in out Car) with
      Post => this.isDiagMode = True;
