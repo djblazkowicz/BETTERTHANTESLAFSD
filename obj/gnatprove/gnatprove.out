@@ -1,21 +1,21 @@
 Summary of SPARK analysis
 =========================
 
-------------------------------------------------------------------------------------------------------------
-SPARK Analysis results        Total      Flow   CodePeer                      Provers   Justified   Unproved
-------------------------------------------------------------------------------------------------------------
-Data Dependencies                 .         .          .                            .           .          .
-Flow Dependencies                 .         .          .                            .           .          .
-Initialization                    .         .          .                            .           .          .
-Non-Aliasing                      .         .          .                            .           .          .
-Run-time Checks                   4         .          .                     4 (CVC4)           .          .
-Assertions                        .         .          .                            .           .          .
-Functional Contracts              4         .          .    4 (CVC4 86%, Trivial 14%)           .          .
-LSP Verification                  .         .          .                            .           .          .
-Termination                       .         .          .                            .           .          .
-Concurrency                       .         .          .                            .           .          .
-------------------------------------------------------------------------------------------------------------
-Total                             8         .          .                     8 (100%)           .          .
+-----------------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total      Flow   CodePeer                     Provers   Justified   Unproved
+-----------------------------------------------------------------------------------------------------------
+Data Dependencies                 .         .          .                           .           .          .
+Flow Dependencies                 .         .          .                           .           .          .
+Initialization                    1         1          .                           .           .          .
+Non-Aliasing                      .         .          .                           .           .          .
+Run-time Checks                  15         .          .                   15 (CVC4)           .          .
+Assertions                        .         .          .                           .           .          .
+Functional Contracts             11         .          .    7 (CVC4 94%, Trivial 6%)           .          4
+LSP Verification                  .         .          .                           .           .          .
+Termination                       .         .          .                           .           .          .
+Concurrency                       .         .          .                           .           .          .
+-----------------------------------------------------------------------------------------------------------
+Total                            27    1 (4%)          .                    22 (81%)           .    4 (15%)
 
 
 max steps used for successful proof: 1
@@ -33,5 +33,7 @@ in unit carsystem, 11 subprograms and packages out of 11 analyzed
   CarSystem.MoveCar at carsystem.ads:62 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
   CarSystem.StartProcedure at carsystem.ads:29 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
   CarSystem.StopProcedure at carsystem.ads:35 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
-in unit main, 0 subprograms and packages out of 1 analyzed
-  Main at main.adb:5 skipped
+in unit main, 3 subprograms and packages out of 3 analyzed
+  Main at main.adb:5 flow analyzed (0 errors, 0 checks and 4 warnings) and not proved, 14 checks out of 18 proved
+  Main.ClearDelay at main.adb:32 flow analyzed (0 errors, 0 checks and 1 warnings) and proved (0 checks)
+  Main.PrintStatus at main.adb:13 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)

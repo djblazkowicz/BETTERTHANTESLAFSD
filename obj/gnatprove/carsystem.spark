@@ -123,7 +123,7 @@
   "proof": [
     {
       "file": "carsystem.adb",
-      "line": 84,
+      "line": 83,
       "col": 42,
       "rule": "VC_RANGE_CHECK",
       "severity": "info",
@@ -150,7 +150,7 @@
         }
       ],
       "check_file": "carsystem.adb",
-      "check_line": 84,
+      "check_line": 83,
       "check_col": 42,
       "session_dir": 1,
       "how_proved": "prover",
@@ -205,7 +205,7 @@
     },
     {
       "file": "carsystem.adb",
-      "line": 104,
+      "line": 103,
       "col": 41,
       "rule": "VC_OVERFLOW_CHECK",
       "severity": "info",
@@ -232,7 +232,7 @@
         }
       ],
       "check_file": "carsystem.adb",
-      "check_line": 104,
+      "check_line": 103,
       "check_col": 41,
       "session_dir": 3,
       "how_proved": "prover",
@@ -246,7 +246,7 @@
     },
     {
       "file": "carsystem.adb",
-      "line": 104,
+      "line": 103,
       "col": 41,
       "rule": "VC_RANGE_CHECK",
       "severity": "info",
@@ -273,7 +273,7 @@
         }
       ],
       "check_file": "carsystem.adb",
-      "check_line": 104,
+      "check_line": 103,
       "check_col": 41,
       "session_dir": 3,
       "how_proved": "prover",
@@ -287,7 +287,7 @@
     },
     {
       "file": "carsystem.adb",
-      "line": 102,
+      "line": 101,
       "col": 24,
       "rule": "VC_OVERFLOW_CHECK",
       "severity": "info",
@@ -314,7 +314,7 @@
         }
       ],
       "check_file": "carsystem.adb",
-      "check_line": 102,
+      "check_line": 101,
       "check_col": 24,
       "session_dir": 3,
       "how_proved": "prover",
@@ -486,106 +486,6 @@
     }
   ],
   "assumptions": [
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "CarSystem.CheckBatteryWarning",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 25
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "CarSystem.CheckBatteryWarning",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 25
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 25
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "CarSystem.CheckSensor",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 42
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 25
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 25
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "CarSystem.CheckSensor",
-          "sloc": [
-            {
-              "file": "carsystem.ads",
-              "line": 42
-            }
-          ]
-        }
-      }
-    },
     {
       "assumptions": [
       ],
@@ -1256,18 +1156,6 @@
     },
     {
       "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "CarSystem.CheckBatteryWarning",
-            "sloc": [
-              {
-                "file": "carsystem.ads",
-                "line": 25
-              }
-            ]
-          }
-        }
       ],
       "claim": {
         "predicate": "CLAIM_EFFECTS",
@@ -1309,6 +1197,82 @@
             {
               "file": "carsystem.ads",
               "line": 89
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "CarSystem.ChangeGear",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 48
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.CheckBatteryWarning",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 25
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "CarSystem.CheckBatteryWarning",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 25
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "CarSystem.CheckBatteryWarning",
+            "sloc": [
+              {
+                "file": "carsystem.ads",
+                "line": 25
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "CarSystem.CheckSensor",
+          "sloc": [
+            {
+              "file": "carsystem.ads",
+              "line": 42
             }
           ]
         }
@@ -1344,11 +1308,11 @@
       "claim": {
         "predicate": "CLAIM_AORTE",
         "arg": {
-          "name": "CarSystem.ChangeGear",
+          "name": "CarSystem.CheckSensor",
           "sloc": [
             {
               "file": "carsystem.ads",
-              "line": 48
+              "line": 42
             }
           ]
         }
@@ -1356,18 +1320,18 @@
     }
   ],
   "timings": {
-    "codepeer results": 1.31299995700829E-04,
-    "init_why_sections": 3.90500004868954E-04,
+    "codepeer results": 1.45900005009025E-04,
+    "init_why_sections": 4.01099998271093E-04,
     "gnatwhy3.run_vcs": 0.00000000000000E+00,
-    "globals (advanced)": 3.96499992348254E-04,
-    "flow analysis": 1.10157998278737E-02,
-    "marking": 1.75799999851733E-04,
-    "translation of standard": 2.29400000534952E-03,
-    "properties (advanced)": 4.83000003441703E-05,
+    "globals (advanced)": 4.06700011808425E-04,
+    "flow analysis": 1.10876001417637E-02,
+    "marking": 1.11000001197681E-04,
+    "translation of standard": 2.32729990966618E-03,
+    "properties (advanced)": 3.08999988192227E-05,
     "gnatwhy3.register_vcs": 0.00000000000000E+00,
-    "globals (basic)": 3.31299990648404E-04,
+    "globals (basic)": 3.11599986162037E-04,
     "gnatwhy3.schedule_vcs": 0.00000000000000E+00,
     "gnatwhy3.save_session": 0.00000000000000E+00,
-    "gnatwhy3.init": 7.81250000000000E-01
+    "gnatwhy3.init": 7.34375000000000E-01
   }
 }

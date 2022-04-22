@@ -10,66 +10,66 @@ RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 
-U carsystem%b		carsystem.adb		b3cfa932 OO PK
+U carsystem%b		carsystem.adb		f97cfefd OO PK
 
 U carsystem%s		carsystem.ads		84f21cd3 OO PK
 
 D carsystem.ads		20220421215000 84f21cd3 carsystem%s
-D carsystem.adb		20220421214918 373db5e1 carsystem%b
+D carsystem.adb		20220422050112 7d8ee22e carsystem%b
 D system.ads		20210520051134 2ffa5114 system%s
 G a Z
 X 1 carsystem.ads
-1K9*CarSystem 93l5 93e14 2|1b14 38r23 40r23 50r25 51r25 129l5 129t14
+1K9*CarSystem 93l5 93e14 2|1b14 38r23 40r23 49r25 50r25 128l5 128t14
 3I9*BatteryChargeRange<short_short_integer> 5r25 21r17 80r66 81r29 82r30
-. 83r22 2|99r21 100r66 102r43 107r28
-4I9*SpeedRange<short_short_integer> 6r26 20r15 62r59 68r21 69r21 2|56r59
-. 75r24 76r24
-5i4*MinCharge{3I9} 2|5r26 83r27
-6i4*SpeedLimit{4I9} 2|77r27 78r27
+. 83r22 2|98r21 99r66 101r43 106r28
+4I9*SpeedRange<short_short_integer> 6r26 20r15 62r59 68r21 69r21 2|55r59
+. 74r24 75r24
+5i4*MinCharge{3I9} 2|5r26 82r27
+6i4*SpeedLimit{4I9} 2|76r27 77r27
 7b4*ObjectAhead{boolean} 2|38r33
 8b4*ObjectBehind{boolean} 2|40r33
-12I9*GearRange<short_short_integer> 22r14 48r63 51r22 52r22 2|45r63 50r35
-. 51r35
+12I9*GearRange<short_short_integer> 22r14 48r63 51r22 52r22 2|45r63 49r35
+. 50r35
 15R9*Car 23e14 25r49 29r44 35r43 42r41 48r40 62r37 74r43 80r43 86r43 89r42
-. 2|3r49 12r44 23r43 33r41 45r40 56r37 91r43 100r43 118r43 124r42
-16b7*isStarted{boolean} 30r17 63r18 2|16r15 19m15 29m15 70r15
-17b7*SensorDetect{boolean} 65r11 2|38m62 40m63 62r15 72r14
-18b7*isDiagMode{boolean} 49r18 64r11 87r19 90r18 91r19 2|28m15 48r15 71r14
-. 109r15 121m12 126m12
-19b7*isBatteryWarning{boolean} 66r11 2|6m15 7m17 67r15 73r14
-20i7*speed{4I9} 32r11 36r18 50r11 75r19 2|18r14 26r15 49r14 68m15 78m18 80m18
-. 82r18 95m12
-21i7*battery{3I9} 81r60 82r19 83r11 2|5r15 83r17 84m18 84r34 102r16 104r33
-. 111m15
-22i7*gear{12I9} 31r11 37r11 67r11 2|17r14 27r14 36r17 52m15 74r14 96m12
-25U14*CheckBatteryWarning 25=35 2|3b14 9l8 9t27 15s7 25s7 35s7 47s7 58s7
-. 88s7 93s7 114s7
+. 2|3r49 12r44 23r43 33r41 45r40 55r37 90r43 99r43 117r43 123r42
+16b7*isStarted{boolean} 30r17 63r18 2|16r15 19m15 29m15 69r15
+17b7*SensorDetect{boolean} 65r11 2|38m62 40m63 61r15 71r14
+18b7*isDiagMode{boolean} 49r18 64r11 87r19 90r18 91r19 2|28m15 47r19 70r14
+. 108r15 120m12 125m12
+19b7*isBatteryWarning{boolean} 66r11 2|6m15 7m17 66r15 72r14
+20i7*speed{4I9} 32r11 36r18 50r11 75r19 2|18r14 26r15 48r14 67m15 77m18 79m18
+. 81r18 94m12
+21i7*battery{3I9} 81r60 82r19 83r11 2|5r15 82r17 83m18 83r34 101r16 103r33
+. 110m15
+22i7*gear{12I9} 31r11 37r11 67r11 2|17r14 27r14 36r17 51m15 73r14 95m12
+25U14*CheckBatteryWarning 25=35 2|3b14 9l8 9t27 15s7 25s7 35s7 57s7 87s7
+. 92s7 113s7
 25r35 This{15R9} 2|3b35 5r10 6m10 7m12
 29U14*StartProcedure 29=30 2|12b14 21l8 21t22
 29r30 This{15R9} 30r12 31r6 32r6 2|12b30 15m27 16r10 17r9 18r9 19m10
 35U14*StopProcedure 35=29 2|23b14 31l8 31t21
 35r29 This{15R9} 36r13 37r6 2|23b29 25m27 26r10 27r9 28m10 29m10
-42U14*CheckSensor 42=27 2|33b14 43l8 43t19 61s7
+42U14*CheckSensor 42=27 2|33b14 43l8 43t19 60s7
 42r27 This{15R9} 2|33b27 35m27 36r12 38m57 40m58
-48U14*ChangeGear 48=26 48>45 2|45b14 54l8 54t18
-48r26 This{15R9} 49r13 50r6 2|45b26 47m27 48r10 49r9 52m10
-48i45 selectedGear{12I9} 51r6 52r6 2|45b45 50r9 51r9 52r23
-62U14*MoveCar 62=23 62>42 2|56b14 89l8 89t15
-62r23 This{15R9} 63r13 64r6 65r6 66r6 67r6 2|56b23 58m27 61m19 62r10 63m24
-. 67r10 68m10 70r10 71r9 72r9 73r9 74r9 78m13 80m13 82r13 83r12 84m13 84r29
-. 88m27
-62i42 targetSpeed{4I9} 68r6 69r6 2|56b42 75r9 76r9 77r13 80r27
-74U14*EmergencyStop 74=29 2|63s10 91b14 97l8 97t21 120s7
-74r29 This{15R9} 75r14 2|91b29 93m27 95m7 96m7
-80U14*ChargeBattery 80=29 80>48 2|100b14 116l8 116t21
-80r29 This{15R9} 81r55 82r14 83r6 2|100b29 102r11 104r28 109r10 111m10 114m27
-80i48 chargeAmount{3I9} 81r13 2|100b48 102r26 104r43
-86U14*EnterDiagMode 86=29 2|118b14 122l8 122t21
-86r29 This{15R9} 87r14 2|118b29 120m21 121m7
-89U14*ExitDiagMode 89=28 2|124b14 127l8 127t20
-89r28 This{15R9} 90r13 91r14 2|124b28 126m7
+48U14*ChangeGear 48=26 48>45 2|45b14 53l8 53t18
+48r26 This{15R9} 49r13 50r6 2|45b26 47r14 48r9 51m10
+48i45 selectedGear{12I9} 51r6 52r6 2|45b45 49r9 50r9 51r23
+62U14*MoveCar 62=23 62>42 2|55b14 88l8 88t15
+62r23 This{15R9} 63r13 64r6 65r6 66r6 67r6 2|55b23 57m27 60m19 61r10 62m24
+. 66r10 67m10 69r10 70r9 71r9 72r9 73r9 77m13 79m13 81r13 82r12 83m13 83r29
+. 87m27
+62i42 targetSpeed{4I9} 68r6 69r6 2|55b42 74r9 75r9 76r13 79r27
+74U14*EmergencyStop 74=29 2|62s10 90b14 96l8 96t21 119s7
+74r29 This{15R9} 75r14 2|90b29 92m27 94m7 95m7
+80U14*ChargeBattery 80=29 80>48 2|99b14 115l8 115t21
+80r29 This{15R9} 81r55 82r14 83r6 2|99b29 101r11 103r28 108r10 110m10 113m27
+80i48 chargeAmount{3I9} 81r13 2|99b48 101r26 103r43
+86U14*EnterDiagMode 86=29 2|117b14 121l8 121t21
+86r29 This{15R9} 87r14 2|117b29 119m21 120m7
+89U14*ExitDiagMode 89=28 2|123b14 126l8 126t20
+89r28 This{15R9} 90r13 91r14 2|123b28 125m7
 X 2 carsystem.adb
-99i4 expectedCharge{1|3I9} 104m10 107m10 111r26 115m7
+98i4 expectedCharge{1|3I9} 103m10 106m10 110r26 114m7
 
 QQ SPARKVERSION SPARK Community 2021 (20210519)
 GG EK_DIRECT_CALLS carsystem__checkbatterywarning 0
@@ -80,7 +80,7 @@ GG EK_DIRECT_CALLS carsystem__stopprocedure 1 carsystem__checkbatterywarning
 GG EK_GLOBALS carsystem__stopprocedure local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 carsystem proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
 GG EK_DIRECT_CALLS carsystem__checksensor 1 carsystem__checkbatterywarning
 GG EK_GLOBALS carsystem__checksensor local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 carsystem proper_proof_in 0 proper_input 2 carsystem__objectahead carsystem__objectbehind proper_output 0 refined_proof_in 0 refined_input 2 carsystem__objectahead carsystem__objectbehind refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 carsystem__objectahead carsystem__objectbehind LOCKS 0
-GG EK_DIRECT_CALLS carsystem__changegear 1 carsystem__checkbatterywarning
+GG EK_DIRECT_CALLS carsystem__changegear 0
 GG EK_GLOBALS carsystem__changegear local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 carsystem proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
 GG EK_DIRECT_CALLS carsystem__movecar 3 carsystem__checkbatterywarning carsystem__checksensor carsystem__emergencystop
 GG EK_GLOBALS carsystem__movecar local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 carsystem proper_proof_in 0 proper_input 2 carsystem__objectahead carsystem__objectbehind proper_output 0 refined_proof_in 0 refined_input 2 carsystem__objectahead carsystem__objectbehind refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0

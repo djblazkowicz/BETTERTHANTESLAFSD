@@ -177,22 +177,22 @@ module Carsystem__car__rep
   use        Carsystem__gearrange
   use        Carsystem__gearrange__rep
   
-  type __split_fields  = { [model_trace:.1302]
-                           [name:isStarted]rec__carsystem__car__isstarted : bool;
+  type __split_fields  = { [name:isStarted]
+                           [model_trace:.1297]rec__carsystem__car__isstarted : bool;
                            [name:SensorDetect]
-                           [model_trace:.1308]rec__carsystem__car__sensordetect : bool;
-                           [model_trace:.1313]
+                           [model_trace:.1303]rec__carsystem__car__sensordetect : bool;
+                           [model_trace:.1308]
                            [name:isDiagMode]rec__carsystem__car__isdiagmode : bool;
-                           [model_trace:.1318]
+                           [model_trace:.1313]
                            [name:isBatteryWarning]rec__carsystem__car__isbatterywarning : bool;
-                           [name:speed]
-                           [model_trace:.1323]rec__carsystem__car__speed : Carsystem__speedrange.speedrange;
+                           [model_trace:.1318]
+                           [name:speed]rec__carsystem__car__speed : Carsystem__speedrange.speedrange;
+                           [name:battery]
+                           [model_trace:.1323]rec__carsystem__car__battery : Carsystem__batterychargerange.batterychargerange;
                            [model_trace:.1328]
-                           [name:battery]rec__carsystem__car__battery : Carsystem__batterychargerange.batterychargerange;
-                           [name:gear]
-                           [model_trace:.1333]rec__carsystem__car__gear : Carsystem__gearrange.gearrange }
+                           [name:gear]rec__carsystem__car__gear : Carsystem__gearrange.gearrange }
   
-  function [model_trace:.1302] [name:isStarted] 
+  function [name:isStarted] [model_trace:.1297] 
     __split_fields_rec__carsystem__car__isstarted__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isstarted
@@ -201,7 +201,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isstarted__projection
   
-  function [name:SensorDetect] [model_trace:.1308] 
+  function [name:SensorDetect] [model_trace:.1303] 
     __split_fields_rec__carsystem__car__sensordetect__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__sensordetect
@@ -210,7 +210,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__sensordetect__projection
   
-  function [model_trace:.1313] [name:isDiagMode] 
+  function [model_trace:.1308] [name:isDiagMode] 
     __split_fields_rec__carsystem__car__isdiagmode__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isdiagmode
@@ -219,7 +219,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isdiagmode__projection
   
-  function [model_trace:.1318] [name:isBatteryWarning] 
+  function [model_trace:.1313] [name:isBatteryWarning] 
     __split_fields_rec__carsystem__car__isbatterywarning__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     bool = a.rec__carsystem__car__isbatterywarning
@@ -228,7 +228,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__isbatterywarning__projection
   
-  function [name:speed] [model_trace:.1323] 
+  function [model_trace:.1318] [name:speed] 
     __split_fields_rec__carsystem__car__speed__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__speedrange.speedrange = a.rec__carsystem__car__speed
@@ -237,7 +237,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__speed__projection
   
-  function [model_trace:.1328] [name:battery] 
+  function [name:battery] [model_trace:.1323] 
     __split_fields_rec__carsystem__car__battery__projection
     (a : __split_fields) requires {  } ensures  {  } returns
     Carsystem__batterychargerange.batterychargerange = a.rec__carsystem__car__battery
@@ -246,7 +246,7 @@ module Carsystem__car__rep
   
   meta inline:no function __split_fields_rec__carsystem__car__battery__projection
   
-  function [name:gear] [model_trace:.1333] 
+  function [model_trace:.1328] [name:gear] 
     __split_fields_rec__carsystem__car__gear__projection (a : __split_fields)
     requires {  } ensures  {  } returns
     Carsystem__gearrange.gearrange = a.rec__carsystem__car__gear
@@ -666,7 +666,7 @@ module Carsystem__chargebattery__this
   use import int.Int
   use        Carsystem__car
   
-  val this__split_fields [model_trace:1506] [model_projected]
+  val this__split_fields [model_trace:1501] [model_projected]
   [name:This] [sloc:carsystem.ads:80]: Carsystem__car.__split_fields
 
 end
@@ -677,19 +677,19 @@ module Carsystem__chargebattery__chargeamount
   use import _gnatprove_standard.Main
   use import int.Int
   
-  function [model_trace:1509] [name:chargeAmount] [sloc:carsystem.ads:80]
+  function [model_trace:1504] [name:chargeAmount] [sloc:carsystem.ads:80]
     chargeamount () requires {  } ensures  {  } returns int
 
 end
 
-(* Module for defining a ref holding the value of variable "expectedcharge" defined at carsystem.adb:99, created in Gnat2Why.Decls.Translate_Variable *)
+(* Module for defining a ref holding the value of variable "expectedcharge" defined at carsystem.adb:98, created in Gnat2Why.Decls.Translate_Variable *)
 module Carsystem__expectedcharge
   
   use import _gnatprove_standard.Main
   use import int.Int
   
   val expectedcharge [name:expectedCharge] [model_projected]
-  [model_trace:1166] [sloc:carsystem.adb:99]: int
+  [model_trace:1161] [sloc:carsystem.adb:98]: int
 
 end
 
@@ -762,7 +762,7 @@ module Carsystem__batterychargerange___axiom
 
 end
 
-(* Module giving an empty axiom for the entity "expectedcharge" defined at carsystem.adb:99, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+(* Module giving an empty axiom for the entity "expectedcharge" defined at carsystem.adb:98, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
 module Carsystem__expectedcharge___axiom
   
   use import _gnatprove_standard.Main
@@ -899,14 +899,14 @@ module Carsystem__chargebattery__subprogram_def
                                [GP_Sloc:carsystem.ads:82:14] [model_vc_post]
                                [GP_Shape:pragargs__and]
                                [GP_Id:5] (([GP_Sloc:carsystem.ads:82:14]
-                                          [GP_Pretty_Ada:1533] ((Carsystem__batterychargerange__rep.to_rep
+                                          [GP_Pretty_Ada:1528] ((Carsystem__batterychargerange__rep.to_rep
                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)
                                                                   <= 100)) /\
-                                            ([GP_Pretty_Ada:1541]
-                                            [GP_Sloc:carsystem.ads:83:6] (
-                                            (Carsystem__batterychargerange__rep.to_rep
-                                               ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)
-                                              >= 0))))) } returns
+                                            ([GP_Sloc:carsystem.ads:83:6]
+                                            [GP_Pretty_Ada:1536] ((Carsystem__batterychargerange__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)
+                                                                    >= 0))))) }
+    returns
      = (* Assume dynamic invariants of inputs of the subprogram carsystem.ads:80 *);
         assume
         { (Carsystem__batterychargerange___axiom.dynamic_invariant
@@ -929,68 +929,68 @@ module Carsystem__chargebattery__subprogram_def
                        in ())  end;
         (* Assume Pre of the subprogram carsystem.ads:80 *);
         assume
-        { ([GP_Pretty_Ada:1744] (Carsystem__chargebattery__chargeamount.chargeamount
+        { ([GP_Pretty_Ada:1739] (Carsystem__chargebattery__chargeamount.chargeamount
                                    < (100
                                         - (Carsystem__batterychargerange__rep.to_rep
                                              ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)))) };
         (try
         ();
-          ([GP_Sloc:carsystem.adb:102:7] ([sloc:carsystem.adb:102] (if
-                                                                   ([sloc:carsystem.adb:102] ([branch_id=1180]
+          ([GP_Sloc:carsystem.adb:101:7] ([sloc:carsystem.adb:101] (if
+                                                                   ([sloc:carsystem.adb:101] ([branch_id=1175]
                                                                    _gnatprove_standard.Main.spark__branch
                                                                    :=
-                                                                   (([sloc:carsystem.adb:102] 
+                                                                   (([sloc:carsystem.adb:101] 
                                                                     ([vc:annotation]
+                                                                    [GP_Sloc:carsystem.adb:101:24]
                                                                     [GP_Reason:VC_OVERFLOW_CHECK]
                                                                     [GP_Shape:if__cmp__add]
-                                                                    [GP_Sloc:carsystem.adb:102:24]
-                                                                    [comment:      if (This.battery + chargeAmount) <= BatteryChargeRange'Last then                        ^ carsystem.adb:102:24:VC_OVERFLOW_CHECK]
+                                                                    [comment:      if (This.battery + chargeAmount) <= BatteryChargeRange'Last then                        ^ carsystem.adb:101:24:VC_OVERFLOW_CHECK]
                                                                     [GP_Id:4] (
                                                                     Carsystem__TbatterychargerangeB.range_check_
                                                                     ((Carsystem__batterychargerange__rep.to_rep
                                                                     ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)
                                                                     + Carsystem__chargebattery__chargeamount.chargeamount))))
                                                                     <= 100)));
-                                                                   ([branch_id=1180] _gnatprove_standard.Main.spark__branch).bool__content
+                                                                   ([branch_id=1175] _gnatprove_standard.Main.spark__branch).bool__content
                                                                    then
                                                                    ();
-                                                                   ([GP_Sloc:carsystem.adb:104:10] 
-                                                                   ([sloc:carsystem.adb:104] ()));
-                                                                   ([GP_Sloc:carsystem.adb:104:25] 
-                                                                   ([sloc:carsystem.adb:104] (
+                                                                   ([GP_Sloc:carsystem.adb:103:10] 
+                                                                   ([sloc:carsystem.adb:103] ()));
+                                                                   ([GP_Sloc:carsystem.adb:103:25] 
+                                                                   ([sloc:carsystem.adb:103] (
                                                                    Carsystem__expectedcharge.expectedcharge
                                                                    :=
                                                                    ( 
-                                                                   ([sloc:carsystem.adb:104] 
-                                                                   ([GP_Sloc:carsystem.adb:104:41]
-                                                                   [GP_Shape:if__expectedcharge_assign__add]
+                                                                   ([sloc:carsystem.adb:103] 
+                                                                   ([GP_Shape:if__expectedcharge_assign__add]
                                                                    [vc:annotation]
-                                                                   [comment:         expectedCharge := This.battery + chargeAmount;                                         ^ carsystem.adb:104:41:VC_RANGE_CHECK]
+                                                                   [comment:         expectedCharge := This.battery + chargeAmount;                                         ^ carsystem.adb:103:41:VC_RANGE_CHECK]
+                                                                   [GP_Sloc:carsystem.adb:103:41]
                                                                    [GP_Reason:VC_RANGE_CHECK]
                                                                    [GP_Id:3] (
                                                                    Carsystem__batterychargerange.range_check_
-                                                                    ([sloc:carsystem.adb:104] 
-                                                                    ([GP_Sloc:carsystem.adb:104:41]
-                                                                    [comment:         expectedCharge := This.battery + chargeAmount;                                         ^ carsystem.adb:104:41:VC_OVERFLOW_CHECK]
-                                                                    [GP_Shape:if__expectedcharge_assign__add]
+                                                                    ([sloc:carsystem.adb:103] 
+                                                                    ([GP_Shape:if__expectedcharge_assign__add]
                                                                     [vc:annotation]
                                                                     [GP_Reason:VC_OVERFLOW_CHECK]
-                                                                    [GP_Id:2] (
+                                                                    [GP_Sloc:carsystem.adb:103:41]
+                                                                    [GP_Id:2]
+                                                                    [comment:         expectedCharge := This.battery + chargeAmount;                                         ^ carsystem.adb:103:41:VC_OVERFLOW_CHECK] (
                                                                     Carsystem__TbatterychargerangeB.range_check_
                                                                     ((Carsystem__batterychargerange__rep.to_rep
                                                                     ( --pp_record_aggregate NOT IMPLEMENTED).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery)
                                                                     + Carsystem__chargebattery__chargeamount.chargeamount)))))))))))
                                                                     else
                                                                    ();
-                                                                   ([GP_Sloc:carsystem.adb:107:10] 
-                                                                   ([sloc:carsystem.adb:107] ()));
-                                                                   ([GP_Sloc:carsystem.adb:107:25] 
-                                                                   ([sloc:carsystem.adb:107] (
+                                                                   ([GP_Sloc:carsystem.adb:106:10] 
+                                                                   ([sloc:carsystem.adb:106] ()));
+                                                                   ([GP_Sloc:carsystem.adb:106:25] 
+                                                                   ([sloc:carsystem.adb:106] (
                                                                    Carsystem__expectedcharge.expectedcharge
                                                                    :=
                                                                    ( 100)))))));
-          ([GP_Sloc:carsystem.adb:109:7] ([sloc:carsystem.adb:109] (if
-                                                                   ([sloc:carsystem.adb:109] ([branch_id=1204]
+          ([GP_Sloc:carsystem.adb:108:7] ([sloc:carsystem.adb:108] (if
+                                                                   ([sloc:carsystem.adb:108] ([branch_id=1199]
                                                                    _gnatprove_standard.Main.spark__branch
                                                                    :=
                                                                    ((_gnatprove_standard.Boolean.to_int
@@ -999,17 +999,17 @@ module Carsystem__chargebattery__subprogram_def
                                                                     _gnatprove_standard.Boolean.to_int
                                                                     (_gnatprove_standard.Boolean.of_int
                                                                     0)))));
-                                                                   ([branch_id=1204] _gnatprove_standard.Main.spark__branch).bool__content
+                                                                   ([branch_id=1199] _gnatprove_standard.Main.spark__branch).bool__content
                                                                    then
                                                                    ();
-                                                                   ([GP_Sloc:carsystem.adb:111:26] 
-                                                                   ([sloc:carsystem.adb:111] ()));
-                                                                   ([GP_Sloc:carsystem.adb:111:23] 
-                                                                   ([sloc:carsystem.adb:111] (let ([mlw:proxy_symbol]
-                                                                   [introduced] temp___245)
+                                                                   ([GP_Sloc:carsystem.adb:110:26] 
+                                                                   ([sloc:carsystem.adb:110] ()));
+                                                                   ([GP_Sloc:carsystem.adb:110:23] 
+                                                                   ([sloc:carsystem.adb:110] (let ([mlw:proxy_symbol]
+                                                                   [introduced] temp___244)
                                                                    =
                                                                    (let ([mlw:proxy_symbol]
-                                                                    [introduced] temp___244)
+                                                                    [introduced] temp___243)
                                                                     =
                                                                     ( --pp_record_aggregate NOT IMPLEMENTED)
                                                                     in
@@ -1018,19 +1018,19 @@ module Carsystem__chargebattery__subprogram_def
                                                                     { True } begin 
                                                                      (let _ =
                                                                     ([mlw:proxy_symbol]
-                                                                    [introduced] temp___244).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery
+                                                                    [introduced] temp___243).Carsystem__car.__split_fields.Carsystem__car.rec__carsystem__car__battery
                                                                     in ())  end;
                                                                     --pp_record_update NOT IMPLEMENTED)
                                                                    in (
                                                                    Carsystem__chargebattery__this.this__split_fields
                                                                    :=
                                                                    ([mlw:proxy_symbol]
-                                                                    [introduced] temp___245).Carsystem__car.__split_fields))))
+                                                                    [introduced] temp___244).Carsystem__car.__split_fields))))
                                                                     else 
                                                                    ())));
-          ([GP_Sloc:carsystem.adb:114:7] ([sloc:carsystem.adb:114] ()));
-          ([GP_Sloc:carsystem.adb:114:7] ([sloc:carsystem.adb:114] (let ([mlw:proxy_symbol]
-                                         [introduced] temp___compl_246) =
+          ([GP_Sloc:carsystem.adb:113:7] ([sloc:carsystem.adb:113] ()));
+          ([GP_Sloc:carsystem.adb:113:7] ([sloc:carsystem.adb:113] (let ([mlw:proxy_symbol]
+                                         [introduced] temp___compl_245) =
                                          ( --pp_record_aggregate NOT IMPLEMENTED)
                                          in
                                          ( any --pp_effects NOT IMPLEMENTED
@@ -1039,8 +1039,8 @@ module Carsystem__chargebattery__subprogram_def
           (Carsystem__checkbatterywarning___axiom.checkbatterywarning
              Carsystem__chargebattery__this.this__split_fields);
           ())));
-        ([GP_Sloc:carsystem.adb:115:7] ([sloc:carsystem.adb:115] ()));
-        ([GP_Sloc:carsystem.adb:115:22] ([sloc:carsystem.adb:115] (
+        ([GP_Sloc:carsystem.adb:114:7] ([sloc:carsystem.adb:114] ()));
+        ([GP_Sloc:carsystem.adb:114:22] ([sloc:carsystem.adb:114] (
                                         Carsystem__expectedcharge.expectedcharge
                                         := ( 0))));
         raise Return__exc with | Return__exc  -> ());

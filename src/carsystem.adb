@@ -44,9 +44,8 @@ package body CarSystem with SPARK_Mode is
                
    procedure ChangeGear (This : in out Car; selectedGear : in GearRange) is
    begin
-      CheckBatteryWarning(This);
-      if This.isDiagMode = False and
-        This.speed = 0 and 
+      if not This.isDiagMode and
+        This.speed < 1 and 
         selectedGear <= CarSystem.GearRange'Last and
         selectedGear >= CarSystem.GearRange'First then
          This.gear := selectedGear;

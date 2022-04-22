@@ -1,163 +1,69 @@
-'2022-04-21T22:35:59.936000':
+'2022-04-22T05:46:25.355000':
   category: GNATprove
   files:
   - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
+  label: Basic Prove File (debug)
   output: 'Phase 1 of 2: generation of Global contracts ...
 
-    Phase 2 of 2: full checking of SPARK legality rules ...
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:5:11: info: SPARK_Mode not applied to this compilation unit
+
+    main.adb:5:11: info: only enclosed declarations with SPARK_Mode will be analyzed
 
     Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
 
     '
   output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:35:59.936000'
-'2022-04-21T22:36:57.610000':
+  timestamp: '2022-04-22T05:46:25.355000'
+'2022-04-22T05:48:07.621000':
   category: GNATprove
   files:
   - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
+  label: Basic Prove File (debug)
   output: 'Phase 1 of 2: generation of Global contracts ...
 
-    Phase 2 of 2: full checking of SPARK legality rules ...
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:73:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:77:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:81:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:92:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:94:21: warning: unused assignment[#3]
+
+    main.adb:108:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:113:19: warning: unused assignment[#4]
 
     Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
 
     '
   output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:36:57.610000'
-'2022-04-21T22:37:19.059000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: 'Phase 1 of 2: generation of Global contracts ...
-
-    Phase 2 of 2: full checking of SPARK legality rules ...
-
-    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
-
-    '
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:37:19.059000'
-'2022-04-21T22:38:09.305000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: 'Phase 1 of 2: generation of Global contracts ...
-
-    Phase 2 of 2: analysis of data and information flow ...
-
-    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
-
-    '
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:38:09.305000'
-'2022-04-21T22:38:28.341000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
-    \ and proof ...\n\ncarsystem.ads:82:19: medium: overflow check might fail\n  \
-    \ 82 |     chargeAmount + this.battery <= BatteryChargeRange'Last,\n      |  \
-    \   ~~~~~~~~~~~~~^~~~~~~~~~~~~~\n  reason for check: result of addition must fit\
-    \ in a 8-bits machine integer\nSummary logged in D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\\
-    obj\\gnatprove\\gnatprove.out\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:38:28.341000'
-'2022-04-21T22:40:40.484000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:100:06:\
-    \ error: aspect specification must appear on initial declaration\n  100 |    \
-    \ Pre => (This.battery + chargeAmount) <= BatteryChargeRange'Last is\n      |\
-    \     ^~~\ngnatprove: error during generation of Global contracts\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:40:40.484000'
-'2022-04-21T22:42:04.238000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:100:06:\
-    \ error: aspect specification must appear on initial declaration\n  100 |    \
-    \ Pre => (This.battery + chargeAmount) <= BatteryChargeRange'Last is\n      |\
-    \     ^~~\ngnatprove: error during generation of Global contracts\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:42:04.238000'
-'2022-04-21T22:42:19.525000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:101:06:\
-    \ error: aspect specification must appear on initial declaration\n  101 |    \
-    \ Pre => (This.battery + chargeAmount) <= BatteryChargeRange'Last is\n      |\
-    \     ^~~\ngnatprove: error during generation of Global contracts\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:42:19.525000'
-'2022-04-21T22:43:43.686000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\n\ncarsystem.adb:100:85:\
-    \ error: missing \"is\"\n  100 |   procedure ChargeBattery (This : in out Car;\
-    \ chargeAmount : in BatteryChargeRange)\n      |                             \
-    \                                                       ^ here\ngnatprove: error\
-    \ during generation of Global contracts\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:43:43.686000'
-'2022-04-21T22:43:53.450000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
-    \ and proof ...\n\ncarsystem.adb:102:24: medium: overflow check might fail\n \
-    \ 102 |      if (This.battery + chargeAmount) < BatteryChargeRange'Last then\n\
-    \      |         ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~\n  reason for check: result of\
-    \ addition must fit in a 8-bits machine integer\n  possible fix: precondition\
-    \ of subprogram at carsystem.ads:80 should mention chargeAmount\n   80 |   procedure\
-    \ ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) with\n\
-    \      |   ^ here\nSummary logged in D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\\
-    gnatprove\\gnatprove.out\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:43:53.450000'
-'2022-04-21T22:44:14.431000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
-    \ and proof ...\n\ncarsystem.adb:102:24: medium: overflow check might fail\n \
-    \ 102 |      if (This.battery + chargeAmount) <= BatteryChargeRange'Last then\n\
-    \      |         ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~\n  reason for check: result of\
-    \ addition must fit in a 8-bits machine integer\n  possible fix: precondition\
-    \ of subprogram at carsystem.ads:80 should mention chargeAmount\n   80 |   procedure\
-    \ ChargeBattery (This : in out Car; chargeAmount : in BatteryChargeRange) with\n\
-    \      |   ^ here\nSummary logged in D:\\FASE\\CW_GIT\\BETTERTHANTESLAFSD\\obj\\\
-    gnatprove\\gnatprove.out\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:44:14.431000'
-'2022-04-21T22:49:20.311000':
-  category: GNATprove
-  files:
-  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
-  output: "Phase 1 of 2: generation of Global contracts ...\nPhase 2 of 2: flow analysis\
-    \ and proof ...\n\ncarsystem.ads:81:27: medium: overflow check might fail\n  \
-    \ 81 |     Pre => (this.battery + chargeAmount) < BatteryChargeRange'Last,\n \
-    \     |            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~\n  reason for check: result of\
-    \ addition must fit in a 8-bits machine integer\nSummary logged in D:\\FASE\\\
-    CW_GIT\\BETTERTHANTESLAFSD\\obj\\gnatprove\\gnatprove.out\n"
-  output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:49:20.311000'
-'2022-04-21T22:50:02.699000':
+  timestamp: '2022-04-22T05:48:07.621000'
+'2022-04-22T05:49:16.473000':
   category: GNATprove
   files:
   - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
@@ -166,12 +72,45 @@
 
     Phase 2 of 2: flow analysis and proof ...
 
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:73:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:77:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:81:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:92:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:94:21: warning: unused assignment[#3]
+
+    main.adb:108:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:113:19: warning: unused assignment[#4]
+
     Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
 
     '
   output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:50:02.699000'
-'2022-04-21T22:50:26.424000':
+  timestamp: '2022-04-22T05:49:16.473000'
+'2022-04-22T05:49:31.661000':
   category: GNATprove
   files:
   - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
@@ -180,16 +119,49 @@
 
     Phase 2 of 2: flow analysis and proof ...
 
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:73:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:77:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:81:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:92:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:94:21: warning: unused assignment[#3]
+
+    main.adb:108:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:113:19: warning: unused assignment[#4]
+
     Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
 
     '
   output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:50:26.424000'
-'2022-04-21T22:50:46.918000':
+  timestamp: '2022-04-22T05:49:31.661000'
+'2022-04-22T05:49:41.237000':
   category: GNATprove
   files:
   - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
-  label: Basic Prove All (debug)
+  label: Basic Prove File (debug)
   output: 'Phase 1 of 2: generation of Global contracts ...
 
     Phase 2 of 2: flow analysis and proof ...
@@ -198,4 +170,637 @@
 
     '
   output_parser: GNATprove_Parser
-  timestamp: '2022-04-21T22:50:46.918000'
+  timestamp: '2022-04-22T05:49:41.237000'
+'2022-04-22T05:52:09.795000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:52:09.795000'
+'2022-04-22T05:52:19.524000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:52:19.524000'
+'2022-04-22T05:52:29.925000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:73:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:77:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:81:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:92:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:94:21: warning: unused assignment[#3]
+
+    main.adb:108:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:113:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:52:29.925000'
+'2022-04-22T05:53:11.735000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:32:24: error: missing "return"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:53:11.735000'
+'2022-04-22T05:53:25.871000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:32:24: error: missing "return"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:53:25.871000'
+'2022-04-22T05:54:17.700000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:73:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:77:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:81:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:92:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:94:21: warning: unused assignment[#3]
+
+    main.adb:108:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:113:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:54:17.700000'
+'2022-04-22T05:55:12.526000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:55:12.526000'
+'2022-04-22T05:55:20.280000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:55:20.280000'
+'2022-04-22T05:55:36.622000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:73:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:77:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:81:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:92:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:94:21: warning: unused assignment[#3]
+
+    main.adb:108:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:113:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:55:36.622000'
+'2022-04-22T05:57:51.697000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:73:15: error: missing operand
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:57:51.697000'
+'2022-04-22T05:58:06.588000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:74:16: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:82:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:86:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:97:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:99:21: warning: unused assignment[#3]
+
+    main.adb:113:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:118:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:58:06.588000'
+'2022-04-22T05:58:59.083000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:58:59.083000'
+'2022-04-22T05:59:07.545000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:74:16: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:82:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:86:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:97:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:99:21: warning: unused assignment[#3]
+
+    main.adb:113:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:118:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T05:59:07.545000'
+'2022-04-22T06:01:13.737000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:01:13.737000'
+'2022-04-22T06:01:22.862000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:74:16: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:82:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:86:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#9]
+
+    main.adb:97:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#10]
+
+    main.adb:99:21: warning: unused assignment[#3]
+
+    main.adb:113:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#11]
+
+    main.adb:118:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:01:22.862000'
+'2022-04-22T06:01:47.535000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:65:13: medium: precondition might fail, cannot prove this.isStarted =
+    False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:69:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:82:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:86:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:97:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#9]
+
+    main.adb:99:21: warning: unused assignment[#3]
+
+    main.adb:113:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#10]
+
+    main.adb:118:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:01:47.535000'
+'2022-04-22T06:04:03.189000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#0]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#1]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#4]
+
+    main.adb:66:16: medium: precondition might fail, cannot prove this.gear = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:71:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:84:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:88:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:99:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#9]
+
+    main.adb:101:21: warning: unused assignment[#2]
+
+    main.adb:115:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#10]
+
+    main.adb:120:19: warning: unused assignment[#3]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:04:03.189000'
+'2022-04-22T06:04:27.832000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#0]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#1]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#4]
+
+    main.adb:66:16: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:71:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:84:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:88:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#8]
+
+    main.adb:99:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#9]
+
+    main.adb:101:21: warning: unused assignment[#2]
+
+    main.adb:115:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#10]
+
+    main.adb:120:19: warning: unused assignment[#3]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:04:27.832000'
+'2022-04-22T06:04:49.329000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#0]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#1]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#4]
+
+    main.adb:71:13: medium: precondition might fail, cannot prove this.speed = 0 [possible
+    fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:84:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:88:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#7]
+
+    main.adb:99:13: medium: precondition might fail, cannot prove chargeAmount < (BatteryChargeRange''Last
+    - this.battery) [possible fix: loop at line 39 should mention battery and saxo
+    in a loop invariant][#8]
+
+    main.adb:101:21: warning: unused assignment[#2]
+
+    main.adb:115:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#9]
+
+    main.adb:120:19: warning: unused assignment[#3]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:04:49.329000'
+'2022-04-22T06:05:23.952000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:73:09: error: missing "end if;" for "if" at line 71
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:05:23.952000'
+'2022-04-22T06:05:41.926000':
+  category: GNATprove
+  files:
+  - D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\debug\gnatprove
+  label: Basic Prove File (debug)
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:8:04: warning: initialization of "speed" has no effect[#1]
+
+    main.adb:10:04: warning: initialization of "battery" has no effect[#2]
+
+    main.adb:32:14: warning: subprogram "ClearDelay" has no effect[#0]
+
+    main.adb:86:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#5]
+
+    main.adb:90:13: medium: precondition might fail, cannot prove this.isDiagMode
+    = False [possible fix: loop at line 39 should mention saxo in a loop invariant][#6]
+
+    main.adb:101:13: medium: precondition might fail, cannot prove chargeAmount <
+    (BatteryChargeRange''Last - this.battery) [possible fix: loop at line 39 should
+    mention battery and saxo in a loop invariant][#7]
+
+    main.adb:103:21: warning: unused assignment[#3]
+
+    main.adb:117:13: medium: precondition might fail, cannot prove this.isStarted
+    = True [possible fix: loop at line 39 should mention saxo and speed in a loop
+    invariant][#8]
+
+    main.adb:122:19: warning: unused assignment[#4]
+
+    Summary logged in D:\FASE\CW_GIT\BETTERTHANTESLAFSD\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-04-22T06:05:41.926000'

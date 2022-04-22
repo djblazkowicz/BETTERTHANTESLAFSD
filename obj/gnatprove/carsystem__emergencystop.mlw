@@ -769,7 +769,7 @@ module Carsystem__emergencystop__subprogram_def
               [@model_vc_post]
               [@GP_Id:1]
               [@GP_Sloc:carsystem.ads:75:14]
-              [@GP_Pretty_Ada:1727]
+              [@GP_Pretty_Ada:1722]
               ((Carsystem__speedrange__rep.to_rep
                   ((Carsystem__car.__split_fields
                        { Carsystem__car.__split_fields =
@@ -795,21 +795,45 @@ module Carsystem__emergencystop__subprogram_def
       ());
      ([@GNAT-comment:Assume Pre of the subprogram carsystem.ads:74] ());
      (try
-        ([@GP_Sloc:carsystem.adb:93:7] [#"carsystem.adb" 93 0 0] ());
-        ([@GP_Sloc:carsystem.adb:93:7]
-         [#"carsystem.adb" 93 0 0]
-         (let temp___compl_234 =
+        ([@GP_Sloc:carsystem.adb:92:7] [#"carsystem.adb" 92 0 0] ());
+        ([@GP_Sloc:carsystem.adb:92:7]
+         [#"carsystem.adb" 92 0 0]
+         (let temp___compl_233 =
             { Carsystem__car.__split_fields =
                 (Carsystem__car.__split_fields__content
                     Carsystem__emergencystop__this.this__split_fields) } in
-          ([#"carsystem.adb" 93 0 0] (val _f : unit in
+          ([#"carsystem.adb" 92 0 0] (val _f : unit in
                                       _f));
           (Carsystem__checkbatterywarning___axiom.checkbatterywarning
              Carsystem__emergencystop__this.this__split_fields)));
-        ([@GP_Sloc:carsystem.adb:95:18]
+        ([@GP_Sloc:carsystem.adb:94:18]
+         [#"carsystem.adb" 94 0 0]
+         (let temp___236 =
+            let temp___235 =
+              { Carsystem__car.__split_fields =
+                  (Carsystem__car.__split_fields__content
+                      Carsystem__emergencystop__this.this__split_fields) } in
+            ([#"carsystem.adb" 94 0 0]
+             (begin
+                ensures { true }
+                let _ =
+                  let _ =
+                    (Carsystem__car.__split_fields temp___235).Carsystem__car.rec__carsystem__car__speed in
+                  () in
+                ()
+              end));
+            ({ temp___235 with
+               Carsystem__car.__split_fields =
+                 ({ (Carsystem__car.__split_fields temp___235) with
+                    Carsystem__car.rec__carsystem__car__speed =
+                      (0 : Carsystem__speedrange.speedrange) }) }) in
+          [#"carsystem.adb" 94 0 0]
+          (Carsystem__emergencystop__this.this__split_fields.Carsystem__car.__split_fields__content <-
+             (Carsystem__car.__split_fields temp___236))));
+        ([@GP_Sloc:carsystem.adb:95:17]
          [#"carsystem.adb" 95 0 0]
-         (let temp___237 =
-            let temp___236 =
+         (let temp___239 =
+            let temp___238 =
               { Carsystem__car.__split_fields =
                   (Carsystem__car.__split_fields__content
                       Carsystem__emergencystop__this.this__split_fields) } in
@@ -818,42 +842,18 @@ module Carsystem__emergencystop__subprogram_def
                 ensures { true }
                 let _ =
                   let _ =
-                    (Carsystem__car.__split_fields temp___236).Carsystem__car.rec__carsystem__car__speed in
+                    (Carsystem__car.__split_fields temp___238).Carsystem__car.rec__carsystem__car__gear in
                   () in
                 ()
               end));
-            ({ temp___236 with
+            ({ temp___238 with
                Carsystem__car.__split_fields =
-                 ({ (Carsystem__car.__split_fields temp___236) with
-                    Carsystem__car.rec__carsystem__car__speed =
-                      (0 : Carsystem__speedrange.speedrange) }) }) in
-          [#"carsystem.adb" 95 0 0]
-          (Carsystem__emergencystop__this.this__split_fields.Carsystem__car.__split_fields__content <-
-             (Carsystem__car.__split_fields temp___237))));
-        ([@GP_Sloc:carsystem.adb:96:17]
-         [#"carsystem.adb" 96 0 0]
-         (let temp___240 =
-            let temp___239 =
-              { Carsystem__car.__split_fields =
-                  (Carsystem__car.__split_fields__content
-                      Carsystem__emergencystop__this.this__split_fields) } in
-            ([#"carsystem.adb" 96 0 0]
-             (begin
-                ensures { true }
-                let _ =
-                  let _ =
-                    (Carsystem__car.__split_fields temp___239).Carsystem__car.rec__carsystem__car__gear in
-                  () in
-                ()
-              end));
-            ({ temp___239 with
-               Carsystem__car.__split_fields =
-                 ({ (Carsystem__car.__split_fields temp___239) with
+                 ({ (Carsystem__car.__split_fields temp___238) with
                     Carsystem__car.rec__carsystem__car__gear =
                       (0 : Carsystem__gearrange.gearrange) }) }) in
-          [#"carsystem.adb" 96 0 0]
+          [#"carsystem.adb" 95 0 0]
           (Carsystem__emergencystop__this.this__split_fields.Carsystem__car.__split_fields__content <-
-             (Carsystem__car.__split_fields temp___240))));
+             (Carsystem__car.__split_fields temp___239))));
         (raise Return__exc)
       with Return__exc -> ()
       end);

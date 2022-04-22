@@ -2,7 +2,7 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with CarSystem; use CarSystem;
 
-procedure Main is
+procedure Main with SPARK_Mode is
    saxo: CarSystem.Car;
    option : Integer := 1;
    speed : SpeedRange := 0;
@@ -62,15 +62,24 @@ begin
          when 1    =>
             Put_Line("Start the car...");
             ClearDelay;
-            StartProcedure(saxo);
+            if  not saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
+               StartProcedure(saxo);
+            end if;
          when 2    =>
             Put_Line("Turning the car off...");
             ClearDelay;
-            StopProcedure(saxo);
+            if  saxo.isStarted and saxo.gear = 0 and saxo.speed = 0 then
+               StopProcedure(saxo);
+            end if;
          when 3    =>
-            Put_line("Changing gear...");
+            Put_line("Attempting Gear change...");
             ClearDelay;
-            ChangeGear(saxo, 0);
+            if not saxo.isDiagMode and saxo.speed < 1 then
+               ChangeGear(saxo, 0);
+            else
+               Put_line("Cannot change gear in Diagnostic Mode!");
+               ClearDelay;
+            end if;
          when 4    =>
             Put_line("Changing gear...");
             ClearDelay;
