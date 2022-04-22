@@ -92,6 +92,12 @@ package CarSystem with SPARK_Mode is
      Post => this.battery <= BatteryChargeRange'Last and
      this.battery >= BatteryChargeRange'First;
    
+   procedure ChargeBattery2 (This : in out Car; desiredCharge : in BatteryChargeRange) with
+     Pre => desiredCharge <= BatteryChargeRange'Last and
+     desiredCharge >= BatteryChargeRange'First,
+     Post => this.battery <= BatteryChargeRange'Last and
+     this.battery >= BatteryChargeRange'First;
+   
    -- enters diagnostic mode
    procedure EnterDiagMode (This : in out Car) with
      Post => this.isDiagMode = True;

@@ -45,7 +45,7 @@ begin
       Put_line("4.  Put Gearbox in Drive");
       Put_line("5.  Put Gearbox in Reverse");
       Put_line("6.  Charge the battery");
-      Put_line("7.  Drive the car");
+      Put_line("7.  Set Speed");
       Put_line("8.  Execute Emergency Stop");
       Put_line("9.  Enter/Exit Diagnostic Mode");
       Put_line("10. Add/Remove Object Ahead");
@@ -108,7 +108,7 @@ begin
                end if;
             Put_line("Charging battery...");
             delay 2.0;
-            ChargeBattery(saxo, battery);
+            ChargeBattery2(saxo, battery);
             battery_int := -1;
             battery := 0;
          when 7 =>

@@ -203,6 +203,22 @@ package body CarSystem with SPARK_Mode is
       CheckBatteryWarning(This);
    end ChargeBattery;
    
+   procedure ChargeBattery2 (This : in out Car; desiredCharge : in BatteryChargeRange) is
+   begin
+      if not This.isDiagMode then
+         if (Integer(desiredCharge) + Integer(This.battery)) > Integer(BatteryChargeRange'Last) then
+            This.battery := BatteryChargeRange'Last;
+            Put_Line("Overcharge protection!");
+            delay 2.0;
+         else
+            This.battery := This.battery + desiredCharge;
+         end if;
+      else
+         Put_Line("Cannot charge in DIAGNOSTIC mode!");
+         delay 2.0;
+      end if;   
+   end ChargeBattery2;
+   
    procedure EnterDiagMode (This : in out Car) is
    begin
       EmergencyStop(This);
