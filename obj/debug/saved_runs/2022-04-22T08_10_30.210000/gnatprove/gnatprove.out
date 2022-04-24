@@ -1,0 +1,37 @@
+Summary of SPARK analysis
+=========================
+
+-----------------------------------------------------------------------------------------
+SPARK Analysis results        Total      Flow   CodePeer   Provers   Justified   Unproved
+-----------------------------------------------------------------------------------------
+Data Dependencies                 .         .          .         .           .          .
+Flow Dependencies                 .         .          .         .           .          .
+Initialization                    .         .          .         .           .          .
+Non-Aliasing                      .         .          .         .           .          .
+Run-time Checks                   .         .          .         .           .          .
+Assertions                        .         .          .         .           .          .
+Functional Contracts              .         .          .         .           .          .
+LSP Verification                  .         .          .         .           .          .
+Termination                       .         .          .         .           .          .
+Concurrency                       .         .          .         .           .          .
+-----------------------------------------------------------------------------------------
+Total                             .         .          .         .           .          .
+
+
+max steps used for successful proof: 0
+
+Analyzed 2 units
+in unit carsystem, 11 subprograms and packages out of 11 analyzed
+  CarSystem at carsystem.ads:1 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.ChangeGear at carsystem.ads:48 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.ChargeBattery at carsystem.ads:80 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.CheckBatteryWarning at carsystem.ads:25 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.CheckSensor at carsystem.ads:42 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.EmergencyStop at carsystem.ads:74 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.EnterDiagMode at carsystem.ads:87 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.ExitDiagMode at carsystem.ads:90 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.MoveCar at carsystem.ads:62 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.StartProcedure at carsystem.ads:29 flow analyzed (0 errors, 0 checks and 0 warnings)
+  CarSystem.StopProcedure at carsystem.ads:35 flow analyzed (0 errors, 0 checks and 0 warnings)
+in unit main, 0 subprograms and packages out of 1 analyzed
+  Main at main.adb:5 skipped
