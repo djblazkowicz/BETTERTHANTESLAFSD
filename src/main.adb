@@ -64,34 +64,11 @@ begin
                StartProcedure(saxo);
             end if;
          when 2    =>
-            Put_line("Attempting Gear change...");
-            delay 2.0;
-            --  if not saxo.isDiagMode and saxo.speed < 1 then
-            --     ChangeGear(saxo, 0);
-            --  else
-            --     Put_line("Cannot change gear!");
-            --     delay 2.0;
-            --  end if;
+
             ChangeGear(saxo, 0);
          when 3    =>
-            Put_line("Attempting Gear change...");
-            delay 2.0;
-            --  if not saxo.isDiagMode and saxo.speed < 1 then
-            --     ChangeGear(saxo, 1);
-            --  else
-            --     Put_line("Cannot change gear!");
-            --     delay 2.0;
-            --  end if;
             ChangeGear(saxo, 1);
          when 4    =>
-            Put_line("Attempting Gear change...");
-            delay 2.0;
-            --  if not saxo.isDiagMode and saxo.speed < 1 then
-            --     ChangeGear(saxo, 2);
-            --  else
-            --     Put_line("Cannot change gear!");
-            --     delay 2.0;
-            --  end if;
             ChangeGear(saxo, 2);
          when 5 =>
             while battery_int > Integer(BatteryChargeRange'Last) or

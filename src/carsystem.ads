@@ -85,8 +85,6 @@ package CarSystem with SPARK_Mode is
    
    
    procedure DrainBattery (This : in out Car);
-     --  Pre => this.batteryDrain >= 0 and
-     --  this.batteryDrain <= Integer(BatteryChargeRange'Last);
 
 
    -- enters diagnostic mode

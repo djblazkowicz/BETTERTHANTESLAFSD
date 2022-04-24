@@ -52,6 +52,11 @@ package body CarSystem with SPARK_Mode is
    begin
       CheckBatteryWarning(This);
       if not This.isDiagMode then
+         if This.battery = 0 then
+            Put_Line("Cannot start with a depleted battery!");
+            delay 2.0;
+            return;
+         end if;        
          if This.isStarted then
             Put_Line("Cannot start up if already running!");
             delay 2.0;
@@ -130,13 +135,6 @@ package body CarSystem with SPARK_Mode is
                
    procedure ChangeGear (This : in out Car; selectedGear : in GearRange) is
    begin
-      --if not This.isDiagMode and
-      --  This.speed < 1 and 
-      --  selectedGear <= CarSystem.GearRange'Last and
-      --  selectedGear >= CarSystem.GearRange'First then
-      --   This.gear := selectedGear;
-      --end if;
-      --CheckSensor(This);
       if not This.isDiagMode then
          if This.speed > 0 then
             Put_line("Can only change Gear when stationary!");
@@ -146,11 +144,23 @@ package body CarSystem with SPARK_Mode is
          if This.speed = 0 and
            selectedGear <= CarSystem.GearRange'Last and
            selectedGear >= CarSystem.GearRange'First then
+            case selectedGear is
+            when 0 =>
+               Put_Line("Changing to PARK gear...");
+               delay 2.0;
+            when 1 =>
+               Put_Line("Changing to DRIVE gear...");
+               delay 2.0;
+            when 2 =>
+               Put_Line("Changing to Reverse gear...");
+               delay 2.0;
+         end case;
             This.gear := selectedGear;
             CheckSensor(This);
          end if;
       else
          Put_line("Cannot change Gear in DIAGNOSTIC Mode!");
+         delay 2.0;
       end if;
    end ChangeGear;
    
@@ -272,12 +282,16 @@ package body CarSystem with SPARK_Mode is
    
    procedure DrainBattery (This : in out Car) is
    begin
-      This.batteryDrain := Integer(Float(This.speed) / Float(BatteryChargeRange'Last) * Float(10));
-      if This.batteryDrain > Integer(BatteryChargeRange'Last) or
-        This.batteryDrain < Integer(BatteryChargeRange'First) then
-         Put_Line("Out of bounds discharge, ignoring");
-         return;
-      else
+      This.batteryDrain := Integer(This.speed / 10);
+      
+      if This.batteryDrain < 1 and Integer(This.speed) > 0 then
+         This.batteryDrain := 1;
+      end if;
+      --  if This.batteryDrain > Integer(BatteryChargeRange'Last) or
+      --    This.batteryDrain < Integer(BatteryChargeRange'First) then
+      --     Put_Line("Out of bounds discharge, ignoring");
+      --     return;
+      --  else
 
       Put_Line("Predicted Battery Drain at current speed: " & This.batteryDrain'Image);
       delay 2.0;
@@ -285,7 +299,6 @@ package body CarSystem with SPARK_Mode is
          This.battery := BatteryChargeRange'First;
       else
          This.battery := This.battery - BatteryChargeRange(This.batteryDrain);
-         end if;
       end if;
 
       CheckBatteryWarning(This);
@@ -295,7 +308,9 @@ package body CarSystem with SPARK_Mode is
    
    procedure EnterDiagMode (This : in out Car) is
    begin
-      EmergencyStop(This);
+      if This.speed > 0 then
+         EmergencyStop(This);
+      end if;
       This.isDiagMode := True;
    end EnterDiagMode;
    
