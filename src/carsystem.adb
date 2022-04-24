@@ -146,8 +146,8 @@ package body CarSystem with SPARK_Mode is
             EmergencyStop(This);
             return;
          end if;
-         if This.isBatteryWarning then
-            Put_line("BATTERY MINIMUM CHARGE WARNING!");
+         if This.isBatteryCritical then
+            Put_line("BATTERY CRITICAL CHARGE WARNING!");
             delay 2.0;
             EmergencyStop(This);
             return;
@@ -155,7 +155,7 @@ package body CarSystem with SPARK_Mode is
          if This.isStarted and
            not This.isDiagMode and
            not This.SensorDetect and
-           not This.isBatteryWarning and
+           not This.isBatteryCritical and
            This.gear > 0 and
            This.desiredSpeed >= SpeedRange'First and
            This.desiredSpeed <= SpeedRange'Last then
@@ -164,10 +164,10 @@ package body CarSystem with SPARK_Mode is
             else
                This.speed := This.desiredSpeed;
             end if;
-            Put_Line("Adjusted spped to " & This.speed'Image);
+            Put_Line("Adjusted speed to " & This.speed'Image);
             delay 2.0;
             if This.speed > 0 and 
-               This.battery > MinCharge then
+               This.battery > CriticalCharge then
                --This.battery := This.battery - 1;
                DrainBattery(This);
             end if;         
@@ -204,6 +204,7 @@ package body CarSystem with SPARK_Mode is
       if not This.isDiagMode then
          CheckBatteryWarning(This);
          This.speed := 0;
+         This.desiredSpeed := 0;
          This.gear := 0;
          Put_Line("Executing Emergency Stop!");
          delay 2.0;

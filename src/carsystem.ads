@@ -2,7 +2,8 @@ package CarSystem with SPARK_Mode is
    
    type BatteryChargeRange is range 0..100;
    type SpeedRange is range 0..100;
-   MinCharge : constant BatteryChargeRange := 5;
+   MinCharge : constant BatteryChargeRange := 15;
+   CriticalCharge : constant BatteryChargeRange := 5;
    SpeedLimit : constant SpeedRange := 70;
    ObjectAhead : Boolean := False;
    ObjectBehind : Boolean := False;
@@ -17,6 +18,7 @@ package CarSystem with SPARK_Mode is
       SensorDetect : Boolean := False;
       isDiagMode : Boolean := False;
       isBatteryWarning : Boolean := False;
+      isBatteryCritical : Boolean := False; 
       isRegenBraking : Boolean := False;
       predictedCharge : Integer := 0;
       previousSpeed : SpeedRange := 0;
@@ -39,26 +41,24 @@ package CarSystem with SPARK_Mode is
    procedure CheckSensor (This : in out Car);
    
    -- select desired gear
-   -- won't change gear if diagnostic mode is on
-   -- won't change gear if car is moving (speed)
-   -- won't change gear if desired gear is out of range
-   procedure ChangeGear (This : in out Car; selectedGear : in GearRange); --with
-     --  Pre => this.isDiagMode = False and
-     --  this.speed = 0 and
-     --  selectedGear <= GearRange'Last and
-     --  selectedGear >= GearRange'First;
+   procedure ChangeGear (This : in out Car; selectedGear : in GearRange) with
+     Pre =>  selectedGear <= GearRange'Last and
+     selectedGear >= GearRange'First,
+     Post => this.gear <= GearRange'Last and
+     this.gear >= GearRange'First;
 
    procedure MoveCar (This : in out Car) with
      Pre => this.desiredSpeed >= SpeedRange'First and
      this.desiredSpeed <= SpeedRange'Last;
-   procedure MaintainSpeed (This : in out Car);
-   -- stops the car
-   -- will ensure speed is 0
-   procedure EmergencyStop (This : in out Car); --with
-     --Post => this.speed = 0;
+   procedure MaintainSpeed (This : in out Car) with
+     Pre => this.speed <= SpeedRange'Last and this.speed >= SpeedRange'First,
+     Post => this.speed <= SpeedRange'Last and this.speed >= SpeedRange'First;
    
+   procedure EmergencyStop (This : in out Car) with
+     Pre => this.speed <= SpeedRange'Last and this.speed >= SpeedRange'First,
+     Post => this.speed <= SpeedRange'Last and this.speed >= SpeedRange'First;
 
-   -- enters diagnostic mode
+
    procedure EnterDiagMode (This : in out Car) with
      Post => this.isDiagMode = True;
    

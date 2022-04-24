@@ -8,6 +8,10 @@ package body batterysystem with SPARK_Mode is
          This.isBatteryWarning := True;
       else This.isBatteryWarning := False;
       end if;
+      if This.battery <= CriticalCharge then
+         This.isBatteryCritical := True;
+      else This.isBatteryCritical := False;
+      end if;     
    end CheckBatteryWarning;
    
    procedure ChargeBattery (This : in out Car; desiredCharge : in BatteryChargeRange) is
@@ -49,11 +53,6 @@ package body batterysystem with SPARK_Mode is
       if This.batteryDrain < 1 and Integer(This.speed) > 0 then
          This.batteryDrain := 1;
       end if;
-      --  if This.batteryDrain > Integer(BatteryChargeRange'Last) or
-      --    This.batteryDrain < Integer(BatteryChargeRange'First) then
-      --     Put_Line("Out of bounds discharge, ignoring");
-      --     return;
-      --  else
 
       Put_Line("Predicted Battery Drain at current speed: " & This.batteryDrain'Image);
       delay 2.0;

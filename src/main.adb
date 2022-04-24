@@ -22,15 +22,19 @@ procedure Main with SPARK_Mode is
          when 1 => Put_Line("Selected Gear: DRIVE");
          when 2 => Put_Line("Selected Gear: REVERSE");
       end case;
-      Put_Line("Battery level: " & saxo.battery'Image);
+      if saxo.isBatteryWarning then
+         Put_Line("Battery level: " & saxo.battery'Image & " LOW BATTERY");
+      else
+         Put_Line("Battery level: " & saxo.battery'Image);
+      end if;
+      Put_Line("Battery CRITICAL Warning: " & saxo.isBatteryCritical'Image);
       Put_Line("Speed: " & saxo.speed'Image);
-      Put_line("Previous Speed: " & saxo.previousSpeed'Image);
+      --Put_line("Previous Speed: " & saxo.previousSpeed'Image);
       Put_Line("Regenerative Braking: " & saxo.isRegenBraking'Image);
       Put_Line("Diagnostic Mode: " & saxo.isDiagMode'Image);
-      Put_Line("Battery Warning: " & saxo.isBatteryWarning'Image);
       Put_Line("SENSOR DETECT: " & saxo.SensorDetect'Image);
-      Put_Line("Object Ahead " & ObjectAhead'Image);
-      Put_Line("Object Behind " & ObjectBehind'Image);
+      --Put_Line("Object Ahead " & ObjectAhead'Image);
+      --Put_Line("Object Behind " & ObjectBehind'Image);
       Put_Line("...........................");
       New_Line;
    end PrintStatus;
@@ -66,7 +70,6 @@ begin
                StartProcedure(saxo);
             end if;
          when 2    =>
-
             ChangeGear(saxo, 0);
          when 3    =>
             ChangeGear(saxo, 1);
