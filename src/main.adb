@@ -1,6 +1,8 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with CarSystem; use CarSystem;
+with batterysystem; use batterysystem;
+with brakingsystem; use brakingsystem;
 
 procedure Main with SPARK_Mode is
    saxo: CarSystem.Car;
@@ -48,9 +50,9 @@ begin
       Put_line("7.  Set Speed");
       Put_line("8.  Maintain Speed");
       Put_line("9.  Execute Emergency Stop");
-      Put_line("10.  Toggle Diagnostic Mode");
+      Put_line("10. Toggle Diagnostic Mode");
       Put_line("11. Toggle Object Ahead");
-      Put_line("12. Toggle Object Ahead");
+      Put_line("12. Toggle Object Behind");
       Put_Line("0 to exit ");
       Put_Line("...........................");
       New_Line;
@@ -80,8 +82,6 @@ begin
               battery_int >= Integer(BatteryChargeRange'First) then
                battery := BatteryChargeRange(battery_int);
                end if;
-            Put_line("Charging battery...");
-            delay 2.0;
             ChargeBattery2(saxo, battery);
             battery_int := -1;
             battery := 0;
@@ -96,9 +96,6 @@ begin
                Ada.Integer_Text_IO.Get(speed_int);
             end loop;
             saxo.desiredSpeed := SpeedRange(speed_int);
-            Put_line("selected speed: " & saxo.desiredSpeed'Image);
-            delay 2.0;
-            Put_line("Adjusting speed...");
             MoveCar(saxo);
             speed_int := -1;
             delay 2.0;
@@ -107,7 +104,6 @@ begin
             MaintainSpeed(saxo);
             delay 2.0;
          when 9 =>
-            Put_line("Executing Emergency Stop...");
             delay 2.0;
             EmergencyStop(saxo);
          when 10 =>

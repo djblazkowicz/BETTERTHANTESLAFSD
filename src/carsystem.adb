@@ -1,51 +1,9 @@
 with Ada.Text_IO; use Ada.Text_IO;
+with batterysystem; use batterysystem;
+with brakingsystem; use brakingsystem;
 package body CarSystem with SPARK_Mode is
-   
-   procedure ToggleRegenBraking (This : in out Car) is
-   begin
-      if not This.isDiagMode then
-         This.isRegenBraking := not This.isRegenBraking;
-      else
-         Put_Line("Cannot Toggle Regenerative Braking in Diagnostic Mode!");
-         delay 2.0;
-         return;
-      end if;
-   end ToggleRegenBraking;
-   
-   procedure UseRegenBraking (This : in out Car) is
-   begin
-      if This.isRegenBraking then         
-            This.predictedCharge := Integer(This.battery) + (((Integer(This.previousSpeed) - Integer(This.speed))*5)/100);
-         if This.predictedCharge > Integer(BatteryChargeRange'Last) then
-            Put_line("USING REGENERATIVE BRAKING, PREDICTED CHARGE: " & This.predictedCharge'Image);
-            Put_Line("OVERCHARGE PROTECTION!");
-            delay 2.0;            
-            ChargeBattery(This, BatteryChargeRange'Last);
-         else
-            if This.predictedCharge >= Integer(BatteryChargeRange'First) then
-               Put_line("USING REGENERATIVE BRAKING, PREDICTED CHARGE: " & This.predictedCharge'Image);
-               delay 2.0;
-               ChargeBattery(This, BatteryChargeRange(This.predictedCharge));
-               end if;
-         end if;
-      end if;
-   end UseRegenBraking;
-   
-   procedure CheckRegenBraking (This : in out Car) is
-   begin
-      if (This.previousSpeed - This.speed) > 0 and
-        This.isRegenBraking then
-         UseRegenBraking(This);
-      end if;
-   end CheckRegenBraking;
-   
-   procedure CheckBatteryWarning (This : in out Car) is
-   begin
-      if This.battery <= MinCharge then
-         This.isBatteryWarning := True;
-      else This.isBatteryWarning := False;
-      end if;
-   end CheckBatteryWarning;
+      
+
    
    
    procedure StartProcedure (This : in out Car) is
@@ -206,17 +164,21 @@ package body CarSystem with SPARK_Mode is
             else
                This.speed := This.desiredSpeed;
             end if;
+            Put_Line("Adjusted spped to " & This.speed'Image);
+            delay 2.0;
             if This.speed > 0 and 
                This.battery > MinCharge then
                --This.battery := This.battery - 1;
                DrainBattery(This);
             end if;         
-         else
-            Put_line("Cannot move! Car is in DIAGNOSTIC Mode!");
-            delay 2.0;
-            return;
+
          end if;
+      else
+         Put_line("Cannot move! Car is in DIAGNOSTIC Mode!");
+         delay 2.0;
+         return;
       end if;
+
       CheckBatteryWarning(This);
       This.desiredSpeed := 0;
      
@@ -239,72 +201,19 @@ package body CarSystem with SPARK_Mode is
    
    procedure EmergencyStop (This : in out Car) is
    begin
-      CheckBatteryWarning(This);
-      This.speed := 0;
-      This.gear := 0;
-      Put_Line("Executing Emergency Stop!");
-      delay 2.0;
-      CheckRegenBraking(This);
-      This.previousSpeed := 0;
+      if not This.isDiagMode then
+         CheckBatteryWarning(This);
+         This.speed := 0;
+         This.gear := 0;
+         Put_Line("Executing Emergency Stop!");
+         delay 2.0;
+         CheckRegenBraking(This);
+         This.previousSpeed := 0;
+      else
+         Put_Line("Cannot execute Emergency Stop in DIAGNOSTIC Mode!");
+      end if;
    end EmergencyStop;
     
-   procedure ChargeBattery (This : in out Car; desiredCharge : in BatteryChargeRange) is
-   begin
-      if not This.isDiagMode then
-         if desiredCharge > BatteryChargeRange'Last then
-            This.battery := BatteryChargeRange'Last;
-         else
-            This.battery := desiredCharge;
-         end if;     
-      else
-         Put_Line("Cannot charge in DIAGNOSTIC mode!");
-         delay 2.0;
-      end if;
-      CheckBatteryWarning(This);
-   end ChargeBattery;
-   
-   procedure ChargeBattery2 (This : in out Car; desiredCharge : in BatteryChargeRange) is
-   begin
-      if not This.isDiagMode then
-         if (Integer(desiredCharge) + Integer(This.battery)) > Integer(BatteryChargeRange'Last) then
-            This.battery := BatteryChargeRange'Last;
-            Put_Line("OVERCHARGE PROTECTION!");
-            delay 2.0;
-         else
-            This.battery := This.battery + desiredCharge;
-         end if;
-      else
-         Put_Line("Cannot charge in DIAGNOSTIC mode!");
-         delay 2.0;
-      end if;
-      CheckBatteryWarning(This);
-   end ChargeBattery2;
-   
-   procedure DrainBattery (This : in out Car) is
-   begin
-      This.batteryDrain := Integer(This.speed / 10);
-      
-      if This.batteryDrain < 1 and Integer(This.speed) > 0 then
-         This.batteryDrain := 1;
-      end if;
-      --  if This.batteryDrain > Integer(BatteryChargeRange'Last) or
-      --    This.batteryDrain < Integer(BatteryChargeRange'First) then
-      --     Put_Line("Out of bounds discharge, ignoring");
-      --     return;
-      --  else
-
-      Put_Line("Predicted Battery Drain at current speed: " & This.batteryDrain'Image);
-      delay 2.0;
-      if (Integer(This.battery) - This.batteryDrain) < Integer(BatteryChargeRange'First) then
-         This.battery := BatteryChargeRange'First;
-      else
-         This.battery := This.battery - BatteryChargeRange(This.batteryDrain);
-      end if;
-
-      CheckBatteryWarning(This);
-   end DrainBattery;
-
-
    
    procedure EnterDiagMode (This : in out Car) is
    begin

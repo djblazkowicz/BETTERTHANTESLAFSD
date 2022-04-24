@@ -27,17 +27,6 @@ package CarSystem with SPARK_Mode is
       gear : GearRange := 0;
    end record;
    
-   procedure ToggleRegenBraking (This : in out Car);
-   
-   procedure UseRegenBraking (This : in out Car) with
-     Pre => this.isRegenBraking and
-     this.predictedCharge <= Integer'Last and
-     this.predictedCharge >= Integer'First,
-     Post => this.battery <= BatteryChargeRange'Last;
-   
-   procedure CheckRegenBraking (This : in out Car);
-   
-   procedure CheckBatteryWarning (This : in out Car);
    
    -- start the car, check if already started
    -- check if parked and stationary
@@ -68,24 +57,6 @@ package CarSystem with SPARK_Mode is
    procedure EmergencyStop (This : in out Car); --with
      --Post => this.speed = 0;
    
-   -- adds desired amount of charge to the battery
-   -- won't charge in diagnostic mode
-   -- prevents overcharge
-   procedure ChargeBattery (This : in out Car; desiredCharge : in BatteryChargeRange) with
-     Pre => desiredCharge <= BatteryChargeRange'Last and
-     desiredCharge >= BatteryChargeRange'First,
-     Post => this.battery <= BatteryChargeRange'Last and
-     this.battery >= BatteryChargeRange'First;
-   
-   procedure ChargeBattery2 (This : in out Car; desiredCharge : in BatteryChargeRange) with
-     Pre => desiredCharge <= BatteryChargeRange'Last and
-     desiredCharge >= BatteryChargeRange'First,
-     Post => this.battery <= BatteryChargeRange'Last and
-     this.battery >= BatteryChargeRange'First;
-   
-   
-   procedure DrainBattery (This : in out Car);
-
 
    -- enters diagnostic mode
    procedure EnterDiagMode (This : in out Car) with
