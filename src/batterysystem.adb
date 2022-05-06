@@ -17,11 +17,11 @@ package body batterysystem with SPARK_Mode is
    procedure ChargeBattery (This : in out Car; desiredCharge : in BatteryChargeRange) is
    begin
       if not This.isDiagMode then
-         if desiredCharge > BatteryChargeRange'Last then
-            This.battery := BatteryChargeRange'Last;
-         else
-            This.battery := desiredCharge;
-         end if;     
+         --if desiredCharge > BatteryChargeRange'Last then
+         --   This.battery := BatteryChargeRange'Last;
+         --else
+         This.battery := desiredCharge;
+         --end if;     
       else
          Put_Line("Cannot charge in DIAGNOSTIC mode!");
          delay 2.0;

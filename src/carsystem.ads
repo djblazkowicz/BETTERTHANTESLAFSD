@@ -2,7 +2,7 @@ package CarSystem with SPARK_Mode is
    
    type BatteryChargeRange is range 0..100;
    type SpeedRange is range 0..100;
-   MinCharge : constant BatteryChargeRange := 15;
+   MinCharge : constant BatteryChargeRange := 20;
    CriticalCharge : constant BatteryChargeRange := 5;
    SpeedLimit : constant SpeedRange := 70;
    ObjectAhead : Boolean := False;
@@ -32,7 +32,9 @@ package CarSystem with SPARK_Mode is
    
    -- start the car, check if already started
    -- check if parked and stationary
-   procedure StartProcedure (This : in out Car);
+   procedure StartProcedure (This : in out Car) with
+     Pre => not this.isStarted,
+       Post => this.isStarted or not this.isStarted;
    
    -- shut down the car
    procedure StopProcedure (This : in out Car);

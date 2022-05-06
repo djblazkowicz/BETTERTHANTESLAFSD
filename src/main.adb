@@ -5,7 +5,7 @@ with batterysystem; use batterysystem;
 with brakingsystem; use brakingsystem;
 
 procedure Main with SPARK_Mode is
-   saxo: CarSystem.Car;
+   carModel: CarSystem.Car;
    option : Integer := 1;
    speed_int : Integer := -1;
    battery : BatteryChargeRange := 0;
@@ -15,27 +15,27 @@ procedure Main with SPARK_Mode is
    begin
       Ada.Text_IO.Put(ASCII.ESC & "[2J");
       New_Line;
-      Put_Line("...........................");
-      Put_Line("Car Started: " & saxo.isStarted'Image);
-      case saxo.gear is
+      Put_Line("###########################");
+      Put_Line("Car Started: " & carModel.isStarted'Image);
+      case carModel.gear is
          when 0 => Put_Line("Selected Gear: PARK");
          when 1 => Put_Line("Selected Gear: DRIVE");
          when 2 => Put_Line("Selected Gear: REVERSE");
       end case;
-      if saxo.isBatteryWarning then
-         Put_Line("Battery level: " & saxo.battery'Image & " LOW BATTERY");
+      if carModel.isBatteryWarning then
+         Put_Line("Battery level: " & carModel.battery'Image & " LOW BATTERY");
       else
-         Put_Line("Battery level: " & saxo.battery'Image);
+         Put_Line("Battery level: " & carModel.battery'Image);
       end if;
-      Put_Line("Battery CRITICAL Warning: " & saxo.isBatteryCritical'Image);
-      Put_Line("Speed: " & saxo.speed'Image);
-      --Put_line("Previous Speed: " & saxo.previousSpeed'Image);
-      Put_Line("Regenerative Braking: " & saxo.isRegenBraking'Image);
-      Put_Line("Diagnostic Mode: " & saxo.isDiagMode'Image);
-      Put_Line("SENSOR DETECT: " & saxo.SensorDetect'Image);
-      --Put_Line("Object Ahead " & ObjectAhead'Image);
-      --Put_Line("Object Behind " & ObjectBehind'Image);
-      Put_Line("...........................");
+      Put_Line("Battery CRITICAL Warning: " & carModel.isBatteryCritical'Image);
+      Put_Line("Speed: " & carModel.speed'Image);
+      --Put_line("Previous Speed: " & carModel.previousSpeed'Image);
+      Put_Line("Regenerative Braking: " & carModel.isRegenBraking'Image);
+      Put_Line("Diagnostic Mode: " & carModel.isDiagMode'Image);
+      Put_Line("SENSOR DETECT: " & carModel.SensorDetect'Image);
+      Put_Line("Object Ahead " & ObjectAhead'Image);
+      Put_Line("Object Behind " & ObjectBehind'Image);
+      Put_Line("###########################");
       New_Line;
    end PrintStatus;
 begin
@@ -44,7 +44,7 @@ begin
       PrintStatus;
       New_Line;
       Put_Line("Choose one of the following options: ");
-      Put_Line("...........................");
+      Put_Line("###########################");
       Put_Line("1.  START/STOP Button");
       Put_line("2.  Put Gearbox in Park");
       Put_line("3.  Put Gearbox in Drive");
@@ -58,23 +58,23 @@ begin
       Put_line("11. Toggle Object Ahead");
       Put_line("12. Toggle Object Behind");
       Put_Line("0 to exit ");
-      Put_Line("...........................");
+      Put_Line("###########################");
       New_Line;
       Ada.Integer_Text_IO.Get(option);
 
       case option is
          when 1    =>
-            if saxo.isStarted then
-               StopProcedure(saxo);
+            if carModel.isStarted then
+               StopProcedure(carModel);
             else
-               StartProcedure(saxo);
+               StartProcedure(carModel);
             end if;
          when 2    =>
-            ChangeGear(saxo, 0);
+            ChangeGear(carModel, 0);
          when 3    =>
-            ChangeGear(saxo, 1);
+            ChangeGear(carModel, 1);
          when 4    =>
-            ChangeGear(saxo, 2);
+            ChangeGear(carModel, 2);
          when 5 =>
             while battery_int > Integer(BatteryChargeRange'Last) or
               battery_int < Integer(BatteryChargeRange'First) loop
@@ -85,12 +85,12 @@ begin
               battery_int >= Integer(BatteryChargeRange'First) then
                battery := BatteryChargeRange(battery_int);
                end if;
-            ChargeBattery2(saxo, battery);
+            ChargeBattery(carModel, battery);
             battery_int := -1;
             battery := 0;
          when 6 =>
             Put_line("Toggle Regenerative Braking...");
-            ToggleRegenBraking(saxo);
+            ToggleRegenBraking(carModel);
             delay 2.0;
          when 7 =>
             while speed_int > Integer(SpeedRange'Last) or
@@ -98,26 +98,26 @@ begin
                Put_line("Input desired speed:");
                Ada.Integer_Text_IO.Get(speed_int);
             end loop;
-            saxo.desiredSpeed := SpeedRange(speed_int);
-            MoveCar(saxo);
+            carModel.desiredSpeed := SpeedRange(speed_int);
+            MoveCar(carModel);
             speed_int := -1;
             delay 2.0;
          when 8 =>
             Put_line("Maintaining speed...");
-            MaintainSpeed(saxo);
+            MaintainSpeed(carModel);
             delay 2.0;
          when 9 =>
             delay 2.0;
-            EmergencyStop(saxo);
+            EmergencyStop(carModel);
          when 10 =>
-            if saxo.isDiagMode = True then
+            if carModel.isDiagMode = True then
                Put_line("Exiting Diagnostic Mode");
                delay 2.0;
-               ExitDiagMode(saxo);
+               ExitDiagMode(carModel);
             else
                Put_line("Entering Diagnostic Mode");
                delay 2.0;
-               EnterDiagMode(saxo);
+               EnterDiagMode(carModel);
             end if;
          when 11 =>
             if ObjectAhead = True then
@@ -128,7 +128,7 @@ begin
             ObjectAhead := not ObjectAhead;
             delay 2.0;
          when 12 =>
-            if ObjectAhead = True then
+            if ObjectBehind = True then
                Put_line("Removing object Behind...");
             else
                Put_line("Adding object Behind...");
